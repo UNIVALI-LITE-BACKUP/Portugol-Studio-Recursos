@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+ 
+  <testes>
+    <caso>
+      <entradas>
+            <entrada tipodado="inteiro">18</entrada>
+            <entrada tipodado="inteiro">7</entrada>
+            <entrada tipodado="inteiro">19</entrada>
+            <entrada tipodado="inteiro">4</entrada>
+            <entrada tipodado="inteiro">7</entrada>
+            <entrada tipodado="inteiro">3</entrada>
+            <entrada tipodado="inteiro">67</entrada>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">3</entrada>
+            <entrada tipodado="inteiro">2</entrada>
+      </entradas>
+      <saidas>
+        <saida tipodado="inteiro">3</saida>
+      </saidas>
+    </caso>
+      <caso>
+          <entradas>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">7</entrada>
+            <entrada tipodado="inteiro">9</entrada>
+            <entrada tipodado="inteiro">4</entrada>
+            <entrada tipodado="inteiro">7</entrada>
+            <entrada tipodado="inteiro">3</entrada>
+            <entrada tipodado="inteiro">2</entrada>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">3</entrada>
+            <entrada tipodado="inteiro">2</entrada>
+          </entradas>
+          <saidas>
+              <saida tipodado="inteiro">0</saida>
+          </saidas>
+      </caso>
+      <caso>
+          <entradas>
+            <entrada tipodado="inteiro">18</entrada>
+            <entrada tipodado="inteiro">78</entrada>
+            <entrada tipodado="inteiro">19</entrada>
+            <entrada tipodado="inteiro">41</entrada>
+            <entrada tipodado="inteiro">72</entrada>
+            <entrada tipodado="inteiro">35</entrada>
+            <entrada tipodado="inteiro">21</entrada>
+            <entrada tipodado="inteiro">20</entrada>
+            <entrada tipodado="inteiro">19</entrada>
+            <entrada tipodado="inteiro">18</entrada>
+          </entradas>
+          <saidas>
+              <saida  tipodado="inteiro">10</saida>
+          </saidas>
+      </caso>
+  </testes>
+  <enunciado>Faça um programa que solicita a idade de 10 pessoas e exiba a quantidade de pessoas que possui idade maior ou igual a 18 anos.</enunciado>
+</questao>

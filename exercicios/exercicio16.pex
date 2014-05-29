@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+	
+	<testes>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">4</entrada>
+				<entrada tipodado="inteiro">4</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite dois números inteiros:</saida>
+				<saida tipodado="cadeia">Eles são iguais</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">15</entrada>          
+				<entrada tipodado="inteiro">8</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite dois números inteiros:</saida>
+				<saida  tipodado="inteiro">15</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>              
+				<entrada tipodado="inteiro">3</entrada>
+				<entrada tipodado="inteiro">7</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite dois números inteiros:</saida>
+				<saida  tipodado="inteiro">7</saida>
+			</saidas>
+		</caso>
+	</testes>
+  
+	<enunciado>Faça um programa que exiba o maior dentre dois números reais digitados pelo usuário. Caso eles sejam iguais exiba uma mensagem correspondente.  Saídas:
+• Pedido ao usuário = "Digite dois números inteiros:";
+• Caso eles sejam iguais = "Eles são iguais".
+• Caso sejam diferentes exiba somente o numero desejado.
+</enunciado>
+</questao>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+  <testes>
+    <caso>
+      <entradas>
+        <entrada tipodado="real">16</entrada>
+        <entrada tipodado="real">19</entrada>
+        <entrada tipodado="real">4</entrada>
+        <entrada tipodado="real">5</entrada>
+        <entrada tipodado="real">13</entrada>
+        <entrada tipodado="real">6</entrada>
+        <entrada tipodado="real">21</entrada>
+        <entrada tipodado="real">5</entrada>
+        <entrada tipodado="real">16</entrada>
+        <entrada tipodado="real">15</entrada>
+        <entrada tipodado="real">29</entrada>
+        <entrada tipodado="real">2</entrada>
+        <entrada tipodado="real">4</entrada>
+        <entrada tipodado="real">2</entrada>
+        <entrada tipodado="real">19</entrada>
+        <entrada tipodado="real">16</entrada>
+      </entradas>
+      <saidas>
+        <saida tipodado="real">704</saida>
+        <saida tipodado="real">836</saida>
+        <saida tipodado="real">176</saida>
+        <saida tipodado="real">220</saida>
+        <saida tipodado="real">585</saida>
+        <saida tipodado="real">270</saida>
+        <saida tipodado="real">945</saida>
+        <saida tipodado="real">225</saida>
+        <saida tipodado="real">992</saida>
+        <saida tipodado="real">930</saida>
+        <saida tipodado="real">1798</saida>
+        <saida tipodado="real">124</saida>
+        <saida tipodado="real">164</saida>
+        <saida tipodado="real">82</saida>
+        <saida tipodado="real">779</saida>
+        <saida tipodado="real">656</saida>
+      </saidas>
+    </caso>
+      <caso>
+          <entradas>
+                <entrada tipodado="real">24</entrada>
+                <entrada tipodado="real">8</entrada>
+                <entrada tipodado="real">27</entrada>
+                <entrada tipodado="real">6</entrada>
+                <entrada tipodado="real">29</entrada>
+                <entrada tipodado="real">3</entrada>
+                <entrada tipodado="real">25</entrada>
+                <entrada tipodado="real">14</entrada>
+                <entrada tipodado="real">18</entrada>
+                <entrada tipodado="real">8</entrada>
+                <entrada tipodado="real">27</entrada>
+                <entrada tipodado="real">7</entrada>
+                <entrada tipodado="real">18</entrada>
+                <entrada tipodado="real">1</entrada>
+                <entrada tipodado="real">26</entrada>
+                <entrada tipodado="real">19</entrada>
+          </entradas>
+          <saidas>
+                <saida tipodado="real">1560</saida>
+                <saida tipodado="real">520</saida>
+                <saida tipodado="real">1755</saida>
+                <saida tipodado="real">390</saida>
+                <saida tipodado="real">2059</saida>
+                <saida tipodado="real">213</saida>
+                <saida tipodado="real">1775</saida>
+                <saida tipodado="real">994</saida>
+                <saida tipodado="real">1080</saida>
+                <saida tipodado="real">480</saida>
+                <saida tipodado="real">1620</saida>
+                <saida tipodado="real">420</saida>
+                <saida tipodado="real">1152</saida>
+                <saida tipodado="real">64</saida>
+                <saida tipodado="real">1664</saida>
+                <saida tipodado="real">1216</saida>
+          </saidas>
+      </caso>
+      <caso>
+          <entradas>
+                <entrada tipodado="real">18</entrada>
+                <entrada tipodado="real">15</entrada>
+                <entrada tipodado="real">11</entrada>
+                <entrada tipodado="real">16</entrada>
+                <entrada tipodado="real">29</entrada>
+                <entrada tipodado="real">10</entrada>
+                <entrada tipodado="real">23</entrada>
+                <entrada tipodado="real">24</entrada>
+                <entrada tipodado="real">11</entrada>
+                <entrada tipodado="real">18</entrada>
+                <entrada tipodado="real">6</entrada>
+                <entrada tipodado="real">11</entrada>
+                <entrada tipodado="real">7</entrada>
+                <entrada tipodado="real">22</entrada>
+                <entrada tipodado="real">3</entrada>
+                <entrada tipodado="real">3</entrada>
+          </entradas>
+          <saidas>
+                <saida tipodado="real">1080</saida>
+                <saida tipodado="real">900</saida>
+                <saida tipodado="real">660</saida>
+                <saida tipodado="real">960</saida>
+                <saida tipodado="real">2494</saida>
+                <saida tipodado="real">860</saida>
+                <saida tipodado="real">1978</saida>
+                <saida tipodado="real">2064</saida>
+                <saida tipodado="real">506</saida>
+                <saida tipodado="real">828</saida>
+                <saida tipodado="real">276</saida>
+                <saida tipodado="real">506</saida>
+                <saida tipodado="real">245</saida>
+                <saida tipodado="real">770</saida>
+                <saida tipodado="real">105</saida>
+                <saida tipodado="real">105</saida>
+          </saidas>
+      </caso>
+  </testes>
+   <enunciado>Faça um programa que solicita ao usuário 16 valores reais e armazene em uma matriz 4x4. O programa deve somar os elementos de cada uma das linhas armazenando o resultado da soma em um vetor. A seguir, deve multiplicar cada elemento da matriz pela soma da sua respectiva linha. Exiba na tela a matriz resultante.</enunciado>
+</questao>

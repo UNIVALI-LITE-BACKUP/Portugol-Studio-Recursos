@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+	<testes>
+		<caso>
+			<entradas>
+				<entrada tipodado="cadeia">Fillipi Pelz</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite seu nome a seguir: </saida>
+				<saida tipodado="cadeia">Olá </saida>
+				<saida tipodado="cadeia">Fillipi Pelz</saida>
+
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="cadeia">Claudia</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite seu nome a seguir: </saida>
+				<saida tipodado="cadeia">Olá </saida>
+				<saida tipodado="cadeia">Claudia</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="cadeia">Fernanda</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite seu nome a seguir: </saida>
+				<saida tipodado="cadeia">Olá </saida>
+				<saida tipodado="cadeia">Fernanda</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="cadeia">André Raabe</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite seu nome a seguir: </saida>
+				<saida tipodado="cadeia">Olá </saida>
+				<saida tipodado="cadeia">André Raabe</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="cadeia">Carlos</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite seu nome a seguir: </saida>
+				<saida tipodado="cadeia">Olá </saida>
+				<saida tipodado="cadeia">Carlos</saida>
+			</saidas>
+		</caso>
+	</testes>
+	<enunciado>Faça um programa que solicita que o usuário digite o seu nome e exiba a mensagem "Olá " seguido do nome digitado pelo usuário. Saídas: 
+• Pedido ao usuário = "Digite seu nome a seguir: " 
+• Resposta =  "Olá ", seguido do nome digitado pelo usuário.
+</enunciado>
+</questao>

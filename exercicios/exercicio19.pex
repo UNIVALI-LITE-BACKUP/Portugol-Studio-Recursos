@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+	
+	<testes>
+		<caso>
+		<entradas>
+			<entrada tipodado="real">6</entrada>
+			<entrada tipodado="real">7</entrada>
+			<entrada tipodado="real">5</entrada>
+		</entradas>
+		<saidas>
+			<saida  tipodado="cadeia">Digite as notas a seguir:</saida>
+			<saida tipodado="cadeia">Você foi aprovado</saida>
+		</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="real">7</entrada>
+				<entrada tipodado="real">3.5</entrada>
+				<entrada tipodado="real">5</entrada>
+			</entradas>
+			<saidas>
+				<saida  tipodado="cadeia">Digite as notas a seguir:</saida>
+				<saida  tipodado="cadeia">Você foi reprovado</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="real">7.5</entrada>
+				<entrada tipodado="real">10</entrada>
+				<entrada tipodado="real">9.5</entrada>
+			</entradas>
+			<saidas>
+				<saida  tipodado="cadeia">Digite as notas a seguir:</saida>
+				<saida  tipodado="cadeia">Você foi aprovado</saida>
+			</saidas>
+		</caso>
+	</testes>
+	
+	<enunciado>Faça um programa que solicita ao usuário seu nome e as notas de três provas. Calcule a média aritmética e informe se o aluno foi Aprovado ou Reprovado (o aluno é considerado aprovado com a média igual ou superior a 6). Saídas:
+• Pedido ao usuário = "Digite as notas a seguir:";
+• Caso nota maior que 6 = "Você foi aprovado";
+• Caso nota menor que 6 = "Você foi reprovado"
+</enunciado>
+</questao>

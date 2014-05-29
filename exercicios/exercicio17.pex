@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+	
+	<testes>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">6</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite um número inteiro:</saida>
+				<saida tipodado="cadeia">Ele é positivo</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">-9</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite um número inteiro:</saida>
+				<saida tipodado="cadeia">Ele é negativo</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">0</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite um número inteiro:</saida>
+				<saida tipodado="cadeia">Ele é igual a zero</saida>
+			</saidas>
+		</caso>
+	</testes>
+	
+	<enunciado>Faça um programa que solicita um número inteiro e exibe uma mensagem indicando se ele é positivo, negativo ou zero. Saídas:
+• Pedido ao usuário = "Digite um número inteiro:";
+• Caso ele seja positivo = "Ele é positivo";
+• Caso ele seja negativo = "Ele é negativo";
+• Caso ele seja igual a zero = "Ele é igual a zero".
+</enunciado>
+</questao>

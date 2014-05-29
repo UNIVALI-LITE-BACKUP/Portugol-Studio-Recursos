@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+  
+  
+  <testes>
+    <caso>
+      <entradas>
+        <entrada tipodado="inteiro">5</entrada>
+      </entradas>
+      <saidas>
+        <saida tipodado="inteiro">120</saida>
+      </saidas>
+    </caso>
+      <caso>
+          <entradas>
+              <entrada tipodado="inteiro">12</entrada>
+          </entradas>
+          <saidas>
+              <saida tipodado="inteiro">479001600</saida>
+          </saidas>
+      </caso>
+      <caso>
+          <entradas>
+              <entrada tipodado="inteiro">7</entrada>
+          </entradas>
+          <saidas>
+              <saida tipodado="inteiro">5040</saida>
+          </saidas>
+      </caso>
+  </testes>
+  <enunciado>Solicite ao usuário a digitação de um número inteiro, calcule e exiba o fatorial deste número</enunciado>
+</questao>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+  <testes>
+    <caso>
+      <entradas>
+            
+            <entrada tipodado="inteiro">15</entrada>
+            <entrada tipodado="inteiro">15</entrada>
+            <entrada tipodado="inteiro">12</entrada>
+            <entrada tipodado="inteiro">78</entrada>
+            <entrada tipodado="inteiro">22</entrada>
+            <entrada tipodado="inteiro">28</entrada>
+            <entrada tipodado="inteiro">75</entrada>
+            <entrada tipodado="inteiro">26</entrada>
+            <entrada tipodado="inteiro">34</entrada>
+            <entrada tipodado="inteiro">0</entrada>
+           <entrada tipodado="inteiro">90</entrada> 
+            <entrada tipodado="inteiro">75</entrada>
+            <entrada tipodado="inteiro">33</entrada>
+            <entrada tipodado="inteiro">57</entrada>
+            <entrada tipodado="inteiro">60</entrada>
+            <entrada tipodado="inteiro">93</entrada>
+            <entrada tipodado="inteiro">6</entrada>
+            <entrada tipodado="inteiro">47</entrada>
+            <entrada tipodado="inteiro">55</entrada>
+            <entrada tipodado="inteiro">91</entrada>
+      </entradas>
+      <saidas>
+            <saida tipodado="inteiro">1350</saida>
+            <saida tipodado="inteiro">1125</saida>
+            <saida tipodado="inteiro">396</saida>
+            <saida tipodado="inteiro">4446</saida>
+            <saida tipodado="inteiro">1320</saida>
+            <saida tipodado="inteiro">2604</saida>
+            <saida tipodado="inteiro">450</saida>
+            <saida tipodado="inteiro">1222</saida>
+            <saida tipodado="inteiro">1870</saida>
+            <saida tipodado="inteiro">0</saida>
+      </saidas>
+    </caso>
+      <caso>
+          <entradas>
+            <entrada tipodado="inteiro">45</entrada>
+            <entrada tipodado="inteiro">4</entrada>
+            <entrada tipodado="inteiro">45</entrada>
+            <entrada tipodado="inteiro">4</entrada>
+            <entrada tipodado="inteiro">20</entrada>
+            <entrada tipodado="inteiro">43</entrada>
+            <entrada tipodado="inteiro">9</entrada>
+            <entrada tipodado="inteiro">31</entrada>
+            <entrada tipodado="inteiro">18</entrada>
+            <entrada tipodado="inteiro">3</entrada>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">29</entrada>
+            <entrada tipodado="inteiro">18</entrada>
+            <entrada tipodado="inteiro">20</entrada>
+            <entrada tipodado="inteiro">25</entrada>
+            <entrada tipodado="inteiro">7</entrada>
+            <entrada tipodado="inteiro">2</entrada>
+            <entrada tipodado="inteiro">13</entrada>
+            <entrada tipodado="inteiro">12</entrada>
+            <entrada tipodado="inteiro">2</entrada>
+          </entradas>
+          <saidas>
+                <saida tipodado="inteiro">45</saida>
+                <saida tipodado="inteiro">116</saida>
+                <saida tipodado="inteiro">810</saida>
+                <saida tipodado="inteiro">80</saida>
+                <saida tipodado="inteiro">500</saida>
+                <saida tipodado="inteiro">301</saida>
+                <saida tipodado="inteiro">18</saida>
+                <saida tipodado="inteiro">403</saida>
+                <saida tipodado="inteiro">216</saida>
+                <saida tipodado="inteiro">6</saida>
+          </saidas>
+      </caso>
+      <caso>
+          <entradas>
+                <entrada tipodado="inteiro">9</entrada>
+                <entrada tipodado="inteiro">6</entrada>
+                <entrada tipodado="inteiro">18</entrada>
+                <entrada tipodado="inteiro">12</entrada>
+                <entrada tipodado="inteiro">10</entrada>
+                <entrada tipodado="inteiro">4</entrada>
+                <entrada tipodado="inteiro">14</entrada>
+                <entrada tipodado="inteiro">14</entrada>
+                <entrada tipodado="inteiro">12</entrada>
+                <entrada tipodado="inteiro">9</entrada>
+                <entrada tipodado="inteiro">10</entrada>
+                <entrada tipodado="inteiro">17</entrada>
+                <entrada tipodado="inteiro">25</entrada>
+                <entrada tipodado="inteiro">11</entrada>
+                <entrada tipodado="inteiro">6</entrada>
+                <entrada tipodado="inteiro">14</entrada>
+                <entrada tipodado="inteiro">20</entrada>
+                <entrada tipodado="inteiro">7</entrada>
+                <entrada tipodado="inteiro">14</entrada>
+                <entrada tipodado="inteiro">9</entrada>
+          </entradas>
+          <saidas>
+                <saida tipodado="inteiro">90</saida>
+                <saida tipodado="inteiro">102</saida>
+                <saida tipodado="inteiro">450</saida>
+                <saida tipodado="inteiro">132</saida>
+                <saida tipodado="inteiro">60</saida>
+                <saida tipodado="inteiro">56</saida>
+                <saida tipodado="inteiro">280</saida>
+                <saida tipodado="inteiro">98</saida>
+                <saida tipodado="inteiro">168</saida>
+                <saida tipodado="inteiro">81</saida>
+          </saidas>
+      </caso>
+  </testes>
+  <enunciado>Faça um programa em que o usuário preencha dois vetores de 10 posições. O programa deve fazer a multiplicação dos elementos de mesmo índice, colocando o resultado em um terceiro vetor. Exiba o vetor resultante.</enunciado>
+</questao>

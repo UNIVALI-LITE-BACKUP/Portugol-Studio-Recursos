@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+ 
+  <testes>
+    <caso>
+      <entradas>
+        <entrada tipodado="inteiro">-20</entrada>
+        <entrada tipodado="inteiro">-10</entrada>
+        <entrada tipodado="inteiro">3</entrada>
+        <entrada tipodado="inteiro">2</entrada>
+        <entrada tipodado="inteiro">0</entrada>
+        <entrada tipodado="inteiro">5</entrada>
+        <entrada tipodado="inteiro">6</entrada>
+        <entrada tipodado="inteiro">3</entrada>
+        <entrada tipodado="inteiro">84</entrada>
+        <entrada tipodado="inteiro">6</entrada>
+        <entrada tipodado="inteiro">7</entrada>
+        <entrada tipodado="inteiro">78</entrada>
+        <entrada tipodado="inteiro">6</entrada>
+        <entrada tipodado="inteiro">98</entrada>
+        <entrada tipodado="inteiro">8</entrada>
+        <entrada tipodado="inteiro">6234</entrada>
+        <entrada tipodado="inteiro">73</entrada>
+        <entrada tipodado="inteiro">834</entrada>
+        <entrada tipodado="inteiro">6</entrada>
+        <entrada tipodado="inteiro">721</entrada>
+      </entradas>
+      <saidas>
+        <saida tipodado="inteiro">-20</saida>
+      </saidas>
+    </caso>
+      <caso>
+          <entradas>
+        <entrada tipodado="inteiro">7</entrada>
+        <entrada tipodado="inteiro">2</entrada>
+        <entrada tipodado="inteiro">46</entrada>
+        <entrada tipodado="inteiro">73</entrada>
+        <entrada tipodado="inteiro">82</entrada>
+        <entrada tipodado="inteiro">0</entrada>
+        <entrada tipodado="inteiro">7</entrada>
+        <entrada tipodado="inteiro">8</entrada>
+        <entrada tipodado="inteiro">1</entrada>
+        <entrada tipodado="inteiro">7</entrada>
+        <entrada tipodado="inteiro">3</entrada>
+        <entrada tipodado="inteiro">66</entrada>
+        <entrada tipodado="inteiro">5</entrada>
+        <entrada tipodado="inteiro">18</entrada>
+        <entrada tipodado="inteiro">6</entrada>
+        <entrada tipodado="inteiro">28</entrada>
+        <entrada tipodado="inteiro">8</entrada>
+        <entrada tipodado="inteiro">9</entrada>
+        <entrada tipodado="inteiro">67</entrada>
+        <entrada tipodado="inteiro">37</entrada>
+        </entradas>
+          <saidas>
+              <saida tipodado="inteiro">0</saida>
+          </saidas>
+      </caso>
+      <caso>
+          <entradas>
+        <entrada tipodado="inteiro">23</entrada>
+        <entrada tipodado="inteiro">56</entrada>
+        <entrada tipodado="inteiro">78</entrada>
+        <entrada tipodado="inteiro">56</entrada>
+        <entrada tipodado="inteiro">67</entrada>
+        <entrada tipodado="inteiro">48</entrada>
+        <entrada tipodado="inteiro">36</entrada>
+        <entrada tipodado="inteiro">67</entrada>
+        <entrada tipodado="inteiro">78</entrada>
+        <entrada tipodado="inteiro">96</entrada>
+        <entrada tipodado="inteiro">17</entrada>
+        <entrada tipodado="inteiro">28</entrada>
+        <entrada tipodado="inteiro">96</entrada>
+        <entrada tipodado="inteiro">57</entrada>
+        <entrada tipodado="inteiro">78</entrada>
+        <entrada tipodado="inteiro">56</entrada>
+        <entrada tipodado="inteiro">57</entrada>
+        <entrada tipodado="inteiro">48</entrada>
+        <entrada tipodado="inteiro">36</entrada>
+        <entrada tipodado="inteiro">97</entrada>
+          </entradas>
+          <saidas>
+              <saida tipodado="inteiro">17</saida>
+          </saidas>
+      </caso>
+  </testes>
+   <enunciado>Faça um algoritmo que leia um conjunto de 20 números inteiros e indique, ao final, qual foi o menor valor digitado.</enunciado>
+</questao>

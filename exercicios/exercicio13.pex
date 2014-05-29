@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+	 
+	<testes>
+		<caso>
+			<entradas>
+				<entrada tipodado="caracter">w</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite uma letra:</saida>
+				<saida tipodado="cadeia">Não é uma vogal</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="caracter">a</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite uma letra:</saida>
+				<saida tipodado="cadeia">É uma vogal</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="caracter">i</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite uma letra:</saida>
+				<saida tipodado="cadeia">É uma vogal</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="caracter">p</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Digite uma letra:</saida>
+				<saida tipodado="cadeia">Não é uma vogal</saida>
+			</saidas>
+		</caso>
+	</testes>
+	
+	<enunciado>Faça um programa que solicita ao usuário uma letra e verifique se ela é uma vogal ou não exibindo uma mensagem correspondente. Saídas:
+• Pedido ao usuário = "Digite uma letra:";
+• Caso verdadeiro = "É uma vogal";
+• Caso falso = "Não é uma vogal".
+</enunciado>
+</questao>

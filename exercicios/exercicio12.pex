@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+	
+	<testes>
+		<caso>
+		<entradas>
+			<entrada tipodado="inteiro">6</entrada>
+		</entradas>
+		<saidas>
+			<saida tipodado="cadeia">Entre com um número inteiro:</saida>
+			<saida tipodado="cadeia">O número é par</saida>
+		</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">9</entrada>
+		      </entradas>
+			<saidas>
+				<saida tipodado="cadeia">Entre com um número inteiro:</saida>
+				<saida tipodado="cadeia">O número é ímpar</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">-6</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Entre com um número inteiro:</saida>
+				<saida tipodado="cadeia">O número é par</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">-7</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Entre com um número inteiro:</saida>
+				<saida tipodado="cadeia">O número é ímpar</saida>
+			</saidas>
+		</caso>
+	</testes>
+	
+	<enunciado>Faça um programa que solicita ao usuário um valor inteiro e exibe uma mensagem informando se o número é par ou ímpar. Saídas:
+• Pedido ao usuário = "Entre com um número inteiro:";
+• Caso verdadeiro = "O número é par";
+• Caso falso =  "O número é ímpar".
+</enunciado>
+</questao>

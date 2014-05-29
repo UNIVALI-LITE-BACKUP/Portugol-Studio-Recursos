@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+  
+  <testes>
+    <caso>
+      <saidas>
+        <saida tipodado="inteiro">101</saida>
+        <saida tipodado="inteiro">103</saida>
+        <saida tipodado="inteiro">107</saida>
+        <saida tipodado="inteiro">109</saida>
+        <saida tipodado="inteiro">113</saida>
+        <saida tipodado="inteiro">127</saida>
+        <saida tipodado="inteiro">131</saida>
+        <saida tipodado="inteiro">137</saida>
+        <saida tipodado="inteiro">139</saida>
+        <saida tipodado="inteiro">149</saida>
+        <saida tipodado="inteiro">151</saida>
+        <saida tipodado="inteiro">157</saida>
+        <saida tipodado="inteiro">163</saida>
+        <saida tipodado="inteiro">167</saida>
+        <saida tipodado="inteiro">173</saida>
+        <saida tipodado="inteiro">179</saida>
+        <saida tipodado="inteiro">181</saida>
+        <saida tipodado="inteiro">191</saida>
+        <saida tipodado="inteiro">193</saida>
+        <saida tipodado="inteiro">197</saida>
+      </saidas>
+    </caso>
+     
+  </testes>
+  <enunciado>Faça um programa que exiba na tela os 20 primeiros números primos após o 100.</enunciado>
+</questao>

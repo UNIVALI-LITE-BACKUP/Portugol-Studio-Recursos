@@ -1,0 +1,3 @@
+Exemplo 01 - Olá Mundo=ola_mundo.por
+Exemplo 02 - Número Digitado=numero_digitado.por
+Exemplo 03 - Seu Nome=seu_nome.por

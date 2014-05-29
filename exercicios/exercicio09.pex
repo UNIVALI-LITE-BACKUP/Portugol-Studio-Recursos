@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+	<testes>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">862</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">268</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">591</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">195</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">359</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">953</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">123</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">321</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">100</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">001</saida>
+			</saidas>
+		</caso>
+	</testes>
+	
+	<enunciado>Faça um programa que solicita ao usuário um número inteiro com três dígitos e exibe o número invertido (ex: usuário digitou 136, programa exibirá 631).</enunciado>
+	
+</questao>

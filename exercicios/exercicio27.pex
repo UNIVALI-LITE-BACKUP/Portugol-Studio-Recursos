@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+ 
+  <testes>
+    <caso>
+      <entradas>
+        <entrada tipodado="inteiro">10</entrada>
+        <entrada tipodado="inteiro">10</entrada>
+        <entrada tipodado="inteiro">0</entrada>
+      </entradas>
+      <saidas>
+        <saida tipodado="real">10</saida>
+      </saidas>
+    </caso>
+      <caso>
+          <entradas>
+              <entrada tipodado="inteiro">7</entrada>
+              <entrada tipodado="inteiro">3</entrada>
+              <entrada tipodado="inteiro">8</entrada>
+              <entrada tipodado="inteiro">9</entrada>
+              <entrada tipodado="inteiro">5</entrada>
+              <entrada tipodado="inteiro">8</entrada>
+              <entrada tipodado="inteiro">7</entrada>
+              <entrada tipodado="inteiro">9</entrada>
+              <entrada tipodado="inteiro">0</entrada>
+          </entradas>
+          <saidas>
+              <saida tipodado="real">8</saida>
+          </saidas>
+      </caso>
+      <caso>
+          <entradas>
+              <entrada tipodado="inteiro">8</entrada>
+              <entrada tipodado="inteiro">6</entrada>
+              <entrada tipodado="inteiro">4</entrada>
+              <entrada tipodado="inteiro">0</entrada>
+          </entradas>
+          <saidas>
+              <saida  tipodado="real">6</saida>
+          </saidas>
+      </caso>
+  </testes>
+  <enunciado>Faça um programa que solicita ao usuário uma quantidade indeterminada de números inteiros. O programa deve calcular e escrever a média aritmética apenas dos números pares. A entrada de dados deve ser encerrada quando o número 0(ZERO) for digitado.</enunciado>
+</questao>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+  
+  <testes>
+    <caso>
+      <entradas>
+			<entrada tipodado="inteiro">5</entrada>
+            <entrada tipodado="inteiro">0</entrada>
+            <entrada tipodado="inteiro">20</entrada>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">19</entrada>
+            <entrada tipodado="inteiro">11</entrada>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">25</entrada>
+            <entrada tipodado="inteiro">0</entrada>
+            <entrada tipodado="inteiro">9</entrada>
+            <entrada tipodado="inteiro">10</entrada>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">13</entrada>
+            <entrada tipodado="inteiro">13</entrada>
+            <entrada tipodado="inteiro">27</entrada>
+            <entrada tipodado="inteiro">27</entrada>
+            <entrada tipodado="inteiro">6</entrada>
+            <entrada tipodado="inteiro">25</entrada>
+            <entrada tipodado="inteiro">24</entrada>
+            <entrada tipodado="inteiro">20</entrada>
+            <entrada tipodado="inteiro">16</entrada>
+            <entrada tipodado="inteiro">9</entrada>
+            <entrada tipodado="inteiro">29</entrada>
+            <entrada tipodado="inteiro">20</entrada>
+            <entrada tipodado="inteiro">4</entrada>
+            <entrada tipodado="inteiro">5</entrada>
+      </entradas>
+      <saidas>
+            <saida tipodado="inteiro">218</saida>
+      </saidas>
+    </caso>
+      <caso>
+          <entradas>
+				<entrada tipodado="inteiro">3</entrada>
+                <entrada tipodado="inteiro">1</entrada>
+                <entrada tipodado="inteiro">13</entrada>
+                <entrada tipodado="inteiro">8</entrada>
+                <entrada tipodado="inteiro">16</entrada>
+                <entrada tipodado="inteiro">13</entrada>
+                <entrada tipodado="inteiro">10</entrada>
+                <entrada tipodado="inteiro">24</entrada>
+                <entrada tipodado="inteiro">10</entrada>
+                <entrada tipodado="inteiro">5</entrada>
+          </entradas>
+          <saidas>
+                <saida tipodado="inteiro">49</saida>
+          </saidas>
+      </caso>
+      <caso>
+          <entradas>
+					<entrada tipodado="inteiro">7</entrada>
+                    <entrada tipodado="inteiro">13</entrada>
+                    <entrada tipodado="inteiro">11</entrada>
+                    <entrada tipodado="inteiro">13</entrada>
+                    <entrada tipodado="inteiro">25</entrada>
+                    <entrada tipodado="inteiro">25</entrada>
+                    <entrada tipodado="inteiro">16</entrada>
+                    <entrada tipodado="inteiro">17</entrada>
+                    <entrada tipodado="inteiro">26</entrada>
+                    <entrada tipodado="inteiro">15</entrada>
+                    <entrada tipodado="inteiro">19</entrada>
+                    <entrada tipodado="inteiro">6</entrada>
+                    <entrada tipodado="inteiro">3</entrada>
+                    <entrada tipodado="inteiro">19</entrada>
+                    <entrada tipodado="inteiro">11</entrada>
+                    <entrada tipodado="inteiro">9</entrada>
+                    <entrada tipodado="inteiro">18</entrada>
+                    <entrada tipodado="inteiro">6</entrada>
+                    <entrada tipodado="inteiro">20</entrada>
+                    <entrada tipodado="inteiro">11</entrada>
+                    <entrada tipodado="inteiro">23</entrada>
+                    <entrada tipodado="inteiro">2</entrada>
+                    <entrada tipodado="inteiro">29</entrada>
+                    <entrada tipodado="inteiro">8</entrada>
+                    <entrada tipodado="inteiro">0</entrada>
+                    <entrada tipodado="inteiro">23</entrada>
+                    <entrada tipodado="inteiro">1</entrada>
+                    <entrada tipodado="inteiro">21</entrada>
+                    <entrada tipodado="inteiro">19</entrada>
+                    <entrada tipodado="inteiro">25</entrada>
+                    <entrada tipodado="inteiro">6</entrada>
+                    <entrada tipodado="inteiro">5</entrada>
+                    <entrada tipodado="inteiro">15</entrada>
+                    <entrada tipodado="inteiro">23</entrada>
+                    <entrada tipodado="inteiro">3</entrada>
+                    <entrada tipodado="inteiro">1</entrada>
+                    <entrada tipodado="inteiro">21</entrada>
+                    <entrada tipodado="inteiro">6</entrada>
+                    <entrada tipodado="inteiro">7</entrada>
+                    <entrada tipodado="inteiro">22</entrada>
+                    <entrada tipodado="inteiro">1</entrada>
+                    <entrada tipodado="inteiro">22</entrada>
+                    <entrada tipodado="inteiro">5</entrada>
+                    <entrada tipodado="inteiro">1</entrada>
+                    <entrada tipodado="inteiro">17</entrada>
+                    <entrada tipodado="inteiro">22</entrada>
+                    <entrada tipodado="inteiro">14</entrada>
+                    <entrada tipodado="inteiro">17</entrada>
+                    <entrada tipodado="inteiro">0</entrada>
+                    <entrada tipodado="inteiro">10</entrada>
+          </entradas>
+          <saidas>
+              <saida tipodado="inteiro">481</saida>
+          </saidas>
+      </caso>
+  </testes>
+  <enunciado>Faça um programa que manipula uma matriz quadrada de qualquer tamanho, somando os valores que não estão nem na diagonal principal nem na diagonal secundaria.</enunciado>
+</questao>

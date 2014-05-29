@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+  
+  <testes>
+    <caso>
+      <entradas>
+            <entrada tipodado="real">24</entrada>
+            <entrada tipodado="real">12</entrada>
+            <entrada tipodado="real">24</entrada>
+            <entrada tipodado="real">21</entrada>
+            <entrada tipodado="real">2</entrada>
+            <entrada tipodado="real">15</entrada>
+            <entrada tipodado="real">21</entrada>
+            <entrada tipodado="real">21</entrada>
+            <entrada tipodado="real">23</entrada>
+            <entrada tipodado="real">13</entrada>
+            <entrada tipodado="real">14</entrada>
+            <entrada tipodado="real">17</entrada>
+            <entrada tipodado="real">26</entrada>
+            <entrada tipodado="real">26</entrada>
+            <entrada tipodado="real">6</entrada>
+            <entrada tipodado="real">7</entrada>
+      </entradas>
+      <saidas>
+            <saida tipodado="real">6</saida>
+      </saidas>
+    </caso>
+      <caso>
+          <entradas>
+                <entrada tipodado="real">2</entrada>
+                <entrada tipodado="real">1</entrada>
+                <entrada tipodado="real">18</entrada>
+                <entrada tipodado="real">22</entrada>
+                <entrada tipodado="real">17</entrada>
+                <entrada tipodado="real">4</entrada>
+                <entrada tipodado="real">16</entrada>
+                <entrada tipodado="real">8</entrada>
+                <entrada tipodado="real">25</entrada>
+                <entrada tipodado="real">14</entrada>
+                <entrada tipodado="real">12</entrada>
+                <entrada tipodado="real">14</entrada>
+                <entrada tipodado="real">9</entrada>
+                <entrada tipodado="real">16</entrada>
+                <entrada tipodado="real">5</entrada>
+                <entrada tipodado="real">10</entrada>
+          </entradas>
+          <saidas>
+                 <saida tipodado="real">12</saida>
+          </saidas>
+      </caso>
+      <caso>
+          <entradas>
+                <entrada tipodado="real">25</entrada>
+                <entrada tipodado="real">10</entrada>
+                <entrada tipodado="real">27</entrada>
+                <entrada tipodado="real">14</entrada>
+                <entrada tipodado="real">14</entrada>
+                <entrada tipodado="real">23</entrada>
+                <entrada tipodado="real">26</entrada>
+                <entrada tipodado="real">25</entrada>
+                <entrada tipodado="real">11</entrada>
+                <entrada tipodado="real">16</entrada>
+                <entrada tipodado="real">3</entrada>
+                <entrada tipodado="real">8</entrada>
+                <entrada tipodado="real">22</entrada>
+                <entrada tipodado="real">14</entrada>
+                <entrada tipodado="real">21</entrada>
+                <entrada tipodado="real">15</entrada>
+          </entradas>
+          <saidas>
+              <saida tipodado="real">10</saida>
+          </saidas>
+      </caso>
+  </testes>
+  <enunciado>Faça um programa que preenche uma matriz de 4X4 com números reais. O programa deve exibir qual a posição (linha e coluna) do elemento minimax, ou seja, o menor valor que esteja na linha em que se encontra o maior valor da matriz.</enunciado>
+</questao>

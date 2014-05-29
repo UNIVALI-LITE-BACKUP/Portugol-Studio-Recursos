@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+
+  <testes>
+    <caso>
+      <entradas>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">6</entrada>
+            <entrada tipodado="inteiro">19</entrada>
+            <entrada tipodado="inteiro">11</entrada>
+            <entrada tipodado="inteiro">17</entrada>
+            <entrada tipodado="inteiro">14</entrada>
+            <entrada tipodado="inteiro">12</entrada>
+            <entrada tipodado="inteiro">24</entrada>
+            <entrada tipodado="inteiro">24</entrada>
+            <entrada tipodado="inteiro">9</entrada>
+            <entrada tipodado="inteiro">4</entrada>
+            <entrada tipodado="inteiro">6</entrada>
+            <entrada tipodado="inteiro">10</entrada>
+            <entrada tipodado="inteiro">10</entrada>
+            <entrada tipodado="inteiro">15</entrada>
+            <entrada tipodado="inteiro">16</entrada>
+            <entrada tipodado="inteiro">21</entrada>
+            <entrada tipodado="inteiro">24</entrada>
+            <entrada tipodado="inteiro">10</entrada>
+            <entrada tipodado="inteiro">9</entrada>
+            <entrada tipodado="inteiro">11</entrada>
+            <entrada tipodado="inteiro">23</entrada>
+            <entrada tipodado="inteiro">17</entrada>
+            <entrada tipodado="inteiro">4</entrada>
+            <entrada tipodado="inteiro">14</entrada>
+            <entrada tipodado="inteiro">18</entrada>
+            <entrada tipodado="inteiro">17</entrada>
+            <entrada tipodado="inteiro">4</entrada>
+            <entrada tipodado="inteiro">16</entrada>
+            <entrada tipodado="inteiro">19</entrada>
+            <entrada tipodado="inteiro">17</entrada>
+            <entrada tipodado="inteiro">12</entrada>
+            <entrada tipodado="inteiro">16</entrada>
+            <entrada tipodado="inteiro">19</entrada>
+            <entrada tipodado="inteiro">19</entrada>
+            <entrada tipodado="inteiro">16</entrada>
+            <entrada tipodado="inteiro">4</entrada>
+            <entrada tipodado="inteiro">2</entrada>
+            <entrada tipodado="inteiro">3</entrada>
+            <entrada tipodado="inteiro">18</entrada>
+            <entrada tipodado="inteiro">19</entrada>
+            <entrada tipodado="inteiro">9</entrada>
+            <entrada tipodado="inteiro">11</entrada>
+            <entrada tipodado="inteiro">10</entrada>
+            <entrada tipodado="inteiro">14</entrada>
+            <entrada tipodado="inteiro">20</entrada>
+            <entrada tipodado="inteiro">17</entrada>
+            <entrada tipodado="inteiro">9</entrada>
+      </entradas>
+      <saidas>
+            <saida tipodado="inteiro">977</saida>
+            <saida tipodado="inteiro">948</saida>
+            <saida tipodado="inteiro">938</saida>
+            <saida tipodado="inteiro">874</saida>
+            <saida tipodado="inteiro">1132</saida>
+            <saida tipodado="inteiro">1302</saida>
+            <saida tipodado="inteiro">1241</saida>
+            <saida tipodado="inteiro">976</saida>
+            <saida tipodado="inteiro">1339</saida>
+            <saida tipodado="inteiro">1356</saida>
+            <saida tipodado="inteiro">1312</saida>
+            <saida tipodado="inteiro">1114</saida>
+            <saida tipodado="inteiro">931</saida>
+            <saida tipodado="inteiro">839</saida>
+            <saida tipodado="inteiro">856</saida>
+            <saida tipodado="inteiro">944</saida>
+      </saidas>
+    </caso>
+      <caso>
+          <entradas>
+                <entrada tipodado="inteiro">11</entrada>
+                <entrada tipodado="inteiro">15</entrada>
+                <entrada tipodado="inteiro">2</entrada>
+                <entrada tipodado="inteiro">16</entrada>
+                <entrada tipodado="inteiro">11</entrada>
+                <entrada tipodado="inteiro">16</entrada>
+                <entrada tipodado="inteiro">0</entrada>
+                <entrada tipodado="inteiro">10</entrada>
+                <entrada tipodado="inteiro">17</entrada>
+                <entrada tipodado="inteiro">16</entrada>
+                <entrada tipodado="inteiro">6</entrada>
+                <entrada tipodado="inteiro">15</entrada>
+                <entrada tipodado="inteiro">21</entrada>
+                <entrada tipodado="inteiro">23</entrada>
+                <entrada tipodado="inteiro">12</entrada>
+                <entrada tipodado="inteiro">15</entrada>
+                <entrada tipodado="inteiro">8</entrada>
+                <entrada tipodado="inteiro">24</entrada>
+                <entrada tipodado="inteiro">12</entrada>
+                <entrada tipodado="inteiro">13</entrada>
+                <entrada tipodado="inteiro">15</entrada>
+                <entrada tipodado="inteiro">0</entrada>
+                <entrada tipodado="inteiro">5</entrada>
+                <entrada tipodado="inteiro">21</entrada>
+                <entrada tipodado="inteiro">14</entrada>
+                <entrada tipodado="inteiro">18</entrada>
+                <entrada tipodado="inteiro">3</entrada>
+                <entrada tipodado="inteiro">5</entrada>
+                <entrada tipodado="inteiro">2</entrada>
+                <entrada tipodado="inteiro">22</entrada>
+                <entrada tipodado="inteiro">23</entrada>
+                <entrada tipodado="inteiro">5</entrada>
+                <entrada tipodado="inteiro">9</entrada>
+                <entrada tipodado="inteiro">3</entrada>
+                <entrada tipodado="inteiro">0</entrada>
+                <entrada tipodado="inteiro">6</entrada>
+                <entrada tipodado="inteiro">7</entrada>
+                <entrada tipodado="inteiro">22</entrada>
+                <entrada tipodado="inteiro">24</entrada>
+                <entrada tipodado="inteiro">9</entrada>
+                <entrada tipodado="inteiro">0</entrada>
+                <entrada tipodado="inteiro">18</entrada>
+                <entrada tipodado="inteiro">5</entrada>
+                <entrada tipodado="inteiro">15</entrada>
+                <entrada tipodado="inteiro">16</entrada>
+                <entrada tipodado="inteiro">16</entrada>
+                <entrada tipodado="inteiro">24</entrada>
+                <entrada tipodado="inteiro">12</entrada>
+          </entradas>
+          <saidas>   
+                <saida tipodado="inteiro">570</saida>
+                <saida tipodado="inteiro">1340</saida>
+                <saida tipodado="inteiro">1201</saida>
+                <saida tipodado="inteiro">643</saida>
+                <saida tipodado="inteiro">525</saida>
+                <saida tipodado="inteiro">971</saida>
+                <saida tipodado="inteiro">1004</saida>
+                <saida tipodado="inteiro">566</saida>
+                <saida tipodado="inteiro">937</saida>
+                <saida tipodado="inteiro">1778</saida>
+                <saida tipodado="inteiro">1568</saida>
+                <saida tipodado="inteiro">835</saida>
+                <saida tipodado="inteiro">665</saida>
+                <saida tipodado="inteiro">973</saida>
+                <saida tipodado="inteiro">864</saida>
+                <saida tipodado="inteiro">542</saida>
+          </saidas>
+      </caso>
+      <caso>
+          <entradas>
+            <entrada tipodado="inteiro">23</entrada>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">16</entrada>
+            <entrada tipodado="inteiro">16</entrada>
+            <entrada tipodado="inteiro">5</entrada>
+            <entrada tipodado="inteiro">13</entrada>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">2</entrada>
+            <entrada tipodado="inteiro">0</entrada>
+            <entrada tipodado="inteiro">6</entrada>
+            <entrada tipodado="inteiro">21</entrada>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">23</entrada>
+            <entrada tipodado="inteiro">4</entrada>
+            <entrada tipodado="inteiro">8</entrada>
+            <entrada tipodado="inteiro">11</entrada>
+            <entrada tipodado="inteiro">5</entrada>
+            <entrada tipodado="inteiro">2</entrada>
+            <entrada tipodado="inteiro">23</entrada>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">17</entrada>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">8</entrada>
+            <entrada tipodado="inteiro">1</entrada>
+            <entrada tipodado="inteiro">6</entrada>
+            <entrada tipodado="inteiro">13</entrada>
+            <entrada tipodado="inteiro">10</entrada>
+            <entrada tipodado="inteiro">22</entrada>
+            <entrada tipodado="inteiro">5</entrada>
+            <entrada tipodado="inteiro">19</entrada>
+            <entrada tipodado="inteiro">4</entrada>
+            <entrada tipodado="inteiro">21</entrada>
+            <entrada tipodado="inteiro">16</entrada>
+            <entrada tipodado="inteiro">10</entrada>
+            <entrada tipodado="inteiro">23</entrada>
+            <entrada tipodado="inteiro">21</entrada>
+            <entrada tipodado="inteiro">14</entrada>
+            <entrada tipodado="inteiro">14</entrada>
+            <entrada tipodado="inteiro">10</entrada>
+            <entrada tipodado="inteiro">9</entrada>
+            <entrada tipodado="inteiro">16</entrada>
+            <entrada tipodado="inteiro">5</entrada>
+            <entrada tipodado="inteiro">4</entrada>
+            <entrada tipodado="inteiro">20</entrada>
+            <entrada tipodado="inteiro">17</entrada>
+            <entrada tipodado="inteiro">13</entrada>
+          </entradas>
+          <saidas>
+                <saida tipodado="inteiro">728</saida>
+                <saida tipodado="inteiro">1022</saida>
+                <saida tipodado="inteiro">924</saida>
+                <saida tipodado="inteiro">896</saida>
+                <saida tipodado="inteiro">380</saida>
+                <saida tipodado="inteiro">380</saida>
+                <saida tipodado="inteiro">453</saida>
+                <saida tipodado="inteiro">253</saida>
+                <saida tipodado="inteiro">568</saida>
+                <saida tipodado="inteiro">958</saida>
+                <saida tipodado="inteiro">558</saida>
+                <saida tipodado="inteiro">722</saida>
+                <saida tipodado="inteiro">447</saida>
+                <saida tipodado="inteiro">723</saida>
+                <saida tipodado="inteiro">446</saida>
+                <saida tipodado="inteiro">585</saida>
+          </saidas>
+      </caso>
+  </testes>
+  <enunciado>Faça um programa que preenche duas matrizes, uma M (4X6) e outra N (6X4). A seguir o programa deverá criar uma nova matriz que seja o produto matricial de M por N. </enunciado>
+</questao>
