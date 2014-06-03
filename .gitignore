@@ -1,3 +1,4 @@
 /plugins/**/build/
 /plugins/**/dist/
 /plugins/**/nbproject/private/
+/plugins/**/${built-jar.properties}
