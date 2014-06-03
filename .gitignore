@@ -1,0 +1,3 @@
+/plugins/**/build/
+/plugins/**/dist/
+/plugins/**/nbproject/private/
