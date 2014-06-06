@@ -1,21 +1,58 @@
-// O exemplo a seguir faz uso de uma constante para definir o tamanho de uma matriz quadrada. 
-// mude apenas o valor da constante TAM e execute novamente para experimentar
+
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
+ * 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo cria e exibe uma matriz para ilustrar o uso das matrizes na linguagem 
+ * 	Portugol.
+ *
+ * Autores:
+ * 
+ * 	Giordana Maria da Costa Valle
+ * 	Carlos Alexandre Krueger
+ * 	
+ * Data: 01/06/2013
+ */
+ 
 programa
 {
+	inclua biblioteca Util --> u
+	
 	funcao inicio()
 	{
-		const inteiro TAM = 5/*${cursor}*/
-		inteiro l,c, mat[TAM][TAM] // cria a matriz usando a constante
+		const inteiro TAMANHO = 5 // Define as dimensões (linhas e colunas) da matriz
+		inteiro matriz[TAMANHO][TAMANHO] // Cria a matriz
 
-		para(l = 0; l < TAM; l++)
+		para (inteiro linha = 0; linha < TAMANHO; linha++)
 		{
-			para(c = 0; c < TAM; c++)
+			para (inteiro coluna = 0; coluna < TAMANHO; coluna++)
 			{
-				mat[l][c] = 1
-				escreva(mat[l][c], " ")
+				matriz[linha][coluna] = u.sorteia(1, 9) // Atribui um valor aleatório à posição da matriz
+				
+				escreva("[", matriz[linha][coluna], "]") // Exibe o valor contido na posição da matriz
 			}
+			
 			escreva ("\n")
 		}
-		
 	}
 }
+
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 869; 
+ * @DOBRAMENTO-CODIGO = [1];
+ */

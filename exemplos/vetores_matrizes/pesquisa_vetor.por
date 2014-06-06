@@ -1,23 +1,68 @@
-// Este exemplo declara um vetor já com valores e percorre o vetor procurando pelo número digitado pelo usuário 
+
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
+ * 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo ilustra o uso dos vetores na linguagem Portugol.
+ * 	
+ * 	Neste exemplo, é criado um vetor com valores pré-definidos. Logo após, o programa
+ * 	pede ao usuário que informe um valor e percorre o vetor procurando pelo valor 
+ * 	informado. 
+ * 	
+ * 	Por último, o programa exibe uma mesnagem informando se o valor informado foi encontrado 
+ * 	dentro do vetor ou não.
+ * 	
+ * Autores:
+ * 
+ * 	Giordana Maria da Costa Valle
+ * 	Carlos Alexandre Krueger
+ * 	
+ * Data: 01/06/2013
+ */
+
 programa
 {
 	funcao inicio() 
 	{ 
-		inteiro vet[5] = { 1, 3, 5, 7, 9/*${cursor}*/}  // cria o vetor com estes valores dentro
-		inteiro i, num
-		logico achou = falso  // variavel que ajuda a indicar se o numero foi encontrado ou não
+		inteiro vetor[] = { 1, 3, 5, 7, 9}  // Cria o vetor com valores pré-definidos
+		inteiro numero
+		logico achou = falso  // Variável para armazenar o resultado da procura
 
-		escreva ("Qual número deseja procurar: ")
-		leia (num)
+		escreva ("Qual número deseja procurar? ")
+		leia (numero)
 
-		para (i=0; i<5; i++){
-			se (vet[i] == num){
-				escreva ("encontrado na posição: ", i)
+		para (inteiro posicao = 0; posicao < 5; posicao++)
+		{
+			se (vetor[posicao] == numero)
+			{
+				escreva ("Encontrado na posição: ", posicao, "\n")
 				achou = verdadeiro  
 			}
 		}
-		se (nao achou) {
-			escreva ("O número não está no vetor")
+		
+		se (nao achou) 
+		{
+			escreva ("O número não está no vetor\n")
 		}
 	}
 }
+
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 1309; 
+ * @DOBRAMENTO-CODIGO = [1];
+ */

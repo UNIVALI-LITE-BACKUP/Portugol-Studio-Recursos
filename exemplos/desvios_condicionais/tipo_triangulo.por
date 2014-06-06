@@ -1,24 +1,68 @@
-// Este exemplo pede ao usuário o tamanho de cada um dos lados de um triângulo e ao fim exibe qual é o tipo deste triângulo
+
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
+ * 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo pede ao usuario que informe o tamanho dos 3 lados de um triângulo.
+ * 	Logo após, compara os lados do triângulo e exibe ao usuário o tipo de triângulo
+ * 	informado: 
+ * 	
+ * 		Equilátero: Possui os 3 lados iguais
+ * 		Isóceles:   Possui apenas 2 lados iguais
+ * 		Escaleno:   Possui todos os lados diferentes
+ * 
+ * Autores:
+ * 
+ * 	Giordana Maria da Costa Valle
+ * 	Carlos Alexandre Krueger
+ * 	
+ * Data: 01/06/2013
+ */
+
 programa 
 {
 	funcao inicio()
 	{
-		inteiro a,b,c
+		inteiro lado_a, lado_b, lado_c
 		
-		escreva ("Entre com os dados do triângulo: ")
-		leia (a,b,c)
+		escreva ("Informe o primeiro lado do triângulo: ")
+		leia (lado_a)
 
-		se (a==b e a==c)
-		{ // se os tres lados forem iguais é equilatero
-			escreva ("Este triângulo é equilátero")
+		escreva ("Informe o segundo lado do triângulo: ")
+		leia (lado_b)
+
+		escreva ("Informe o terceiro lado do triângulo: ")
+		leia (lado_c)
+
+		se (lado_a == lado_b e lado_a == lado_c)
+		{
+			// Se os três lados forem iguais é equilatero
+			
+			escreva ("\nEste triângulo é Equilátero\n")
 		}
 		senao 
-		{ // se chegou aqui é porque os tres não são iguais basta ver se dois deles são para saber se é isoceles
-			se ( (a==b ou b==c) ){  
-				escreva ("Este triângulo é isósceles")
+		{
+			// Se chegou aqui é porque os três lados não são iguais
+			// Basta ver se dois deles são iguais para saber se é isóceles
+			
+			se (lado_a == lado_b ou lado_b == lado_c ou lado_c == lado_a)
+			{
+				escreva ("\nEste triângulo é Isósceles\n")
 			}
-			senao {		
-				escreva ("Este triângulo é outro")
+			senao
+			{
+				escreva ("\nEste triângulo é Escaleno\n")
 			}
 		}
 	}
@@ -29,5 +73,6 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 237; 
+ * @POSICAO-CURSOR = 1068; 
+ * @DOBRAMENTO-CODIGO = [1];
  */

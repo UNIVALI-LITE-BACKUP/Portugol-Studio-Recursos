@@ -1,19 +1,52 @@
-/*
- * Jogo de Corrida em Portugol (em desenvolvimento)
+
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
  * 
- * Autor: Luiz Fernando Noschang (noschang@univali.br)
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo é um Jogo de corrida escrito em Portugol (ainda em desenvolvimento).
+ * 	O exemplo demonstra como utilizar algumas das bibliotecas existentes no Portugol. 
+ * 	Neste exemplo, também é possível ver algumas técnicas utilizadas na criação de jogos.
+ * 	
+ * 	O objetivo do jogo é conduzir o veículo do jogador até linha de chegada. O combustível
+ * 	vai diminuindo ao longo do tempo, portanto o jogador deve ir pegando os galões de combustível 
+ * 	existentes na pista. Caso contrário, o combustível acaba e o veículo do jogador para.
+ * 	
+ * 	O jogador também deve desviar dos outros veículos na pista. Se o jogador colidir na traseira 
+ * 	ou na lateral de outro veículo irá tomar danos proporcionais à velocidade dos dois veículos 
+ * 	e o veículo do jogador irá perder velocidade (em alguns casos até parar).
+ * 	
+ * 	Se outro veículo colidir atrás do jogador, o jogador irá tomar danos proporcionais à velocidade 
+ *	os dois veículos. No entanto, o veículo do jogador será arremessado para frente, ganhando velocidade. 
+ *	Esta pode ser uma estratégia útil quando o combustível estiver acabando.
+ * 	
+ * 	Para reverter os danos causados ao veículo, o jogador deve passar nos pontos de reparo que estão
+ * 	espalhados pela pista.
+ * 	
+ * 	Música e efeitos sonoros: 
+ * 	
+ * 		FreeSFX (http://www.freesfx.co.uk/info/eula)
+ * 		SoundJay (http://www.soundjay.com)	
+ * 	
+ * 	Fonte: http://www.dafont.com/pt/poetsen-one.font
+ * 
+ * Autores:
+ * 
+ * 	Luiz Fernando Noschang (noschang@univali.br)
+ * 	
  * Data: 07/12/2013
- * 
- * Música e efeitos sonoros:
- * 	
- * 	FreeSFX (http://www.freesfx.co.uk/info/eula)
- * 	SoundJay (http://www.soundjay.com)
- * 	
- * Fonte: http://www.dafont.com/pt/poetsen-one.font
- * 
- * Versão mínima necessária para executar: PortugolSudio 2.1 RC 2
- * Download em: http://sourceforge.net/projects/portugolstudio
- *//*${cursor}*/
+ */
+
 programa
 {
 	inclua biblioteca Graficos --> g
@@ -170,8 +203,7 @@ programa
 
 	funcao carregar_sons()
 	{
-		cadeia diretorio_jogo = u.obter_diretorio_usuario() + "/.portugol/exemplos/jogos/corrida"
-		cadeia diretorio_sons = diretorio_jogo + "/sons/"
+		cadeia diretorio_sons = "./corrida/sons/"
 
 		musica_jogo = sm.carregar_som(diretorio_sons + "musica_jogo.mp3")
 		som_combustivel = sm.carregar_som(diretorio_sons + "som_combustivel.mp3")
@@ -189,10 +221,6 @@ programa
 		largura_tela = g.largura_imagem(imagem_estrada)
 		altura_tela = 580
 
-		g.definir_dimensoes_janela(largura_tela, altura_tela)
-		u.aguarde(200)
-		g.definir_dimensoes_janela(largura_tela, altura_tela)	
-		u.aguarde(200)
 		g.definir_dimensoes_janela(largura_tela, altura_tela)
 	}
 
@@ -225,7 +253,7 @@ programa
 		enquanto (tela_atual == TELA_JOGO)
 		{
 			tempo_total_jogo = u.tempo_decorrido() - tempo_inicio_jogo
-			tempo_inicio = u.tempo_decorrido()
+			tempo_inicio = u.tempo_decorrido() + tempo_restante
 			
 			atualizar_jogo()
 			desenhar_tela_jogo(verdadeiro)
@@ -1320,8 +1348,7 @@ programa
 
 	funcao carregar_imagens()
 	{
-		cadeia diretorio_jogo = u.obter_diretorio_usuario() + "/.portugol/exemplos/jogos/corrida"
-		cadeia diretorio_imagens = diretorio_jogo + "/imagens/"
+		cadeia diretorio_imagens ="./corrida/imagens/"
 
 		imagem_estrada = g.carregar_imagem(diretorio_imagens + "estrada.jpg")
 		imagem_veiculos = g.carregar_imagem(diretorio_imagens + "veiculos.png")
@@ -1330,10 +1357,7 @@ programa
 
 	funcao carregar_fontes()
 	{
-		cadeia diretorio_jogo = u.obter_diretorio_usuario() + "/.portugol/exemplos/jogos/fontes/"
-		cadeia arquivo_fonte = diretorio_jogo + "poetsen_one_regular.ttf"
-
-		g.carregar_fonte(arquivo_fonte)
+		g.carregar_fonte("./fontes/poetsen_one_regular.ttf")
 	}
 
 	funcao liberar_imagens()
@@ -1343,3 +1367,12 @@ programa
 		g.liberar_imagem(imagem_objetos)
 	}
 }
+
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 2144; 
+ * @DOBRAMENTO-CODIGO = [1, 175, 190, 203, 218, 226, 233, 246, 274, 290, 317, 330, 340, 352, 367, 376, 386, 390, 396, 401, 405, 410, 415, 419, 424, 365, 357, 433, 438, 443, 448, 456, 461, 472, 483, 494, 500, 492, 509, 521, 530, 517, 562, 553, 542, 540, 617, 604, 645, 632, 660, 680, 687, 694, 701, 712, 716, 720, 708, 726, 735, 743, 750, 755, 783, 809, 831, 857, 879, 884, 899, 929, 939, 944, 959, 976, 988, 1029, 1035, 1056, 1077, 1098, 1107, 1119, 1130, 1140, 1150, 1188, 1208, 1194, 1221, 1245, 1263, 1271, 1283, 1302, 1314, 1300, 1322, 1328, 1320, 1336, 1342, 1334, 1348, 1357, 1362];
+ */

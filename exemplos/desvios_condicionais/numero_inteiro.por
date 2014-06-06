@@ -1,11 +1,16 @@
 
 /* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
  *  
- * Copyright (C) 2013 - UNIVALI - Universidade do Vale do Itajaí
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
  * 
  * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
  * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
  * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
  * Descrição:
  * 
@@ -24,16 +29,16 @@ programa
 {
 	funcao inicio()
 	{
-		inteiro num
+		inteiro numero
 		
 		escreva("Digite um número inteiro: ")
-		leia(num)
+		leia(numero)
 
-		se(num > 0) // Verifica se o número é positivo
+		se(numero > 0) // Verifica se o número é positivo
 		{ 
 			escreva("O número é positivo")
 		}
-		senao se(num < 0) // Verifica se o número é negativo
+		senao se(numero < 0) // Verifica se o número é negativo
 		{ 
 			escreva("O número é negativo")
 		}
@@ -51,6 +56,6 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 680; 
+ * @POSICAO-CURSOR = 892; 
  * @DOBRAMENTO-CODIGO = [1];
  */

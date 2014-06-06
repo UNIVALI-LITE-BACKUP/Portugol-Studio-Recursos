@@ -1,15 +1,33 @@
-/*
- * Jogo da Serpente (Snake) em Portugol
+
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
  * 
- * Autor: Luiz Fernando Noschang (noschang@univali.br)
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo é um Jogo da Serpente (Snake) escrito em Portugol. O exemplo demonstra
+ * 	como utilizar algumas das bibliotecas existentes no Portugol. Neste exemplo, também 
+ * 	é possível ver algumas técnicas utilizadas na criação de jogos.
+ * 	
+ * 	Música e efeitos sonoros: FreeSFX (http://www.freesfx.co.uk/info/eula)
+ * 	Fonte: http://www.dafont.com/pt/poetsen-one.font
+ * 	
+ * Autores:
+ * 
+ * 	Luiz Fernando Noschang (noschang@univali.br)
+ * 	
  * Data: 08/09/2013
- * 
- * Música e efeitos sonoros: FreeSFX (http://www.freesfx.co.uk/info/eula)
- * Fonte: http://www.dafont.com/pt/poetsen-one.font
- * 
- * Versão mínima necessária para executar: PortugolSudio 2.1 RC 2
- * Download em: http://sourceforge.net/projects/portugolstudio
- *//*${cursor}*/
+ */
+ 
 programa
 {
 	inclua biblioteca Graficos --> g
@@ -155,12 +173,12 @@ programa
 
 	funcao carregar_sons()
 	{
-		cadeia diretorio = u.obter_diretorio_usuario() + "/.portugol/exemplos/jogos/serpente/sons/"
+		cadeia diretorio_sons = "./serpente/sons/"
 
-		musica_menu = sm.carregar_som(diretorio + "musica_menu.mp3")
-		musica_jogo = sm.carregar_som(diretorio + "musica_jogo.mp3")
-		som_comida  = sm.carregar_som(diretorio + "som_comida.mp3" )
-		som_derrota = sm.carregar_som(diretorio + "som_derrota.mp3")
+		musica_menu = sm.carregar_som(diretorio_sons + "musica_menu.mp3")
+		musica_jogo = sm.carregar_som(diretorio_sons + "musica_jogo.mp3")
+		som_comida  = sm.carregar_som(diretorio_sons + "som_comida.mp3" )
+		som_derrota = sm.carregar_som(diretorio_sons + "som_derrota.mp3")
 	}
 
 	funcao definir_tema(inteiro indice)
@@ -183,21 +201,16 @@ programa
 
 	funcao carregar_imagens()
 	{
-		cadeia diretorio_jogo = u.obter_diretorio_usuario() + "/.portugol/exemplos/jogos/serpente"
-		cadeia diretorio_temas = diretorio_jogo + "/temas/"
+		cadeia diretorio_temas = "./serpente/temas/"
 		cadeia diretorio_imagens = diretorio_temas + TEMAS[tema_atual][PASTA_IMAGENS] + "/"
 		
 		imagem_segmento = g.carregar_imagem(diretorio_imagens + "segmento.png")
 		imagem_comida = g.carregar_imagem(diretorio_imagens + "comida.png")
 	}
 
-
 	funcao carregar_fontes()
 	{
-		cadeia diretorio_jogo = u.obter_diretorio_usuario() + "/.portugol/exemplos/jogos/fontes/"
-		cadeia arquivo_fonte = diretorio_jogo + "poetsen_one_regular.ttf"
-
-		g.carregar_fonte(arquivo_fonte)
+		g.carregar_fonte("./fontes/poetsen_one_regular.ttf")
 	}
 
 	funcao atualizar_dimensoes_janela()
@@ -1798,3 +1811,12 @@ programa
 		sm.liberar_som(som_derrota)
 	}
 }
+
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 1087; 
+ * @DOBRAMENTO-CODIGO = [1, 140, 160, 173, 183, 201, 210, 215, 233, 225, 239, 253, 257, 251, 295, 308, 345, 374, 398, 390, 418, 434, 412, 440, 448, 465, 469, 473, 458, 490, 545, 510, 564, 504, 599, 570, 612, 631, 638, 642, 623, 649, 656, 665, 698, 715, 763, 724, 822, 834, 846, 864, 883, 892, 914, 936, 944, 959, 983, 995, 999, 1003, 1007, 973, 1023, 1032, 1046, 1065, 1079, 1093, 1105, 1120, 1134, 1143, 1148, 1185, 1225, 1239, 1251, 1263, 1275, 1280, 1292, 1307, 1319, 1331, 1336, 1361, 1405, 1426, 1432, 1440, 1456, 1469, 1480, 1486, 1478, 1503, 1511, 1519, 1531, 1545, 1560, 1565, 1583, 1600, 1607, 1618, 1629, 1640, 1605, 1655, 1662, 1669, 1676, 1653, 1685, 1701, 1711, 1720, 1732, 1743, 1749, 1766, 1778, 1786, 1791, 1799, 1805];
+ */

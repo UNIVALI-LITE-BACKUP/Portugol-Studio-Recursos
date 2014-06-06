@@ -1,22 +1,59 @@
-// O exemplo solicita um valor real calcula e exibe:
-// a) o número elevado ao cubo
-// b) a raiz quadrada do número 
-// O programa usa a biblioteca matemática para fazer estes calculos 
+
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
+ * 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo pede ao usuario que informe um valor. Logo após, utiliza a biblioteca
+ * 	Matematica para calcular e exibir:
+ * 		
+ * 		a) O número elevado ao cubo
+ * 		b) A raiz quadrada do número 
+ * 
+ * Autores:
+ * 
+ * 	Giordana Maria da Costa Valle
+ * 	Carlos Alexandre Krueger
+ * 	
+ * Data: 01/06/2013
+ */
+
 programa
 {
-	inclua biblioteca Matematica --> mat  // inclui a biblioteca matemática
+	inclua biblioteca Matematica --> mat  // Inclui a biblioteca Matemática
+	
 	funcao inicio() 
 	{
-		real valor, pot, raizq
-		/*${cursor}*/
+		real valor, potencia, raiz_quadrada
+		
 		escreva("Digite um valor: ") 
-		leia(valor) // lê o valor digitado pelo usuário
+		leia(valor)
 
-		pot = mat.potencia(valor, 3.0) // calcula o valor elevado ao cubo
-		raizq = mat.raiz (valor, 2.0) // calcula a raiz quadrada do valor
+		potencia = mat.potencia(valor, 3.0)  	// Calcula o valor elevado ao cubo
+		raiz_quadrada = mat.raiz (valor, 2.0) 	// Calcula a raiz quadrada do valor
 
-		// Exibição dos resultados finais
-		escreva("\nO número ao cubo é: ",pot,"\n")
-		escreva("A raiz quadrada do número é: ",raizq,"\n")
+		// Exibe os resultados
+		
+		escreva("\nO número ao cubo é: ", potencia, "\n")
+		escreva("A raiz quadrada do número é: ", raiz_quadrada, "\n")
 	}
 }
+
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 1021; 
+ * @DOBRAMENTO-CODIGO = [1];
+ */

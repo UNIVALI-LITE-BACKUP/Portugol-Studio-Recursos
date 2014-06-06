@@ -1,57 +1,101 @@
-// O exemplo a seguir simula uma pequena eleição entre dois candidatos  
+
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
+ * 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo ilustra o uso do laço "faca-enquanto", simulando uma eleição entre 
+ * 	dois candidatos. O exemplo ilustra também o uso do comando "escolha" para contabilizar
+ * 	os votos de cada candidato.
+ * 	
+ * Autores:
+ * 
+ * 	Giordana Maria da Costa Valle
+ * 	Carlos Alexandre Krueger
+ * 	
+ * Data: 01/06/2013
+ */
+
 programa
 {
 	funcao inicio()
 	{
-		inteiro voto1 = 0, voto2 = 0, branco=0, nulos = 0, totalVotos = 0, candidato
+		inteiro candidato_a = 0, candidato_b = 0, brancos = 0, nulos = 0, total_votos = 0
+		real porcentagem_candidato_a, porcentagem_candidato_b, porcentagem_brancos, porcentagem_nulos
 		
-		real porcentagemVoto1, porcentagemVoto2,porcentagemBranco, porcentagemNulos
-		/*${cursor}*/
+		inteiro voto
+		
 		faca
 		{
 			limpa()
-			escreva("Escolha seu candidato ou tecle zero para encerrar \n")
-			escreva("1-> Candidato A \n")
-			escreva("2-> Candidato B \n")
-			escreva("3-> Branco \n")
-			escreva("Qualquer número diferente de 0,1,2 e 3 anulará o seu voto \n")
+			escreva("Escolha seu candidato ou tecle zero para encerrar\n\n")
+			
+			escreva("  1 -> Candidato A\n")
+			escreva("  2 -> Candidato B\n")
+			escreva("  3 -> Branco\n")
+			
+			escreva("\nQualquer número diferente de 0, 1, 2 e 3 anulará o seu voto\n")
 			escreva("Digite seu voto: ")
-			leia(candidato)
+			
+			leia(voto)
+			limpa()
 
-			escolha (candidato)
+			escolha (voto)
 			{
 				caso  0:
-					escreva ("\nEncerrando Votação !\n")
+					escreva ("Votação encerrada!\n")
 					pare
 				caso  1: 
-			 		voto1 ++ // contador do candidato 1
+			 		candidato_a = candidato_a + 1 // Soma um voto para o candidato A
 			 		pare
 			 	caso  2: 
-			 		voto2 ++ // contador do candidato 2
+			 		candidato_b = candidato_b + 1 // Soma um voto para o candidado B
 			 		pare
 			 	caso  3: 
-			 		branco ++ // contador dos votos brancos
+			 		brancos = brancos + 1 // Soma um voto em branco
 			 		pare
 			 	caso contrario:
-			 		nulos++
-			}
-			 
-		}enquanto(candidato != 0)
+			 		nulos = nulos + 1 // Opção inválida. Soma um voto nulo
+			}			 
+		}
+		enquanto(voto != 0)
 
-		// calcula o total de votos
-		totalVotos = voto1 + voto2 + branco + nulos
+		// Calcula o total de votos
+		total_votos = candidato_a + candidato_b + brancos + nulos
+
+		// Se houve votos, calcula a porcentagem de votos de cada candidato
 		
-		se (totalVotos > 0) { // só calcula se houveram votos
-			porcentagemVoto1 = (voto1*100.0)/totalVotos  // calcula a porcentagem de cada candidato 
-			porcentagemVoto2 = (voto2*100.0)/totalVotos
-			porcentagemBranco = (branco*100.0)/totalVotos
-			porcentagemNulos = (nulos*100.0)/totalVotos
-			limpa()
-			escreva("Total de votos:  ", totalVotos, "\n")
-			escreva("Candidato A:  " ,voto1, " votos ", porcentagemVoto1, "% do total \n" )
-			escreva("Candidato B:  ",voto2, " votos ", porcentagemVoto2, "% do total \n" )
-			escreva("Brancos:  ", branco, " votos ", porcentagemBranco, "% do total \n")
-			escreva("Nulos: ", nulos," votos ", porcentagemNulos, "% do total \n")
+		se (total_votos > 0)
+		{
+			porcentagem_candidato_a = (candidato_a * 100.0) / total_votos  
+			porcentagem_candidato_b = (candidato_b * 100.0) / total_votos
+			porcentagem_brancos = (brancos * 100.0) / total_votos
+			porcentagem_nulos = (nulos * 100.0) / total_votos
+			
+			escreva("\nTotal de votos: ", total_votos, "\n\n")
+			escreva("Candidato A: " , candidato_a, " voto(s). ", porcentagem_candidato_a, " % do total\n" )
+			escreva("Candidato B: ", candidato_b, " voto(s). ", porcentagem_candidato_b, " % do total\n" )
+			escreva("Brancos: ", brancos, " voto(s). ", porcentagem_brancos, " % do total\n")
+			escreva("Nulos: ", nulos, " voto(s). ", porcentagem_nulos, " % do total\n")
 		}
 	}
 }
+
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 1114; 
+ * @DOBRAMENTO-CODIGO = [1];
+ */

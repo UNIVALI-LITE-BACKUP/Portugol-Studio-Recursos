@@ -1,14 +1,40 @@
-/**
- * Autores: 
+
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2014 - UNIVALI - Universidade do Vale do Itajaí
  * 
- * 	Luiz Fernando Noschang
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo é um Jogo escrito em Portugol no qual o jogador controla uma nave que
+ * 	deve pousar na lua o mais rápido possível. O exemplo demonstra como utilizar algumas 
+ * 	das bibliotecas existentes no Portugol. Neste exemplo, também é possível ver algumas
+ * 	técnicas utilizadas na criação de jogos.
+ *	
+ *	As regras do jogo são as sguintes:
+ *	
+ *		a) O jogador perde se guiar a nave para fora da tela
+ *		b) O jogador perde se pousar a nave fora da plataforma de pouso
+ *		c) O jogador perde se pousar a nave muito rápido
+ * 	
+ *   Jogo adaptado de http://www.gametutorial.net/article/Keyboard-input---Moon-lander
+ * 	
+ * Autores:
+ * 
  * 	Fillipi Domingos Pelz
- * 
- * Jogo adaptado de http://www.gametutorial.net/article/Keyboard-input---Moon-lander
- * 
- * Versão mínima necessária para executar: PortugolSudio 2.1 RC 2
- * Download em: http://sourceforge.net/projects/portugolstudio
- *//*${cursor}*/
+ *   Luiz Fernando Noschang (noschang@univali.br)
+ *   
+ * Data: 08/09/2013
+ */
+ 
 programa
 {
 	inclua biblioteca Graficos --> g
@@ -252,7 +278,7 @@ programa
 
 	funcao carregar_imagens()
 	{
-		cadeia pasta_imagens = u.obter_diretorio_usuario() + "/.portugol/exemplos/jogos/moon_lander/"
+		cadeia pasta_imagens = "./moon_lander/"
 
 		imagem_fundo = g.carregar_imagem(pasta_imagens + "fundo.jpg")
 		imagem_menu = g.carregar_imagem(pasta_imagens + "menu.jpg")
@@ -290,3 +316,11 @@ programa
 	}
 }
 
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 1364; 
+ * @DOBRAMENTO-CODIGO = [1, 77, 85, 109, 132, 139, 130, 150, 155, 148, 164, 168, 173, 177, 162, 183, 189, 221, 231, 240, 248, 216, 264, 278, 292, 304, 311];
+ */
