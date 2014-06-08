@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Operação de Bitwise Shift</title>
+        <link rel="stylesheet" type="text/css" href="../../../../ajuda.css" />
+        <link rel="shortcut icon" href="../../../../imagens/pagina.png" />
+    </head>
+    <body>
+        <div>
+            <h1>Operação de Bitwise Shift</h1>
+            
+            <p>Os operadores de Bitwise Shift são utilizados para deslocar bits de um número inteiro para direita ou para a esquerda.</p>
+            <br>
+			<h2>Left Shift</h2>
+            <p>Em um deslocamento aritmético à esquerda, os bits são deslocados para a esquerda e zeros são acrescentados à direita como demonstra a imagem: </p>
+            
+            <br><center><img src="../../../../imagens/topicos/linguagem/operacao/left-shift.png"></center><br>
+            
+            <p>Por exemplo:</p>
+             <pre>
+   00010111 (decimal +23) LEFT-SHIFT
+=  00101110 (decimal +46)
+            </pre>
+            <p>Veja a sintaxe:</p>
+			<br>
+			<p><b>&#60valor> &#60&#60 &#60número de bits a ser deslocado><br></b></p>
+			<br>
+			<p>O número de bits a ser deslocado equivale a quantidade de vezes que o valor será multiplicado por 2.</p>
+			<br>
+			<h2>Right Shift</h2>
+            <p>Em um deslocamento aritmético para a direita, o bit de sinal é deslocado da esquerda, preservando, assim, o sinal do operando como demonstra a imagem:</p>
+            
+            <br><center><img src="../../../../imagens/topicos/linguagem/operacao/right-shift.png"></center><br>
+            
+            <p>Por exemplo:</p>
+            
+            <pre>
+   10010111 (decimal -105) RIGHT-SHIFT
+=  11001011 (decimal -53)
+            </pre>
+            <p>Veja a sintaxe:</p>
+			<br>
+			<p><b>&#60valor> >> &#60número de bits a ser deslocado><br></b></p>
+			<br>
+			<p>O número de bits a ser deslocado equivale a quantidade de vezes que o valor será dividido por 2, sempre resultando em um valor inteiro.</p>
+			<br>
+			<h2>Tabela de compatibilidade de tipos da operação de Bitwise SHIFT</h2>
+			<table>
+                <thead>
+                    <tr>
+                        <td>Operando Esquerdo</td>
+                        <td>Operando Direito</td>
+                        <td>Tipo Resultado</td>
+                        <td>Exemplo</td>
+                        <td>Resultado</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="tipo">inteiro</span></td>
+                        <td><span class="tipo">inteiro</span></td>
+                        <td><span class="tipo">inteiro</span></td>
+                        <td><span class="inteiro">12</span> <span class="operador">>></span> <span class="inteiro">2</span></td>
+                        <td><span class="inteiro">3</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="tipo">inteiro</span></td>
+                        <td><span class="tipo">inteiro</span></td>
+                        <td><span class="tipo">inteiro</span></td>
+                        <td><span class="inteiro">12</span> <span class="operador">&#60&#60</span> <span class="inteiro">2</span></td>
+                        <td><span class="inteiro">48</span></td>
+                    </tr>
+                </tbody>
+            </table>
+			<hr/>
+			<p>O exemplo a seguir ilustra em portugol os mesmos exemplos usados anteriormente.</p>
+			<br>
+			<h2>Exemplo:</h2>
+        	<pre class="codigo-portugol">
+programa
+{
+    funcao inicio()
+    {	
+	escreva (23 &#60&#60 1, "\n", -105 >> 1)
+    }
+}
+			</pre>
+        </div>
+    </body>
+</html>

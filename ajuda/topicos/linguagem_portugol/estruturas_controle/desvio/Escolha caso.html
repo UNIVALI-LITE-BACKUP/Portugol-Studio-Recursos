@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Escolha-caso</title>
+        <link rel="stylesheet" type="text/css" href="../../../../ajuda.css" />
+         <link rel="shortcut icon" href="../../../../imagens/pagina.png" />
+   
+    </head>
+    <body>
+        <div>
+            <h1>Escolha-caso</h1>
+            <p>Qual a melhor forma para programar um menu de, por exemplo, uma calculadora? Esta tarefa poderia ser executada através de desvios condicionais se e senão, porém esta solução seria complexa e demorada. Pode-se executar esta tarefa de uma maneira melhor, através de outro tipo de desvio condicional: o escolha-caso. Este comando é similar aos comandos se e senão, e reduz a complexidade da utilização de vários se e senão simultâneos.</p>
+            <p>Apesar de suas similaridades com o se, ele possui algumas diferenças. Neste comando não é possível o uso de operadores lógicos, ele apenas trabalha com valores definidos, ou o valor é igual ou diferente. Além disto, o escolha-caso tem alguns casos testes, e se a instrução pare não for colocada ao fim de cada um destes testes, o comando executará todos casos existentes. Veja a sintaxe:</p>
+			<br>
+			<p><b>escolha(&#60 expressão > ou &#60 variavel > ){<br>
+			caso &#60 teste1 >:<br>
+			[comandos]<br>
+			pare<br><br>
+			caso &#60 teste2 >:<br>
+			[comandos]<br>
+			pare<br><br>
+			caso &#60 teste3 >:<br>
+			[comandos]<br>
+			pare<br><br>
+			caso contrario:<br>
+			[comandos]<br>
+			}
+			</b></p>
+			<br>
+			<p>O comando pare evita que os blocos de comando seguinte sejam executados por engano. O caso contrario será executado caso nenhuma das expressões anteriores sejam executadas.</p>
+			<p>A figura a seguir ilustra um algoritmo que verifica se o a variável valor é igual a 0, 1 ou 2.</p>
+			<br><br>
+			<center><img src="../../../../imagens/escolha_caso.jpg"></center>
+			<br>
+			<p>O exemplo a seguir ilustra em portugol o mesmo algoritmo do fluxograma acima.</p>
+			<br>
+			<h2>Exemplo:</h2> 
+            <pre class="codigo-portugol">
+programa
+{
+        funcao inicio()
+        {
+					  
+		inteiro valor=1
+		escolha (valor){
+
+		caso 0:		//testa se o valor é igual a 0
+		escreva ("o valor é igual a 0")
+		pare
+
+		caso 1:		//testa se o valor é igual a 1
+		escreva ("o valor é igual a 1")
+		pare
+
+		caso 2:		//testa se o valor é igual a 2
+		escreva ("o valor é igual a 2")
+		pare
+
+		caso contrario:
+		escreva ("o valor não é igual a 0, 1 ou 2")
+		}
+		
+		}
+}
+            </pre>
+        </div>
+    </body>
+</html>

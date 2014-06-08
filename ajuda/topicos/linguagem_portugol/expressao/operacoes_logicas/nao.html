@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Nao</title>
+        <link rel="stylesheet" type="text/css" href="../../../ajuda.css" />
+        <link rel="shortcut icon" href="../../../../imagens/pagina.png" />
+    </head>
+    <body>
+        <div>
+            <h1>Nao</h1>
+            <p>Em algumas situações necessitamos verificar se o contrário de uma sentença é verdadeiro ou não. Por exemplo, se você tem uma variável com um valor falso, e quer fazer um teste que será positivo sempre que essa variável for falsa, como faria? Para isso podemos utilizar o operador lógico NAO.</p>
+			<p>O operador NAO funciona de forma diferente pois necessita apenas de um operando. Quando usamos o operador NÃO, o valor lógico do operando é invertido, ou seja, o valor falso torna-se verdadeiro e o verdadeiro torna-se falso.</p>
+			<p>Em geral, os operadores lógicos são utilizados em conjunto com as Estruturas de Controle. Veja a sintaxe:</p>
+			<br>
+			<p><b>&#60estrutura de controle> ( nao &#60teste>){<br>
+			&#60comandos><br>
+			}</b></p>
+			<br>
+			<p>Para melhor compreensão deste conceito, confira o exemplo abaixo.</p>
+			<br>
+            <h2>Exemplo:</h2>
+            <pre class="codigo-portugol">
+programa
+{
+    funcao inicio()
+    {
+    	//Neste caso de teste a variável teste foi inicializada como falso, e foi verificado se teste não é verdadeiro
+        logico teste = falso
+        se(nao(teste)){
+        	escreva("Teste positivo")
+        }
+        
+        //Neste caso teste a soma das variáveis a e b resulta em 5, e comparado se a mesma é maior que 7, entretanto o operador nao, verifica se a+b não são maiores que 7
+        inteiro a = 2, b = 3
+        se(nao(a+b > 7)){
+        	escreva("Teste positivo")
+        }
+    }
+}
+           </pre>
+        </div>
+    </body>
+</html>

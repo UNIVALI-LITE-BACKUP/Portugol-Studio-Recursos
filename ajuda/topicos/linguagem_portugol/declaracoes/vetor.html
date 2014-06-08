@@ -7,11 +7,17 @@
     <body>
         <div>
             <h1>Declaração de Vetor</h1>
-            <p>Vetor é uma das mais simples estruturas de dados. Os vetores mantêm uma série de elementos de dados do mesmo tipo de dado.</p>
-            <p>Elementos individuais são acessados por sua posição no vetor. A posição é dada por um índice. O índice utiliza uma sequência de números inteiros começando por zero.</p>
-            <p>Sua declaração é similar à declaração de variáveis, definindo primeiro o seu tipo, em seguida do seu nome e por fim a sua dimensão.<p>
-            <p>É possível inicializar o vetor durante sua declaração, esta inicialização deve possuir a mesma quantidade de elementos especificadas na declaração.</p>
-            <h2>Exemplo:</h2>
+            <p>Armazenar a nota de um aluno é possível utilizando uma variável do tipo real. Mas para armazenar as notas de todos os alunos de uma turma? Seria necessário criar uma variável para cada aluno? E se cada turma tiver quantidade de alunos variáveis? E os nomes de cada um dos alunos? Poderíamos armazenar estes dados em variáveis, porém o controle de muitas variáveis em um programa não é uma solução prática. Ao invés disso, utiliza-se uma estrutura de dados que agrupa todos estes valores em um nome único. Esta estrutura chama-se vetor.</p>
+            <p>Um vetor pode ser visto como uma variável que possui diversas posições, e com isso armazena diversos valores, porém todos do mesmo tipo.</p>
+            <p>Assim como as variáveis, o vetor tem que ser declarado. Sua declaração é similar à declaração de variáveis, definindo primeiro o seu tipo, em seguida do seu nome e por fim a sua dimensão. A sintaxe para declarar um vetor pode ser vista a seguir:</p>
+            <br>
+			<p><b>tipo [nome_do_vetor] [dimensão]</b></p>
+			<br>
+			<p>Elementos individuais são acessados por sua posição no vetor. Como um vetor tem mais de uma posição, deve-se indicar qual posição do vetor se quer fazer acesso. Para isso é necessário usarmos um índice.</p>
+            <p>O índice é um valor inteiro que aparece sempre entre colchetes "[ ]" após o nome do vetor. Adotamos que a primeira posição do vetor tem índice zero (similar a liguagem C) e a última depende do tamanho do vetor. Em um vetor de DEZ elementos tem-se as posições 0,1,2,3,4,5,6,7,8,9. Já um vetor de QUATRO elementos tem apenas OS ÍNDICES 0,1,2,3.</p>
+			<p>Para melhor compreensão deste conceito, confira o exemplo abaixo.</p>
+			<br>
+			<h2>Exemplo:</h2>
             <pre class="codigo-portugol">
 programa
 {

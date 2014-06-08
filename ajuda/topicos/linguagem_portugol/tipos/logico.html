@@ -7,20 +7,27 @@
     <body>
         <div>
             <h1>Tipo Lógico</h1>
-            <p>É um tipo de dado, usado em operações lógicas, que possui somente dois valores, que são consideradas pelo Portugol como verdadeiro e falso</p>
+            <p>Em determinadas situações faz-se necessário trabalhar com informações do tipo verdadeiro e falso. Este tipo de necessidade aparece muito em operações relacionais para exibir se determinada condição é verdadeira ou falsa. Por exemplo: como poderíamos verificar se um número digitado pelo usuário é maior que zero? Através de uma variável do tipo lógico. Uma variável do tipo lógico é aquela que contém um tipo de dado, usado em operações lógicas, que possui somente dois valores, que são consideradas pelo Portugol como verdadeiro e falso.</p>
+			<p>A declaração de uma variável do tipo logico é simples. Veja a sintaxe:</p>
+			<br>
+			<p><b>logico &#60nome_da_variavel><br></b></p>
+			<br>
+            <p>O valor que essa variável assumirá poderá ser especificado pelo programador ou solicitado ao usuário (ver Operação de Atribuição). Lembrando que em ambos os casos a variável só assume valores verdadeiro ou falso.</p>
+            <p>Para melhor compreensão deste conceito, confira o exemplo abaixo.</p>
+			<br>
             <h2>Exemplo:</h2>
             <pre class="codigo-portugol">
 programa
 {
     funcao inicio()
-    {
-        //Imprime o valor verdadeiro do tipo lógico
-        escreva(verdadeiro)
-        //Imprime o valor falso do tipo lógico
-        escreva(falso)		
-        //Imprime o resultado da expressao lógica 
-        escreva(verdadeiro ou falso) 
-    }
+	{
+	logico teste
+	inteiro num	
+	escreva ("Digite um valor para ser comparado :")	
+	leia (num)	
+	teste = (num>0)
+	escreva ("O número digitado é maior que zero? ", teste)
+	}
 }
             </pre>
         </div>

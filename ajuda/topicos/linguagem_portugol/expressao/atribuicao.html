@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Operação de Atribuição</title>
+        <link rel="stylesheet" type="text/css" href="../../../ajuda.css" />
+        <link rel="shortcut icon" href="../../../imagens/pagina.png" />
+    </head>
+    <body>
+        <div>
+        	<h1>Atribuições</h1>
+        	<p>Quando criamos uma variável, simplesmente separamos um espaço de memória para um conteúdo. Para especificar esse conteúdo, precisamos de alguma forma determinar um valor para essa variável. Para isso, usamos a operação de atribuição.</p>
+			<p>A instrução de atribuição serve para alterar o valor de uma variável. Ao fazer isso dizemos que estamos atribuindo um novo valor a esta variável. A atribuição de valores pode ser feita de variadas formas. Pode-se atribuir valores através de constantes, de dados digitados pelo usuário (Leia) ou mesmo através de comparações e operações com outras variáveis já existentes. Neste último caso, após a execução da operação, a variável conterá o valor resultante da operação. O sinal de igual "=" é o símbolo da atribuição no Portugol. A variável a esquerda do sinal de igual recebe o valor das operações que estiverem à direita.</p>
+			<p>Veja a sintaxe:</p>
+			<br>
+			<p><b>&#60variável> = &#60constantes><br>
+			<br></b>ou<br><br>
+			<b>&#60variável> = &#60variável><br>
+			<br></b>ou<br><br>
+			<b>&#60variável> = &#60operação><br>
+			<br></b>ou<br><br>
+			<b>leia (&#60variável>)<br>
+			</b></p>
+			<br>
+			<p>Note que uma variável só pode receber atribuições do mesmo tipo que ela. Ou seja, se a variável "b" é do tipo inteiro e a variável "a" é do tipo real, a atribuição não poderá ser realizada.</p>
+			<p>Existem alguns operandos no Portugol que podem ser utilizados para atribuição de valores. São eles:</p>
+			<br>
+			<ul>
+					<li>variavel1 <b>+=</b> variavel2: Equivalente a: variavel1 = variavel1 + variavel2;</li><br>
+					<li>variavel1 <b>-=</b> variavel2: Equivalente a: variavel1 = variavel1 - variavel2;</li><br>
+					<li>variavel1 <b>*=</b> variavel2: Equivalente a: variavel1 = variavel1 * variavel2;</li><br>
+					<li>variavel1 <b>/=</b> variavel2: Equivalente a: variavel1 = variavel1 / variavel2;</li><br>
+					<li>variavel1 <b>%=</b> variavel2: Equivalente a: variavel1 = variavel1 % variavel2;</li><br>
+					<li>variavel1 <b>&=</b> variavel2: Equivalente a: variavel1 = variavel1 & variavel2;</li><br>
+					<li>variavel1 <b>^=</b> variavel2: Equivalente a: variavel1 = variavel1 ^ variavel2;</li><br>
+					<li>variavel1 <b>|=</b> variavel2: Equivalente a: variavel1 = variavel1 | variavel2;</li><br>
+					<li>variavel1<b>++</b>: Equivalente a: variavel1 = variavel1 + variavel1;</li><br>
+					<li>variavel1<b>--</b>: Equivalente a: variavel1 = variavel1 - variavel1;</li><br>
+			</ul>
+        	<p>Para melhor compreensão deste conceito, confira o exemplo abaixo.</p>
+			<br>
+			<h2>Exemplo:</h2>
+        	<pre class="codigo-portugol">
+programa
+{
+    funcao inicio()
+    {
+        //Atribuição de valores constantes a uma variável
+        inteiro a
+        a = 2
+        
+        //Atribuição através de entrada de dados, informado pelo usuário
+        inteiro b
+        leia(b)
+        
+        //Atribuição através de uma variável já informada pelo usuário
+        inteiro c
+        c = b
+    }
+}
+           </pre>
+        </div>
+    </body>
+</html>
