@@ -9,6 +9,7 @@
 	padding-top: 0px; /* adds a little border on top when controls are hidden */
         padding-bottom: 0px;
         max-height: 300px;
+        pointer-events: none;
 }
 
 /* clear styles */
