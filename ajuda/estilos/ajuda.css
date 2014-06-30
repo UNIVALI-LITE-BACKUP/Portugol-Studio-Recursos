@@ -1,0 +1,99 @@
+body
+{
+    font-family: "Open Sans";
+    font-size: 10.2pt;
+    line-height: 150%;
+    margin: 0px;    
+    padding: 0px;
+    background-color: #FCFCFC;
+}
+
+h1, h2
+{
+    font-size: 13pt;
+    color: white;
+    margin-bottom: 0px;
+    background-color: rgb(40, 103, 130);
+    padding: 5px;
+    padding-left: 8px;
+}
+
+h2
+{
+    font-size: 11pt;
+}
+
+p
+{
+    margin: 20px;
+    text-align: justify;
+}
+
+div.codigo-portugol
+{
+    margin: 20px;
+    border: 1px solid rgb(202, 198, 179);
+    background-color: #E7E5DC;
+}   
+
+div.cabecalho-codigo-portugol
+{
+    color: rgb(40, 103, 130);
+    border-bottom: 1px solid rgb(202, 198, 179);
+    padding: 10px;    
+}
+
+div.botao-codigo-portugol button
+{
+    color: rgb(40, 103, 130);
+    background-color: #E7E5DC;
+    border: 1px solid rgb(40, 103, 130);
+}
+
+img
+{    
+    border: 2px solid black;
+    margin: 10px;
+}
+
+.cadeia 
+{
+    color: orange;
+}
+
+.caracter 
+{
+    color: red;
+}
+
+.inteiro 
+{
+    color: blueviolet;
+}
+
+.real 
+{
+    color: blue;
+}
+
+.logico 
+{
+    color: fuchsia;
+}
+
+.tipo 
+{
+    color: green;
+    font-weight: bold;
+}
+
+.palavra-reservada 
+{
+    color: blue;
+    font-weight: bold;
+}
+
+.operador 
+{
+    color: brown;
+}

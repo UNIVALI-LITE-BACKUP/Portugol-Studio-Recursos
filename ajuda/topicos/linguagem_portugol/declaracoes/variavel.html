@@ -1,8 +1,13 @@
-<html>
+<!DOCTYPE html>
     <head>
         <title>Declaração de Variáveis</title>
-        <link rel="stylesheet" type="text/css" href="../../../ajuda.css" />
-        <link rel="shortcut icon" href="../../../imagens/pagina.png" />
+        <link rel="stylesheet" type="text/css" href="../../../estilos/ajuda.css"/>
+        <link rel="stylesheet" type="text/css" href="../../../estilos/SyntaxHighlighter.css"/>
+
+        <script src="../../../scripts/SyntaxHighlighter/shCore.js"></script>
+        <script src="../../../scripts/SyntaxHighlighter/shBrushPortugol.js"></script>
+        <script src="../../../scripts/jquery-1.11.1.min.js"></script>
+        <script src="../../../scripts/exemplos.js"></script>
     </head>
     <body>
         <div>
@@ -11,39 +16,14 @@
             <p>Vamos supor que queremos fazer um programa que solicita para um usuário digitar a sua idade e exibe a ele quantos anos faltam para ele atingir 100 anos de idade.  Precisaremos armazenar a idade do usuário para depois realizar o cálculo 100 - idade_usuario e depois armazenar também o resultado.</p>
             <p>Para facilitar a nossa vida de programadores, foram criadas as variáveis. As variáveis podem ser entendidas como sendo apelidos para as posições de memória. É através das variáveis que os dados dos nossos programas serão armazenados. A sintaxe para declaração de variáveis está a seguir:</p>
             <br>
-			<p><b>tipo_da_variável [nome_da_variavel]<br></b>
-			ou<br>
-			<b>tipo_da_variável [nome_da_variavel_1,..., nome_da_variavel_n]</b></p>
-			<br>
-			<p>É importante ressaltar que o nome de cada variável deve ser explicativo, facilitando assim a compreensão do conteúdo que está armazenado nela.</p>
+            <p><b>tipo_da_variável [nome_da_variavel]<br></b>
+                ou<br>
+                <b>tipo_da_variável [nome_da_variavel_1,..., nome_da_variavel_n]</b></p>
+            <br>
+            <p>É importante ressaltar que o nome de cada variável deve ser explicativo, facilitando assim a compreensão do conteúdo que está armazenado nela.</p>
             <p>Para melhor compreensão deste conceito, confira o exemplo abaixo.</p>
-			<br>
-			<h2>Exemplo:</h2>
-            <pre class="codigo-portugol">
-programa
-{
-    //variável global do tipo inteiro
-    inteiro variavel
-	
-    funcao inicio()
-    {
-        //variável local do tipo inteiro
-        inteiro outra_variavel 
-
-        //variável local do tipo real já inicializada
-        real altura = 1.79
-
-        cadeia frase = "Isso é uma variável do tipo cadeia"
-
-        caracter inicial = 'P'
-
-        logico exemplo = verdadeiro
-
-        //Imprime 1.79, valor obtido na variável altura
-        escreva(altura)
-    }
-}
-            </pre>
+            <br>
+            <div class="codigo-portugol" data-title="Exemplo" data-file="../../../recursos/exemplos/declaracoes/variavel.por"></div>
         </div>
     </body>
 </html>
