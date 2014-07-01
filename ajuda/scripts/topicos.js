@@ -14,7 +14,11 @@ var topicos = Tree.create
                         {titulo: "Declaração de Vetor", html: "topicos/linguagem_portugol/declaracoes/vetor.html"}
                     ]
                 },
-                {titulo: "hahahaha", html: "topicos/linguagem_portugol/declaracoes/index.html", subTopicos:[]}
+                {titulo: "Entrada e Saída", html: "topicos/linguagem_portugol/entrada_saida/index.html", subTopicos:[
+						{titulo: "Escreva", html: "topicos/linguagem_portugol/entrada_saida/escreva.html"},
+						{titulo: "Leia", html: "topicos/linguagem_portugol/entrada_saida/leia.html"},
+						{titulo: "Limpa", html: "topicos/linguagem_portugol/entrada_saida/limpa.html"}
+				]}
             ]
         }
     ]
