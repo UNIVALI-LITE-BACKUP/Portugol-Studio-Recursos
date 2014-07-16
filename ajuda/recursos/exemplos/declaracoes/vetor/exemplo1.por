@@ -1,5 +1,5 @@
 inteiro vetor[5]
-character vetor2[200]
+caracter vetor2[200]
 //vetores inicializados
 real vetor3[2] = {1.4,2.5}
 logico vetor4[4] = {verdadeiro,falso,verdadeiro,verdadeiro}

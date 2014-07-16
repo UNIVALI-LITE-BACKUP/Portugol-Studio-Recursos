@@ -7,8 +7,6 @@
 				<entrada tipodado="cadeia">Fillipi Pelz</entrada>
 			</entradas>
 			<saidas>
-				<saida tipodado="cadeia">Digite seu nome a seguir: </saida>
-				<saida tipodado="cadeia">Olá </saida>
 				<saida tipodado="cadeia">Fillipi Pelz</saida>
 
 			</saidas>
@@ -18,8 +16,6 @@
 				<entrada tipodado="cadeia">Claudia</entrada>
 			</entradas>
 			<saidas>
-				<saida tipodado="cadeia">Digite seu nome a seguir: </saida>
-				<saida tipodado="cadeia">Olá </saida>
 				<saida tipodado="cadeia">Claudia</saida>
 			</saidas>
 		</caso>
@@ -28,8 +24,6 @@
 				<entrada tipodado="cadeia">Fernanda</entrada>
 			</entradas>
 			<saidas>
-				<saida tipodado="cadeia">Digite seu nome a seguir: </saida>
-				<saida tipodado="cadeia">Olá </saida>
 				<saida tipodado="cadeia">Fernanda</saida>
 			</saidas>
 		</caso>
@@ -38,8 +32,6 @@
 				<entrada tipodado="cadeia">André Raabe</entrada>
 			</entradas>
 			<saidas>
-				<saida tipodado="cadeia">Digite seu nome a seguir: </saida>
-				<saida tipodado="cadeia">Olá </saida>
 				<saida tipodado="cadeia">André Raabe</saida>
 			</saidas>
 		</caso>
@@ -48,14 +40,50 @@
 				<entrada tipodado="cadeia">Carlos</entrada>
 			</entradas>
 			<saidas>
-				<saida tipodado="cadeia">Digite seu nome a seguir: </saida>
-				<saida tipodado="cadeia">Olá </saida>
 				<saida tipodado="cadeia">Carlos</saida>
 			</saidas>
 		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="cadeia">Paulo</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Paulo</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="cadeia">José Almeira</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">José Almeira</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="cadeia">Alice</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Alice</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="cadeia">Otavio Costa</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Otavio Costa</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="cadeia">Rose Amarela</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="cadeia">Rose Amarela</saida>
+			</saidas>
+		</caso>
 	</testes>
-	<enunciado>Faça um programa que solicita que o usuário digite o seu nome e exiba a mensagem "Olá " seguido do nome digitado pelo usuário. Saídas: 
-• Pedido ao usuário = "Digite seu nome a seguir: " 
-• Resposta =  "Olá ", seguido do nome digitado pelo usuário.
+	<enunciado>Faça um programa que solicita que o usuário digite o seu nome e exiba na tela o nome digitado pelo usuário.
 </enunciado>
 </questao>

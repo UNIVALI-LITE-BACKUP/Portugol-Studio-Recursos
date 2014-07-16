@@ -18,58 +18,23 @@
 			<br>
 			<hr/>
 			<p>Para se utilizar uma biblioteca é necessário primeiro importa-la para o seu programa. </p>
-			<p>No portugol se o usa comando: </p>
-			<pre class="sintaxe-codigo"><span class ="palavra-reservada">inclua biblioteca</span> <span class="palavra-abstrata">nome_da_biblioteca</span></pre>
-			<p>Para usar um recurso da biblioteca deve-se escrever o nome da biblioteca (ou apelido), seguido por um ponto e o nome do recurso a ser chamado como demonstrado abaixo:</p>
-			<pre class="sintaxe-codigo">
-<span class="palavra-abstrata">nome_da_biblioteca</span>.<span class="palavra-abstrata">funcao_da_biblioteca(parametros)</span>
-<span class="palavra-abstrata">nome_da_biblioteca</span>.<span class="palavra-abstrata">CONSTANTE_DA_BIBLIOTECA</span>
-			</pre>
-			<h2>Exemplo:</h2>
-			<pre class="codigo-portugol">
-programa
-{
-	inclua biblioteca Matematica
-	funcao inicio()
-	{
-		real resultado
-		resultado = Matematica.arredondar(Matematica.PI,5)
-		escreva(resultado)	
-	}
-}
-
-			</pre>
+			<p>No portugol para importar uma biblioteca usa-se as palavras reservadas <span class ="palavra-reservada">inclua biblioteca</span> seguido do nome da biblioteca que se deseja usar, e opcionalmente pode-se atribuir um apelido a ela usando do operador "-->" sem aspas seguido do apelido.</p>
+			<p>Para usar um recurso da biblioteca deve-se escrever o nome da biblioteca (ou apelido), seguido por um ponto e o nome do recurso a ser chamado como demonstrado abaixo.</p>
+			<div class="codigo-portugol" data-title="Exemplo de Sintaxe" data-file="../../../recursos/exemplos/bibliotecas/exemplo1.por"></div>        
 			<hr/>
 			<p>No portugol, existem as seguintes bibliotecas:</p>
 			<ul>
                 <li>Arquivos</li>
-                <li>Gráficos</li>
-				<li>Matemática</li>
+                <li>Graficos</li>
+				<li>Matematica</li>
 				<li>Mouse</li>
 				<li>Sons</li>
 				<li>Teclado</li>
 				<li>Texto</li>
 				<li>Tipos</li>
-				<li>Útil</li>
+				<li>Util</li>
 			</ul>
-			<p>Dica:</p>
-			<p>Você também pode dar um "apelido" para a biblioteca na hora de importa-la usando o seguinte comando na hora da importação:</p>
-			<pre class="sintaxe-codigo">
-<span class ="palavra-reservada">inclua biblioteca</span> <span class="palavra-abstrata">nome_da_biblioteca</span> --> <span class="palavra-abstrata">apelido</span></pre>
-			<p>Onde apelido é um nome a sua escolha para a biblioteca</p>
-			<h2>Exemplo:</h2>
-			<pre class="codigo-portugol">
-programa
-{
-	inclua biblioteca Matematica --> Mat
-	funcao inicio()
-	{
-		real resultado
-		resultado = Mat.arredondar(Mat.PI,5)
-		escreva(resultado)	
-	}
-}
-			</pre>
+			<div class="codigo-portugol" data-title="Exemplo" data-file="../../../recursos/exemplos/bibliotecas/exemplo2.por"></div>
 		</div>
     </body>
 </html>
