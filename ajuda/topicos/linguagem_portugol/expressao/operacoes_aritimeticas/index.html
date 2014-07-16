@@ -1,31 +1,65 @@
 <html>
     <head>
         <title>Operações Aritméticas</title>
-        <link rel="stylesheet" type="text/css" href="../../../../ajuda.css" />
-        <link rel="shortcut icon" href="../../../../imagens/livro.png" />
+        <meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../../../../estilos/ajuda.css"/>
+        <link rel="stylesheet" type="text/css" href="../../../../estilos/SyntaxHighlighter.css"/>
+        <script src="../../../../scripts/SyntaxHighlighter/shCore.js"></script>
+        <script src="../../../../scripts/SyntaxHighlighter/shBrushPortugol.js"></script>
+        <script src="../../../../scripts/jquery-1.11.1.min.js"></script>
+        <script src="../../../../scripts/exemplos.js"></script>
     </head>
     <body>
         <div>
             <h1>Operações Aritméticas</h1>
             <p>As operações aritméticas são nossas velhas conhecidas da Matemática. Em algoritmos é muito comum usarmos operadores aritméticos para realizar cálculos.</p>
             <p>Os símbolos que usamos para os operadores na Matemática mudam um pouquinho em algoritmos. A multiplicação, que na matemática é um xis 'x' ou um ponto "." torna-se um '*', justamente para não confundir com o xis que pode ser uma variável e com o ponto que pode ser a parte decimal de um número real. A tabela a seguir mostra quais são os operadores que o Portugol utiliza:</p>
-            <br>
-			<center><img src="../../../../imagens/Operacoes_aritmeticas.jpg"></center>
-			<br>
+			<center>
+				<table border="2" cellspacing="0" cellpadding="10">
+					<tr>
+						<th>Operação</th>
+						<th>Símbolo</th>
+						<th>Prioridade</th>
+					</tr>
+					<tr>
+						<td>Adição</td>
+						<td>+</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>Subtração</td>
+						<td>-</td>
+						<td>1</td>
+					</tr>
+					<tr>
+						<td>Multiplicação</td>
+						<td>*</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td>Divisão</td>
+						<td>/</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<td>Resto da divisão inteira</td>
+						<td>%</td>
+						<td>2</td>
+					</tr>
+				</table>
+			</center>
 			<p>A prioridade indica qual operação deve ser realizada primeiro quando houverem várias juntas. Quanto maior a prioridade, antes a operação ocorre. Por exemplo:</p>
-       
 			<p>6 + 7 * 9</p>
-			
 			<p>A multiplicação 7 * 9 é feita antes pois a operação de multiplicação tem prioridade maior que a soma. O resultado deste cálculo será 69.</p>
 			<p>O uso de parênteses permite modificar a ordem em que as operações são realizadas. Na Matemática existem os parênteses '(', os colchetes '[' e as chaves '{' para indicar as prioridades. Na computação, usa-se somente os parênteses, sendo que os mais internos serão realizados primeiro.</p>
-			<br>			
-			<hr/>
             <p>Nesta seção, serão abordados os seguintes tópicos:</p>
-			<li>Operação de Adição;</li>
-			<li>Operação de Divisão;</li>
-			<li>Operação de Módulo;</li>
-			<li>Operação de Multiplicação;</li>
-			<li>Operação de Subtração;</li>
+			<ul>
+				<li>Operação de Adição;</li>
+				<li>Operação de Divisão;</li>
+				<li>Operação de Módulo;</li>
+				<li>Operação de Multiplicação;</li>
+				<li>Operação de Subtração;</li>
+			</ul>
         </div>
     </body>
 </html>

@@ -1,52 +1,26 @@
 <html>
     <head>
         <title>Se-senao</title>
-        <link rel="stylesheet" type="text/css" href="../../../../ajuda.css" />
-         <link rel="shortcut icon" href="../../../../imagens/pagina.png" />
-   
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../../../../estilos/ajuda.css"/>
+        <link rel="stylesheet" type="text/css" href="../../../../estilos/SyntaxHighlighter.css"/>
+        <script src="../../../../scripts/SyntaxHighlighter/shCore.js"></script>
+        <script src="../../../../scripts/SyntaxHighlighter/shBrushPortugol.js"></script>
+        <script src="../../../../scripts/jquery-1.11.1.min.js"></script>
+        <script src="../../../../scripts/exemplos.js"></script>
+
     </head>
     <body>
         <div>
             <h1>Se-senao</h1>
             <p>Agora vamos imaginar que se a condição for falsa um outro conjunto de comandos deve ser executado. Quando iremos encontrar esta situação? </p>
-            <p>Imagine um programa onde um aluno com média final igual ou maior a 6 é aprovado. Se quisermos construir um algoritmo onde após calculada a média, seja mostrada na tela uma mensagem indicando se o aluno foi aprovado ou reprovado. Como fazer isto? Utilizando o comando se... senão! Olhe a sua sintaxe:</p>
-			<br>
-			<p><b>se (condicao) {<br>
-			[conjunto de comandos]<br>
-			}<br>
-			senao{<br>
-			[conjunto de comandos]<br>
-			}
-			</b></p>
-			<br>
-			<p>Veja que a se condição for verdadeira, os comandos localizados até o senão serão executados e o programa continuará após as chaves }. Já se a condição for falsa, os comandos entre senão e }{ é que serão executados e o programa prossegue sua execução.</p>
-			<p>A figura ilustra um algoritmo que verifica se o valor da hora digitada pelo usuário e armazenada na variável “hora”, corresponde a um horário do dia ou da noite. Para este exemplo, considerou-se que das 6 da manhã até as 18 horas é dia, caso contrário, já é noite. Ele faz isso usando um desvio condicional com senão. Note que o caminho seguindo pelo programa no caso do teste ser verdadeiro exibe uma mensagem, e no caso falso exibe outra mensagem , ou seja, só uma mensagem será exibida.</p>
-			<br><br>
-			<center><img src="../../../../imagens/se_senao.jpg"></center>
-			<br>
+            <p>Imagine um programa onde um aluno com média final igual ou maior a 6 é aprovado. Se quisermos construir um algoritmo onde após calculada a média, seja mostrada na tela uma mensagem indicando se o aluno foi aprovado ou reprovado. Como fazer isto? Utilizando o comando <span class="palavra-reservada">se</span> junto com o <span class="palavra-reservada">senao</span>.</p>
+			<p>Sua sintaxe é simples, basta no termino do comando se ao lado do fechamento de chaves, colocar o comando <span class="palavra-reservada">senao</span> e entre chaves colocar as instruções a serem executadas caso o comando <span class="palavra-reservada">se</span> for falso</p>
+			<div class="codigo-portugol" data-title="Exemplo de Sintaxe" data-file="../../../../recursos/exemplos/estruturas_controle/desvio/se_senao/exemplo1.por"></div>
+			<center><img src="../../../../recursos/imagens/se_senao.jpg"></center>
 			<p>O exemplo a seguir ilustra em portugol o mesmo algoritmo do fluxograma acima.</p>
-			<br>
-			<h2>Exemplo:</h2> 
-            <pre class="codigo-portugol">
-programa
-{
-        funcao inicio()
-        {
-					  
-		inteiro hora
-		escreva ("Digite a hora: ")
-		leia (hora)
-		
-		se (hora >= 6 e hora &#60= 18){
-		escreva ("É dia")
-		}
-		senao{
-		escreva ("É noite")
-		}
-		
-		}
-}
-            </pre>
-        </div>
-    </body>
+			<div class="codigo-portugol" data-title="Exemplo" data-file="../../../../recursos/exemplos/estruturas_controle/desvio/se_senao/exemplo2.por"></div>
+
+		</div>
+	</body>
 </html>

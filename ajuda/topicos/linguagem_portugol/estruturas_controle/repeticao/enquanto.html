@@ -1,43 +1,24 @@
 <html>
     <head>
         <title>Laços Enquanto</title>
-        <link rel="stylesheet" type="text/css" href="../../../ajuda.css" />
-        <link rel="shortcut icon" href="../../../../imagens/pagina.png" />
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../../../../estilos/ajuda.css"/>
+        <link rel="stylesheet" type="text/css" href="../../../../estilos/SyntaxHighlighter.css"/>
+        <script src="../../../../scripts/SyntaxHighlighter/shCore.js"></script>
+        <script src="../../../../scripts/SyntaxHighlighter/shBrushPortugol.js"></script>
+        <script src="../../../../scripts/jquery-1.11.1.min.js"></script>
+        <script src="../../../../scripts/exemplos.js"></script>
     </head>
     <body>
         <div>
         	<h1>Laço Enquanto (Pré-Testado)</h1>
-        	<p>Se fosse necessário a elaboração de um jogo, como por exemplo um jogo da velha, e enquanto houvessem lugares disponíveis no tabuleiro, este jogo devesse continuar, como faríamos para que o algoritmo tivesse este comportamento? É simples. O comando enquanto poderia fazer esse teste lógico. A função do comando enquanto é: executar uma lista de comandos enquanto uma determinada condição for verdadeira.</p>
-        	<p>Veja a sintaxe:</p>
-			<br>
-			<p><b>enquanto (condição) {<br>
-			[conjunto de comandos]<br>
-			}<br>
-			</b></p>
-			<br>
-			<p>A figura abaixo ilustra um algoritmo que verifica uma variável do tipo carácter. Enquanto a variável for diferente da letra ‘S’ o comando enquanto será executado, assim como as instruções dentro dele. No momento em que o usuário atribuir ‘S’ a variável, o comando enquanto terminará e o programa chega ao seu final.</p>
-			<br><br>
-			<center><img src="../../../../imagens/Enquanto.jpg"></center>
-			<br>
+        	<p>Se fosse necessário a elaboração de um jogo, como por exemplo um jogo da velha, e enquanto houvessem lugares disponíveis no tabuleiro, este jogo devesse continuar, como faríamos para que o algoritmo tivesse este comportamento? É simples. O comando <span class="palavra-reservada">enquanto</span> poderia fazer esse teste lógico. A função do comando <span class="palavra-reservada">enquanto</span> é: executar uma lista de comandos enquanto uma determinada condição for verdadeira.</p>
+			<p>A sintaxe é respectivamente a palavra reservada <span class="palavra-reservada">enquanto</span>, a condição a ser testada entre parenteses, e entre chaves a lista de instruções que se deseja executar.</p> 
+			<div class="codigo-portugol" data-title="Exemplo de Sintaxe" data-file="../../../../recursos/exemplos/estruturas_controle/repeticao/enquanto/exemplo1.por"></div>
+			<p>A figura abaixo ilustra um algoritmo que verifica uma variável do tipo carácter. Enquanto a variável for diferente da letra ‘S’ o comando <span class="palavra-reservada">enquanto</span> será executado, assim como as instruções dentro dele. No momento em que o usuário atribuir ‘S’ a variável, o comando enquanto terminará e o programa chega ao seu final.</p>
+			<center><img src="../../../../recursos/imagens/enquanto.jpg"></center>
 			<p>O exemplo a seguir ilustra em portugol o mesmo algoritmo do fluxograma acima.</p>
-			<br>
-			<h2>Exemplo:</h2>
-            <pre class="codigo-portugol">
-programa
-{
-    funcao inicio()
-	{
-	caracter parar
-	parar = 'N'
-		
-	enquanto (parar != 'S'){
-	escreva ("deseja parar o laço? (S/N)")
-	leia (parar)
-	}
-
-	}
-}	
-           </pre>
+			<div class="codigo-portugol" data-title="Exemplo" data-file="../../../../recursos/exemplos/estruturas_controle/repeticao/enquanto/exemplo2.por"></div>
         </div>
     </body>
 </html>

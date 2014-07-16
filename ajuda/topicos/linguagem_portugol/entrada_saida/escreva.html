@@ -1,8 +1,14 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Escreva</title>
-        <link rel="stylesheet" type="text/css" href="../../../ajuda.css" />
-        <link rel="shortcut icon" href="../../../imagens/pagina.png" />
+		<meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../../../estilos/ajuda.css"/>
+        <link rel="stylesheet" type="text/css" href="../../../estilos/SyntaxHighlighter.css"/>
+        <script src="../../../scripts/SyntaxHighlighter/shCore.js"></script>
+        <script src="../../../scripts/SyntaxHighlighter/shBrushPortugol.js"></script>
+        <script src="../../../scripts/jquery-1.11.1.min.js"></script>
+        <script src="../../../scripts/exemplos.js"></script>
     </head>
     <body>
         <div>
@@ -10,12 +16,10 @@
             <p>Em determinadas situações precisamos mostrar ao usuário do programa alguma informação. Para isso, existe um comando na programação que exibe dados ao usuário. No portugol a instrução de saída de dados para a tela é chamada de "escreva", pois segue a ideia de que o algoritmo está escrevendo dados na tela do computador.</p>
             <p>O comando escreva é utilizado quando deseja-se mostrar informações no console da IDE, ou seja, é um comando de saída de dados.</p>
             <p>Para utilizar o comando escreva, você deverá escrever este comando e entre parênteses colocar a(s) variável(eis) ou texto que você quer mostrar no console. Lembrando que quando você utilizar textos, o texto deve estar entre aspas. A sintaxe para utilização deste comando está demonstrada a seguir:</p>
-			<br>
-			<p><b>escreva ("Escreva o texto a ser digitado aqui")</b></p>
-			<br>
+			<div class="codigo-portugol" data-title="Exemplo de Sintaxe" data-file="../../../recursos/exemplos/entrada_saida/escreva/exemplo1.por"></div>
 			<p>O fluxograma abaixo ilustra as diversas formas de se exibir valores na tela com o comando escreva.</p>
 			<br>
-			<center><img src="../../../imagens/Escreva.jpg"></center>
+			<center><img src="../../../recursos/imagens/Escreva.jpg"></center>
 			<br>
 			<p>Note que quando queremos exibir o valor de alguma variável não utilizamos as aspas. Para exibição de várias mensagens em sequência, basta separá-las com vírgulas.</p>
 			<p>Existem duas ferramentas importantes que auxiliam a organização e visualização de textos exibidos na tela. São elas: o quebra-linha e a tabulação.</p>
@@ -23,33 +27,7 @@
 			<p>O exemplo a seguir ilustra em portugol o mesmo algoritmo do fluxograma acima, bem como a utilização do quebra-linha e da tabulação.</p>
 			<br>
 			<h2>Exemplo:</h2>
-            <pre class="codigo-portugol">
-programa
-{
-    funcao inicio()
-    {
-        inteiro variavel=5
-
-        //escreve no console um texto qualquer
-        escreva ("Escreva um texto aqui.\n")
-
-        //escreve no console o valor da variável "variavel"
-        escreva (variavel, "\n")
-
-        //escreve no console o resultado da operação
-        escreva (variavel+variavel, "\n")
-
-        //escreve no console o texto digitado, e o valor contido na variável
-        escreva ("O valor da variável é: ", variavel)		
-		
-		//escreve no console o texto com quebra de linha
-		escreva ("Texto com\n", "quebra-linha")		
-		
-		//escreve no console o texto com espaço de tabulação
-		escreva ("Texto com\t tabulação")
-    }
-}
-           </pre>
+			<div class="codigo-portugol" data-title="Exemplo" data-file="../../../recursos/exemplos/entrada_saida/escreva/exemplo2.por"></div>
         </div>
     </body>
 </html>

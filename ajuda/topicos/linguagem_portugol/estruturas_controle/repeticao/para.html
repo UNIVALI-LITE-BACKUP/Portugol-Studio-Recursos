@@ -1,42 +1,26 @@
 <html>
     <head>
         <title>Laços Para</title>
-        <link rel="stylesheet" type="text/css" href="../../../ajuda.css" />
-        <link rel="shortcut icon" href="../../../../imagens/pagina.png" />
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../../../../estilos/ajuda.css"/>
+        <link rel="stylesheet" type="text/css" href="../../../../estilos/SyntaxHighlighter.css"/>
+        <script src="../../../../scripts/SyntaxHighlighter/shCore.js"></script>
+        <script src="../../../../scripts/SyntaxHighlighter/shBrushPortugol.js"></script>
+        <script src="../../../../scripts/jquery-1.11.1.min.js"></script>
+        <script src="../../../../scripts/exemplos.js"></script>
     </head>
     <body>
         <div>
         	<h1>Laço Para (Com Variável de Controle)</h1>
-        	<p>E se houver um problema em que sejam necessárias um número determinado de repetições? Por exemplo, se quiséssemos pedir ao usuário que digitasse 10 valores. Poderíamos utilizar a instrução Leia repetidas vezes. Porém se ao invés de 10 valores precisássemos de 100, essa tarefa se tornaria muito extensa. Para resolver problemas como esse, podemos usar um laço de repetição com variável de controle. No portugol, ele é conhecido como para.</p>
+			<p>E se houver um problema em que sejam necessárias um número determinado de repetições? Por exemplo, se quiséssemos pedir ao usuário que digitasse 10 valores. Poderíamos utilizar a instrução Leia repetidas vezes. Porém se ao invés de 10 valores precisássemos de 100, essa tarefa se tornaria muito extensa. Para resolver problemas como esse, podemos usar um laço de repetição com variável de controle. No portugol, ele é conhecido como <span class="palavra-reservada">para</span>.</p>
 			<p>O laço de repetição com variável de controle facilita a construção de algoritmos com número definido de repetições, pois possui um contador (variável de controle) embutido no comando com o incremento automático. Desta forma, um erro muito comum que se comete ao esquecer de fazer o incremento do contador é evitado. Toda vez que temos um problema cuja solução necessita de um número determinado de repetições utilizamos um contador. O contador deve ser inicializado antes do laço e deve ser incrementado dentro do laço.</p>
-        	<p>O laço com variável de controle possui três partes. A inicialização da variável contadora, a definição do valor final do contador e a definição do incremento. Estas três partes são escritas juntas, no início do laço. Podemos ver a sintaxe do laço logo abaixo:</p>
-			<br>
-			<p><b>para (&#60nome_da_variável> = &#60valor_inicial>; &#60condição>; &#60incr/decr>)<br>
-			[conjunto de comandos]<br>
-			}<br>
-			</b></p>
-			<br>
+        	<p>O laço com variável de controle possui três partes. A inicialização da variável contadora, a definição do valor final do contador e a definição do incremento. Estas três partes são escritas juntas, no início do laço.</p>
+			<p>A sintaxe é respectivamente a palavra reservada <span class="palavra-reservada">para</span>, abre parenteses, a declaração de uma variável de controle, ponto e virgula, a condição a ser testada, ponto e virgula, uma alteração na variável de controle a ser feita a cada iteração, fecha parenteses, e entre chaves as instruções do programa.  </p>
+			<div class="codigo-portugol" data-title="Exemplo de Sintaxe" data-file="../../../../recursos/exemplos/estruturas_controle/repeticao/para/exemplo1.por"></div>
 			<p>A figura abaixo ilustra um algoritmo que exibe na tela a tabuada de 3. Note que conforme a sintaxe mostrada anteriormente, a primeira instrução do laço é inicializar o contador c=1. O segundo comando especifica a condição para que o laço continue a ser executado, ou seja, enquanto o contador c for menor ou igual a 10. Por último, a terceira instrução demonstra que o contador c será acrescentado em 1 em seu valor a cada iteração do comando. O laço será executado 10 vezes e mostrará a tabuada de 3.</p>
-			<br><br>
-			<center><img src="../../../../imagens/Para.jpg"></center>
-			<br>
+			<center><img src="../../../../recursos/imagens/Para.jpg"></center>
 			<p>O exemplo a seguir ilustra em portugol o mesmo algoritmo do fluxograma acima.</p>
-			<br>
-			<h2>Exemplo:</h2>
-            <pre class="codigo-portugol">
-programa
-{
-    funcao inicio()
-    {
-	inteiro tab
-
-	para (inteiro c=1; c&#60=10; c++){
-	tab=c*3
-	escreva ("3 x ", c, " = ", tab, "\n")
-	}
-	}
-}
-           </pre>
+			<div class="codigo-portugol" data-title="Exemplo" data-file="../../../../recursos/exemplos/estruturas_controle/repeticao/para/exemplo2.por"></div>
         </div>
     </body>
 </html>

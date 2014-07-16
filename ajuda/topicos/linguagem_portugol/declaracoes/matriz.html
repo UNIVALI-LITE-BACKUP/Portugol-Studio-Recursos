@@ -1,36 +1,65 @@
 <!DOCTYPE html>
-<head>
-    <title>Declaração de Matriz</title>
-    <link rel="stylesheet" type="text/css" href="../../../estilos/ajuda.css"/>
-    <link rel="stylesheet" type="text/css" href="../../../estilos/SyntaxHighlighter.css"/>
+<html>
+    <head>
+        <title>Declaração de Matriz</title>
+        <meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../../../estilos/ajuda.css"/>
+        <link rel="stylesheet" type="text/css" href="../../../estilos/SyntaxHighlighter.css"/>
+        <script src="../../../scripts/SyntaxHighlighter/shCore.js"></script>
+        <script src="../../../scripts/SyntaxHighlighter/shBrushPortugol.js"></script>
+        <script src="../../../scripts/jquery-1.11.1.min.js"></script>
+        <script src="../../../scripts/exemplos.js"></script>
+    </head>
+    <body>
+        <div>
+            <h1>Declaração de Matriz</h1>
+            <p>Para a melhor compreensão do conceito de matriz, é interessante o entendimento de Vetores. Os vetores permitem solucionar uma série de problemas onde é necessário armazenamento de informações, porém ele possui a restrição de ser linear. Por exemplo, imagine que queremos armazenar três notas obtidas por quatro alunos diferentes. Neste caso, existe outra estrutura mais adequada para armazenar os dados. A matriz.</p>
+            <p>A matriz é definida como sendo um vetor com mais de uma dimensão (geralmente duas). Enquanto o vetor armazena as informações de forma linear, a matriz armazena de forma tabular (com linha e colunas).</p>
+            <p>A imagem a seguir ilustra uma matriz que armazena três notas de quatro alunos:</p>
+            <br>
+            <center>
+                <table border="2" cellspacing="0" cellpadding="10">
+                    <tr>
+                        <th>Posições</th>
+                        <th>0</th>
+                        <th>1</th>
+                        <th>2</th>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>10</td>
+                        <td>9</td>
+                        <td>6.7</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>6</td>
+                        <td>8</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>8</td>
+                        <td>7</td>
+                        <td>4.5</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>5.2</td>
+                        <td>3.3</td>
+                        <td>0.3</td>
+                    </tr>
 
-    <script src="../../../scripts/SyntaxHighlighter/shCore.js"></script>
-    <script src="../../../scripts/SyntaxHighlighter/shBrushPortugol.js"></script>
-    <script src="../../../scripts/jquery-1.11.1.min.js"></script>
-    <script src="../../../scripts/exemplos.js"></script>
-</head>
-<body>
-    <div>
-        <h1>Declaração de Matriz</h1>
-        <p>Para a melhor compreensão do conceito de matriz, é interessante o entendimento de Vetores. Os vetores permitem solucionar uma série de problemas onde é necessário armazenamento de informações, porém ele possui a restrição de ser linear. Por exemplo, imagine que queremos armazenar três notas obtidas por quatro alunos diferentes. Neste caso, existe outra estrutura mais adequada para armazenar os dados. A matriz.</p>
-        <p>A matriz é definida como sendo um vetor com mais de uma dimensão (geralmente duas). Enquanto o vetor armazena as informações de forma linear, a matriz armazena de forma tabular (com linha e colunas).</p>
-        <p>A imagem a seguir ilustra uma matriz que armazena três notas de quatro alunos:</p>
-        <br>
-        <center><img src="../../../recursos/imagens/Matriz.jpg" alt="Matriz"></center>
-        <br>
-        <p>Repare que cada linha da matriz representa um aluno que têm três notas (três colunas).</p>
-        <p>Assim como o vetor, a matriz também possui todos os elementos de um mesmo tipo. Na declaração de uma matriz temos sempre que indicar o tipo e número de linhas e colunas (nesta ordem) que ela deverá possuir. Por exemplo, para declarar uma matriz de 4 linhas e 3 colunas, a sintaxe seria a seguinte:</p>
-        <br>
-        <p><b>programa exemplo<br>
-                real notas[4][3]<br>
-                ....
-            </b></p>
-        <br>
-        <p>Ao fazer isto estamos definindo uma matriz chamada "notas" contendo 4 linhas e 3 colunas, igualzinha a do exemplo acima. Costuma-se utilizar a notação 4X3 para indicar o número de linhas e colunas. Por exemplo uma matriz 10X3 terá dez linhas e três colunas, enquanto que uma 5X5 terá cinco linha e cinco colunas, sendo uma matriz quadrada (a matriz quadrada é aquela que tem o mesmo número de linhas e colunas).</p>
-        <p>Para fazer acesso a um elemento da matriz, seja para preencher ou para consultar o valor, devemos indicar dois índices, uma para linha e outro para a coluna. O índice é um valor inteiro (pode ser constante ou uma variável) que aparece sempre entre colchetes "[ ]" após o nome do vetor.</p>
-        <p>Para melhor compreensão deste conceito, confira o exemplo abaixo.</p>
-        <br>        
-        <div class="codigo-portugol" data-title="Exemplo" data-file="../../../recursos/exemplos/declaracoes/matriz.por"></div>  
-    </div>
-</body>
+                </table>
+            </center>
+            <br>
+            <p>Repare que cada linha da matriz representa um aluno que têm três notas (três colunas).</p>
+            <p>Assim como o vetor, a matriz também possui todos os elementos de um mesmo tipo. Na declaração de uma matriz temos sempre que indicar respectivamente o tipo de dado, nome da variável, número de linhas e colunas (nesta ordem) entre colchetes.</p>
+            <p>Para fazer acesso a um elemento da matriz, seja para preencher ou para consultar o valor, devemos indicar dois índices, uma para linha e outro para a coluna. O índice é um valor inteiro (pode ser constante ou uma variável) que aparece sempre entre colchetes "[ ]" após o nome do vetor.</p>
+            <div class="codigo-portugol" data-type='sintaxe' data-title="Exemplo de Sintaxe" data-file="../../../recursos/exemplos/declaracoes/matriz/exemplo1.por"></div>
+            <p>Da mesma forma que o vetor, tentar acessar um índice fora do tamanho declarado irá gerar um erro de execução</p>
+            <p>Para melhor compreensão deste conceito, confira o exemplo abaixo.</p>
+            <div class="codigo-portugol" data-type='exemplo' data-title="Exemplo" data-file="../../../recursos/exemplos/declaracoes/matriz/exemplo2.por"></div>
+        </div>
+    </body>
 </html>

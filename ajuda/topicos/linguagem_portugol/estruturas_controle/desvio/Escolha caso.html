@@ -1,67 +1,27 @@
 <html>
     <head>
         <title>Escolha-caso</title>
-        <link rel="stylesheet" type="text/css" href="../../../../ajuda.css" />
-         <link rel="shortcut icon" href="../../../../imagens/pagina.png" />
-   
+		<meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../../../../estilos/ajuda.css"/>
+        <link rel="stylesheet" type="text/css" href="../../../../estilos/SyntaxHighlighter.css"/>
+        <script src="../../../../scripts/SyntaxHighlighter/shCore.js"></script>
+        <script src="../../../../scripts/SyntaxHighlighter/shBrushPortugol.js"></script>
+        <script src="../../../../scripts/jquery-1.11.1.min.js"></script>
+        <script src="../../../../scripts/exemplos.js"></script>
     </head>
     <body>
         <div>
             <h1>Escolha-caso</h1>
-            <p>Qual a melhor forma para programar um menu de, por exemplo, uma calculadora? Esta tarefa poderia ser executada através de desvios condicionais se e senão, porém esta solução seria complexa e demorada. Pode-se executar esta tarefa de uma maneira melhor, através de outro tipo de desvio condicional: o escolha-caso. Este comando é similar aos comandos se e senão, e reduz a complexidade da utilização de vários se e senão simultâneos.</p>
-            <p>Apesar de suas similaridades com o se, ele possui algumas diferenças. Neste comando não é possível o uso de operadores lógicos, ele apenas trabalha com valores definidos, ou o valor é igual ou diferente. Além disto, o escolha-caso tem alguns casos testes, e se a instrução pare não for colocada ao fim de cada um destes testes, o comando executará todos casos existentes. Veja a sintaxe:</p>
-			<br>
-			<p><b>escolha(&#60 expressão > ou &#60 variavel > ){<br>
-			caso &#60 teste1 >:<br>
-			[comandos]<br>
-			pare<br><br>
-			caso &#60 teste2 >:<br>
-			[comandos]<br>
-			pare<br><br>
-			caso &#60 teste3 >:<br>
-			[comandos]<br>
-			pare<br><br>
-			caso contrario:<br>
-			[comandos]<br>
-			}
-			</b></p>
-			<br>
+            <p>Qual a melhor forma para programar um menu de, por exemplo, uma calculadora? Esta tarefa poderia ser executada através de desvios condicionais <span class="palavra-reservada">se</span> e <span class="palavra-reservada">senão</span>, porém esta solução seria complexa e demorada. Pode-se executar esta tarefa de uma maneira melhor, através de outro tipo de desvio condicional: o <span class="palavra-reservada">escolha</span> junto com o <span class="palavra-reservada">caso</span>. Este comando é similar aos comandos <span class="palavra-reservada">se</span> e <span class="palavra-reservada">senão</span>, e reduz a complexidade do problema.</p>
+            <p>Apesar de suas similaridades com o <span class="palavra-reservada">se</span>, ele possui algumas diferenças. Neste comando não é possível o uso de operadores lógicos, ele apenas trabalha com valores definidos, ou o valor é igual ou diferente. Além disto, o <span class="palavra-reservada">escolha</span> e o <span class="palavra-reservada">caso</span> tem alguns casos testes, e se a instrução <span class="palavra-reservada">pare</span> não for colocada ao fim de cada um destes testes, o comando executará todos casos existentes.</p>
+			<p>A sintaxe do <span class="palavra-reservada">escolha</span> é respectivamente o comando <span class="palavra-reservada">escolha</span> a condição a ser testada e entre chaves se coloca os casos</p>
+			<p>A sintaxe para se criar um caso é a palavra reservada <span class="palavra-reservada">caso</span>, o valor que a condição testada deve possuir, dois pontos e suas instruções. Lembre-se de termina-las com o comando <span class="palavra-reservada">pare</span> </p>
+			<div class="codigo-portugol" data-title="Exemplo de Sintaxe" data-file="../../../../recursos/exemplos/estruturas_controle/desvio/escolha_caso/exemplo1.por"></div>
 			<p>O comando pare evita que os blocos de comando seguinte sejam executados por engano. O caso contrario será executado caso nenhuma das expressões anteriores sejam executadas.</p>
 			<p>A figura a seguir ilustra um algoritmo que verifica se o a variável valor é igual a 0, 1 ou 2.</p>
-			<br><br>
-			<center><img src="../../../../imagens/escolha_caso.jpg"></center>
-			<br>
+			<center><img src="../../../../recursos/imagens/escolha_caso.jpg"></center>
 			<p>O exemplo a seguir ilustra em portugol o mesmo algoritmo do fluxograma acima.</p>
-			<br>
-			<h2>Exemplo:</h2> 
-            <pre class="codigo-portugol">
-programa
-{
-        funcao inicio()
-        {
-					  
-		inteiro valor=1
-		escolha (valor){
-
-		caso 0:		//testa se o valor é igual a 0
-		escreva ("o valor é igual a 0")
-		pare
-
-		caso 1:		//testa se o valor é igual a 1
-		escreva ("o valor é igual a 1")
-		pare
-
-		caso 2:		//testa se o valor é igual a 2
-		escreva ("o valor é igual a 2")
-		pare
-
-		caso contrario:
-		escreva ("o valor não é igual a 0, 1 ou 2")
-		}
-		
-		}
-}
-            </pre>
+			<div class="codigo-portugol" data-title="Exemplo" data-file="../../../../recursos/exemplos/estruturas_controle/desvio/escolha_caso/exemplo2.por"></div>
         </div>
     </body>
 </html>
