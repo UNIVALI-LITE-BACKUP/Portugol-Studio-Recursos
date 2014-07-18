@@ -4,7 +4,8 @@ programa
     {
 		real aresta, area
 
-		faca {
+		faca 
+		{
 			escreva ("Informe o valor da aresta: ")
 			leia (aresta)
 		} enquanto (aresta <= 0)

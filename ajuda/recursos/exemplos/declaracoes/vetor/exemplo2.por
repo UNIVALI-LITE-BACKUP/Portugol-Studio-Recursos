@@ -10,9 +10,11 @@ programa
 		// ao primeiro elemento do vetor.
 		escreva(vetor[0])
 		escreva("\n")
+
 		//Imprime o segundo elemento do vetor
 		escreva(vetor[1])
 		escreva("\n")
+
 		//Imprime o  valor 11 correspondente 
 		// ao último elemento do vetor
 		escreva(vetor[4])

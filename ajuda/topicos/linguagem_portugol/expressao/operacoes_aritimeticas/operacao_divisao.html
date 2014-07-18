@@ -1,89 +1,75 @@
 <html>
     <head>
         <title>Operação de Divisão</title>
-        <link rel="stylesheet" type="text/css" href="../../../../ajuda.css" />
-        <link rel="shortcut icon" href="../../../../imagens/pagina.png" />
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../../../../estilos/ajuda.css"/>
+        <link rel="stylesheet" type="text/css" href="../../../../estilos/SyntaxHighlighter.css"/>
+        <script src="../../../../scripts/SyntaxHighlighter/shCore.js"></script>
+        <script src="../../../../scripts/SyntaxHighlighter/shBrushPortugol.js"></script>
+        <script src="../../../../scripts/jquery-1.11.1.min.js"></script>
+        <script src="../../../../scripts/exemplos.js"></script>
     </head>
     <body>
         <div>
             <h1>Operação de Divisão</h1>
             <p>Divisão é a operação matemática inversa da multiplicação. É utilizada para, como o próprio nome sugere, dividir, repartir, separar algum valor em partes iguais. Seus elementos estão demonstrados na figura a seguir:</p>
-            <br><br>
-			<center><img src="../../../../imagens/operacao_de_divisao.jpg"></center>
-			<br>
-			<p>Veja a sintaxe:</p>
-			<br>
-			<p><b>&#60valor1> / &#60valor2><br></b></p>
-			<br>
+			<center><img src="../../../../recursos/imagens/operacao_de_divisao.jpg" alt='Imagem explicando como funciona uma divisão'></center>
+			<div class="codigo-portugol" data-type='sintaxe' data-title="Exemplo de Sintaxe" data-file="../../../../recursos/exemplos/expressao/operacoes_aritimeticas/operacao_divisao/exemplo1.por"></div>
 			<p>Note que você poderá atribuir o resultado desta operação a uma variável, ou mesmo executar diretamente através do comando escreva.</p>
-			<br>
 			<h2>Propriedades importantes</h2>
 			<ul>
                 <li><b>Reintegradora</b></li>
-                    <p>Multiplicando o quociente pelo divisor se obtém o dividendo. Assim, 2 * 10 = 20.</p>
-					<br>
+				<p>Multiplicando o quociente pelo divisor se obtém o dividendo. Assim, 2 * 10 = 20.</p>
+				<br>
                 <li><b>Associatividade</b></li>
-                    <p>Quando o divisor for 1, o dividendo e o quociente são iguais. Assim, 20 / 1 = 20.</p>
+				<p>Quando o divisor for 1, o dividendo e o quociente são iguais. Assim, 20 / 1 = 20.</p>
             </ul>
             <h2>Tabela de compatibilidade de tipos da operação de divisão</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <td>Operando Esquerdo</td>
-                        <td>Operando Direito</td>
-                        <td>Tipo Resultado</td>
-                        <td>Exemplo</td>
-                        <td>Resultado</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="tipo">inteiro</span></td>
-                        <td><span class="tipo">inteiro</span></td>
-                        <td><span class="tipo">inteiro</span></td>
-                        <td><span class="inteiro">5</span> <span class="operador">/</span> <span class="inteiro">2</span></td>
-                        <td><span class="inteiro">2</span></td>
-                    </tr>
-                    <tr>
-                        <td><span class="tipo">inteiro</span></td>
-                        <td><span class="tipo">real</span></td>
-                        <td><span class="tipo">real</span></td>
-                        <td><span class="inteiro">125</span> <span class="operador">/</span> <span class="real">4.5</span></td>
-                        <td><span class="real">27.777777</span></td>
-                    </tr>
-                    <tr>
-                        <td><span class="tipo">real</span></td>
-                        <td><span class="tipo">inteiro</span></td>
-                        <td><span class="tipo">real</span></td>
-                        <td><span class="real">785.4</span> <span class="operador">/</span> <span class="inteiro">3</span></td>
-                        <td><span class="real">261.8</span></td>
-                    </tr>
-                    <tr>
-                        <td><span class="tipo">real</span></td>
-                        <td><span class="tipo">real</span></td>
-                        <td><span class="tipo">real</span></td>
-                        <td><span class="real">40.351</span> <span class="operador">/</span> <span class="real">3.12</span></td>
-                        <td><span class="real">12.9333333</span></td>
-                    </tr>
-                </tbody>
-            </table>
-			<br>
+			<center>
+				<table border="2" cellspacing="0" cellpadding="10">
+					<thead>
+						<tr>
+							<td>Operando Esquerdo</td>
+							<td>Operando Direito</td>
+							<td>Tipo Resultado</td>
+							<td>Exemplo</td>
+							<td>Resultado</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><span class="tipo">inteiro</span></td>
+							<td><span class="tipo">inteiro</span></td>
+							<td><span class="tipo">inteiro</span></td>
+							<td><span class="inteiro">5</span> <span class="operador">/</span> <span class="inteiro">2</span></td>
+							<td><span class="inteiro">2</span></td>
+						</tr>
+						<tr>
+							<td><span class="tipo">inteiro</span></td>
+							<td><span class="tipo">real</span></td>
+							<td><span class="tipo">real</span></td>
+							<td><span class="inteiro">125</span> <span class="operador">/</span> <span class="real">4.5</span></td>
+							<td><span class="real">27.777777</span></td>
+						</tr>
+						<tr>
+							<td><span class="tipo">real</span></td>
+							<td><span class="tipo">inteiro</span></td>
+							<td><span class="tipo">real</span></td>
+							<td><span class="real">785.4</span> <span class="operador">/</span> <span class="inteiro">3</span></td>
+							<td><span class="real">261.8</span></td>
+						</tr>
+						<tr>
+							<td><span class="tipo">real</span></td>
+							<td><span class="tipo">real</span></td>
+							<td><span class="tipo">real</span></td>
+							<td><span class="real">40.351</span> <span class="operador">/</span> <span class="real">3.12</span></td>
+							<td><span class="real">12.9333333</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
 			<p>Para melhor compreensão deste conceito, confira o exemplo abaixo.</p>
-			<br>
-			<h2>Exemplo:</h2>
-        	<pre class="codigo-portugol">
-programa
-{
-    funcao inicio()
-    {
-	inteiro valor
-	escreva (20/10, "\n")
-
-	valor = 20/10
-	escreva (valor)
-    }
-}
-			</pre>
+			<div class="codigo-portugol" data-type='exemplo' data-title="Exemplo" data-file="../../../../recursos/exemplos/expressao/operacoes_aritimeticas/operacao_divisao/exemplo2.por"></div>
         </div>
     </body>
 </html>

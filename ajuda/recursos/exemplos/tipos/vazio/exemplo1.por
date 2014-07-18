@@ -9,7 +9,7 @@ programa
         imprime_linha()
         informacoes("Ruby",2.0,"ruby-lang.org")
         imprime_linha()
-	informacoes("Visual Basic",6.0,"Microsoft")
+		informacoes("Visual Basic",6.0,"Microsoft")
         imprime_linha()
 
     }

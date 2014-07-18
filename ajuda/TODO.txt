@@ -1,0 +1,10 @@
+Ajustar Identação - OK
+Ordenar em ordem de necessidade - OK
+Operações relacionais (mover pro lugar correto) - OK
+(incluir atributo alt para legenda) - OK
+href="javascript:exibirConteudo('topicos/linguagem_portugol/index.html');" (FEITO: declarações,entrada_saida,estruturas_controle)
+Remover center
+Remover brs.
+Remover borda de imagens. 
+Remover borda das tabelas.
+Remover espaçamento das tabelas (REMOVER TODOS OS BRS)

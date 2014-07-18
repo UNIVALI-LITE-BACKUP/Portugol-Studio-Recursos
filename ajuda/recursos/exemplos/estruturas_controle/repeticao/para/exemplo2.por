@@ -4,7 +4,8 @@ programa
     {
 		inteiro tab
 
-		para (inteiro c=1; c<=10; c++){
+		para (inteiro c=1; c<=10; c++)
+		{
 			tab=c*3
 			escreva ("3 x ", c, " = ", tab, "\n")
 		}

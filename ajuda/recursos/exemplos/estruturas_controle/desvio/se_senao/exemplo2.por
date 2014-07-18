@@ -4,6 +4,7 @@ programa
 	{
 					  
 		inteiro hora
+
 		escreva ("Digite a hora: ")
 		leia (hora)
 		

@@ -4,8 +4,10 @@ programa
     funcao inicio()
     {
         cadeia nome
+
         //imprime a frase "Qual é o seu nome?"
         escreva("Qual é o seu nome ?\n")
+
         //Detecta o que o usuario escreveu na tela
         leia(nome)
 		
