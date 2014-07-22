@@ -10,7 +10,6 @@ programa
 	const inteiro LARGURA_JANELA = 700
 	const inteiro ALTURA_JANELA = 600
 	const inteiro COR_FUNDO = 0xF6F6F6
-	const inteiro COR_FRACTAL = 0x00AA00
 	const inteiro COR_TEXTO = 0xFF0000
 	const inteiro INTERVALO_ATUALIZACAO = 10
 	
@@ -41,17 +40,19 @@ programa
 		g.definir_dimensoes_janela(LARGURA_JANELA, ALTURA_JANELA)
 		g.definir_titulo_janela("Fractal")
 
-		imagem_ponto = g.carregar_imagem(u.obter_diretorio_usuario() + "/.portugol/exemplos/bibliotecas/fractal_fern/ponto.png")
+		imagem_ponto = g.carregar_imagem("fractal_fern/ponto.png")
 	}
 
 	funcao exibir_tela_inicial()
 	{
 		g.definir_cor(COR_FUNDO)
 		g.limpar()
-		g.definir_fonte(g.nome_fonte(), 18.0, COR_TEXTO, falso, falso, falso)
-		g.desenhar_texto(15, 15, "Este exemplo desenha um Fractal de Fern na tela", falso)
-		g.desenhar_texto(15, 40, "O desenho leva alguns segundos para ficar pronto", falso)
-		g.desenhar_texto(15, 65, "Pressione <ENTER> para continuar", falso)
+		g.definir_tamanho_texto(18.0)
+		g.definir_cor(COR_TEXTO)
+		g.definir_estilo_texto(falso, falso, falso)
+		g.desenhar_texto(15, 15, "Este exemplo desenha um Fractal de Fern na tela")
+		g.desenhar_texto(15, 40, "O desenho leva alguns segundos para ficar pronto")
+		g.desenhar_texto(15, 65, "Pressione <ENTER> para continuar")
 		g.renderizar()
 
 		enquanto (t.ler_tecla() != t.TECLA_ENTER) { }
@@ -61,9 +62,9 @@ programa
 	{
 		g.definir_cor(COR_FUNDO)
 		g.limpar()
-		g.desenhar_texto(15, 15, "Status: " + porcentagem + "% concluido", falso)
+		g.definir_cor(COR_TEXTO)
+		g.desenhar_texto(15, 15, "Status: " + porcentagem + "% concluido")
 		g.renderizar()
-		g.definir_cor(COR_FRACTAL)
 		
 		x = sorteia()
 		y = sorteia()
@@ -75,18 +76,19 @@ programa
          		porcentagem = porcentagemR
          			
          		se (porcentagem / porcentagemR == 1.0 e porcentagem % INTERVALO_ATUALIZACAO == 0) 
-         		{         	
-         			g.definir_cor(COR_FUNDO)			
-         			g.desenhar_texto(15, 15, "Status: " + porcentagem + "% concluido", verdadeiro)
+         		{
+         			g.definir_cor(COR_FUNDO)
+         			g.desenhar_retangulo(0, 0, 200, 50, falso, verdadeiro)
+         			g.definir_cor(COR_TEXTO)
+         			g.desenhar_texto(15, 15, "Status: " + porcentagem + "% concluido")
          			g.renderizar()
-         			g.definir_cor(COR_FRACTAL)
          		}
           }
 	}
 
 	funcao exibir_tela_final()
 	{
-		g.desenhar_texto(15, 40, "Pressione <ENTER> para sair", falso)
+		g.desenhar_texto(15, 40, "Pressione <ENTER> para sair")
           g.renderizar()
 
 		enquanto (t.ler_tecla() != t.TECLA_ENTER) { }
@@ -136,6 +138,15 @@ programa
 			}
 		}
           
-		g.desenhar_imagem((x + 5.0) * relacaoX, (y - 10.0) * relacaoY, imagem_ponto/*${cursor}*/)
+		g.desenhar_imagem((x + 5.0) * relacaoX, (y - 10.0) * relacaoY, imagem_ponto)
 	}	
 }
+
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 144; 
+ * @DOBRAMENTO-CODIGO = [28, 36, 45, 60, 88, 99, 104];
+ */

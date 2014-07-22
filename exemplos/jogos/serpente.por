@@ -211,6 +211,7 @@ programa
 	funcao carregar_fontes()
 	{
 		g.carregar_fonte("./fontes/poetsen_one_regular.ttf")
+		g.definir_fonte_texto("Poetsen One")
 	}
 
 	funcao atualizar_dimensoes_janela()
@@ -665,7 +666,9 @@ programa
 
 	funcao desenhar_campo_entrada_nome()
 	{
-		g.definir_fonte("Poetsen One", 14.0, tema[COR_TEXTO], falso, falso, falso)
+		g.definir_tamanho_texto(14.0)
+		g.definir_cor(tema[COR_TEXTO])
+		g.definir_estilo_texto(falso, falso, falso)
 
 		cadeia mensagem = "Digite seu nome: "
 		cadeia texto = "WWWWWWWWWWWWWWWWWWWWWWWWW_"
@@ -684,16 +687,16 @@ programa
 		inteiro y = ((altura_tela + ALTURA_PAINEL_PONTUACAO) / 2) - (altura_quadro / 2)
 
 		g.definir_cor(tema[COR_BORDA])
-		g.desenhar_retangulo(x, y, largura_quadro, altura_quadro, falso)
+		g.desenhar_retangulo(x, y, largura_quadro, altura_quadro, falso, falso)
 
 		x = x + borda_horizontal
 		y = y + borda_vertical
 		
-		g.desenhar_texto(x, y, mensagem, falso)
+		g.desenhar_texto(x, y, mensagem)
 		y = y + g.altura_texto(mensagem) + espacamento
-		g.desenhar_retangulo(x, y, largura_campo, altura_campo, falso)
+		g.desenhar_retangulo(x, y, largura_campo, altura_campo, falso, falso)
 		
-		g.desenhar_texto(x + margem_campo, y + margem_campo, nome_jogador + "_", falso)
+		g.desenhar_texto(x + margem_campo, y + margem_campo, nome_jogador + "_")
 	}
 
 	funcao atualizar_nome_jogador(inteiro tecla)
@@ -724,7 +727,9 @@ programa
 
 	funcao desenhar_conteudo_placar()
 	{
-		g.definir_fonte("Poetsen One", 20.0, tema[COR_TEXTO], falso, falso, falso)
+		g.definir_tamanho_texto(20.0)
+		g.definir_cor(tema[COR_TEXTO])
+		g.definir_estilo_texto(falso, falso, falso)
 		
 		cadeia titulo = "PLACAR"
 		
@@ -734,11 +739,11 @@ programa
 		inteiro x_titulo = (largura_tela / 2) - (largura_titulo / 2)
 		inteiro y_titulo = ALTURA_PAINEL_PONTUACAO + BORDA_CENARIO + borda
 
-		g.desenhar_texto(x_titulo, y_titulo, titulo, falso)
+		g.desenhar_texto(x_titulo, y_titulo, titulo)
 		
 		inteiro y = y_titulo + g.altura_texto("PLACAR") + borda
 
-		g.definir_fonte("Poetsen One", 14.0, tema[COR_TEXTO], falso, falso, falso)
+		g.definir_tamanho_texto(14.0)
 		
 		inteiro x_tempo = largura_tela - BORDA_CENARIO - 20 - g.largura_texto("Tempo")
 		inteiro x_dificuldade = x_tempo - 20 - g.largura_texto("Dificuldade")
@@ -751,11 +756,11 @@ programa
 		g.desenhar_linha(x_posicao, y, x_tempo + g.largura_texto("Tempo") + 10, y)
 		y = y + 6		
 
-		g.desenhar_texto(x_posicao, y, "Pos.", falso)
-		g.desenhar_texto(x_nome, y, "Nome", falso)
-		g.desenhar_texto(x_pontuacao, y, "Pontuação", falso)
-		g.desenhar_texto(x_dificuldade, y, "Dificuldade", falso)		
-		g.desenhar_texto(x_tempo, y, "Tempo", falso)
+		g.desenhar_texto(x_posicao, y, "Pos.")
+		g.desenhar_texto(x_nome, y, "Nome")
+		g.desenhar_texto(x_pontuacao, y, "Pontuação")
+		g.desenhar_texto(x_dificuldade, y, "Dificuldade")		
+		g.desenhar_texto(x_tempo, y, "Tempo")
 
 		y = y + g.altura_texto("Nome") + 6
 		g.desenhar_linha(x_posicao, y, x_tempo + g.largura_texto("Tempo") + 10, y)
@@ -769,18 +774,18 @@ programa
 			cadeia campo_tempo = texto_tempo_placar(i)
 			cadeia campo_pontuacao = texto_pontuacao_placar(i)
 
-			g.desenhar_texto(x_posicao, y, campo_posicao, falso)
-			g.desenhar_texto(x_nome, y, campo_nome, falso)
-			g.desenhar_texto(x_dificuldade, y, campo_dificuldade, falso)
-			g.desenhar_texto(x_pontuacao, y, campo_pontuacao, falso)
-			g.desenhar_texto(x_tempo, y, campo_tempo, falso)
+			g.desenhar_texto(x_posicao, y, campo_posicao)
+			g.desenhar_texto(x_nome, y, campo_nome)
+			g.desenhar_texto(x_dificuldade, y, campo_dificuldade)
+			g.desenhar_texto(x_pontuacao, y, campo_pontuacao)
+			g.desenhar_texto(x_tempo, y, campo_tempo)
 
 			se (entrada_placar == i e exibir_intermitencia)
 			{
 				inteiro largura = x_tempo + g.largura_texto("Tempo") + 14 - x_posicao - 4
 				inteiro altura = g.altura_texto(campo_nome) + 8
 				
-				g.desenhar_retangulo(x_posicao - 4, y - 6, largura, altura, falso)
+				g.desenhar_retangulo(x_posicao - 4, y - 6, largura, altura, falso, falso)
 			}
 			
 
@@ -802,14 +807,14 @@ programa
 		altura_mensagem = g.altura_texto(mensagem)
 		
 		x = (largura_tela / 2) - (largura_mensagem / 2)
-		g.desenhar_texto(x, y - altura_mensagem - 15, mensagem, falso)
+		g.desenhar_texto(x, y - altura_mensagem - 15, mensagem)
 
 		mensagem = "Pressione [ DELETE ] para zerar o placar"
 		largura_mensagem = g.largura_texto(mensagem)
 		altura_mensagem = g.altura_texto(mensagem)
 		
 		x = (largura_tela / 2) - (largura_mensagem / 2)
-		g.desenhar_texto(x, y - (altura_mensagem / 2), mensagem, falso)
+		g.desenhar_texto(x, y - (altura_mensagem / 2), mensagem)
 
 
 		mensagem = "Pressione [ ESC ] para voltar ao menu"
@@ -817,7 +822,7 @@ programa
 		altura_mensagem = g.altura_texto(mensagem)
 		
 		x = (largura_tela / 2) - (largura_mensagem / 2)
-		g.desenhar_texto(x, y + 15, mensagem, falso)
+		g.desenhar_texto(x, y + 15, mensagem)
 	}
 
 	funcao cadeia texto_pontuacao_placar(inteiro indice)
@@ -1185,7 +1190,9 @@ programa
 
 	funcao desenhar_popup(cadeia itens[], inteiro selecao)
 	{
-		g.definir_fonte("Poetsen One", 14.0, tema[COR_TEXTO], falso, falso, falso)
+		g.definir_tamanho_texto(14.0)
+		g.definir_cor(tema[COR_TEXTO])
+		g.definir_estilo_texto(falso, falso, falso)
 		
 		inteiro borda_vertical = 10
 		inteiro borda_horizontal = 30
@@ -1195,10 +1202,10 @@ programa
 		inteiro y = ((altura_tela + ALTURA_PAINEL_PONTUACAO)  / 2) - (altura  / 2)
 		
 		g.definir_cor(tema[COR_FUNDO])
-		g.desenhar_retangulo(x, y, largura, altura, verdadeiro)
+		g.desenhar_retangulo(x, y, largura, altura, falso, verdadeiro)
 		
 		g.definir_cor(tema[COR_BORDA])
-		g.desenhar_retangulo(x, y, largura, altura, falso)
+		g.desenhar_retangulo(x, y, largura, altura, falso, falso)
 
 		inteiro x_item = x + borda_horizontal, y_item = y + borda_vertical, largura_item = calcular_largura_menu(itens), altura_item
 		inteiro centro_x, centro_y
@@ -1211,12 +1218,12 @@ programa
 			centro_x = x_item + (largura_item / 2) - (g.largura_texto(item) / 2)
 			centro_y = y_item + (altura_item  / 2) - (g.altura_texto(item)  / 2)
 			
-			g.desenhar_texto(centro_x, centro_y, item, falso)
+			g.desenhar_texto(centro_x, centro_y, item)
 
 			se (selecao == i)
 			{
-				g.desenhar_texto(centro_x - g.largura_texto(">>") - 5, centro_y, ">>", falso)
-				g.desenhar_texto(centro_x + g.largura_texto(item) + 5, centro_y, "<<", falso)
+				g.desenhar_texto(centro_x - g.largura_texto(">>") - 5, centro_y, ">>")
+				g.desenhar_texto(centro_x + g.largura_texto(item) + 5, centro_y, "<<")
 			}
 			
 			y_item = y_item + altura_item
@@ -1714,20 +1721,25 @@ programa
 		inteiro x = BORDA_CENARIO
 		inteiro y = 10
 
-		g.definir_fonte("Poetsen One", 20.0, tema[COR_TEXTO], falso, falso, falso)
-		g.desenhar_texto(x, y, "Pontuação: " + pontuacao_jogador, falso)
+		g.definir_tamanho_texto(20.0)
+		g.definir_cor(tema[COR_TEXTO])
+		g.definir_estilo_texto(falso, falso, falso)
+		
+		g.desenhar_texto(x, y, "Pontuação: " + pontuacao_jogador)
 	}
 
 	funcao desenhar_tempo_jogo()
 	{
 		cadeia tempo = "Tempo: " + formatar_tempo(tempo_total_jogo)
 
-		g.definir_fonte("Poetsen One", 20.0, tema[COR_TEXTO], falso, verdadeiro, falso)
+		g.definir_tamanho_texto(20.0)
+		g.definir_cor(tema[COR_TEXTO])
+		g.definir_estilo_texto(falso, verdadeiro, falso)
 		
 		inteiro x = largura_tela - BORDA_CENARIO - g.largura_texto(tempo)
 		inteiro y = 10
 		
-		g.desenhar_texto(x, y, tempo, falso)
+		g.desenhar_texto(x, y, tempo)
 	}
 
 	funcao cadeia formatar_tempo(inteiro tempo)
@@ -1818,5 +1830,5 @@ programa
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
  * @POSICAO-CURSOR = 1087; 
- * @DOBRAMENTO-CODIGO = [1, 140, 160, 173, 183, 201, 210, 215, 233, 225, 239, 253, 257, 251, 295, 308, 345, 374, 398, 390, 418, 434, 412, 440, 448, 465, 469, 473, 458, 490, 545, 510, 564, 504, 599, 570, 612, 631, 638, 642, 623, 649, 656, 665, 698, 715, 763, 724, 822, 834, 846, 864, 883, 892, 914, 936, 944, 959, 983, 995, 999, 1003, 1007, 973, 1023, 1032, 1046, 1065, 1079, 1093, 1105, 1120, 1134, 1143, 1148, 1185, 1225, 1239, 1251, 1263, 1275, 1280, 1292, 1307, 1319, 1331, 1336, 1361, 1405, 1426, 1432, 1440, 1456, 1469, 1480, 1486, 1478, 1503, 1511, 1519, 1531, 1545, 1560, 1565, 1583, 1600, 1607, 1618, 1629, 1640, 1605, 1655, 1662, 1669, 1676, 1653, 1685, 1701, 1711, 1720, 1732, 1743, 1749, 1766, 1778, 1786, 1791, 1799, 1805];
+ * @DOBRAMENTO-CODIGO = [1, 140, 160, 173, 183, 201, 210, 216, 234, 226, 240, 254, 258, 252, 296, 309, 346, 375, 399, 391, 419, 435, 413, 441, 449, 466, 470, 474, 459, 491, 546, 511, 565, 505, 600, 571, 613, 632, 639, 643, 624, 650, 657, 666, 701, 718, 727, 827, 839, 851, 869, 888, 897, 919, 941, 949, 964, 988, 1000, 1004, 1008, 1012, 978, 1028, 1037, 1051, 1070, 1084, 1098, 1110, 1125, 1139, 1148, 1153, 1190, 1232, 1246, 1258, 1270, 1282, 1287, 1299, 1314, 1326, 1338, 1343, 1368, 1412, 1433, 1439, 1447, 1463, 1476, 1487, 1493, 1485, 1510, 1518, 1526, 1538, 1552, 1567, 1572, 1590, 1607, 1614, 1625, 1636, 1647, 1612, 1662, 1669, 1676, 1683, 1660, 1692, 1708, 1718, 1730, 1744, 1755, 1761, 1778, 1790, 1798, 1803, 1811, 1817];
  */

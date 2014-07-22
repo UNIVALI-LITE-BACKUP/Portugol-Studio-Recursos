@@ -1,0 +1,4 @@
+Exemplo 01 - Verificar Se Um Arquivo Existe=verificar.por
+Exemplo 02 - Ler Um Arquivo=ler_arquivo.por
+Exemplo 03 - Gravar Um Arquivo=gravar_arquivo.por
+Exemplo 04 - Selecionar Um Arquivo=selecionar_arquivo.por

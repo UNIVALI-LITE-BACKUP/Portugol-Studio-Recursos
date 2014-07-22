@@ -89,14 +89,39 @@ programa
 		{
 			g.desenhar_imagem(0, 0, imagem_menu)
 			
-			g.definir_fonte(g.nome_fonte(), 20.0, 0xFFFFFF, falso, falso, falso)
-			g.desenhar_texto(100, 300, "Utilize as teclas W, A e D  ou as setas direcionais para jogar", falso)
-			g.desenhar_texto(260, 330, "Pressione ENTER para iniciar", falso)
-			g.desenhar_texto(290, 360, "Pressione ESC para sair", falso)
+			g.definir_tamanho_texto(20.0)
+			g.definir_cor(0xFFFFFF)
+			g.definir_estilo_texto(falso, falso, falso)
+
+			cadeia texto[] =
+			{
+				"Utilize as teclas W, A e D  ou as setas direcionais para jogar",
+				"Pressione ENTER para iniciar",
+				 "Pressione ESC para sair"
+			}
+				
+			inteiro largura_quadro = g.largura_texto(texto[0]) + 30
+			inteiro y_opcoes = 340
 
 			g.definir_cor(0x000000)
-			g.definir_fonte(g.nome_fonte(), 16.0, 0x00FFFF, falso, verdadeiro, falso)
-			g.desenhar_texto(0, ALTURA_TELA - 16, " Jogo adaptado de http://www.gametutorial.net/article/Keyboard-input---Moon-lander                     ", verdadeiro)
+			g.definir_opacidade(90)
+			g.desenhar_retangulo((LARGURA_TELA / 2) - (largura_quadro / 2), y_opcoes, largura_quadro, 120, verdadeiro, verdadeiro)
+			
+			g.definir_opacidade(255)
+			g.definir_cor(0xFFFFFF)
+			
+			g.desenhar_texto((LARGURA_TELA / 2) - g.largura_texto(texto[0]) / 2, y_opcoes + 20, texto[0])
+			g.desenhar_texto((LARGURA_TELA / 2) - g.largura_texto(texto[1]) / 2, y_opcoes + 50, texto[1])
+			g.desenhar_texto((LARGURA_TELA / 2) - g.largura_texto(texto[2]) / 2, y_opcoes + 80, texto[2])
+
+			g.definir_cor(0x000000)
+			g.definir_opacidade(150)
+			g.desenhar_retangulo(0, ALTURA_TELA - 25, LARGURA_TELA, 25, falso, verdadeiro)
+			g.definir_opacidade(255)
+
+			g.definir_cor(0x00FFFF)			
+			g.definir_tamanho_texto(16.0)
+			g.desenhar_texto(5, ALTURA_TELA - 20, " Jogo adaptado de http://www.gametutorial.net/article/Keyboard-input---Moon-lander")
 			g.renderizar()
 			
 			se (t.tecla_pressionada(t.TECLA_ENTER))
@@ -220,31 +245,42 @@ programa
 		g.desenhar_imagem(x_plataforma, y_plataforma, imagem_plataforma)
 
 		se (pousou)
-        	{
+        	{	
 			g.desenhar_imagem(x_foguete, y_foguete, imagem_foguete_pousado)
 
-			g.definir_fonte(g.nome_fonte(), 20.0, 0xFFFFFF, falso, falso, falso)
-			g.desenhar_texto(290, 240, "Parabéns, você venceu!", falso)
-			g.desenhar_texto(280, 270, "Você pousou em " + (tempo_total_jogo / 1000) + " segundos!", falso)
-			g.desenhar_texto(220, 300, "Pressione ENTER para jogar novamente", falso)
-			g.desenhar_texto(290, 330, "Pressione ESC para sair", falso)
+			g.definir_tamanho_texto(22.0)
+			g.definir_cor(0xFFFFFF)
+			g.definir_estilo_texto(falso, falso, falso)
+			
+			g.desenhar_texto(290, 240, "Parabéns, você venceu!")
+			g.desenhar_texto(280, 270, "Você pousou em " + (tempo_total_jogo / 1000) + " segundos!")
+			g.desenhar_texto(220, 300, "Pressione ENTER para jogar novamente")
+			g.desenhar_texto(290, 330, "Pressione ESC para sair")
 		}
 		senao se (quebrou)
 		{
 			g.desenhar_imagem(0, 0, imagem_borda)
             	g.desenhar_imagem(x_foguete, y_foguete + ALTURA_FOGUETE - 43, imagem_foguete_quebrado)
-            	g.definir_fonte(g.nome_fonte(), 20.0, 0xFFFFFF, falso, falso, falso)
-            	g.desenhar_texto(250, 270, "Que pena, seu foguete quebrou!", falso)
-			g.desenhar_texto(220, 300, "Pressione ENTER para jogar novamente", falso)
-			g.desenhar_texto(290, 330, "Pressione ESC para sair", falso)
+
+			g.definir_tamanho_texto(22.0)
+			g.definir_cor(0xFFFFFF)
+			g.definir_estilo_texto(falso, falso, falso)
+            	
+            	g.desenhar_texto(250, 270, "Que pena, seu foguete quebrou!")
+			g.desenhar_texto(220, 300, "Pressione ENTER para jogar novamente")
+			g.desenhar_texto(290, 330, "Pressione ESC para sair")
         	}
         	senao se (foi_para_o_espaco)
         	{
         		g.desenhar_imagem(0, 0, imagem_borda)
-        		g.definir_fonte(g.nome_fonte(), 20.0, 0xFFFFFF, falso, falso, falso)
-            	g.desenhar_texto(230, 270, "Que pena, você se perdeu no espaço!", falso)
-			g.desenhar_texto(220, 300, "Pressione ENTER para jogar novamente", falso)
-			g.desenhar_texto(290, 330, "Pressione ESC para sair", falso)
+
+			g.definir_tamanho_texto(22.0)
+			g.definir_cor(0xFFFFFF)
+			g.definir_estilo_texto(falso, falso, falso)
+        		
+            	g.desenhar_texto(230, 270, "Que pena, você se perdeu no espaço!")
+			g.desenhar_texto(220, 300, "Pressione ENTER para jogar novamente")
+			g.desenhar_texto(290, 330, "Pressione ESC para sair")
         	}
 		senao
         	{
@@ -256,9 +292,15 @@ programa
 			}
         	}
 
-		g.definir_cor(0x000000)
-		g.definir_fonte(g.nome_fonte(), 16.0, 0x00FFFF, falso, verdadeiro, falso)
-		g.desenhar_texto(0, ALTURA_TELA - 16, " Jogo adaptado de http://www.gametutorial.net/article/Keyboard-input---Moon-lander                     ", verdadeiro)
+		g.definir_cor(0x000000)			
+		g.definir_opacidade(150)
+		g.desenhar_retangulo(0, ALTURA_TELA - 25, LARGURA_TELA, 25, falso, verdadeiro)
+		g.definir_opacidade(255)
+
+		g.definir_cor(0x00FFFF)
+		g.definir_tamanho_texto(16.0)
+		g.desenhar_texto(5, ALTURA_TELA - 20, " Jogo adaptado de http://www.gametutorial.net/article/Keyboard-input---Moon-lander")
+
 		g.renderizar()
 	}
 
@@ -307,6 +349,14 @@ programa
 		g.iniciar_modo_grafico(verdadeiro)
 		g.definir_dimensoes_janela(800, 600)
 		g.definir_titulo_janela("Moon Lander")
+
+		carregar_fontes()
+	}
+
+	funcao carregar_fontes()
+	{
+		g.carregar_fonte("./fontes/poetsen_one_regular.ttf")
+		g.definir_fonte_texto("Poetsen One")
 	}
 
 	funcao finalizar()
@@ -322,5 +372,5 @@ programa
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
  * @POSICAO-CURSOR = 1364; 
- * @DOBRAMENTO-CODIGO = [1, 77, 85, 109, 132, 139, 130, 150, 155, 148, 164, 168, 173, 177, 162, 183, 189, 221, 231, 240, 248, 216, 264, 278, 292, 304, 311];
+ * @DOBRAMENTO-CODIGO = [1, 77, 85, 134, 155, 173, 187, 208, 214, 241, 306, 320, 334, 346, 355, 361];
  */

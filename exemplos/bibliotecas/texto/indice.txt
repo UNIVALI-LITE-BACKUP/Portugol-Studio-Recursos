@@ -1,0 +1,8 @@
+Exemplo 01 - Tamanho do Texto=tamanho.por
+Exemplo 02 - Ler Caracteres=caracteres.por
+Exemplo 03 - Pesquisar Texto=pesquisar.por
+Exemplo 04 - Extrair Texto=subtexto.por
+Exemplo 05 - Substituir Texto=substituir.por
+Exemplo 06 - Caracteres Maiúsculos=maiusculos.por
+Exemplo 07 - Caracteres Minúsculos=minusculos.por
+Exemplo 08 - Preencher Texto=preencher.por

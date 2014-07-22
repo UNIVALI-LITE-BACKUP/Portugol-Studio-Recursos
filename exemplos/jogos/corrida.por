@@ -292,7 +292,9 @@ programa
 	{
 		desenhar_tela_jogo(falso)
 
-		g.definir_fonte("Poetsen One", 60.0, 0xFFFFFF, falso, verdadeiro, falso)
+		g.definir_tamanho_texto(60.0)
+		g.definir_cor(0xFFFFFF)
+		g.definir_estilo_texto(falso, verdadeiro, falso)
 
 		inteiro tx = (largura_tela / 2) - (g.largura_texto(texto) / 2)
 		inteiro ty = (altura_tela / 2) - (g.altura_texto(texto) / 2)
@@ -303,12 +305,12 @@ programa
 		inteiro altura = g.altura_texto(texto) + 40
 
 		g.definir_cor(0x000000)
-		g.desenhar_retangulo(rx, ry, largura, altura, verdadeiro)
+		g.desenhar_retangulo(rx, ry, largura, altura, falso, verdadeiro)
 
 		g.definir_cor(0xFFFFFF)
-		g.desenhar_retangulo(rx, ry, largura, altura, falso)
+		g.desenhar_retangulo(rx, ry, largura, altura, falso, falso)
 		
-		g.desenhar_texto(tx, ty, texto, falso)
+		g.desenhar_texto(tx, ty, texto)
 		g.renderizar()
 		
 		sm.reproduzir_som(som_largada, falso)
@@ -963,7 +965,7 @@ programa
 		desenhar_estrada()
 		desenhar_galoes()
 		desenhar_pontos_reparo()
-		desenhar_carro_jogador()
+		desenhar_veiculo_jogador()
 		desenhar_veiculos()
 		desenhar_medidores()
 		desenhar_fps()
@@ -982,8 +984,10 @@ programa
 		inteiro x = largura_tela - LARGURA_ACOSTAMENTO - g.largura_texto(texto) - 2
 		inteiro y = altura_tela - 35
 
-		g.definir_fonte("Poetsen One", 12.0, 0xFFFFFF, falso, verdadeiro, falso)
-		g.desenhar_texto(x, y, texto, falso)
+		g.definir_tamanho_texto(12.0)
+		g.definir_cor(0xFFFFFF)
+		g.definir_estilo_texto(falso, verdadeiro, falso)
+		g.desenhar_texto(x, y, texto)
 	}
 
 	funcao desenhar_porcentagem_estrada()
@@ -998,8 +1002,10 @@ programa
 		
 		inteiro porcentagem = tp.real_para_inteiro(m.arredondar(distancia / EXTENSAO_ESTRADA * 100, 2))
 
-		g.definir_fonte("Poetsen One", 12.0, 0xFFFFFF, falso, verdadeiro, falso)
-		g.desenhar_texto(x, y, "Percorrido: " + km + " Km", falso)
+		g.definir_tamanho_texto(12.0)
+		g.definir_cor(0xFFFFFF)
+		g.definir_estilo_texto(falso, verdadeiro, falso)
+		g.desenhar_texto(x, y, "Percorrido: " + km + " Km")
 
 		y = y + g.altura_texto("Km") + 5
 		
@@ -1018,19 +1024,21 @@ programa
 		}
 		
 		g.definir_cor(0x00FD00)
-		g.desenhar_retangulo(dx, y, largura_medidor,  7, verdadeiro)
+		g.desenhar_retangulo(dx, y, largura_medidor, 7, falso, verdadeiro)
 
 		g.definir_cor(0x000000)
-		g.desenhar_retangulo(x, y, largura_tela - (LARGURA_ACOSTAMENTO * 2) - 3, 7, falso)
+		g.desenhar_retangulo(x, y, largura_tela - (LARGURA_ACOSTAMENTO * 2) - 3, 7, falso, falso)
 
 		g.definir_cor(0xFFFFFF)
-		g.desenhar_retangulo(x - 1, y - 1, largura_tela - (LARGURA_ACOSTAMENTO * 2) - 1, 9, falso)
+		g.desenhar_retangulo(x - 1, y - 1, largura_tela - (LARGURA_ACOSTAMENTO * 2) - 1, 9, falso, falso)
 	}
 
 	funcao desenhar_fps()
 	{
-		g.definir_fonte("Poetsen One", 12.0, 0xFFFFFF, falso, verdadeiro, falso)
-		g.desenhar_texto(25, 40, "FPS: " + fps, falso)
+		g.definir_tamanho_texto(12.0)
+		g.definir_cor(0xFFFFFF)
+		g.definir_estilo_texto(falso, verdadeiro, falso)
+		g.desenhar_texto(25, 40, "FPS: " + fps)
 	}
 
 	funcao desenhar_galoes()
@@ -1109,12 +1117,14 @@ programa
 	{
 		cadeia tempo = "Tempo: " + formatar_tempo(tempo_total_jogo)
 
-		g.definir_fonte("Poetsen One", 12.0, 0xFFFFFF, falso, verdadeiro, falso)
+		g.definir_tamanho_texto(12.0)
+		g.definir_cor(0xFFFFFF)
+		g.definir_estilo_texto(falso, verdadeiro, falso)
 
 		inteiro x = largura_tela - LARGURA_ACOSTAMENTO - g.largura_texto(tempo) - 2
 		inteiro y = 40
 		
-		g.desenhar_texto(x, y, tempo, falso)
+		g.desenhar_texto(x, y, tempo)
 	}
 
 	funcao cadeia formatar_tempo(inteiro tempo)
@@ -1173,17 +1183,19 @@ programa
 
 		inteiro y = 22
 
-		g.definir_fonte("Poetsen One", 12.0, 0xFFFFFF, falso, verdadeiro, falso)
-		g.desenhar_texto(x - 2, y - g.altura_texto(descricao) - 3, descricao, falso)
+		g.definir_tamanho_texto(12.0)
+		g.definir_cor(0xFFFFFF)
+		g.definir_estilo_texto(falso, verdadeiro, falso)
+		g.desenhar_texto(x - 2, y - g.altura_texto(descricao) - 3, descricao)
 
 		g.definir_cor(cor_barra)
-		g.desenhar_retangulo(x, y, tp.real_para_inteiro(LARGURA_MEDIDOR * porcentagem), ALTURA_MEDIDOR, verdadeiro)
+		g.desenhar_retangulo(x, y, tp.real_para_inteiro(LARGURA_MEDIDOR * porcentagem), ALTURA_MEDIDOR, falso, verdadeiro)
 
 		g.definir_cor(0x000000)
-		g.desenhar_retangulo(x, y, LARGURA_MEDIDOR, ALTURA_MEDIDOR, falso)
+		g.desenhar_retangulo(x, y, LARGURA_MEDIDOR, ALTURA_MEDIDOR, falso, falso)
 
 		g.definir_cor(0xFFFFFF)
-		g.desenhar_retangulo(x - 1, y - 1, LARGURA_MEDIDOR + 2, ALTURA_MEDIDOR + 2, falso)
+		g.desenhar_retangulo(x - 1, y - 1, LARGURA_MEDIDOR + 2, ALTURA_MEDIDOR + 2, falso, falso)
 	}
 
 	funcao desenhar_fundo()
@@ -1192,7 +1204,7 @@ programa
 		g.limpar()
 	}
 
-	funcao desenhar_carro_jogador()
+	funcao desenhar_veiculo_jogador()
 	{
 		inteiro indice_modelo = tp.real_para_inteiro(carro_jogador[_MODELO])
 		
@@ -1203,7 +1215,7 @@ programa
 
 		inteiro x = tp.real_para_inteiro(m.arredondar(carro_jogador[_X] - (largura / 2.0), 0))
 		inteiro y = tp.real_para_inteiro(m.arredondar(carro_jogador[_Y], 0))
-		
+
 		g.desenhar_porcao_imagem(x, y, sx, sy, largura, altura, imagem_veiculos)
 
 		se (freiando)
@@ -1214,8 +1226,8 @@ programa
 			inteiro comprimento_freiada = tp.real_para_inteiro(distancia_percorrida - inicio_freio)
 			
 			g.definir_cor(0x000000)
-			g.desenhar_retangulo(lateral_esquerda, traseira, 10, comprimento_freiada, verdadeiro)
-			g.desenhar_retangulo(lateral_direita - 15, traseira, 10, comprimento_freiada, verdadeiro)
+			g.desenhar_retangulo(lateral_esquerda, traseira, 10, comprimento_freiada, falso, verdadeiro)
+			g.desenhar_retangulo(lateral_direita - 15, traseira, 10, comprimento_freiada, falso, verdadeiro)
 		}
 	}
 
@@ -1358,6 +1370,7 @@ programa
 	funcao carregar_fontes()
 	{
 		g.carregar_fonte("./fontes/poetsen_one_regular.ttf")
+		g.definir_fonte_texto("Poetsen One")
 	}
 
 	funcao liberar_imagens()
@@ -1374,5 +1387,5 @@ programa
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
  * @POSICAO-CURSOR = 2144; 
- * @DOBRAMENTO-CODIGO = [1, 175, 190, 203, 218, 226, 233, 246, 274, 290, 317, 330, 340, 352, 367, 376, 386, 390, 396, 401, 405, 410, 415, 419, 424, 365, 357, 433, 438, 443, 448, 456, 461, 472, 483, 494, 500, 492, 509, 521, 530, 517, 562, 553, 542, 540, 617, 604, 645, 632, 660, 680, 687, 694, 701, 712, 716, 720, 708, 726, 735, 743, 750, 755, 783, 809, 831, 857, 879, 884, 899, 929, 939, 944, 959, 976, 988, 1029, 1035, 1056, 1077, 1098, 1107, 1119, 1130, 1140, 1150, 1188, 1208, 1194, 1221, 1245, 1263, 1271, 1283, 1302, 1314, 1300, 1322, 1328, 1320, 1336, 1342, 1334, 1348, 1357, 1362];
+ * @DOBRAMENTO-CODIGO = [1, 175, 190, 203, 218, 226, 233, 246, 274, 290, 319, 332, 342, 354, 369, 378, 388, 392, 398, 403, 407, 412, 417, 421, 426, 367, 359, 435, 440, 445, 450, 458, 463, 474, 485, 496, 502, 494, 511, 523, 532, 519, 564, 555, 544, 542, 619, 606, 647, 634, 662, 682, 689, 696, 703, 714, 718, 722, 710, 728, 737, 745, 752, 757, 785, 811, 833, 859, 881, 886, 901, 931, 941, 946, 961, 978, 992, 1035, 1043, 1064, 1085, 1106, 1115, 1129, 1140, 1150, 1160, 1200, 1206, 1233, 1257, 1275, 1283, 1295, 1314, 1326, 1312, 1334, 1340, 1332, 1348, 1354, 1346, 1360, 1369, 1375];
  */
