@@ -64,15 +64,15 @@ var topicos = Tree.create
 						{titulo: "Desvios Condicionais", html: "topicos/linguagem_portugol/estruturas_controle/desvio/index.html", subTopicos:
 							[
 								{titulo: "Se", html: "topicos/linguagem_portugol/estruturas_controle/desvio/se.html"},
-								{titulo: "Se senao", html: "topicos/linguagem_portugol/estruturas_controle/desvio/se senao.html"},
-								{titulo: "Se senao se", html: "topicos/linguagem_portugol/estruturas_controle/desvio/se senao se.html"},
-								{titulo: "Escolha caso", html: "topicos/linguagem_portugol/estruturas_controle/desvio/Escolha caso.html"}
+								{titulo: "Se senao", html: "topicos/linguagem_portugol/estruturas_controle/desvio/se_senao.html"},
+								{titulo: "Se senao se", html: "topicos/linguagem_portugol/estruturas_controle/desvio/se_senao_se.html"},
+								{titulo: "Escolha caso", html: "topicos/linguagem_portugol/estruturas_controle/desvio/escolha_caso.html"}
 							]
 						},
 						{titulo: "Laços de Repetição", html: "topicos/linguagem_portugol/estruturas_controle/repeticao/index.html", subTopicos:
 							[
 								{titulo: "Enquanto", html: "topicos/linguagem_portugol/estruturas_controle/repeticao/enquanto.html"},
-								{titulo: "Faca enquanto", html: "topicos/linguagem_portugol/estruturas_controle/repeticao/enquantofaca.html"},
+								{titulo: "Faca enquanto", html: "topicos/linguagem_portugol/estruturas_controle/repeticao/faca_enquanto.html"},
 								{titulo: "Para", html: "topicos/linguagem_portugol/estruturas_controle/repeticao/para.html"}
 							]
 						}

@@ -14,7 +14,8 @@
  * 
  * Descrição:
  * 
- * 	
+ * 	Este exemplo demonstra como utilizar a função "caixa_alta" da biblioteca "Texto" 
+ * 	para transformar os caracteres de um dado do tipo cadeia em caracteres maiúsculos.
  * 
  * Autores:
  * 
@@ -25,9 +26,23 @@
  
 programa
 {
+	inclua biblioteca Texto --> tx
+	
 	funcao inicio()
 	{
+		cadeia nome, bem_vindo
 		
+		escreva("Digite seu nome em letras minúsculas: ")
+		leia(nome)
+
+		// Transforma os caracteres da cadeia em caracteres maiúsculos
+		nome = tx.caixa_alta(nome)
+		
+		// Transforma os caracteres da cadeia em caracteres maiúsculos
+		bem_vindo = tx.caixa_alta("bem vindo(a)")
+
+		limpa()
+		escreva(bem_vindo, " ", nome, "!!\n")
 	}
 }
 
@@ -36,5 +51,6 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 568; 
+ * @POSICAO-CURSOR = 879; 
+ * @DOBRAMENTO-CODIGO = [1];
  */

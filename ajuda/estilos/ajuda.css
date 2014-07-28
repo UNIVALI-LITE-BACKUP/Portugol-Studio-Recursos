@@ -26,7 +26,6 @@ h2
 p
 {
     margin: 20px;
-    text-align: justify;
 }
 
 div.codigo-portugol
@@ -41,6 +40,39 @@ div.cabecalho-codigo-portugol
     color: rgb(40, 103, 130);
     border-bottom: 1px solid rgb(202, 198, 179);
     padding: 10px;    
+}
+
+div.cabecalho-codigo-portugol a
+{
+    color: rgb(40, 103, 130);
+    font-weight: normal;
+    text-decoration: none;
+}
+
+div.cabecalho-codigo-portugol a:hover
+{
+    color: rgb(40, 103, 130);
+    font-weight: normal;
+    text-decoration: none;
+}
+
+div.cabecalho-codigo-portugol a:visited
+{
+    color: rgb(40, 103, 130);
+    font-weight: normal;
+    text-decoration: none;
+}
+
+a
+{
+    color: rgb(40, 103, 130);
+    font-weight: normal;
+    text-decoration: none;
+}
+
+a:visited
+{
+    
 }
 
 div.botao-codigo-portugol button
@@ -89,7 +121,7 @@ img
 
 .palavra-reservada 
 {
-    color: blue;
+    color: rgb(70, 103, 130);
     font-weight: bold;
 }
 

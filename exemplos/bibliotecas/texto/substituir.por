@@ -94,7 +94,7 @@ programa
 
 		// Aqui realizamos uma substituição, mas como informamos uma sequência de caracteres
 		// em letras minúsculas, a substituição não irá ocorrer
-		substituicao = tx.substituir(texto, "ra", "TO")
+		substituicao = tx.substituir(texto, "to", "MONHA")
 		
 		escreva(texto) 					// A variável "texto" manteve seu valor
 		escreva(" --> ", substituicao, "\n") 	// A variável "substituicao" manteve seu valor
@@ -103,7 +103,7 @@ programa
 		
 		// Aqui realizamos uma substituição, mas como informamos uma sequência de caracteres
 		// que não existe no texto, a substituição não irá ocorrer
-		substituicao = tx.substituir(texto, "PORTUGOL É", "LEGAL")
+		substituicao = tx.substituir(texto, "LI", "MA")
 		
 		escreva(texto) 					// A variável "texto" manteve seu valor
 		escreva(" --> ", substituicao, "\n") 	// A variável "substituicao" manteve seu valor
@@ -118,7 +118,7 @@ programa
 		escreva(texto) 					// A variável "texto" possui o novo valor
 		escreva(" --> ", substituicao, "\n") 	// A variável "substituicao" manteve seu valor
 
-		//-----------------------------------------------------------------------------------//		
+		//-----------------------------------------------------------------------------------//
 	}
 }
 

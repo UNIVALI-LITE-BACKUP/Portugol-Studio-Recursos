@@ -14,7 +14,8 @@
  * 
  * Descrição:
  * 
- * 	
+ * 	Este exemplo demonstra como utilizar a função "caixa_baixa" da biblioteca "Texto" 
+ * 	para transformar os caracteres de um dado do tipo cadeia em caracteres minúsculos.
  * 
  * Autores:
  * 
@@ -25,9 +26,23 @@
  
 programa
 {
+	inclua biblioteca Texto --> tx
+	
 	funcao inicio()
 	{
+		cadeia nome, bem_vindo
 		
+		escreva("Digite seu nome em letras maiúsculas: ")
+		leia(nome)
+
+		// Transforma os caracteres da cadeia em caracteres minúsculos
+		nome = tx.caixa_baixa(nome)
+		
+		// Transforma os caracteres da cadeia em caracteres minúsculos
+		bem_vindo = tx.caixa_baixa("BEM VINDO(A)")
+
+		limpa()
+		escreva(bem_vindo, " ", nome, "!!\n")
 	}
 }
 
@@ -36,5 +51,6 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 568; 
+ * @POSICAO-CURSOR = 880; 
+ * @DOBRAMENTO-CODIGO = [1];
  */
