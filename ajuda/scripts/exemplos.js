@@ -128,6 +128,29 @@ function carregarExemplos(callback)
     });
 }
 
+function corrigirBugScrollHorizontal()
+{
+    $("ol.dp-j").each(function(indiceOl, elementoOl)
+    {
+        var maiorLargura = 0;
+
+        $("li", elementoOl).each(function(indiceLi, elementoLi)
+        {
+            var estiloAnterior = $(elementoLi).css("position");
+            var larguraLi = $(elementoLi).css("position", "absolute").width();
+
+            if (larguraLi > maiorLargura)
+            {
+                maiorLargura = larguraLi;
+            }                    
+
+            $(elementoLi).css("position", estiloAnterior);
+        });
+
+        $(elementoOl).css("min-width", maiorLargura + 20);
+    });
+}
+
 $(document).ready(function()
 {
     carregarExemplos(function(exemplos)
@@ -166,6 +189,8 @@ $(document).ready(function()
         {
             window.parent.exemplos = exemplos;
             dp.SyntaxHighlighter.HighlightAll('code');
+			
+			corrigirBugScrollHorizontal();
         });
     });
 });
