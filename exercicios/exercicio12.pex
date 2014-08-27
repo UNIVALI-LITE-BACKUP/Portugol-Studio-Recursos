@@ -8,8 +8,7 @@
 			<entrada tipodado="inteiro">6</entrada>
 		</entradas>
 		<saidas>
-			<saida tipodado="cadeia">Entre com um número inteiro:</saida>
-			<saida tipodado="cadeia">O número é par</saida>
+			<saida tipodado="logico">verdadeiro</saida>
 		</saidas>
 		</caso>
 		<caso>
@@ -17,8 +16,7 @@
 				<entrada tipodado="inteiro">9</entrada>
 		      </entradas>
 			<saidas>
-				<saida tipodado="cadeia">Entre com um número inteiro:</saida>
-				<saida tipodado="cadeia">O número é ímpar</saida>
+			<saida tipodado="logico">falso</saida>
 			</saidas>
 		</caso>
 		<caso>
@@ -26,8 +24,7 @@
 				<entrada tipodado="inteiro">-6</entrada>
 			</entradas>
 			<saidas>
-				<saida tipodado="cadeia">Entre com um número inteiro:</saida>
-				<saida tipodado="cadeia">O número é par</saida>
+				<saida tipodado="logico">verdadeiro</saida>
 			</saidas>
 		</caso>
 		<caso>
@@ -35,15 +32,59 @@
 				<entrada tipodado="inteiro">-7</entrada>
 			</entradas>
 			<saidas>
-				<saida tipodado="cadeia">Entre com um número inteiro:</saida>
-				<saida tipodado="cadeia">O número é ímpar</saida>
+			<saida tipodado="logico">falso</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">-120</entrada>
+			</entradas>
+			<saidas>
+			<saida tipodado="logico">verdadeiro</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">120</entrada>
+			</entradas>
+			<saidas>
+			<saida tipodado="logico">verdadeiro</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">42</entrada>
+			</entradas>
+			<saidas>
+			<saida tipodado="logico">verdadeiro</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">-842</entrada>
+			</entradas>
+			<saidas>
+			<saida tipodado="logico">verdadeiro</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">-777</entrada>
+			</entradas>
+			<saidas>
+			<saida tipodado="logico">falso</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">777</entrada>
+			</entradas>
+			<saidas>
+			<saida tipodado="logico">falso</saida>
 			</saidas>
 		</caso>
 	</testes>
 	
-	<enunciado>Faça um programa que solicita ao usuário um valor inteiro e exibe uma mensagem informando se o número é par ou ímpar. Saídas:
-• Pedido ao usuário = "Entre com um número inteiro:";
-• Caso verdadeiro = "O número é par";
-• Caso falso =  "O número é ímpar".
+	<enunciado>Faça um programa que solicita ao usuário um valor inteiro e exibe o valor logico verdadeiro caso seja par e falso caso seja impar.
 </enunciado>
 </questao>

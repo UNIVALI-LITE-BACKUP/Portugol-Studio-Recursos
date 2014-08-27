@@ -10,9 +10,7 @@
 				<entrada tipodado="inteiro">59</entrada>
 			</entradas>
 			<saidas>
-				<saida  tipodado="cadeia">Entre com um número para as horas:</saida>
-				<saida  tipodado="cadeia">Entre com um número para os minutos:</saida>
-				<saida tipodado="cadeia">A hora é válida</saida>
+				<saida tipodado="logico">verdadeiro</saida>
 			</saidas>
 		</caso>
 		<caso>
@@ -21,9 +19,7 @@
 				<entrada tipodado="inteiro">01</entrada>
 			</entradas>
 			<saidas>
-				<saida  tipodado="cadeia">Entre com um número para as horas:</saida>
-				<saida  tipodado="cadeia">Entre com um número para os minutos:</saida>
-				<saida  tipodado="cadeia">A hora é inválida</saida>
+				<saida tipodado="logico">falso</saida>
 			</saidas>
 		</caso>
 		<caso>
@@ -32,9 +28,7 @@
 				<entrada tipodado="inteiro">60</entrada>
 			</entradas>
 			<saidas>
-				<saida  tipodado="cadeia">Entre com um número para as horas:</saida>
-				<saida  tipodado="cadeia">Entre com um número para os minutos:</saida>
-				<saida  tipodado="cadeia">A hora é inválida</saida>
+				<saida tipodado="logico">falso</saida>
 			</saidas>
 		</caso>
 		<caso>
@@ -43,17 +37,65 @@
 				<entrada tipodado="inteiro">0</entrada>
 			</entradas>
 			<saidas>
-				<saida  tipodado="cadeia">Entre com um número para as horas:</saida>
-				<saida  tipodado="cadeia">Entre com um número para os minutos:</saida>
-				<saida  tipodado="cadeia">A hora é válida</saida>
+				<saida tipodado="logico">verdadeiro</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">24</entrada>
+				<entrada tipodado="inteiro">0</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="logico">falso</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">12</entrada>
+				<entrada tipodado="inteiro">60</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="logico">falso</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">59</entrada>
+				<entrada tipodado="inteiro">23</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="logico">falso</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">4</entrada>
+				<entrada tipodado="inteiro">05</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="logico">verdadeiro</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">13</entrada>
+				<entrada tipodado="inteiro">13</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="logico">verdadeiro</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">7</entrada>
+				<entrada tipodado="inteiro">42</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="logico">verdadeiro</saida>
 			</saidas>
 		</caso>
 	</testes>
   
-	<enunciado>Faça um programa que solicita ao usuário dois números inteiros. O primeiro é o valor das horas e o segundo dos minutos. Verifique se a hora é válida e exiba uma mensagem correspondente (considere a hora 24:00 como inválida). Saídas:
-• Pedido para horas  = "Entre com um número para as horas:";
-• Pedido para os minutos = "Entre com um número para os minutos:";
-• Caso verdadeiro = "A hora é válida";
-• Caso falso = "A hora é inválida".
+	<enunciado>Faça um programa que solicita ao usuário dois números inteiros. O primeiro é o valor das horas e o segundo dos minutos. Verifique se a hora é válida e exiba uma mensagem correspondente (considere a hora 24:00 como inválida). Exiba o valor logico verdadeiro caso a hora seja válida, e o valor logico falso caso a hora seja inválida.
 </enunciado>
 </questao>

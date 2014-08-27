@@ -10,8 +10,7 @@
 			<entrada tipodado="real">5</entrada>
 		</entradas>
 		<saidas>
-			<saida  tipodado="cadeia">Digite as notas a seguir:</saida>
-			<saida tipodado="cadeia">Você foi aprovado</saida>
+			<saida tipodado="logico">verdadeiro</saida>
 		</saidas>
 		</caso>
 		<caso>
@@ -21,8 +20,7 @@
 				<entrada tipodado="real">5</entrada>
 			</entradas>
 			<saidas>
-				<saida  tipodado="cadeia">Digite as notas a seguir:</saida>
-				<saida  tipodado="cadeia">Você foi reprovado</saida>
+				<saida tipodado="logico">falso</saida>
 			</saidas>
 		</caso>
 		<caso>
@@ -32,15 +30,81 @@
 				<entrada tipodado="real">9.5</entrada>
 			</entradas>
 			<saidas>
-				<saida  tipodado="cadeia">Digite as notas a seguir:</saida>
-				<saida  tipodado="cadeia">Você foi aprovado</saida>
+				<saida tipodado="logico">verdadeiro</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="real">1</entrada>
+				<entrada tipodado="real">2</entrada>
+				<entrada tipodado="real">3</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="logico">falso</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="real">0</entrada>
+				<entrada tipodado="real">10</entrada>
+				<entrada tipodado="real">8</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="logico">verdadeiro</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="real">0</entrada>
+				<entrada tipodado="real">10</entrada>
+				<entrada tipodado="real">7</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="logico">falso</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="real">0.8</entrada>
+				<entrada tipodado="real">10</entrada>
+				<entrada tipodado="real">7.5</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="logico">verdadeiro</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="real">5.8</entrada>
+				<entrada tipodado="real">9</entrada>
+				<entrada tipodado="real">7.5</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="logico">verdadeiro</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="real">5.8</entrada>
+				<entrada tipodado="real">5</entrada>
+				<entrada tipodado="real">7.5</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="logico">verdadeiro</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="real">6</entrada>
+				<entrada tipodado="real">6</entrada>
+				<entrada tipodado="real">6</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="logico">verdadeiro</saida>
 			</saidas>
 		</caso>
 	</testes>
 	
-	<enunciado>Faça um programa que solicita ao usuário seu nome e as notas de três provas. Calcule a média aritmética e informe se o aluno foi Aprovado ou Reprovado (o aluno é considerado aprovado com a média igual ou superior a 6). Saídas:
-• Pedido ao usuário = "Digite as notas a seguir:";
-• Caso nota maior que 6 = "Você foi aprovado";
-• Caso nota menor que 6 = "Você foi reprovado"
+	<enunciado>Faça um programa que solicita ao as notas de três provas. Calcule a média aritmética e informe se o aluno foi Aprovado (exiba o tipo logico verdadeiro) ou Reprovado (exiba o tipo logico falso), o aluno é considerado aprovado com a média igual ou superior a 6.
 </enunciado>
 </questao>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="schema.xsd">
+		 xsi:noNamespaceSchemaLocation="schema.xsd">
 	<testes>
 		<caso>
 			<entradas>
@@ -40,6 +40,46 @@
 			</entradas>
 			<saidas>
 				<saida tipodado="inteiro">001</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">122</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">221</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">901</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">109</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">910</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">19</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">909</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">909</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">999</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">999</saida>
 			</saidas>
 		</caso>
 	</testes>

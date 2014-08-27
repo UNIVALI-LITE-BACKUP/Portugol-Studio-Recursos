@@ -8,8 +8,7 @@
 				<entrada tipodado="inteiro">6</entrada>
 			</entradas>
 			<saidas>
-				<saida tipodado="cadeia">Digite um número inteiro:</saida>
-				<saida tipodado="cadeia">Ele é positivo</saida>
+				<saida tipodado="inteiro">1</saida>
 			</saidas>
 		</caso>
 		<caso>
@@ -17,8 +16,7 @@
 				<entrada tipodado="inteiro">-9</entrada>
 			</entradas>
 			<saidas>
-				<saida tipodado="cadeia">Digite um número inteiro:</saida>
-				<saida tipodado="cadeia">Ele é negativo</saida>
+				<saida tipodado="inteiro">-1</saida>
 			</saidas>
 		</caso>
 		<caso>
@@ -26,16 +24,70 @@
 				<entrada tipodado="inteiro">0</entrada>
 			</entradas>
 			<saidas>
-				<saida tipodado="cadeia">Digite um número inteiro:</saida>
-				<saida tipodado="cadeia">Ele é igual a zero</saida>
+				<saida tipodado="inteiro">0</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">-50</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">-1</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">42</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">1</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">11000</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">1</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">-5000</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">-1</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">55</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">1</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">72</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">1</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">-8</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">-1</saida>
 			</saidas>
 		</caso>
 	</testes>
 	
-	<enunciado>Faça um programa que solicita um número inteiro e exibe uma mensagem indicando se ele é positivo, negativo ou zero. Saídas:
-• Pedido ao usuário = "Digite um número inteiro:";
-• Caso ele seja positivo = "Ele é positivo";
-• Caso ele seja negativo = "Ele é negativo";
-• Caso ele seja igual a zero = "Ele é igual a zero".
+	<enunciado>Faça um programa que solicita um número inteiro e exibe um numero inteiro indicando se ele é positivo, negativo ou zero. Saídas:
+• Caso ele seja positivo = 1;
+• Caso ele seja negativo = -1;
+• Caso ele seja igual a zero = 0;
 </enunciado>
 </questao>

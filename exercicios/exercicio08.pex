@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <questao xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="schema.xsd">
+		 xsi:noNamespaceSchemaLocation="schema.xsd">
 	<testes>
 		<caso>
 			<entradas>
@@ -24,6 +24,62 @@
 			</entradas>
 			<saidas>
 				<saida tipodado="inteiro">4</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">5432</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">7</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">2221</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">1</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">0001</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">-1</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">1000</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">-1</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">9999</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">0</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">8428</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">4</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">9192</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">6</saida>
 			</saidas>
 		</caso>
 	</testes>

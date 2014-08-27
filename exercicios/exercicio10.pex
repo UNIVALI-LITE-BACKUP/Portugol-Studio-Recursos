@@ -59,6 +59,30 @@
 				<saida tipodado="inteiro">101</saida>
 			</saidas>
 		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">6</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">110</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">4</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">100</saida>
+			</saidas>
+		</caso>
+		<caso>
+			<entradas>
+				<entrada tipodado="inteiro">3</entrada>
+			</entradas>
+			<saidas>
+				<saida tipodado="inteiro">11</saida>
+			</saidas>
+		</caso>
 	</testes>
 	
 	<enunciado>Faça um programa que converta um número decimal digitado pelo usuário em binário. O programa deve funcionar somente para números de 0 a 15.</enunciado>
