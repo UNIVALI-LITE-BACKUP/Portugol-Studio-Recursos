@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin nome="Exemplo" versao="1.0.0" classe="br.univali.portugol.plugin.exemplo.PluginExemplo">
+    <descricao>Plugin de exemplo, para ilustrar o desenvolvimento de plugins no Portugol Studio</descricao>
+    <autores>
+        <autor nome="Luiz Fernando Noschang" email="noschang@univali.br"/>
+        <autor nome="Fillipi Domingos Pelz" email="fillipi.pelz@univali.br"/>
+    </autores>    
+</plugin>
