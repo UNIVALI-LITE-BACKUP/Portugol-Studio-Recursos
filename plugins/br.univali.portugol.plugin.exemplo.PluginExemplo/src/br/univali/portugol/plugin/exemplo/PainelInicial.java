@@ -40,7 +40,7 @@ public class PainelInicial extends javax.swing.JPanel
 
         painelCentro.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 8, 8, 8));
 
-        botaoPainelFlutuante.setText("Painel Flutuante");
+        botaoPainelFlutuante.setText("Clique para exibir um painel flutuante");
         botaoPainelFlutuante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPainelFlutuanteActionPerformed(evt);
@@ -51,9 +51,7 @@ public class PainelInicial extends javax.swing.JPanel
         painelCentro.setLayout(painelCentroLayout);
         painelCentroLayout.setHorizontalGroup(
             painelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelCentroLayout.createSequentialGroup()
-                .addGap(0, 150, Short.MAX_VALUE)
-                .addComponent(botaoPainelFlutuante))
+            .addComponent(botaoPainelFlutuante, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
         );
         painelCentroLayout.setVerticalGroup(
             painelCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

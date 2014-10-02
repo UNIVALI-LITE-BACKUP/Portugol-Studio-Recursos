@@ -53,10 +53,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="150" max="32767" attributes="0"/>
-                  <Component id="botaoPainelFlutuante" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="botaoPainelFlutuante" alignment="1" pref="259" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -72,7 +69,7 @@
       <SubComponents>
         <Component class="javax.swing.JToggleButton" name="botaoPainelFlutuante">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Painel Flutuante"/>
+            <Property name="text" type="java.lang.String" value="Clique para exibir um painel flutuante"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoPainelFlutuanteActionPerformed"/>
