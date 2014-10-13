@@ -37,11 +37,11 @@ programa
 
 		// Eleva o número informado ao quadrado
 		quadrado = mat.potencia(base, 2.0)
-		escreva("\n2.0 ao quadrado é igual a: ", quadrado)
+		escreva("\n", base, " ao quadrado é igual a: ", quadrado)
 
 		// Eleva o número informado ao cubo
 		cubo = mat.potencia(base, 3.0)
-		escreva("\n3.0 ao quadrado é igual a: ", cubo, "\n")
+		escreva("\n", base, " ao cubo é igual a: ", cubo, "\n")
 	}
 }
 
