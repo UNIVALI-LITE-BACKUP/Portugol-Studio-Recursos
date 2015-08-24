@@ -1,12 +1,19 @@
 se (12 < 5) 
 {
-	//InstruÃ§Ãµes a serem executadas se o desvio for verdadeiro
+	//Instruções a serem executadas se o desvio for verdadeiro
 }
 senao se ("palavra" == "texto")
 {
-	//InstruÃ§Ãµes a serem executadas se o desvio anterior for falso e este desvio for verdadeiro
+	//Instruções a serem executadas se o desvio anterior for falso e este desvio for verdadeiro
 }
 senao
 {
-	//InstruÃ§Ãµes a serem executadas se o desvio anterior for falso
+	//Instruções a serem executadas se o desvio anterior for falso
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 279; 
+ */

@@ -14,13 +14,13 @@ programa
 
     }
 
-    //FunÃ§Ã£o de retorno vazio que dezenha uma linha no console
+    //Função de retorno vazio que dezenha uma linha no console
     funcao vazio imprime_linha() 
     {
         escreva("\n---------------------------------------------------------------------------------------------")
     }
 
-    //FunÃ§Ã£o de retorno vazio que formata uma saida com base em seus parÃ¢metros
+    //Função de retorno vazio que formata uma saida com base em seus parâmetros
     funcao vazio informacoes(cadeia nome, real versao, cadeia fornecedor)
     {
         se (nome == "Visual Basic")
@@ -30,9 +30,16 @@ programa
         escreva("\n")
         escreva("A linguagem ")
         escreva(nome)
-        escreva(" encontra-se em sua versÃ£o ")
+        escreva(" encontra-se em sua versão ")
         escreva(versao)
-        escreva(" e Ã© fornecida pelo(a) ")
+        escreva(" e é fornecida pelo(a) ")
         escreva(fornecedor)
     }
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 1035; 
+ */

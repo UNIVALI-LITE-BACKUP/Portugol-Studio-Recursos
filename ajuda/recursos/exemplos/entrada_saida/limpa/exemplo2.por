@@ -5,8 +5,8 @@ programa
     {
         cadeia nome
 
-        //imprime a frase "Qual Ã© o seu nome?"
-        escreva("Qual Ã© o seu nome ?\n")
+        //imprime a frase "Qual é o seu nome?"
+        escreva("Qual é o seu nome ?\n")
 
         //Detecta o que o usuario escreveu na tela
         leia(nome)
@@ -15,6 +15,13 @@ programa
         limpa()
 		
         //Escreve resposta
-        escreva("OlÃ¡ "+nome)
+        escreva("Olá "+nome)
     }
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 356; 
+ */

@@ -1,15 +1,15 @@
 programa
 {
-    //FunÃ§Ã£o com retorno do tipo vazio sem parÃ¢metro
+    //Função com retorno do tipo vazio sem parâmetro
     funcao vazio imprime_linha()
     {
         escreva("\n-----------------------------\n")	
     }
 
-    //FunÃ§Ã£o com retorno do tipo vazio e com um vetor como parÃ¢metro
+    //Função com retorno do tipo vazio e com um vetor como parâmetro
     funcao inicio(cadeia argumentos[])
     {
-        //Imprime o retorno da funÃ§Ã£o media
+        //Imprime o retorno da função media
         escreva(media(4,9,8))
 
         imprime_linha()
@@ -25,23 +25,23 @@ programa
 
         inteiro num=3
 
-        //Verifica se o nÃºmero 3 Ã© par com uma resposta do tipo lÃ³gico
-        escreva (num, " Ã© par? ", verifica_par(num))
+        //Verifica se o número 3 é par com uma resposta do tipo lógico
+        escreva (num, " é par? ", verifica_par(num))
     }
 
-    //FunÃ§Ã£o com retorno do tipo real e trÃªs parÃ¢metros do tipo inteiro
+    //Função com retorno do tipo real e três parâmetros do tipo inteiro
     funcao real media(inteiro m1, inteiro m2, inteiro m3) 
     {
         retorne (m1 * 2 + m2 * 3 + m3 * 8) / 13.0	
     }
 
-    //FunÃ§Ã£o com retorno vazio e parÃ¢metro por referÃªncia
+    //Função com retorno vazio e parâmetro por referência
     funcao zera_valor(inteiro &valor)
     {
         valor = 0
     }
 	
-    //FunÃ§Ã£o com retorno do tipo lÃ³gico e parÃ¢metro do tipo real
+    //Função com retorno do tipo lógico e parâmetro do tipo real
     funcao  logico verifica_par(inteiro num)
     {
             se (num % 2 != 0)
@@ -52,3 +52,10 @@ programa
             retorne verdadeiro
     }
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 1236; 
+ */

@@ -1,14 +1,21 @@
-se (5 > 3) // Estrutura de controle: "se (...)", OperaÃ§Ã£o relacional: "5 > 3"
+se (5 > 3) // Estrutura de controle: "se (...)", Operação relacional: "5 > 3"
 {
 	//conjunto de comandos se for verdadeiro
 }
 
-para (i = 0; i < 5; i++) // Estrutura de controle: "para(...)", OperaÃ§Ã£o relacional: "i < 5"
+para (i = 0; i < 5; i++) // Estrutura de controle: "para(...)", Operação relacional: "i < 5"
 {
-	//conjunto de comandos a serem repetidos atÃ© a ExpressÃ£o se tornar falsa
+	//conjunto de comandos a serem repetidos até a Expressão se tornar falsa
 }
 
-faca // Estrutura de controle "faca{}enquanto(...)", OperaÃ§Ã£o relacional: "6 < 2"
+faca // Estrutura de controle "faca{}enquanto(...)", Operação relacional: "6 < 2"
 {
-	//conjunto de comandos a serem repetidos enquanto a condicao for verdadeira apÃ³s a primeira execuÃ§Ã£o.
+	//conjunto de comandos a serem repetidos enquanto a condicao for verdadeira após a primeira execução.
 } enquanto ( 6 < 2 );
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 219; 
+ */

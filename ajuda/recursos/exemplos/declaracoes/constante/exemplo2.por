@@ -12,3 +12,10 @@ programa
         const inteiro teclado_numerico[][] = {{1,2,3},{4,5,6},{7,8,9}}
     }
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 297; 
+ */

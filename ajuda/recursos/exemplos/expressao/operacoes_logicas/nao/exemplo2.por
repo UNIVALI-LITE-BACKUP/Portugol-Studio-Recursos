@@ -2,14 +2,14 @@ programa
 {
     funcao inicio()
     {
-    	//Neste caso de teste a variÃ¡vel teste foi inicializada como falso, e foi verificado se teste nÃ£o Ã© verdadeiro
+    	//Neste caso de teste a variável teste foi inicializada como falso, e foi verificado se teste não é verdadeiro
         logico teste = falso
         se(nao(teste))
 		{
         	escreva("Teste positivo")
         }
         
-        //Neste caso teste a soma das variÃ¡veis a e b resulta em 5, e comparado se a mesma Ã© maior que 7, entretanto o operador nao, verifica se a+b nÃ£o sÃ£o maiores que 7
+        //Neste caso teste a soma das variáveis a e b resulta em 5, e comparado se a mesma é maior que 7, entretanto o operador nao, verifica se a+b não são maiores que 7
         inteiro a = 2, b = 3
         se(nao(a+b > 7))
 		{
@@ -17,3 +17,10 @@ programa
         }
     }
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 544; 
+ */

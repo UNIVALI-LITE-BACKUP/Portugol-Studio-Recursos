@@ -1,9 +1,16 @@
 logico condicao = falso
 se (condicao) 
 {
-	//InstruÃ§Ãµes a serem executadas se o desvio for verdadeiro
+	//Instruções a serem executadas se o desvio for verdadeiro
 }
 senao
 {
-	//InstruÃ§Ãµes a serem executadas se o desvio for falso
+	//Instruções a serem executadas se o desvio for falso
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 167; 
+ */

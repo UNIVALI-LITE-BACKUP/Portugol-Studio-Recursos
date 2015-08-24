@@ -1,25 +1,25 @@
-//O comando programa √© obrigat√≥rio
+//O comando programa È obrigatÛrio
 programa
 {
-    //Inclus√µes de bibliotecas
+    //Inclusıes de bibliotecas
     // - Quando houver a necessidade de utilizar
-    //   uma ou mais bibliotecas, as inclus√µes
-    //   devem aparecer antes de qualquer declara√ß√£o  
+    //   uma ou mais bibliotecas, as inclusıes
+    //   devem aparecer antes de qualquer declaraÁ„o  
 
     /* 
-     *  Dentro do programa √© permitido declarar 
-     *  vari√°veis globais, constantes globais e
-     *  fun√ß√µes em qualquer ordem.
+     *  Dentro do programa È permitido declarar 
+     *  vari·veis globais, constantes globais e
+     *  funÁıes em qualquer ordem.
      */
 
-    //Declara√ß√µes de fun√ß√µes somente
-    //s√£o permitidas dentro do programa.	
+    //DeclaraÁıes de funÁıes somente
+    //s„o permitidas dentro do programa.	
     funcao inicio()
     {
         /*
-         * Declara√ß√µes de vari√°veis locais, 
+         * DeclaraÁıes de vari·veis locais, 
          * constantes locais, estruturas de
-         * controle e express√µes.
+         * controle e expressıes.
          */
     }
 }

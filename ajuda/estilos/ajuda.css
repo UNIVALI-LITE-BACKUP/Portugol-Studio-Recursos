@@ -1,19 +1,26 @@
+/*
+CssBox equivalencias:
+O primeiro não funciona no cssBox, o segundo é sua equivalencia que funciona.
+"border-collapse: collapse" = "border-spacing: 0px";
+*/
 body
 {
     font-family: "Open Sans";
-    font-size: 10.2pt;
-    line-height: 150%;
+    font-size: 14.2pt;
+    line-height: 100%;
     margin: 0px;    
     padding: 0px;
-    background-color: #FCFCFC;
+    color: #333;
+    margin: 0;
 }
 
 h1, h2
 {
-    font-size: 13pt;
-    color: white;
+    font-family: "Tahoma";
+    font-size: 20pt;
+    color: #fefefe;
     margin-bottom: 0px;
-    background-color: rgb(40, 103, 130);
+    background-color: #4183D7;
     padding: 5px;
     padding-left: 8px;
 }
@@ -70,22 +77,11 @@ a
     text-decoration: none;
 }
 
-a:visited
-{
-    
-}
-
-div.botao-codigo-portugol button
-{
-    color: rgb(40, 103, 130);
-    background-color: #E7E5DC;
-    border: 1px solid rgb(40, 103, 130);
-}
-
 img
 {    
     border: 2px solid black;
     margin: 10px;
+    text-align: center;
 }
 
 .cadeia 
@@ -129,3 +125,78 @@ img
 {
     color: brown;
 }
+
+hr
+{
+    height: 3px;
+    background: #333;
+    color: #333;
+}
+.imagem
+{
+    text-align: center;
+}
+
+.botao-codigo-fonte-container{
+	overflow: scroll;
+}
+
+.botao-codigo-fonte{
+	overflow: scroll;
+}
+
+.codigo-fonte{
+	overflow: scroll;
+    margin: 20px;
+	white-space: pre-wrap;
+}
+
+//INICIO CSS gerado pelo PortugolHTMLHighlighter.java
+
+.porPalavraReservada //Exemplo: const caso se senao...
+{
+    color: rgb(70, 103, 130);
+    font-weight: bold;
+}
+
+.porTipoDeclaracao //Exemplo: inteiro real cadeia...
+{
+
+}
+
+.porAgrupamentos //Exemplo: () {} []
+{
+
+}
+
+.porNumeros //Exemplo: 5 4.52...
+{
+    
+}
+
+.porLogico //Exemplo: VERDADEIRO FALSO
+{
+    
+}
+
+.porTexto //Exemplo: "Olá mundo"...
+{
+    
+}
+
+.porID //Exemplo: nomeVariavel nomeFuncao...
+{
+    
+}
+
+.porComentario //Exemplo: //Isso é um comentário...
+{
+    
+}
+
+.porDesconhecido //Tudo que não for espaço, pulo de linha, tab e não tenha sido reconhecido anteriormente.
+{
+    
+}
+
+//FIM CSS gerado pelo PortugolHTMLHighlighter.java

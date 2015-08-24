@@ -4,10 +4,17 @@ programa
 	{
 		cadeia nome1, nome2
 
-		nome1 = "VariÃ¡vel declarada atravÃ©s de atribuiÃ§Ã£o"		//variÃ¡vel declarada atravÃ©s de atribuiÃ§Ã£o do programador
+		nome1 = "Variável declarada através de atribuição"		//variável declarada através de atribuição do programador
 
 		escreva ("Digite seu nome: ")
-		leia (nome2)										//variÃ¡vel declarada atravÃ©s de entrada do usuÃ¡rio
-		escreva ("\nOlÃ¡ ", nome2) 
+		leia (nome2)										//variável declarada através de entrada do usuário
+		escreva ("\nOlá ", nome2) 
 	}
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 310; 
+ */

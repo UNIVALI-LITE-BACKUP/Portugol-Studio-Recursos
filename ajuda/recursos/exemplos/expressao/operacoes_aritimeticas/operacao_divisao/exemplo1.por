@@ -1,3 +1,11 @@
-escreva(15 / 5) //OperaÃ§Ã£o AritmÃ©tica 1 * 5 sendo escrita na tela
+escreva(15 / 5) //Operação Aritmética 1 * 5 sendo escrita na tela
 
-real numero = 50 / 25.6 //OperaÃ§Ã£o AritmÃ©tica 50 * 30 sendo armazenada na variÃ¡vel numero
+real numero = 50 / 25.6 //Operação Aritmética 50 * 30 sendo armazenada na variável numero
+
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 157; 
+ */

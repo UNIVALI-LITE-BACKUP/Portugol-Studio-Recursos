@@ -8,5 +8,12 @@
 			</saidas>
 		</caso>
 	</testes>
-	<enunciado>Faça um programa que exiba na tela o numero 42".</enunciado>
+	<enunciado>
+Faça um programa que exiba na tela o número inteiro 42".
+Lembre-se, escreva("42") é diferente de escreva(42).
+Um mostra um texto o outro um inteiro.
+
+Exemplo:
+Escreva(inteiro)->42
+	</enunciado>
 </questao>
