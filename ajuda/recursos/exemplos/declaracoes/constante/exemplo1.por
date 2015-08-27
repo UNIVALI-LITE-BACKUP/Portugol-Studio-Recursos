@@ -5,5 +5,7 @@ const real NOME_DA_CONSTANTE2 = 45
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 70; 
+ * @POSICAO-CURSOR = 71; 
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
  */
