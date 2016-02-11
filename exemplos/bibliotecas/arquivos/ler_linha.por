@@ -31,7 +31,7 @@
 	{
 		// Nesta variável é definido o caminho do arquivo que será lido.
 		//
-		// Pod-se informar o caminho completo, ou usar "./" para indicar
+		// Pode-se informar o caminho completo, ou usar "./" para indicar
 		// que o arquivo se encontra na mesma pasta onde o programa está salvo.
 		//
 		// No Portugol Studio podemos utilizar tanto a barra invertida "\" quanto
@@ -62,64 +62,25 @@
 		// linhas do arquivo e também fechá-lo quando terminarmos de usá-lo.		
 		
 		inteiro arquivo_placar = a.abrir_arquivo(caminho_do_arquivo, a.MODO_LEITURA)
-		
+
 		// O segundo passo é ler cada linha do arquivo e escrever na saída de dados (console)
 		// do Portugol Studio. Para isso utiliza-ze a função "ler_linha".
 		//
-		// No exemplo anterior, lemos todas as linhas do arquivo utilizando o laço de repetição
-		// "para". Só pudemos fazer isso, porque conhecíamos a quantidade de linhas do arquivo.		
+		// Como o Portugol Studio permite trabalhar com mais de um arquivo ao mesmo tempo, 
+		// precisamos informar qual arquivo queremos ler. Neste caso, só temos o arquivo de
+		// placar aberto, portanto, passamos seu endereço como parâmetro na função.		
 		//
-		// No entanto, existem casos em que o número de linhas não é conhecido. Para poder ler
-		// estes arquivos, o Portugol Studio possui uma função especial.
+		// A função "ler_linha", lê a linha atual do arquivo e automaticamente pula para a
+		// próxima linha. Isto quer dizer que se quisermos ler as primeiras 3 linhas do arquivo,
+		// precisamos chamar a função 3 vezes seguidas.
 		//
-		// A função "fim_arquivo" testa se chegamos no final do arquivo e retorna um valor 
-		// lógico.
-		//
-		// verdadeiro: se chegamos no fim do arquivo
-		// falso: se ainda não chegamos no fim do arquivo
-		// 
-		// Isto significa que podemos utilizar esta função em um laço de repetição "enquanto" e
-		// ficar lendo linha a linha enquanto o arquivo não chega ao fim.
+		// Ao chamar a função "ler_linha" a linha atual do arquivo será lida e retornada pela 
+		// função. Pode-se escrever a linha diretamente no console, ou armazenar em uma variável
+		// para escrever depois. Neste exemplo será usada a segunda estratégia.
 		
-		cadeia linha = ""
-
-		// Como não conhecemos a quantidade de linhas, mas queremos escrever o número da linha
-		// no console, vamos declarar uma variável para contar as linhas conforme formos lendo.
-
-		inteiro numero_da_linha = 0
-
-		// Precisamos informar para a função "fim_arquivo" qual arquivo queremos testar. Neste
-		// caso, é o arquivo de placar.
-		//
-		// IMPORTANTE: nesta versão do Portugol Studio, a função "fim_arquivo" está com um pequeno
-		// bug que faz com que seja lida uma linha a mais do que deveria.
-		
-		enquanto (nao a.fim_arquivo(arquivo_placar))
-		{
-			// A cada linha lida, vamos incrementar o contador
-
-			numero_da_linha = numero_da_linha + 1
-
-			// Assim como no exemplo anterior, podemos seguir duas estratégias: ir
-			// escrevendo no console ou concatenar na variável para escrever depois.
-			//
-			// A segunda estratégia é mais eficiente que a primeira. Troque o caminho do arquivo
-			// no início do programa para "./placar2.txt" e teste as diferentes estratégias. Você
-			// verá que a segunda executa muito mais rápido.			
-
-			// Comente a linha abaixo para usar a segunda estratégia
-			linha = a.ler_linha(arquivo_placar)					
-
-			// Comente a linha abaixo para usar a segunda estratégia
-			escreva("Linha ", numero_da_linha, ": ", linha, "\n")		
-
-
-			// Descomente a linha abaixo para usar a segunda estratégia
-			//linha = linha + "Linha " + numero_da_linha + ": " + a.ler_linha(arquivo_placar) + "\n"	
-		}
-
-		// Descomente a linha abaixo para usar a segunda estratégia
-		//escreva(linha)
+		cadeia linha1 = a.ler_linha(arquivo_placar)
+		cadeia linha2 = a.ler_linha(arquivo_placar)
+		cadeia linha3 = a.ler_linha(arquivo_placar)
 
 		// Após ler os dados desejados, é necessário fechar o arquivo. É necessário fazer isso
 		// para liberar a memória que está sendo utilizada pelo arquivo e também para que outros
@@ -130,6 +91,15 @@
 		// por parâmetro
 
 		a.fechar_arquivo(arquivo_placar)
+
+		// O último passo, é escrever no console as linhas que foram lidas do arquivo.
+		//
+		// Para isso, basta utilizar as variáveis que declaramos anteriormente e que
+		// usamos para armazenar as linhas.
+
+		escreva("Linha 1: ", linha1, "\n")
+		escreva("Linha 2: ", linha2, "\n")
+		escreva("Linha 3: ", linha3, "\n")
 	}
 }
 /* $$$ Portugol Studio $$$ 

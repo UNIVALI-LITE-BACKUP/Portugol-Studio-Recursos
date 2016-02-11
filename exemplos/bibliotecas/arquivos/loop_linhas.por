@@ -22,8 +22,9 @@
  * 	
  * Data: 10/02/2016
  */
- 
- programa
+
+
+programa
 {
 	inclua biblioteca Arquivos --> a
 	
@@ -31,7 +32,7 @@
 	{
 		// Nesta variável é definido o caminho do arquivo que será lido.
 		//
-		// Pod-se informar o caminho completo, ou usar "./" para indicar
+		// Pode-se informar o caminho completo, ou usar "./" para indicar
 		// que o arquivo se encontra na mesma pasta onde o programa está salvo.
 		//
 		// No Portugol Studio podemos utilizar tanto a barra invertida "\" quanto
@@ -62,53 +63,49 @@
 		// linhas do arquivo e também fechá-lo quando terminarmos de usá-lo.		
 		
 		inteiro arquivo_placar = a.abrir_arquivo(caminho_do_arquivo, a.MODO_LEITURA)
-		
+
 		// O segundo passo é ler cada linha do arquivo e escrever na saída de dados (console)
 		// do Portugol Studio. Para isso utiliza-ze a função "ler_linha".
 		//
-		// No exemplo anterior, lemos todas as linhas do arquivo utilizando o laço de repetição
-		// "para". Só pudemos fazer isso, porque conhecíamos a quantidade de linhas do arquivo.		
+		// No exemplo anterior, foram lidas apenas as primeiras linhas do arquivo. Neste exemplo, 
+		// vamos ler todas as linhas utilizando um laço de repetição "para".
 		//
-		// No entanto, existem casos em que o número de linhas não é conhecido. Para poder ler
-		// estes arquivos, o Portugol Studio possui uma função especial.
+		// Para utilizar um laço de repetição, é necessário saber o número de linhas existentes 
+		// no arquivo. Vamos declarar uma variável para armazenar a quantidade de linhas, assim, 
+		// caso o número de linhas mude, será fácil modificar o programa para que ele volte a 
+		// funcionar.
 		//
-		// A função "fim_arquivo" testa se chegamos no final do arquivo e retorna um valor 
-		// lógico.
-		//
-		// verdadeiro: se chegamos no fim do arquivo
-		// falso: se ainda não chegamos no fim do arquivo
-		// 
-		// Isto significa que podemos utilizar esta função em um laço de repetição "enquanto" e
-		// ficar lendo linha a linha enquanto o arquivo não chega ao fim.
-		
+		// Também vamos declarar uma variável que irá armazenar a linha lida em cada iteração
+		// para que possamos escrevê-la depois.
+
 		cadeia linha = ""
+		inteiro quantidade_de_linhas = 10
 
-		// Como não conhecemos a quantidade de linhas, mas queremos escrever o número da linha
-		// no console, vamos declarar uma variável para contar as linhas conforme formos lendo.
-
-		inteiro numero_da_linha = 0
-
-		// Precisamos informar para a função "fim_arquivo" qual arquivo queremos testar. Neste
-		// caso, é o arquivo de placar.
-		//
-		// IMPORTANTE: nesta versão do Portugol Studio, a função "fim_arquivo" está com um pequeno
-		// bug que faz com que seja lida uma linha a mais do que deveria.
+		// Iniciamos o laço de repetição em 1 e iteramos até a quantidade de linhas existentes no
+		// arquivo.
 		
-		enquanto (nao a.fim_arquivo(arquivo_placar))
+		para (inteiro numero_da_linha = 1; numero_da_linha <= quantidade_de_linhas; numero_da_linha++)
 		{
-			// A cada linha lida, vamos incrementar o contador
-
-			numero_da_linha = numero_da_linha + 1
-
-			// Assim como no exemplo anterior, podemos seguir duas estratégias: ir
-			// escrevendo no console ou concatenar na variável para escrever depois.
+			// Lemos a linha atual e armazenamos em uma variável.
+			//
+			// No exemplo anterior, tínhamos 3 variáveis para armazenar cada uma das linhas.
+			// Neste caso, temos apenas uma variavel. 
+			//
+			// Isto significa que a cada nova linha lida, o valor anterior será perdido. Portanto
+			// precisamos ir escrevendo as linhas no console conforme elas vão sendo lidas.
+			//
+			// Outra estratégia é concatenar cada nova linha no final da variável, separando as
+			// linhas com o caracter de quebra de linha "\n". Neste caso, somente escrevemos a 
+			// variável no console após terminar de ler todas as linhas
 			//
 			// A segunda estratégia é mais eficiente que a primeira. Troque o caminho do arquivo
 			// no início do programa para "./placar2.txt" e teste as diferentes estratégias. Você
-			// verá que a segunda executa muito mais rápido.			
+			// verá que a segunda executa muito mais rápido. Não esqueça de mudar o valor da variável
+			// "quantidade_de_linhas" para 1000.
+
 
 			// Comente a linha abaixo para usar a segunda estratégia
-			linha = a.ler_linha(arquivo_placar)					
+			linha = a.ler_linha(arquivo_placar)				
 
 			// Comente a linha abaixo para usar a segunda estratégia
 			escreva("Linha ", numero_da_linha, ": ", linha, "\n")		
@@ -137,5 +134,5 @@
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 670; 
+ * @POSICAO-CURSOR = 0; 
  */

@@ -1,3 +1,4 @@
-01 - Biblioteca Util=util
+01 - Biblioteca Arquivos=arquivos
 02 - Biblioteca Matematica=matematica
 03 - Biblioteca Texto=texto
+04 - Biblioteca Util=util
