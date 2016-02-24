@@ -168,7 +168,11 @@ programa
 
 		inteiro margem_superior = 100 //os botões de ativação dos sons serão desenhados desse ponto para baixo
 
-		desenhar_linha_divisoria(margem_superior - 10) //linha divisória horizontal 
+		desenhar_linha_divisoria(margem_superior - 10) //linha divisória horizontal
+		
+		desenhar_linha_divisoria(200)
+
+		escrever_descricao()
 
 		desenhar_nomes_das_pecas(margem_superior) //desenha os nomes Bumbo, Caixa e Chimbal no lado esquerdo da tela
 
@@ -188,11 +192,15 @@ programa
 		cadeia texto = "Portugol-909"
 		
 		Graficos.definir_tamanho_texto(tamanho)
-
 		Graficos.definir_cor(LINHA_COR_ESCURA)
+		
 		Graficos.desenhar_texto(x+1, y+1, texto)
 		
 		Graficos.definir_cor(LINHA_COR_CLARA)
+		se(executando)
+		{
+			Graficos.definir_cor(0xffc200)
+		}
 		Graficos.desenhar_texto(x, y, texto)
 	}
 
@@ -200,6 +208,20 @@ programa
 	funcao logico desenhar_botao(inteiro x_do_botao, inteiro y_do_botao, inteiro botao_normal, inteiro botao_hover)
 	{
 		logico hover = mouse_esta_em_cima_do_botao(x_do_botao, y_do_botao)
+		se (hover)
+			Graficos.desenhar_imagem(x_do_botao, y_do_botao, botao_hover)
+		senao
+			Graficos.desenhar_imagem(x_do_botao, y_do_botao, botao_normal)
+		retorne hover
+	}
+
+	funcao logico desenhar_botao_play(inteiro x_do_botao, inteiro y_do_botao, inteiro botao_normal, inteiro botao_hover)
+	{
+		logico hover=verdadeiro	
+		se(nao executando)
+		{
+			hover = mouse_esta_em_cima_do_botao(x_do_botao, y_do_botao)
+		}
 		se (hover)
 			Graficos.desenhar_imagem(x_do_botao, y_do_botao, botao_hover)
 		senao
@@ -215,12 +237,13 @@ programa
 
 		inteiro x_do_botao = margem
 
-		logico hover = desenhar_botao(x_do_botao, margem, botao_iniciar, botao_iniciar_hover)
-		se (hover e clicou)
+		logico hover = desenhar_botao_play(x_do_botao, margem, botao_iniciar, botao_iniciar_hover)
+		
+		se (hover e clicou e nao executando)
 		{
 			clicou = falso
 			iniciar()
-		}
+		}		
 
 		x_do_botao += espaco_entre_botoes + largura_do_botao
 		
@@ -342,6 +365,17 @@ programa
 		Graficos.desenhar_linha(0, y+1, LARGURA_DA_TELA, y+1)
 	}
 
+	funcao escrever_descricao()
+	{
+		Graficos.definir_tamanho_texto(14.0)
+		Graficos.definir_fonte_texto(FONTE)
+		Graficos.definir_cor(COR_DO_TEXTO)
+		Graficos.definir_estilo_texto(falso, verdadeiro, falso)
+		Graficos.desenhar_texto(10, 210, "Os círculos amarelos são batidas ativadas, e cinzas são desativadas.")	
+		Graficos.desenhar_texto(10, 230, "Clique em um círculo para ativá-lo ou desativá-lo.")
+		Graficos.desenhar_texto(10, 250, "Pode ser feito enquanto está tocando")	
+	}
+
 	funcao desenha_botoes(inteiro margem_superior, inteiro margem_esquerda, inteiro gap)
 	{
 		inteiro y = margem_superior
@@ -406,7 +440,7 @@ programa
 
 		//inicializando o modo gráfico
 		Graficos.iniciar_modo_grafico(verdadeiro)
-		Graficos.definir_dimensoes_janela(LARGURA_DA_TELA, 200)
+		Graficos.definir_dimensoes_janela(LARGURA_DA_TELA, 300)
 		Graficos.definir_titulo_janela("Bateria Eletrônica")
 	}
 
@@ -483,5 +517,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 7469; 
+ * @POSICAO-CURSOR = 10845; 
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
  */
