@@ -1,4 +1,1 @@
-Exemplo 01 - Verificar Botão Pressionado=botao_pressionado.por
-Exemplo 02 - Ler Botão=ler_botao.por
-Exemplo 03 - Obter Posição do Mouse=posicao_mouse.por
-Exemplo 04 - Manipulando o Cursor=cursor.por
+﻿

@@ -1,3 +1,1 @@
-Exemplo 01 - Reproduzir Um Único Som=reproduzir_um.por
-Exemplo 02 - Reproduzir Vários Sons=reproduzir_varios.por
-Exemplo 03 - Interrompendo Sons=interromper.por
+﻿
