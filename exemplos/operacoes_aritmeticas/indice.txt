@@ -1,4 +1,0 @@
-Exemplo 01 - Operações Simples=operacoes_simples.por
-Exemplo 02 - Prioridades=prioridades.por
-Exemplo 03 - Divisões Inteiras=divisoes_inteiras.por
-Exemplo 04 - Potencia e Raiz=potencia_raiz.por

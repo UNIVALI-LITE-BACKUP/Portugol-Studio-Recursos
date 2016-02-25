@@ -1,4 +1,0 @@
-Exemplo 01 - Ler Linha=ler_linha.por
-Exemplo 02 - Ler Linhas em Loop=loop_linhas.por
-Exemplo 03 - Ler Arquivo=ler_arquivo.por
-Exemplo 04 - Selecionar e Ler Arquivo=ler_selecionado.por

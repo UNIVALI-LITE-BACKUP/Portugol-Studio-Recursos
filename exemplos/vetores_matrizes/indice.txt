@@ -1,5 +1,0 @@
-Exemplo 01 - Preenche e Exibe Vetor=preenche_vetor.por
-Exemplo 02 - Pesquisa Vetor=pesquisa_vetor.por
-Exemplo 03 - Tabela de Dados=tabela_dados.por
-Exemplo 04 - Diagonal Principal=diagonal_principal.por
-Exemplo 05 - Exibe Matriz=exibe_matriz.por

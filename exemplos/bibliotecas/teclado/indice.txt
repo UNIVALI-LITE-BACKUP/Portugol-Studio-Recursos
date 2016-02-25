@@ -1,2 +1,0 @@
-Exemplo 01 - Verificar tecla pressionada=tecla_pressionada.por
-Exemplo 02 - Ler tecla=ler_tecla.por

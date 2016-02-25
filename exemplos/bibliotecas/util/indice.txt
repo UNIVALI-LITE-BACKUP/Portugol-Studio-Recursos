@@ -1,5 +1,0 @@
-Exemplo 01 - Aguardar Intervalo=aguarde.por
-Exemplo 02 - Sorteio de Um Número=sorteio.por
-Exemplo 03 - Tamanho do Vetor=vetor.por
-Exemplo 04 - Tamanho da Matriz=matriz.por
-Exemplo 05 - Controle de Tempo=tempo.por

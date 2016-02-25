@@ -1,4 +1,0 @@
-Exemplo 01 - Moon Lander=moon_lander.por
-Exemplo 02 - Serpente=serpente.por
-Exemplo 03 - Corrida=corrida.por
-The Ball Saga=theballsaga

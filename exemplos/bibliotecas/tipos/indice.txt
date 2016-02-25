@@ -1,4 +1,0 @@
-Exemplo 01 - Tipo Inteiro=inteiro.por
-Exemplo 02 - Tipo Real=real.por
-Exemplo 03 - Tipo Logico=logico.por
-Exemplo 04 - Tipo Caracter=caracter.por

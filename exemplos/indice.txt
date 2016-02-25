@@ -1,9 +1,0 @@
-01 - Entrada e Saída=entrada_saida
-02 - Operações Aritméticas=operacoes_aritmeticas
-03 - Algoritmos Sequencias=algoritmos_sequenciais
-04 - Desvios Condicionais=desvios_condicionais
-05 - Laços de Repetição=lacos_repeticao
-06 - Vetores e Matrizes=vetores_matrizes
-07 - Subrotinas=subrotinas
-08 - Bibliotecas=bibliotecas
-09 - Jogos=jogos

@@ -1,9 +1,0 @@
-Exemplo 01 - Raíz de Um Número=raiz.por
-Exemplo 02 - Potência Entre Dois Números=potencia.por
-Exemplo 03 - Logaritmo de Um Número=logaritmo.por
-Exemplo 04 - Funções Trigonométricas=funcoes_trigonometricas.por
-Exemplo 05 - Maior Número=maior_numero.por
-Exemplo 06 - Menor Número=menor_numero.por
-Exemplo 07 - Valor Absoluto=valor_absoluto.por
-Exemplo 08 - Arredondamento=arredondamento.por
-Exemplo 09 - Área da Circunferência=area_circunferencia.por

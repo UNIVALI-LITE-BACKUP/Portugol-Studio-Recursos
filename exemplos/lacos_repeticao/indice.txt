@@ -1,7 +1,0 @@
-Exemplo 01 - Contagem Regressiva=contagem_regressiva.por
-Exemplo 02 - Tabuada=tabuada.por
-Exemplo 03 - Consistência=consistencia.por
-Exemplo 04 - Média de Dez Números=media_dez_numeros.por
-Exemplo 05 - Soma de Um a X=soma_um_x.por
-Exemplo 06 - Fatorial=fatorial.por
-Exemplo 07 - Eleição=eleicao.por

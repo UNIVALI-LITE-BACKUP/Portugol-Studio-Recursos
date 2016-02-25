@@ -1,5 +1,0 @@
-Exemplo 01 - Troca de Variáveis=troca_variaveis.por
-Exemplo 02 - Maioridade Penal=maioridade_penal.por
-Exemplo 03 - Altura Média=altura_media.por
-Exemplo 04 - Loja de Ferramentas=loja_ferramentas.por
-Exemplo 05 - Quantos Dias=quantos_dias.por
