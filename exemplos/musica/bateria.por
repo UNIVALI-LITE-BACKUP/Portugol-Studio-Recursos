@@ -8,9 +8,9 @@ programa
 	inclua biblioteca Matematica
 	inclua biblioteca Tipos
 
-	inteiro LARGURA_DA_TELA = 595
+	inteiro LARGURA_DA_TELA = 725
 
-	inteiro andamento = 90 //velocidade da música em BPM (Batidas por Minuto)
+	inteiro andamento = 100 //velocidade da música em BPM (Batidas por Minuto)
 
 	//imagens dos botões
 	inteiro botao_ligado = 0
@@ -19,11 +19,24 @@ programa
 	inteiro botao_desligado_hover = 0
 
 	//botões de controles gerais
-	inteiro botao_mais_rapido = 0 //botão usado para controlar a velocidade da música
-	inteiro botao_mais_rapido_hover = 0
-	inteiro botao_menos_rapido = 0
-	inteiro botao_menos_rapido_hover = 0
+	inteiro botao_aumentar_andamento = 0 //botão usado para controlar a velocidade da música
+	inteiro botao_aumentar_andamento_hover = 0
+	inteiro botao_diminuir_andamento = 0
+	inteiro botao_diminuir_andamento_hover = 0
 
+	inteiro botao_diminuir_volume_geral = 0
+	inteiro botao_aumentar_volume_geral = 0
+	
+	inteiro botao_aumentar_volume_hover = 0
+	inteiro botao_diminuir_volume_hover = 0
+
+	inteiro botao_aumentar_volume_bumbo = 0
+	inteiro botao_aumentar_volume_caixa = 0
+	inteiro botao_aumentar_volume_chimbal = 0
+	inteiro botao_diminuir_volume_bumbo = 0
+	inteiro botao_diminuir_volume_caixa = 0
+	inteiro botao_diminuir_volume_chimbal = 0
+	
 	inteiro botao_iniciar = 0
 	inteiro botao_iniciar_hover = 0
 
@@ -37,6 +50,8 @@ programa
 	inteiro fundo = 0 //imagem de fundo
 	inteiro COR_DE_FUNDO_DOS_CONTROLES = 0
 
+	inteiro COR_DAS_BARRAS_DE_VOLUME = 0
+
 	//cores utilizadas na linha divisória horizontal
 	inteiro LINHA_COR_ESCURA = 0
 	inteiro LINHA_COR_CLARA = 0
@@ -46,6 +61,10 @@ programa
 	inteiro som_caixa = 0
 	inteiro som_chimbal = 0
 	
+	//volumes dos sons das peças da bateria
+	inteiro volume_bumbo = 100
+	inteiro volume_caixa = 90
+	inteiro volume_chimbal = 80
 
 	inteiro COR_DO_TEXTO = 0
 
@@ -59,8 +78,7 @@ programa
 		/* caixa   */{falso, falso, falso, falso,  verdadeiro, falso, falso, falso, falso, falso, falso, falso, verdadeiro, falso, falso, falso},
 		/* chimbal */{verdadeiro, falso, verdadeiro, falso,  verdadeiro, falso, verdadeiro, falso, verdadeiro, falso, verdadeiro, falso, verdadeiro, falso, verdadeiro, falso}
 	}
-
-
+
 	//variáveis usadas para detectar clique do mouse
 	inteiro ultimo_x = -1
 	inteiro ultimo_y = -1
@@ -146,13 +164,24 @@ programa
 				se (notas[linha][coluna] e coluna == tempo_atual)
 				{
 					inteiro som = -1
+					inteiro volume = 100
 					se (linha == 0)
+					{
 						som = som_bumbo
+						volume = volume_bumbo
+					}
 					senao se (linha == 1)
+					{
 						som = som_caixa
+						volume = volume_caixa
+					}
 					senao
-						som = som_chimbal	
-					Sons.reproduzir_som(som, falso)	
+					{
+						som = som_chimbal
+						volume = volume_chimbal
+					}
+					inteiro reproducao = Sons.reproduzir_som(som, falso)	
+					Sons.definir_volume_reproducao(reproducao, volume)
 				}
 			}
 		}
@@ -162,74 +191,217 @@ programa
 	{
 		Graficos.desenhar_imagem(0, 0, fundo)		//desenha fundo
 
-		desenhar_botoes_de_controle()		
+		desenhar_botoes_de_controles_gerais() //botões de iniciar, parar, aumentar e diminuir volume geral		
 
-		desenha_logo()
+		desenhar_logo()
 
 		inteiro margem_superior = 100 //os botões de ativação dos sons serão desenhados desse ponto para baixo
 
-		desenhar_linha_divisoria(margem_superior - 10) //linha divisória horizontal
-		
-		desenhar_linha_divisoria(200)
+		desenhar_linha_divisoria(margem_superior - 10) //linha divisória horizontal 
 
-		escrever_descricao()
+		desenhar_linha_divisoria(220)
+		escrever_descricao(230)
 
 		desenhar_nomes_das_pecas(margem_superior) //desenha os nomes Bumbo, Caixa e Chimbal no lado esquerdo da tela
 
 		inteiro margem_esquerda = 100
 		inteiro espaco_entre_os_grupos = 10 //espaço entre os grupos de 4 botões
-		desenha_botoes(margem_superior, margem_esquerda, espaco_entre_os_grupos) //desenha os botões de ativação dos sons
+		desenhar_botoes(margem_superior, margem_esquerda, espaco_entre_os_grupos) //desenha os botões de ativação dos sons
 		desenhar_lampadas(margem_superior - 27, margem_esquerda + 8, espaco_entre_os_grupos)
+		desenhar_botoes_de_volume_das_pecas(600, 100)
 
 		Graficos.renderizar()
 	}
 
-	funcao desenha_logo()
+	funcao escrever_descricao(inteiro y)
+	{
+		Graficos.definir_tamanho_texto(12.0)
+		Graficos.definir_fonte_texto(FONTE)
+		Graficos.definir_cor(COR_DO_TEXTO)
+		Graficos.definir_estilo_texto(falso, verdadeiro, falso)
+		Graficos.desenhar_texto(10, y, "Os círculos amarelos são batidas ativadas, e cinzas são desativadas.")	
+		Graficos.desenhar_texto(10, y+20, "Clique em um círculo para ativá-lo ou desativá-lo.")
+		Graficos.desenhar_texto(10, y+40, "Pode ser feito enquanto está tocando")	
+	}
+
+	funcao desenhar_logo()
 	{
 		real tamanho = 32.0
-		inteiro x = 342
-		inteiro y = 20
+		inteiro x = 470
+		inteiro y = 10
 		cadeia texto = "Portugol-909"
 		
 		Graficos.definir_tamanho_texto(tamanho)
+
 		Graficos.definir_cor(LINHA_COR_ESCURA)
-		
 		Graficos.desenhar_texto(x+1, y+1, texto)
 		
-		Graficos.definir_cor(LINHA_COR_CLARA)
-		se(executando)
-		{
-			Graficos.definir_cor(0xffc200)
-		}
+		Graficos.definir_cor(COR_DAS_BARRAS_DE_VOLUME)
 		Graficos.desenhar_texto(x, y, texto)
 	}
 
 	//retorna verdadeiro se o mouse está em cima do botão
 	funcao logico desenhar_botao(inteiro x_do_botao, inteiro y_do_botao, inteiro botao_normal, inteiro botao_hover)
 	{
-		logico hover = mouse_esta_em_cima_do_botao(x_do_botao, y_do_botao)
-		se (hover)
+		logico mouse_em_cima_do_botao = mouse_esta_em_cima_do_botao(x_do_botao, y_do_botao)
+		se (mouse_em_cima_do_botao)
 			Graficos.desenhar_imagem(x_do_botao, y_do_botao, botao_hover)
 		senao
 			Graficos.desenhar_imagem(x_do_botao, y_do_botao, botao_normal)
-		retorne hover
-	}
 
-	funcao logico desenhar_botao_play(inteiro x_do_botao, inteiro y_do_botao, inteiro botao_normal, inteiro botao_hover)
-	{
-		logico hover=verdadeiro	
-		se(nao executando)
+		se (mouse_em_cima_do_botao e clicou)
 		{
-			hover = mouse_esta_em_cima_do_botao(x_do_botao, y_do_botao)
+			clicou = falso
+			executar_acao(botao_normal)
 		}
-		se (hover)
-			Graficos.desenhar_imagem(x_do_botao, y_do_botao, botao_hover)
-		senao
-			Graficos.desenhar_imagem(x_do_botao, y_do_botao, botao_normal)
-		retorne hover
 	}
 
-	funcao desenhar_botoes_de_controle(){
+	funcao executar_acao(inteiro botao_clicado)
+	{
+		escolha (botao_clicado)
+		{
+			caso botao_iniciar:
+				iniciar()
+				pare
+			
+			caso botao_parar:
+				parar()
+				pare				
+
+			caso botao_diminuir_andamento:
+				diminuir_andamento()
+				pare
+			
+			caso botao_aumentar_andamento:
+				aumentar_andamento()
+				pare
+
+			caso botao_aumentar_volume_geral:
+				aumentar_volume_geral()
+				pare
+
+			caso botao_diminuir_volume_geral:
+				diminuir_volume_geral()
+				pare			
+
+			caso botao_aumentar_volume_bumbo:
+				aumentar_volume_peca(volume_bumbo)
+				pare
+			caso botao_aumentar_volume_caixa:
+				aumentar_volume_peca(volume_caixa)
+				pare				
+			caso botao_aumentar_volume_chimbal:
+				aumentar_volume_peca(volume_chimbal)	
+				pare			
+
+			caso botao_diminuir_volume_chimbal:
+				diminuir_volume_peca(volume_chimbal)
+				pare				
+			caso botao_diminuir_volume_caixa:
+				diminuir_volume_peca(volume_caixa)
+				pare							
+			caso botao_diminuir_volume_bumbo:
+				diminuir_volume_peca(volume_bumbo)
+				pare				
+		}
+	}
+
+	funcao aumentar_volume_peca(inteiro &volume) //atenção, o parâmetro está sendo passado por referência
+	{
+		volume += 10
+		se (volume > 100)
+			volume = 100
+	}
+
+	funcao diminuir_volume_peca(inteiro &volume) //atenção, o parâmetro está sendo passado por referência
+	{
+		volume -= 10
+		se (volume < 0)
+			volume = 0
+	}
+
+	funcao aumentar_volume_geral()
+	{
+		inteiro volume_atual = Sons.obter_volume()
+		se (volume_atual < 100)
+		{
+			inteiro novo_volume = volume_atual + 10
+			Sons.definir_volume(novo_volume)
+			escreva("Aumentando volume geral para ", novo_volume, "\n")				
+		}
+	}
+
+	funcao diminuir_volume_geral()
+	{
+		inteiro volume_atual = Sons.obter_volume()
+		se (volume_atual >= 10)
+		{
+			inteiro novo_volume = volume_atual - 10
+			Sons.definir_volume(novo_volume)
+			escreva("Diminuindo volume geral para ", novo_volume, "\n")				
+		}
+	}
+
+	funcao desenhar_botoes_de_volume_das_pecas(inteiro x_inicial, inteiro y_inicial)
+	{
+		//controles de volume do bumbo
+		desenha_controles_de_volume(x_inicial, y_inicial, botao_aumentar_volume_bumbo, botao_diminuir_volume_bumbo, volume_bumbo)
+
+		y_inicial += altura_do_botao
+
+		//controles de volume da caixa
+		desenha_controles_de_volume(x_inicial, y_inicial, botao_aumentar_volume_caixa, botao_diminuir_volume_caixa, volume_caixa)
+
+		y_inicial += altura_do_botao
+
+		//controles de volume da chimbal
+		desenha_controles_de_volume(x_inicial, y_inicial, botao_aumentar_volume_chimbal, botao_diminuir_volume_chimbal, volume_chimbal)		
+	}
+
+	funcao desenha_controles_de_volume(inteiro x, inteiro y, inteiro botao_aumentar, inteiro botao_diminuir, inteiro volume_atual)
+	{
+		inteiro espaco_entre_botoes = 1
+		inteiro x_do_botao = x
+		
+		//botão diminuir volume da peça
+		desenhar_botao(x, y, botao_diminuir, botao_diminuir_volume_hover)
+		x_do_botao += espaco_entre_botoes + largura_do_botao
+		
+		desenhar_barras_de_volume(x_do_botao, y, 10, volume_atual/10, LINHA_COR_CLARA, COR_DAS_BARRAS_DE_VOLUME)
+
+		x_do_botao += 52
+
+		//botão aumentar volume da peça
+		desenhar_botao(x_do_botao, y, botao_aumentar, botao_aumentar_volume_hover)
+		x_do_botao += espaco_entre_botoes + largura_do_botao
+	}
+
+	funcao desenhar_barras_de_volume(inteiro x, inteiro y, inteiro total_de_barras, inteiro barras_preenchidas, inteiro cor_da_borda, inteiro cor_das_barras)
+	{
+		inteiro largura_de_uma_barra = 4
+		inteiro largura = total_de_barras * largura_de_uma_barra + (total_de_barras + 1) //margem entre as barras
+		inteiro altura = altura_do_botao - 14
+		y += 7
+
+		//pinta as barras preenchidas
+		Graficos.definir_cor(cor_das_barras)
+		inteiro largura_das_barras_preenchidas = barras_preenchidas * (largura_de_uma_barra + 1)
+		Graficos.desenhar_retangulo(x, y, largura_das_barras_preenchidas, altura, falso, verdadeiro)
+		
+		//borda externa
+		Graficos.definir_cor(cor_da_borda)
+		Graficos.desenhar_retangulo(x, y, largura, altura, falso, falso)
+		
+		//desenha bordas internas
+		inteiro x_da_linha = x + largura_de_uma_barra + 1
+		para(inteiro b = 0; b < total_de_barras-1; b++)
+		{
+			Graficos.desenhar_linha(x_da_linha, y, x_da_linha, y + altura)
+			x_da_linha += largura_de_uma_barra + 1
+		}
+	}
+
+	funcao desenhar_botoes_de_controles_gerais(){
 		
 		inteiro margem = 10
 		inteiro largura_do_painel = 200
@@ -237,50 +409,46 @@ programa
 
 		inteiro x_do_botao = margem
 
-		logico hover = desenhar_botao_play(x_do_botao, margem, botao_iniciar, botao_iniciar_hover)
-		
-		se (hover e clicou e nao executando)
-		{
-			clicou = falso
-			iniciar()
-		}		
-
-		x_do_botao += espaco_entre_botoes + largura_do_botao
-		
-		hover = desenhar_botao(x_do_botao, margem, botao_parar, botao_parar_hover)
-		se (hover e clicou)
-		{
-			clicou = falso
-			parar()
-		}
-		
+		//botão iniciar
+		desenhar_botao(x_do_botao, margem, botao_iniciar, botao_iniciar_hover)
 		x_do_botao += espaco_entre_botoes + largura_do_botao
 
+		//botão parar
+		desenhar_botao(x_do_botao, margem, botao_parar, botao_parar_hover)
+		x_do_botao += espaco_entre_botoes + largura_do_botao
 
 		x_do_botao += 30 //espaço de 30 pixels entre os grupos de botões
 		
-		//desenha botões de mais e menos e o texto do andamento
-		hover = desenhar_botao(x_do_botao, margem, botao_menos_rapido, botao_menos_rapido_hover)
-		se (hover e clicou)
-		{
-			clicou = falso
-			diminuir_andamento()
-		}
-		
-		x_do_botao += espaco_entre_botoes + largura_do_botao
-		
-		hover = desenhar_botao(x_do_botao, margem, botao_mais_rapido, botao_mais_rapido_hover)
-		se (hover e clicou)
-		{
-			clicou = falso
-			aumentar_andamento()
-		}
-		
+		//botão para diminuir andamento da música
+		desenhar_botao(x_do_botao, margem, botao_diminuir_andamento, botao_diminuir_andamento_hover)
 		x_do_botao += espaco_entre_botoes + largura_do_botao
 
+		//texto do andamento
 		Graficos.definir_tamanho_texto(14.0)
-		Graficos.desenhar_texto(x_do_botao + 5, margem + 6, Tipos.inteiro_para_cadeia(andamento, 10) + " BPM")
-		
+		Graficos.definir_cor(COR_DAS_BARRAS_DE_VOLUME)
+		Graficos.desenhar_texto(x_do_botao, margem + 6, Tipos.inteiro_para_cadeia(andamento, 10) + " BPM")
+		x_do_botao += 72
+
+		//botão para aumentar andamento da música
+		desenhar_botao(x_do_botao, margem, botao_aumentar_andamento, botao_aumentar_andamento_hover)
+		x_do_botao += espaco_entre_botoes + largura_do_botao
+
+	    x_do_botao += largura_do_botao
+
+
+		//botão diminuir volume geral
+		desenhar_botao(x_do_botao, margem, botao_diminuir_volume_geral, botao_diminuir_volume_hover)
+		x_do_botao += espaco_entre_botoes + largura_do_botao
+
+		//inteiro cor_da_borda, inteiro cor_das_barras)
+		inteiro volume_geral = Sons.obter_volume()
+		desenhar_barras_de_volume(x_do_botao, margem, 10, volume_geral/10, LINHA_COR_CLARA, COR_DAS_BARRAS_DE_VOLUME)
+		x_do_botao += 52
+
+
+		//botão aumentar volume geral
+		desenhar_botao(x_do_botao, margem, botao_aumentar_volume_geral, botao_aumentar_volume_hover)
+		x_do_botao += espaco_entre_botoes + largura_do_botao
 	}
 
 	funcao iniciar()
@@ -365,18 +533,7 @@ programa
 		Graficos.desenhar_linha(0, y+1, LARGURA_DA_TELA, y+1)
 	}
 
-	funcao escrever_descricao()
-	{
-		Graficos.definir_tamanho_texto(14.0)
-		Graficos.definir_fonte_texto(FONTE)
-		Graficos.definir_cor(COR_DO_TEXTO)
-		Graficos.definir_estilo_texto(falso, verdadeiro, falso)
-		Graficos.desenhar_texto(10, 210, "Os círculos amarelos são batidas ativadas, e cinzas são desativadas.")	
-		Graficos.desenhar_texto(10, 230, "Clique em um círculo para ativá-lo ou desativá-lo.")
-		Graficos.desenhar_texto(10, 250, "Pode ser feito enquanto está tocando")	
-	}
-
-	funcao desenha_botoes(inteiro margem_superior, inteiro margem_esquerda, inteiro gap)
+	funcao desenhar_botoes(inteiro margem_superior, inteiro margem_esquerda, inteiro gap)
 	{
 		inteiro y = margem_superior
 		para (inteiro linha = 0; linha < 3; linha++)
@@ -438,6 +595,8 @@ programa
 		COR_DO_TEXTO = Graficos.criar_cor(160, 160, 160)
 		COR_DE_FUNDO_DOS_CONTROLES = Graficos.criar_cor(25, 25, 25)
 
+		COR_DAS_BARRAS_DE_VOLUME = Graficos.criar_cor(255, 194, 0)
+
 		//inicializando o modo gráfico
 		Graficos.iniciar_modo_grafico(verdadeiro)
 		Graficos.definir_dimensoes_janela(LARGURA_DA_TELA, 300)
@@ -468,11 +627,26 @@ programa
 		lampada_desligada = Graficos.carregar_imagem(pasta_imagens + "lampada_desligada.png")
 		lampada_ligada = Graficos.carregar_imagem(pasta_imagens + "lampada_ligada.png")
 
-		botao_mais_rapido = Graficos.carregar_imagem(pasta_imagens + "mais.png")
-		botao_mais_rapido_hover = Graficos.carregar_imagem(pasta_imagens + "mais_hover.png")
+		botao_aumentar_andamento = Graficos.carregar_imagem(pasta_imagens + "mais.png")
+		botao_aumentar_andamento_hover = Graficos.carregar_imagem(pasta_imagens + "mais_hover.png")
 
-		botao_menos_rapido = Graficos.carregar_imagem(pasta_imagens + "menos.png")
-		botao_menos_rapido_hover = Graficos.carregar_imagem(pasta_imagens + "menos_hover.png")
+		botao_diminuir_andamento = Graficos.carregar_imagem(pasta_imagens + "menos.png")
+		botao_diminuir_andamento_hover = Graficos.carregar_imagem(pasta_imagens + "menos_hover.png")
+
+		botao_aumentar_volume_hover = Graficos.carregar_imagem(pasta_imagens + "mais_volume_hover.png")
+		botao_diminuir_volume_hover = Graficos.carregar_imagem(pasta_imagens + "menos_volume_hover.png")
+
+		botao_aumentar_volume_geral = Graficos.carregar_imagem(pasta_imagens + "mais_volume.png")
+		botao_diminuir_volume_geral = Graficos.carregar_imagem(pasta_imagens + "menos_volume.png")
+
+		//carregando as mesmas imagens carregadas anteriormente, mas agora as imagens gerão endereços diferentes que serão usados para disparar ações diferentes para cada botão clicado
+		botao_aumentar_volume_bumbo = Graficos.carregar_imagem(pasta_imagens + "mais_volume.png")
+		botao_aumentar_volume_caixa = Graficos.carregar_imagem(pasta_imagens + "mais_volume.png")
+		botao_aumentar_volume_chimbal = Graficos.carregar_imagem(pasta_imagens + "mais_volume.png")
+
+		botao_diminuir_volume_bumbo = Graficos.carregar_imagem(pasta_imagens + "menos_volume.png")
+		botao_diminuir_volume_caixa = Graficos.carregar_imagem(pasta_imagens + "menos_volume.png")
+		botao_diminuir_volume_chimbal = Graficos.carregar_imagem(pasta_imagens + "menos_volume.png")
 
 		botao_iniciar = Graficos.carregar_imagem(pasta_imagens + "play.png")
 		botao_iniciar_hover = Graficos.carregar_imagem(pasta_imagens + "play_hover.png")
@@ -495,14 +669,27 @@ programa
 		Graficos.liberar_imagem(lampada_desligada)
 		Graficos.liberar_imagem(lampada_ligada)
 
-		Graficos.liberar_imagem(botao_mais_rapido)
-		Graficos.liberar_imagem(botao_mais_rapido_hover)
-		Graficos.liberar_imagem(botao_menos_rapido)
-		Graficos.liberar_imagem(botao_menos_rapido_hover)
+		Graficos.liberar_imagem(botao_aumentar_andamento)
+		Graficos.liberar_imagem(botao_aumentar_andamento_hover)
+		Graficos.liberar_imagem(botao_diminuir_andamento)
+		Graficos.liberar_imagem(botao_diminuir_andamento_hover)
 		Graficos.liberar_imagem(botao_iniciar)
 		Graficos.liberar_imagem(botao_iniciar_hover)
 		Graficos.liberar_imagem(botao_parar)
 		Graficos.liberar_imagem(botao_parar_hover)
+
+		Graficos.liberar_imagem(botao_aumentar_volume_geral)
+		Graficos.liberar_imagem(botao_diminuir_volume_geral)
+		
+		Graficos.liberar_imagem(botao_diminuir_volume_hover)
+		Graficos.liberar_imagem(botao_aumentar_volume_hover)
+
+		Graficos.liberar_imagem(botao_aumentar_volume_bumbo)
+		Graficos.liberar_imagem(botao_aumentar_volume_caixa)
+		Graficos.liberar_imagem(botao_aumentar_volume_chimbal)
+		Graficos.liberar_imagem(botao_diminuir_volume_bumbo)
+		Graficos.liberar_imagem(botao_diminuir_volume_caixa)
+		Graficos.liberar_imagem(botao_diminuir_volume_chimbal)
 	
 		//liberando sons
 		Sons.liberar_som(som_bumbo)
@@ -517,7 +704,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 10845; 
+ * @POSICAO-CURSOR = 1889; 
+ * @DOBRAMENTO-CODIGO = [121, 243, 322, 453, 462, 468, 474, 480, 488, 506, 525, 605];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  */
