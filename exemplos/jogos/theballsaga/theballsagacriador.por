@@ -1018,5 +1018,8 @@
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2303; 
+ * @POSICAO-CURSOR = 1092; 
+ * @DOBRAMENTO-CODIGO = [0];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
  */
