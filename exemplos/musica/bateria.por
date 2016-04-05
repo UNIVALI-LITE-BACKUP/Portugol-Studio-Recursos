@@ -254,6 +254,7 @@ programa
 			clicou = falso
 			executar_acao(botao_normal)
 		}
+		retorne falso
 	}
 
 	funcao executar_acao(inteiro botao_clicado)
@@ -704,8 +705,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 37; 
- * @DOBRAMENTO-CODIGO = [121, 243, 322, 453, 462, 468, 474, 480, 488, 506, 525, 605];
+ * @POSICAO-CURSOR = 62; 
+ * @DOBRAMENTO-CODIGO = [75, 91, 98, 121, 154, 189, 215, 226, 243, 259, 309, 316, 323, 334, 345, 361, 379, 404, 454, 463, 469, 475, 481, 489, 507, 526, 536, 587, 606, 616, 661];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  */
