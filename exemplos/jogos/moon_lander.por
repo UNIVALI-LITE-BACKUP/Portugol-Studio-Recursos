@@ -40,25 +40,31 @@ programa
 	inclua biblioteca Graficos --> g
 	inclua biblioteca Teclado --> t
 	inclua biblioteca Util --> u
+	inclua biblioteca Tipos --> tp
+	inclua biblioteca Matematica --> m
 
 	/* Dimensões da tela do jogo */ 
 	const inteiro LARGURA_TELA = 800, ALTURA_TELA = 600
 
 	/* Constantes para controle da física do jogo */
-	const inteiro ACELERACAO_GRAVIDADE = 1, ACELERACAO_FOGUETE = 1, VELOCIDADE_MAXIMA = 5
+	const real ACELERACAO_GRAVIDADE = 0.15, VELOCIDADE_MAXIMA_GRAVIDADE = 4.5
+	
+	const real ACELERACAO_FOGUETE = 0.20, VELOCIDADE_MAXIMA_FOGUETE = 20.0
+	
+	const real PERCENTUAL_VELOCIDADE_HORIZONTAL = 1.0, VELOCIDADE_MAXIMA_POUSO = 2.50
 
 	/* Constantes que armazenam as dimensões das imagens utilizadas no jogo */
 	const inteiro ALTURA_FOGUETE = 76, LARGURA_FOGUETE = 59, LARGURA_PLATAFORMA = 135
 
 	/* Define quantos quadros serão desenhados por segundo (FPS) */
-	const inteiro TAXA_ATUALIZACAO = 25
+	const inteiro TAXA_ATUALIZACAO = 60
 
 	/* Variáveis que armazenam a posição dos objetos no jogo */
 	inteiro x_foguete = 0, y_foguete = 0, x_plataforma = 350, y_plataforma = 532
 
 	/* Variáveis utilizadas para controlar a velocidade de foguete */
-	inteiro velocidade_vertical = 0, velocidade_horizontal = 0
-
+	real velocidade_vertical = 0.0, velocidade_horizontal = 0.0
+	
 	/* Variáveis utilizadas para controlar o estado do foguete */
 	logico acelerando = falso, quebrou = falso, pousou = falso, foi_para_o_espaco = falso
 
@@ -176,11 +182,23 @@ programa
 		se (t.tecla_pressionada(t.TECLA_W) ou t.tecla_pressionada(t.TECLA_SETA_ACIMA))
 		{
 	     	velocidade_vertical -= ACELERACAO_FOGUETE
+
+	     	se (velocidade_vertical < -VELOCIDADE_MAXIMA_FOGUETE)
+	     	{
+				velocidade_vertical = -VELOCIDADE_MAXIMA_FOGUETE
+	     	}
+	     	
 	          acelerando = verdadeiro
 	     }
 	     senao
 	     {
 			velocidade_vertical += ACELERACAO_GRAVIDADE
+
+			se (velocidade_vertical > VELOCIDADE_MAXIMA_GRAVIDADE)
+			{
+				velocidade_vertical = VELOCIDADE_MAXIMA_GRAVIDADE
+			}
+			
 			acelerando = falso
 		}
 	}
@@ -189,27 +207,27 @@ programa
 	{
 		se (t.tecla_pressionada(t.TECLA_A) ou t.tecla_pressionada(t.TECLA_SETA_ESQUERDA))
 		{
-			velocidade_horizontal -= ACELERACAO_FOGUETE
+			velocidade_horizontal -= (ACELERACAO_FOGUETE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
 		}
 		senao se(velocidade_horizontal < 0)
 		{
-			velocidade_horizontal += ACELERACAO_GRAVIDADE
+			velocidade_horizontal += (ACELERACAO_GRAVIDADE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
 		}
 	
 		se (t.tecla_pressionada(t.TECLA_D) ou t.tecla_pressionada(t.TECLA_SETA_DIREITA))
 		{
-			velocidade_horizontal += ACELERACAO_FOGUETE
+			velocidade_horizontal += (ACELERACAO_FOGUETE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
 		}
 		senao se(velocidade_horizontal > 0)
 		{
-			velocidade_horizontal -= ACELERACAO_GRAVIDADE
+			velocidade_horizontal -= (ACELERACAO_GRAVIDADE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
 		}
 	}
 
 	funcao atualizar_posicao_foguete()
 	{
-		x_foguete += velocidade_horizontal
-		y_foguete += velocidade_vertical
+		x_foguete += tp.real_para_inteiro(m.arredondar(velocidade_horizontal, 1))
+		y_foguete += tp.real_para_inteiro(m.arredondar(velocidade_vertical, 1))
 	}
 
 	funcao atualizar_estado_foguete()
@@ -222,7 +240,7 @@ programa
 		{
 			se ((x_foguete > x_plataforma) e (x_foguete < x_plataforma + LARGURA_PLATAFORMA - LARGURA_FOGUETE))
             	{
-				se (velocidade_vertical <= VELOCIDADE_MAXIMA)
+				se (velocidade_vertical <= VELOCIDADE_MAXIMA_POUSO)
 				{
 					pousou = verdadeiro
 					tempo_total_jogo = u.tempo_decorrido() - tempo_inicio_jogo
@@ -243,6 +261,7 @@ programa
 	{
 		g.desenhar_imagem(0, 0, imagem_fundo)
 		g.desenhar_imagem(x_plataforma, y_plataforma, imagem_plataforma)
+		desenhar_sombra_foguete()
 
 		se (pousou)
         	{	
@@ -304,6 +323,23 @@ programa
 		g.renderizar()
 	}
 
+	funcao desenhar_sombra_foguete()
+	{
+		inteiro x_centro_foguete = x_foguete + (LARGURA_FOGUETE / 2)
+		inteiro distancia_plataforma = (y_foguete + ALTURA_FOGUETE) - y_plataforma - 11
+		
+		inteiro largura_sombra = LARGURA_FOGUETE + (distancia_plataforma / 10)
+		inteiro altura_sombra = largura_sombra / 10
+
+		inteiro x_sombra = x_centro_foguete - (largura_sombra / 2)
+		inteiro y_sombra = ALTURA_TELA - 57
+		
+		g.definir_cor(g.COR_PRETO)
+		g.definir_opacidade(128)
+		g.desenhar_elipse(x_sombra, y_sombra, largura_sombra, altura_sombra, verdadeiro)
+		g.definir_opacidade(255)
+	}
+
 	funcao reiniciar()
 	{
 		x_foguete = u.sorteia(10, 730)
@@ -312,8 +348,8 @@ programa
 		pousou = falso
 		quebrou = falso
 		foi_para_o_espaco = falso
-		velocidade_vertical = 0
-		velocidade_horizontal = 0
+		velocidade_vertical = 0.0
+		velocidade_horizontal = 0.0
 		tempo_inicio_jogo = u.tempo_decorrido()
 		tempo_total_jogo = 0
 	}
@@ -371,6 +407,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1364; 
- * @DOBRAMENTO-CODIGO = [1, 77, 85, 134, 155, 173, 187, 208, 214, 241, 306, 320, 334, 346, 355, 361];
+ * @POSICAO-CURSOR = 1404; 
+ * @DOBRAMENTO-CODIGO = [1, 83, 91, 140, 161, 179, 205, 226, 232, 259, 325, 342, 356, 370, 382, 391, 397];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = {velocidade_vertical, 66, 6, 19}-{distancia_plataforma, 329, 10, 20}-{largura_sombra, 331, 10, 14}-{altura_sombra, 332, 10, 13};
  */
