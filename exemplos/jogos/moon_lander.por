@@ -47,7 +47,7 @@ programa
 	const inteiro LARGURA_TELA = 800, ALTURA_TELA = 600
 
 	/* Constantes para controle da física do jogo */
-	const real ACELERACAO_GRAVIDADE = 0.15, VELOCIDADE_MAXIMA_GRAVIDADE = 4.5
+	const real ACELERACAO_GRAVIDADE = 0.18, VELOCIDADE_MAXIMA_GRAVIDADE = 4.5
 	
 	const real ACELERACAO_FOGUETE = 0.20, VELOCIDADE_MAXIMA_FOGUETE = 20.0
 	
@@ -58,6 +58,8 @@ programa
 
 	/* Define quantos quadros serão desenhados por segundo (FPS) */
 	const inteiro TAXA_ATUALIZACAO = 60
+
+	
 
 	/* Variáveis que armazenam a posição dos objetos no jogo */
 	inteiro x_foguete = 0, y_foguete = 0, x_plataforma = 350, y_plataforma = 532
@@ -76,10 +78,11 @@ programa
 	
 	
 	/* Variáveis que armazenam o endereço de memória das imagens utilizadas no jogo */
-	inteiro imagem_fundo = 0, imagem_menu = 0, imagem_borda = 0, imagem_foguete = 0
+	inteiro imagem_fundo = 0, imagem_menu = 0, imagem_foguete = 0
 	
-	inteiro imagem_foguete_pousado = 0, imagem_foguete_quebrado = 0, imagem_jato = 0, imagem_plataforma = 0
-
+	inteiro imagem_jato2 = 0, imagem_foguete_quebrado = 0, imagem_jato = 0, imagem_plataforma = 0, imagem_fogo = 0
+	inteiro indice_fogo = 0
+	logico atualizou = falso
 	
 	funcao inicio()
 	{
@@ -108,26 +111,13 @@ programa
 				
 			inteiro largura_quadro = g.largura_texto(texto[0]) + 30
 			inteiro y_opcoes = 340
-
-			g.definir_cor(0x000000)
-			g.definir_opacidade(90)
-			g.desenhar_retangulo((LARGURA_TELA / 2) - (largura_quadro / 2), y_opcoes, largura_quadro, 120, verdadeiro, verdadeiro)
 			
-			g.definir_opacidade(255)
+			g.definir_cor(0x333333)
+			g.desenhar_texto((LARGURA_TELA / 2) - g.largura_texto(texto[0]) / 2, y_opcoes + 225, texto[0])
 			g.definir_cor(0xFFFFFF)
-			
-			g.desenhar_texto((LARGURA_TELA / 2) - g.largura_texto(texto[0]) / 2, y_opcoes + 20, texto[0])
-			g.desenhar_texto((LARGURA_TELA / 2) - g.largura_texto(texto[1]) / 2, y_opcoes + 50, texto[1])
-			g.desenhar_texto((LARGURA_TELA / 2) - g.largura_texto(texto[2]) / 2, y_opcoes + 80, texto[2])
+			g.desenhar_texto((LARGURA_TELA / 2) - g.largura_texto(texto[1]) / 2, y_opcoes + 70, texto[1])
+			g.desenhar_texto((LARGURA_TELA / 2) - g.largura_texto(texto[2]) / 2, y_opcoes + 100, texto[2])
 
-			g.definir_cor(0x000000)
-			g.definir_opacidade(150)
-			g.desenhar_retangulo(0, ALTURA_TELA - 25, LARGURA_TELA, 25, falso, verdadeiro)
-			g.definir_opacidade(255)
-
-			g.definir_cor(0x00FFFF)			
-			g.definir_tamanho_texto(16.0)
-			g.desenhar_texto(5, ALTURA_TELA - 20, " Jogo adaptado de http://www.gametutorial.net/article/Keyboard-input---Moon-lander")
 			g.renderizar()
 			
 			se (t.tecla_pressionada(t.TECLA_ENTER))
@@ -252,7 +242,10 @@ programa
             	}
             	senao
             	{
-                	quebrou = verdadeiro
+                	se(y_foguete + ALTURA_FOGUETE > tp.real_para_inteiro(ALTURA_TELA - 57 + m.valor_absoluto(400.0-x_foguete+ (LARGURA_FOGUETE / 2))/7))
+                	{
+                    	quebrou = verdadeiro
+            		}
             	}
 		}
 	}
@@ -261,11 +254,12 @@ programa
 	{
 		g.desenhar_imagem(0, 0, imagem_fundo)
 		g.desenhar_imagem(x_plataforma, y_plataforma, imagem_plataforma)
-		desenhar_sombra_foguete()
+		
 
 		se (pousou)
-        	{	
-			g.desenhar_imagem(x_foguete, y_foguete, imagem_foguete_pousado)
+        	{
+        		desenhar_sombra_foguete()	
+			g.desenhar_imagem(x_foguete, y_foguete, imagem_foguete)
 
 			g.definir_tamanho_texto(22.0)
 			g.definir_cor(0xFFFFFF)
@@ -278,9 +272,16 @@ programa
 		}
 		senao se (quebrou)
 		{
-			g.desenhar_imagem(0, 0, imagem_borda)
+			se(tempo_inicio%150 < 75){
+				se(nao atualizou){
+					indice_fogo = (indice_fogo+1)%6
+					atualizou = verdadeiro
+				}
+			}senao{
+				atualizou = falso
+			}
             	g.desenhar_imagem(x_foguete, y_foguete + ALTURA_FOGUETE - 43, imagem_foguete_quebrado)
-
+            	g.desenhar_porcao_imagem(x_foguete+20, y_foguete + ALTURA_FOGUETE - 30, indice_fogo*30, 0, 30, 45, imagem_fogo)
 			g.definir_tamanho_texto(22.0)
 			g.definir_cor(0xFFFFFF)
 			g.definir_estilo_texto(falso, falso, falso)
@@ -291,8 +292,6 @@ programa
         	}
         	senao se (foi_para_o_espaco)
         	{
-        		g.desenhar_imagem(0, 0, imagem_borda)
-
 			g.definir_tamanho_texto(22.0)
 			g.definir_cor(0xFFFFFF)
 			g.definir_estilo_texto(falso, falso, falso)
@@ -303,22 +302,18 @@ programa
         	}
 		senao
         	{
-			g.desenhar_imagem(x_foguete, y_foguete, imagem_foguete)
-
+        		desenhar_sombra_foguete()
 			se (acelerando)
 			{
-				g.desenhar_imagem(x_foguete + 12, y_foguete + 66, imagem_jato)
+				se(tempo_inicio%100 <50){
+					g.desenhar_imagem(x_foguete + 10, y_foguete + 66, imagem_jato)
+				}senao{
+					g.desenhar_imagem(x_foguete + 10, y_foguete + 66, imagem_jato2)
+				}
 			}
+
+			g.desenhar_imagem(x_foguete, y_foguete, imagem_foguete)
         	}
-
-		g.definir_cor(0x000000)			
-		g.definir_opacidade(150)
-		g.desenhar_retangulo(0, ALTURA_TELA - 25, LARGURA_TELA, 25, falso, verdadeiro)
-		g.definir_opacidade(255)
-
-		g.definir_cor(0x00FFFF)
-		g.definir_tamanho_texto(16.0)
-		g.desenhar_texto(5, ALTURA_TELA - 20, " Jogo adaptado de http://www.gametutorial.net/article/Keyboard-input---Moon-lander")
 
 		g.renderizar()
 	}
@@ -332,7 +327,7 @@ programa
 		inteiro altura_sombra = largura_sombra / 10
 
 		inteiro x_sombra = x_centro_foguete - (largura_sombra / 2)
-		inteiro y_sombra = ALTURA_TELA - 57
+		inteiro y_sombra = tp.real_para_inteiro(ALTURA_TELA - 57 + m.valor_absoluto(400.0-x_centro_foguete)/7)
 		
 		g.definir_cor(g.COR_PRETO)
 		g.definir_opacidade(128)
@@ -357,15 +352,15 @@ programa
 	funcao carregar_imagens()
 	{
 		cadeia pasta_imagens = "./moon_lander/"
-
+		
 		imagem_fundo = g.carregar_imagem(pasta_imagens + "fundo.jpg")
 		imagem_menu = g.carregar_imagem(pasta_imagens + "menu.jpg")
 		imagem_foguete = g.carregar_imagem(pasta_imagens + "foguete.png")
-		imagem_jato = g.carregar_imagem(pasta_imagens + "jato_foguete.png")
+		imagem_jato = g.carregar_imagem(pasta_imagens + "jato_foguete1.png")
 		imagem_plataforma = g.carregar_imagem(pasta_imagens + "plataforma_pouso.png")
-		imagem_borda = g.carregar_imagem(pasta_imagens + "borda.png")
-		imagem_foguete_pousado = g.carregar_imagem(pasta_imagens + "foguete_pousado.png")
+		imagem_jato2 = g.carregar_imagem(pasta_imagens + "jato_foguete2.png")
 		imagem_foguete_quebrado = g.carregar_imagem(pasta_imagens + "foguete_quebrado.png")
+		imagem_fogo = g.carregar_imagem(pasta_imagens + "fogo.png")
 	}
 
 	funcao liberar_imagens()
@@ -375,9 +370,9 @@ programa
 		g.liberar_imagem(imagem_foguete)
 		g.liberar_imagem(imagem_jato)
 		g.liberar_imagem(imagem_plataforma)
-		g.liberar_imagem(imagem_borda)
-		g.liberar_imagem(imagem_foguete_pousado)
+		g.liberar_imagem(imagem_jato2)
 		g.liberar_imagem(imagem_foguete_quebrado)
+		g.liberar_imagem(imagem_fogo)
 	}
 
 	funcao inicializar()
@@ -407,8 +402,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1404; 
- * @DOBRAMENTO-CODIGO = [1, 83, 91, 140, 161, 179, 205, 226, 232, 259, 325, 342, 356, 370, 382, 391, 397];
+ * @POSICAO-CURSOR = 7999; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {velocidade_vertical, 66, 6, 19}-{distancia_plataforma, 329, 10, 20}-{largura_sombra, 331, 10, 14}-{altura_sombra, 332, 10, 13};
+ * @SIMBOLOS-INSPECIONADOS = ;
  */
