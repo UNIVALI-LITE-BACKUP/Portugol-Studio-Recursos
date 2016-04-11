@@ -78,11 +78,14 @@ programa
 	
 	
 	/* Variáveis que armazenam o endereço de memória das imagens utilizadas no jogo */
-	inteiro imagem_fundo = 0, imagem_menu = 0, imagem_foguete = 0
+	inteiro imagem_fundo = 0, imagem_menu = 0, imagem_foguete = 0, imagem_lua=0, imagem_planetas=0
 	
 	inteiro imagem_jato2 = 0, imagem_foguete_quebrado = 0, imagem_jato = 0, imagem_plataforma = 0, imagem_fogo = 0
 	inteiro indice_fogo = 0
 	logico atualizou = falso
+
+	inteiro indice_fundo=0, ultimo_giro_fundo=0
+	inteiro indice_planetas=0, ultimo_giro_planetas=0
 	
 	funcao inicio()
 	{
@@ -250,9 +253,43 @@ programa
 		}
 	}
 
+	funcao desenhar_fundo(){
+				
+		se(indice_fundo>LARGURA_TELA)
+		{
+			g.desenhar_porcao_imagem(0, 0, indice_fundo, 0, LARGURA_TELA-(indice_fundo-LARGURA_TELA), ALTURA_TELA, imagem_fundo)
+			g.desenhar_porcao_imagem(LARGURA_TELA-(indice_fundo-LARGURA_TELA), 0, 0, 0, LARGURA_TELA, ALTURA_TELA, imagem_fundo)
+		}
+		senao{
+			g.desenhar_porcao_imagem(0, 0, indice_fundo, 0, LARGURA_TELA, ALTURA_TELA, imagem_fundo)
+		}
+		se(tempo_inicio -ultimo_giro_fundo>35){
+			indice_fundo= (indice_fundo+1)%(LARGURA_TELA*2)
+			ultimo_giro_fundo = tempo_inicio
+		}
+	}
+	funcao desenhar_planetas(){
+		
+
+		se(indice_planetas>LARGURA_TELA)
+		{
+			g.desenhar_porcao_imagem(0, 0, indice_planetas, 0, LARGURA_TELA-(indice_planetas-LARGURA_TELA), ALTURA_TELA, imagem_planetas)
+			g.desenhar_porcao_imagem(LARGURA_TELA-(indice_planetas-LARGURA_TELA), 0, 0, 0, LARGURA_TELA, ALTURA_TELA, imagem_planetas)
+		}
+		senao
+		{
+			g.desenhar_porcao_imagem(0, 0, indice_planetas, 0, LARGURA_TELA, ALTURA_TELA, imagem_planetas)
+		}
+		se(tempo_inicio -ultimo_giro_planetas>100){
+			indice_planetas= (indice_planetas+1)%(LARGURA_TELA*2)
+			ultimo_giro_planetas = tempo_inicio
+		}
+	}
 	funcao desenhar()
 	{
-		g.desenhar_imagem(0, 0, imagem_fundo)
+		desenhar_fundo()
+		desenhar_planetas()
+		g.desenhar_imagem(0, ALTURA_TELA-84, imagem_lua)
 		g.desenhar_imagem(x_plataforma, y_plataforma, imagem_plataforma)
 		
 
@@ -352,8 +389,10 @@ programa
 	funcao carregar_imagens()
 	{
 		cadeia pasta_imagens = "./moon_lander/"
-		
+
+		imagem_lua = g.carregar_imagem(pasta_imagens + "moon.png")
 		imagem_fundo = g.carregar_imagem(pasta_imagens + "fundo.jpg")
+		imagem_planetas = g.carregar_imagem(pasta_imagens + "planetas.png")
 		imagem_menu = g.carregar_imagem(pasta_imagens + "menu.jpg")
 		imagem_foguete = g.carregar_imagem(pasta_imagens + "foguete.png")
 		imagem_jato = g.carregar_imagem(pasta_imagens + "jato_foguete1.png")
@@ -365,6 +404,8 @@ programa
 
 	funcao liberar_imagens()
 	{
+		g.liberar_imagem(imagem_planetas)
+		g.liberar_imagem(imagem_lua)
 		g.liberar_imagem(imagem_fundo)
 		g.liberar_imagem(imagem_menu)
 		g.liberar_imagem(imagem_foguete)
@@ -402,7 +443,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 7999; 
+ * @POSICAO-CURSOR = 7450; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  */
