@@ -42,7 +42,6 @@ programa
 	inclua biblioteca Util --> u
 	inclua biblioteca Tipos --> tp
 	inclua biblioteca Matematica --> m
-	inclua biblioteca Sons --> sn
 
 	/* Dimensões da tela do jogo */ 
 	const inteiro LARGURA_TELA = 800, ALTURA_TELA = 600
@@ -58,7 +57,7 @@ programa
 	const inteiro ALTURA_FOGUETE = 76, LARGURA_FOGUETE = 59, LARGURA_PLATAFORMA = 135
 
 	/* Define quantos quadros serão desenhados por segundo (FPS) */
-	const inteiro TAXA_ATUALIZACAO = 60
+	const inteiro TAXA_ATUALIZACAO = 85
 
 	
 
@@ -79,12 +78,7 @@ programa
 	
 	
 	/* Variáveis que armazenam o endereço de memória das imagens utilizadas no jogo */
-	inteiro imagem_fundo = 0, imagem_menu = 0, imagem_foguete = 0, imagem_lua = 0, imagem_planetas = 0
-
-	/* Variáveis que armazenam o endereço de memória dos sons e músicas utilizados no jogo */
-
-	inteiro som_jato = -1, reproducao_som_jato = -1
-	
+	inteiro imagem_fundo = 0, imagem_menu = 0, imagem_foguete = 0, imagem_lua=0, imagem_planetas=0
 	
 	inteiro imagem_jato2 = 0, imagem_foguete_quebrado = 0, imagem_jato = 0, imagem_plataforma = 0, imagem_fogo = 0
 	inteiro indice_fogo = 0
@@ -96,19 +90,9 @@ programa
 	funcao inicio()
 	{
 		carregar_imagens()
-		carregar_sons()
 		inicializar()
 		menu()		
 		finalizar()
-	}
-
-	funcao carregar_sons()
-	{
-		cadeia pasta_sons = "./moon_lander/"
-
-		som_jato = sn.carregar_som(pasta_sons + "som_jato.mp3")
-
-		sn.definir_volume(100)
 	}
 
 	funcao menu()
@@ -146,7 +130,6 @@ programa
 		}
 		enquanto (nao t.tecla_pressionada(t.TECLA_ESC))
 	}
-	
 
 	funcao jogo()
 	{
@@ -197,12 +180,8 @@ programa
 	     	{
 				velocidade_vertical = -VELOCIDADE_MAXIMA_FOGUETE
 	     	}
-
-	     	se (nao acelerando)
-	     	{
-	          	acelerando = verdadeiro
-	          	reproducao_som_jato = sn.reproduzir_som(som_jato, falso)
-	     	}
+	     	
+	          acelerando = verdadeiro
 	     }
 	     senao
 	     {
@@ -212,13 +191,8 @@ programa
 			{
 				velocidade_vertical = VELOCIDADE_MAXIMA_GRAVIDADE
 			}
-
-			se (acelerando)
-			{
-				acelerando = falso
-				sn.interromper_som(reproducao_som_jato)
-				reproducao_som_jato = -1
-			}
+			
+			acelerando = falso
 		}
 	}
 
@@ -226,27 +200,27 @@ programa
 	{
 		se (t.tecla_pressionada(t.TECLA_A) ou t.tecla_pressionada(t.TECLA_SETA_ESQUERDA))
 		{
-			velocidade_horizontal -= (ACELERACAO_FOGUETE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
+			velocidade_horizontal -= (ACELERACAO_FOGUETE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
 		}
 		senao se(velocidade_horizontal < 0)
 		{
-			velocidade_horizontal += (ACELERACAO_GRAVIDADE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
+			velocidade_horizontal += (ACELERACAO_GRAVIDADE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
 		}
 	
 		se (t.tecla_pressionada(t.TECLA_D) ou t.tecla_pressionada(t.TECLA_SETA_DIREITA))
 		{
-			velocidade_horizontal += (ACELERACAO_FOGUETE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
+			velocidade_horizontal += (ACELERACAO_FOGUETE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
 		}
 		senao se(velocidade_horizontal > 0)
 		{
-			velocidade_horizontal -= (ACELERACAO_GRAVIDADE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
+			velocidade_horizontal -= (ACELERACAO_GRAVIDADE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
 		}
 	}
 
 	funcao atualizar_posicao_foguete()
 	{
 		x_foguete += tp.real_para_inteiro(m.arredondar(velocidade_horizontal, 1))
-		y_foguete += tp.real_para_inteiro(m.arredondar(velocidade_vertical, 1))
+		y_foguete += tp.real_para_inteiro(m.arredondar(velocidade_vertical, 1))
 	}
 
 	funcao atualizar_estado_foguete()
@@ -377,9 +351,9 @@ programa
 
 			g.desenhar_imagem(x_foguete, y_foguete, imagem_foguete)
         	}
-
 		g.renderizar()
 	}
+
 
 	funcao desenhar_sombra_foguete()
 	{
@@ -460,29 +434,15 @@ programa
 	funcao finalizar()
 	{
 		liberar_imagens()
-		liberar_sons()
 		g.encerrar_modo_grafico()
 	}
-
-	funcao liberar_sons()
-	{
-		se (reproducao_som_jato >= 0)
-		{
-			sn.interromper_som(reproducao_som_jato)
-			sn.liberar_som(som_jato)
-		}
-	}
 }
-
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 6042; 
- * @DOBRAMENTO-CODIGO = [1];
+ * @POSICAO-CURSOR = 2624; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ * @SIMBOLOS-INSPECIONADOS = {tempo_quadro, 77, 68, 12};
  */
