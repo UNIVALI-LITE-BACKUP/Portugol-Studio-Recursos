@@ -14,7 +14,8 @@
  * 
  * Descrição:
  * 
- * 	
+ * 	Este exemplo utiliza a biblioteca "Arquivos" para ler todas as linhas de um arquivo 
+ * 	de texto contendo o placar de um jogo e exibí-lo para o usuário.
  * 
  * Autores:
  * 
@@ -137,5 +138,10 @@
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 670; 
+ * @POSICAO-CURSOR = 867; 
+ * @DOBRAMENTO-CODIGO = [1];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */

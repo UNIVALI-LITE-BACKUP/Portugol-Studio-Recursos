@@ -19,7 +19,7 @@
  * 	das bibliotecas existentes no Portugol. Neste exemplo, também é possível ver algumas
  * 	técnicas utilizadas na criação de jogos.
  *	
- *	As regras do jogo são as sguintes:
+ *	As regras do jogo são as seguintes:
  *	
  *		a) O jogador perde se guiar a nave para fora da tela
  *		b) O jogador perde se pousar a nave fora da plataforma de pouso
@@ -46,6 +46,9 @@ programa
 	/* Dimensões da tela do jogo */ 
 	const inteiro LARGURA_TELA = 800, ALTURA_TELA = 600
 
+	inteiro centro_da_tela = LARGURA_TELA / 2
+	
+
 	/* Constantes para controle da física do jogo */
 	const real ACELERACAO_GRAVIDADE = 0.18, VELOCIDADE_MAXIMA_GRAVIDADE = 4.5
 	
@@ -53,14 +56,22 @@ programa
 	
 	const real PERCENTUAL_VELOCIDADE_HORIZONTAL = 1.0, VELOCIDADE_MAXIMA_POUSO = 2.50
 
+
 	/* Constantes que armazenam as dimensões das imagens utilizadas no jogo */
 	const inteiro ALTURA_FOGUETE = 76, LARGURA_FOGUETE = 59, LARGURA_PLATAFORMA = 135
 
 	/* Define quantos quadros serão desenhados por segundo (FPS) */
 	const inteiro TAXA_ATUALIZACAO = 85
 
-	
 
+
+	/* Constantes que definem as telas do jogo */
+	const inteiro TELA_SAIR = 0, TELA_MENU = 1, TELA_JOGO = 2, TELA_POUSOU = 3, TELA_QUEBROU = 4, TELA_ESPACO = 5
+
+	/* Variáveis que controlam o fluxo de telas do jogo */
+	inteiro tela_atual = TELA_MENU, tela_anterior = TELA_SAIR
+
+		
 	/* Variáveis que armazenam a posição dos objetos no jogo */
 	inteiro x_foguete = 0, y_foguete = 0, x_plataforma = 350, y_plataforma = 532
 
@@ -76,83 +87,160 @@ programa
 
 	inteiro tempo_inicio = 0, tempo_decorrido = 0, tempo_restante = 0, tempo_quadro = 1000 / TAXA_ATUALIZACAO
 	
+	inteiro tempo_inicio_fps = 0, tempo_fps = 0, frames = 0, fps = 0
+	
 	
 	/* Variáveis que armazenam o endereço de memória das imagens utilizadas no jogo */
-	inteiro imagem_fundo = 0, imagem_menu = 0, imagem_foguete = 0, imagem_lua=0, imagem_planetas=0
+	inteiro imagem_fundo = 0, imagem_menu = 0
 	
-	inteiro imagem_jato2 = 0, imagem_foguete_quebrado = 0, imagem_jato = 0, imagem_plataforma = 0, imagem_fogo = 0
-	inteiro indice_fogo = 0
-	logico atualizou = falso
+	inteiro imagem_foguete = 0, imagem_foguete_quebrado = 0
+	
+	inteiro imagem_lua = 0, imagem_planetas=0
+	
+	inteiro imagem_jato = 0, imagem_jato2 = 0, imagem_plataforma = 0, imagem_fogo = 0
 
-	inteiro indice_fundo=0, ultimo_giro_fundo=0
-	inteiro indice_planetas=0, ultimo_giro_planetas=0
+
+	/* Variáveis que controlam a animação do fogo quando o foguete quebrou */
+	inteiro indice_imagem_fogo = 0
+	
+	logico alternou_imagem_fogo = falso
+
+
+	/* Variáveis que controlam a animação das estrelas e dos planetas no fundo do cenário */
+	inteiro indice_fundo = 0, indice_planetas = 0, ultimo_giro_fundo = 0, ultimo_giro_planetas = 0
+	
 	
 	funcao inicio()
 	{
-		carregar_imagens()
 		inicializar()
-		menu()		
+
+		enquanto (tela_atual != TELA_SAIR)
+		{
+			escolha (tela_atual)
+			{
+				caso TELA_MENU		: 	tela_menu() 		pare
+				caso TELA_JOGO		:	tela_jogo()		pare
+				caso TELA_POUSOU	:	tela_pousou()		pare
+				caso TELA_QUEBROU	:	tela_quebrou()		pare
+				caso TELA_ESPACO	:	tela_espaco()		pare
+			}
+		}
+		
 		finalizar()
 	}
 
-	funcao menu()
+	funcao tela_menu()
 	{
-		faca 
+		enquanto (tela_atual == TELA_MENU)
 		{
+			cadeia texto_menu[] =
+			{
+				"Utilize as teclas W, A e D  ou as setas direcionais para jogar",
+				"Pressione ENTER para iniciar",
+				"Pressione ESC para sair"
+			}
+
+			inteiro largura_quadro = g.largura_texto(texto_menu[0]) + 30
+			inteiro y_opcoes = 340
+			
+			g.definir_fonte_texto("Poetsen One")
 			g.desenhar_imagem(0, 0, imagem_menu)
 			
 			g.definir_tamanho_texto(20.0)
 			g.definir_cor(0xFFFFFF)
 			g.definir_estilo_texto(falso, falso, falso)
-
-			cadeia texto[] =
-			{
-				"Utilize as teclas W, A e D  ou as setas direcionais para jogar",
-				"Pressione ENTER para iniciar",
-				 "Pressione ESC para sair"
-			}
-				
-			inteiro largura_quadro = g.largura_texto(texto[0]) + 30
-			inteiro y_opcoes = 340
+			
 			
 			g.definir_cor(0x333333)
-			g.desenhar_texto((LARGURA_TELA / 2) - g.largura_texto(texto[0]) / 2, y_opcoes + 225, texto[0])
+			desenhar_texto_centralizado(texto_menu[0], y_opcoes + 225)
+			
 			g.definir_cor(0xFFFFFF)
-			g.desenhar_texto((LARGURA_TELA / 2) - g.largura_texto(texto[1]) / 2, y_opcoes + 70, texto[1])
-			g.desenhar_texto((LARGURA_TELA / 2) - g.largura_texto(texto[2]) / 2, y_opcoes + 100, texto[2])
+			
+			desenhar_texto_centralizado(texto_menu[1], y_opcoes + 70)
+			desenhar_texto_centralizado(texto_menu[2], y_opcoes + 100)
 
 			g.renderizar()
 			
 			se (t.tecla_pressionada(t.TECLA_ENTER))
 			{
-				jogo()
+				ir_para_a_tela(TELA_JOGO)
+			}
+			senao se (t.tecla_pressionada(t.TECLA_ESC))
+			{
+				ir_para_a_tela(TELA_SAIR)
 			}
 		}
-		enquanto (nao t.tecla_pressionada(t.TECLA_ESC))
 	}
 
-	funcao jogo()
+	funcao desenhar_texto_centralizado(cadeia texto, inteiro y)
 	{
-		reiniciar()
+		g.desenhar_texto(centro_da_tela - g.largura_texto(texto) / 2, y, texto)
+	}
 
-		enquanto (nao t.tecla_pressionada(t.TECLA_ESC))
+	funcao tela_jogo()
+	{
+		reiniciar_jogo()
+		
+		enquanto (tela_atual == TELA_JOGO)
 		{
-			tempo_inicio = u.tempo_decorrido()
+			tempo_inicio = u.tempo_decorrido() + tempo_restante
 			
-			atualizar()
-			desenhar()
-			
-			tempo_decorrido = u.tempo_decorrido() - tempo_inicio
-			tempo_restante = tempo_quadro - tempo_decorrido 
+			atualizar_logica_do_jogo()
+			desenhar_tela_do_jogo()
+			atualizar_fps()			
+			sincronizar_taxa_de_atualizacao()
 
-			se (TAXA_ATUALIZACAO > 0  e tempo_restante > 0)
+			se (t.tecla_pressionada(t.TECLA_ESC))
 			{
-				u.aguarde(tempo_restante)
-			}			
+				ir_para_a_tela(TELA_MENU)
+				u.aguarde(200)
+			}
 		}
 	}
 
-	funcao atualizar()
+	funcao tela_pousou()
+	{
+		g.definir_cor(g.COR_AZUL)
+		g.limpar()
+		g.renderizar()
+	}
+
+	funcao tela_quebrou()
+	{
+		g.definir_cor(g.COR_VERMELHO)
+		g.limpar()
+		g.renderizar()
+	}
+
+	funcao tela_espaco()
+	{
+		g.definir_cor(g.COR_VERDE)
+		g.limpar()
+		g.renderizar()
+	}
+
+	funcao sincronizar_taxa_de_atualizacao()
+	{
+		tempo_decorrido = u.tempo_decorrido() - tempo_inicio
+		tempo_restante = tempo_quadro - tempo_decorrido 
+
+		enquanto (TAXA_ATUALIZACAO > 0 e tempo_restante > 0 e nao t.tecla_pressionada(t.TECLA_ESC))
+		{
+			tempo_decorrido = u.tempo_decorrido() - tempo_inicio
+			tempo_restante = tempo_quadro - tempo_decorrido
+		}
+	}
+
+	funcao ir_para_a_tela(inteiro nova_tela)
+	{
+		se (nova_tela != tela_atual)
+		{
+			tela_anterior = tela_atual
+			tela_atual = nova_tela
+		}		
+	}
+
+	funcao atualizar_logica_do_jogo()
 	{
 		se (nao pousou e nao quebrou e nao foi_para_o_espaco)
 		{
@@ -165,7 +253,7 @@ programa
 		{	
 			se (t.tecla_pressionada(t.TECLA_ENTER))
 			{
-				reiniciar()
+				reiniciar_jogo()
 			}
 		}
 	}
@@ -253,6 +341,28 @@ programa
 		}
 	}
 
+	funcao atualizar_fps()
+	{
+		frames = frames + 1
+		tempo_fps = u.tempo_decorrido() - tempo_inicio_fps
+
+		se (tempo_fps >= 1000)
+		{
+			fps = frames
+			tempo_inicio_fps = u.tempo_decorrido() - (tempo_fps - 1000)
+			frames = 0
+		}
+	}
+
+	funcao desenhar_fps()
+	{
+		g.definir_tamanho_texto(12.0)
+		g.definir_cor(0xFFFFFF)
+		g.definir_estilo_texto(falso, verdadeiro, falso)
+		g.desenhar_texto(25, 40, "FPS: " + fps)
+	}
+
+
 	funcao desenhar_fundo(){
 				
 		se(indice_fundo>LARGURA_TELA)
@@ -285,10 +395,14 @@ programa
 			ultimo_giro_planetas = tempo_inicio
 		}
 	}
-	funcao desenhar()
-	{
+	funcao desenhar_tela_do_jogo()
+	{		
+		g.definir_fonte_texto("Poetsen One")
+		
 		desenhar_fundo()
 		desenhar_planetas()
+		
+		
 		g.desenhar_imagem(0, ALTURA_TELA-84, imagem_lua)
 		g.desenhar_imagem(x_plataforma, y_plataforma, imagem_plataforma)
 		
@@ -310,15 +424,15 @@ programa
 		senao se (quebrou)
 		{
 			se(tempo_inicio%150 < 75){
-				se(nao atualizou){
-					indice_fogo = (indice_fogo+1)%6
-					atualizou = verdadeiro
+				se(nao alternou_imagem_fogo){
+					indice_imagem_fogo = (indice_imagem_fogo+1)%6
+					alternou_imagem_fogo = verdadeiro
 				}
 			}senao{
-				atualizou = falso
+				alternou_imagem_fogo = falso
 			}
             	g.desenhar_imagem(x_foguete, y_foguete + ALTURA_FOGUETE - 43, imagem_foguete_quebrado)
-            	g.desenhar_porcao_imagem(x_foguete+20, y_foguete + ALTURA_FOGUETE - 30, indice_fogo*30, 0, 30, 45, imagem_fogo)
+            	g.desenhar_porcao_imagem(x_foguete+20, y_foguete + ALTURA_FOGUETE - 30, indice_imagem_fogo*30, 0, 30, 45, imagem_fogo)
 			g.definir_tamanho_texto(22.0)
 			g.definir_cor(0xFFFFFF)
 			g.definir_estilo_texto(falso, falso, falso)
@@ -351,6 +465,8 @@ programa
 
 			g.desenhar_imagem(x_foguete, y_foguete, imagem_foguete)
         	}
+
+        	desenhar_fps()
 		g.renderizar()
 	}
 
@@ -372,63 +488,62 @@ programa
 		g.definir_opacidade(255)
 	}
 
-	funcao reiniciar()
+	funcao reiniciar_jogo()
 	{
 		x_foguete = u.sorteia(10, 730)
 		y_foguete = 0
+		
 		acelerando = falso
 		pousou = falso
-		quebrou = falso
+		quebrou = falso		
 		foi_para_o_espaco = falso
+		
 		velocidade_vertical = 0.0
 		velocidade_horizontal = 0.0
+
 		tempo_inicio_jogo = u.tempo_decorrido()
+		tempo_inicio_fps = u.tempo_decorrido()
 		tempo_total_jogo = 0
+	}
+
+	funcao inicializar()
+	{
+		carregar_imagens()
+		carregar_fontes()
+		inicializar_janela()		
 	}
 
 	funcao carregar_imagens()
 	{
 		cadeia pasta_imagens = "./moon_lander/"
 
-		imagem_lua = g.carregar_imagem(pasta_imagens + "moon.png")
-		imagem_fundo = g.carregar_imagem(pasta_imagens + "fundo.jpg")
-		imagem_planetas = g.carregar_imagem(pasta_imagens + "planetas.png")
 		imagem_menu = g.carregar_imagem(pasta_imagens + "menu.jpg")
-		imagem_foguete = g.carregar_imagem(pasta_imagens + "foguete.png")
-		imagem_jato = g.carregar_imagem(pasta_imagens + "jato_foguete1.png")
+		
+		imagem_fundo = g.carregar_imagem(pasta_imagens + "fundo.jpg")
+		imagem_planetas = g.carregar_imagem(pasta_imagens + "planetas.png")		
+
+		imagem_lua = g.carregar_imagem(pasta_imagens + "moon.png")
 		imagem_plataforma = g.carregar_imagem(pasta_imagens + "plataforma_pouso.png")
-		imagem_jato2 = g.carregar_imagem(pasta_imagens + "jato_foguete2.png")
+
+		imagem_foguete = g.carregar_imagem(pasta_imagens + "foguete.png")
 		imagem_foguete_quebrado = g.carregar_imagem(pasta_imagens + "foguete_quebrado.png")
+		
+		imagem_jato = g.carregar_imagem(pasta_imagens + "jato_foguete1.png")
+		imagem_jato2 = g.carregar_imagem(pasta_imagens + "jato_foguete2.png")
+		
 		imagem_fogo = g.carregar_imagem(pasta_imagens + "fogo.png")
 	}
 
-	funcao liberar_imagens()
-	{
-		g.liberar_imagem(imagem_planetas)
-		g.liberar_imagem(imagem_lua)
-		g.liberar_imagem(imagem_fundo)
-		g.liberar_imagem(imagem_menu)
-		g.liberar_imagem(imagem_foguete)
-		g.liberar_imagem(imagem_jato)
-		g.liberar_imagem(imagem_plataforma)
-		g.liberar_imagem(imagem_jato2)
-		g.liberar_imagem(imagem_foguete_quebrado)
-		g.liberar_imagem(imagem_fogo)
-	}
-
-	funcao inicializar()
+	funcao inicializar_janela()
 	{
 		g.iniciar_modo_grafico(verdadeiro)
-		g.definir_dimensoes_janela(800, 600)
+		g.definir_dimensoes_janela(LARGURA_TELA, ALTURA_TELA)
 		g.definir_titulo_janela("Moon Lander")
-
-		carregar_fontes()
 	}
 
 	funcao carregar_fontes()
 	{
 		g.carregar_fonte("./fontes/poetsen_one_regular.ttf")
-		g.definir_fonte_texto("Poetsen One")
 	}
 
 	funcao finalizar()
@@ -436,16 +551,34 @@ programa
 		liberar_imagens()
 		g.encerrar_modo_grafico()
 	}
+
+	funcao liberar_imagens()
+	{
+		g.liberar_imagem(imagem_menu)
+
+		g.liberar_imagem(imagem_fundo)
+		g.liberar_imagem(imagem_planetas)
+		
+		g.liberar_imagem(imagem_lua)
+		g.liberar_imagem(imagem_plataforma)
+		
+		g.liberar_imagem(imagem_foguete)
+		g.liberar_imagem(imagem_foguete_quebrado)
+
+		g.liberar_imagem(imagem_jato)
+		g.liberar_imagem(imagem_jato2)
+		
+		g.liberar_imagem(imagem_fogo)
+	}
 }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1364; 
- * @DOBRAMENTO-CODIGO = [1];
+ * @POSICAO-CURSOR = 5152; 
+ * @DOBRAMENTO-CODIGO = [1, 112, 174, 179, 233, 490, 508, 515, 536, 543, 548, 554];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {tempo_quadro, 77, 68, 12};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */

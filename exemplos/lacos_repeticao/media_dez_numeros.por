@@ -31,6 +31,7 @@ programa
 	funcao inicio() 
 	{
 		inteiro contador = 1
+		
 		real numero, media, soma = 0.0
 
 		// Laço que verifica se já foram informados 10 valores
@@ -57,6 +58,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 999; 
+ * @POSICAO-CURSOR = 966; 
  * @DOBRAMENTO-CODIGO = [1];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
