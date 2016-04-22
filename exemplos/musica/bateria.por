@@ -632,7 +632,7 @@ programa
 	{
 		se (andamento > 50)
 		{
-			andamento = andamento + 10
+			andamento = andamento - 10
 		}
 	}
 

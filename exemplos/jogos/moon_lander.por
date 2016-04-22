@@ -61,7 +61,7 @@ programa
 	const inteiro ALTURA_FOGUETE = 76, LARGURA_FOGUETE = 59, LARGURA_PLATAFORMA = 135
 
 	/* Define quantos quadros serão desenhados por segundo (FPS) */
-	const inteiro TAXA_ATUALIZACAO = 85
+	const inteiro TAXA_DE_ATUALIZACAO = 85
 
 
 
@@ -77,15 +77,13 @@ programa
 
 	/* Variáveis utilizadas para controlar a velocidade de foguete */
 	real velocidade_vertical = 0.0, velocidade_horizontal = 0.0
+
+	logico acelerando = falso
 	
-	/* Variáveis utilizadas para controlar o estado do foguete */
-	logico acelerando = falso, quebrou = falso, pousou = falso, foi_para_o_espaco = falso
-
-
 	/* Variáveis utilizadas para controlar o FPS e o tempo de jogo */
-	inteiro tempo_inicio_jogo = 0, tempo_total_jogo = 0
+	inteiro tempo_inicio_jogo = 0
 
-	inteiro tempo_inicio = 0, tempo_decorrido = 0, tempo_restante = 0, tempo_quadro = 1000 / TAXA_ATUALIZACAO
+	inteiro tempo_inicio = 0, tempo_decorrido = 0, tempo_restante = 0, tempo_quadro = 1000 / TAXA_DE_ATUALIZACAO
 	
 	inteiro tempo_inicio_fps = 0, tempo_fps = 0, frames = 0, fps = 0
 	
@@ -107,7 +105,7 @@ programa
 
 
 	/* Variáveis que controlam a animação das estrelas e dos planetas no fundo do cenário */
-	inteiro indice_fundo = 0, indice_planetas = 0, ultimo_giro_fundo = 0, ultimo_giro_planetas = 0
+	inteiro indice_do_fundo_do_cenario = 0, indice_dos_planetas = 0, ultimo_giro_fundo = 0, ultimo_giro_planetas = 0
 	
 	
 	funcao inicio()
@@ -133,43 +131,34 @@ programa
 	{
 		enquanto (tela_atual == TELA_MENU)
 		{
-			cadeia texto_menu[] =
-			{
-				"Utilize as teclas W, A e D  ou as setas direcionais para jogar",
-				"Pressione ENTER para iniciar",
-				"Pressione ESC para sair"
-			}
+			iniciar_sincronia_da_taxa_de_atualizacao()
+			desenhar_menu()
+			finalizar_sincronia_da_taxa_de_atualizacao()
 
-			inteiro largura_quadro = g.largura_texto(texto_menu[0]) + 30
-			inteiro y_opcoes = 340
-			
-			g.definir_fonte_texto("Poetsen One")
-			g.desenhar_imagem(0, 0, imagem_menu)
-			
-			g.definir_tamanho_texto(20.0)
-			g.definir_cor(0xFFFFFF)
-			g.definir_estilo_texto(falso, falso, falso)
-			
-			
-			g.definir_cor(0x333333)
-			desenhar_texto_centralizado(texto_menu[0], y_opcoes + 225)
-			
-			g.definir_cor(0xFFFFFF)
-			
-			desenhar_texto_centralizado(texto_menu[1], y_opcoes + 70)
-			desenhar_texto_centralizado(texto_menu[2], y_opcoes + 100)
-
-			g.renderizar()
-			
-			se (t.tecla_pressionada(t.TECLA_ENTER))
-			{
-				ir_para_a_tela(TELA_JOGO)
-			}
-			senao se (t.tecla_pressionada(t.TECLA_ESC))
-			{
-				ir_para_a_tela(TELA_SAIR)
-			}
+			aguardar_decisao_do_usuario(TELA_JOGO, TELA_SAIR)
 		}
+	}
+
+	funcao desenhar_menu()
+	{
+		inteiro y_opcoes = 340
+		
+		g.definir_fonte_texto("Poetsen One")
+		g.definir_tamanho_texto(20.0)
+		g.definir_cor(0xFFFFFF)
+		g.definir_estilo_texto(falso, falso, falso)
+
+		g.desenhar_imagem(0, 0, imagem_menu)
+		
+		g.definir_cor(0x333333)
+		desenhar_texto_centralizado("Utilize as teclas W, A e D  ou as setas direcionais para jogar", y_opcoes + 225)
+		
+		g.definir_cor(0xFFFFFF)
+		
+		desenhar_texto_centralizado("Pressione ENTER para iniciar", y_opcoes + 70)
+		desenhar_texto_centralizado("Pressione ESC para sair", y_opcoes + 100)
+
+		g.renderizar()
 	}
 
 	funcao desenhar_texto_centralizado(cadeia texto, inteiro y)
@@ -183,52 +172,192 @@ programa
 		
 		enquanto (tela_atual == TELA_JOGO)
 		{
-			tempo_inicio = u.tempo_decorrido() + tempo_restante
+			iniciar_sincronia_da_taxa_de_atualizacao()
 			
 			atualizar_logica_do_jogo()
-			desenhar_tela_do_jogo()
-			atualizar_fps()			
-			sincronizar_taxa_de_atualizacao()
+			desenhar_tela_jogo()
+			
+			finalizar_sincronia_da_taxa_de_atualizacao()
 
 			se (t.tecla_pressionada(t.TECLA_ESC))
 			{
 				ir_para_a_tela(TELA_MENU)
-				u.aguarde(200)
 			}
 		}
 	}
 
 	funcao tela_pousou()
 	{
-		g.definir_cor(g.COR_AZUL)
-		g.limpar()
+		inteiro tempo_total_de_jogo = u.tempo_decorrido() - tempo_inicio_jogo
+
+		enquanto (tela_atual == TELA_POUSOU)
+		{
+			iniciar_sincronia_da_taxa_de_atualizacao()
+			 
+			desenhar_tela_pousou(tempo_total_de_jogo)
+
+			finalizar_sincronia_da_taxa_de_atualizacao()
+			
+			aguardar_decisao_do_usuario(TELA_JOGO, TELA_MENU)			
+		}
+	}
+
+	funcao desenhar_tela_pousou(inteiro tempo_total_de_jogo)
+	{		
+		desenhar_fundo_do_cenario()
+		desenhar_planetas()
+		desenhar_superficie_lunar()
+		desenhar_foguete()
+		desenhar_sombra_do_foguete()
+		desenhar_texto_tela_pousou(tempo_total_de_jogo)
+		desenhar_taxa_de_fps()
+
 		g.renderizar()
+	}
+
+	funcao desenhar_texto_tela_pousou(inteiro tempo_total_de_jogo)
+	{
+		inteiro segundos = tempo_total_de_jogo / 1000
+		
+		g.definir_fonte_texto("Poetsen One")
+		g.definir_tamanho_texto(22.0)
+		g.definir_cor(0xFFFFFF)
+		g.definir_estilo_texto(falso, falso, falso)
+		
+		desenhar_texto_centralizado("Parabéns, você venceu!", 240)
+
+		se (segundos > 1)
+		{
+			desenhar_texto_centralizado("Você pousou em " + segundos  + " segundos!", 270)
+		}
+		senao
+		{
+			desenhar_texto_centralizado("Você pousou em 1 segundo!", 270)
+		}
+		
+		desenhar_texto_centralizado("Pressione ENTER para jogar novamente", 300)
+		desenhar_texto_centralizado("Pressione ESC para sair", 330)
 	}
 
 	funcao tela_quebrou()
 	{
-		g.definir_cor(g.COR_VERMELHO)
-		g.limpar()
+		enquanto (tela_atual == TELA_QUEBROU)
+		{
+			iniciar_sincronia_da_taxa_de_atualizacao()
+			
+			desenhar_tela_quebrou()
+			
+			finalizar_sincronia_da_taxa_de_atualizacao()
+
+			aguardar_decisao_do_usuario(TELA_JOGO, TELA_MENU)
+		}
+	}
+
+	funcao aguardar_decisao_do_usuario(inteiro tela_avancar, inteiro tela_voltar)
+	{
+		se (t.tecla_pressionada(t.TECLA_ENTER))
+		{
+			ir_para_a_tela(tela_avancar)
+		}
+		senao se (t.tecla_pressionada(t.TECLA_ESC))
+		{
+			ir_para_a_tela(tela_voltar)
+		}
+	}
+
+	funcao desenhar_tela_quebrou()
+	{
+		desenhar_fundo_do_cenario()
+		desenhar_planetas()
+		desenhar_superficie_lunar()
+		desenhar_foguete_pegando_fogo()
+		desenhar_texto_tela_quebrou()
+		desenhar_taxa_de_fps()
+		
 		g.renderizar()
+	}
+
+	funcao desenhar_texto_tela_quebrou()
+	{
+		g.definir_fonte_texto("Poetsen One")
+		g.definir_tamanho_texto(22.0)
+		g.definir_cor(0xFFFFFF)
+		g.definir_estilo_texto(falso, falso, falso)
+       	
+       	desenhar_texto_centralizado("Que pena, seu foguete quebrou!", 270)
+		desenhar_texto_centralizado("Pressione ENTER para jogar novamente", 300)
+		desenhar_texto_centralizado("Pressione ESC para sair", 330)
+	}
+
+	funcao desenhar_foguete_pegando_fogo()
+	{
+		desenhar_foguete_quebrado()
+		desenhar_fogo_do_foguete_quebrado()
+	}
+
+	funcao desenhar_fogo_do_foguete_quebrado()
+	{
+		se (tempo_inicio % 150 < 75) // A cada 150 milissegundos, alterna a imagem do fogo
+		{
+			se (nao alternou_imagem_fogo)
+			{
+				indice_imagem_fogo = (indice_imagem_fogo + 1) % 6
+				alternou_imagem_fogo = verdadeiro
+			}
+		}
+		senao
+		{
+			alternou_imagem_fogo = falso
+		}            	
+		
+		g.desenhar_porcao_imagem(x_foguete + 20, y_foguete + ALTURA_FOGUETE - 30, indice_imagem_fogo * 30, 0, 30, 45, imagem_fogo)
+	}
+
+	funcao desenhar_foguete_quebrado()
+	{
+		g.desenhar_imagem(x_foguete, y_foguete + ALTURA_FOGUETE - 43, imagem_foguete_quebrado)
+	}
+
+	funcao desenhar_foguete()
+	{
+		g.desenhar_imagem(x_foguete, y_foguete, imagem_foguete)
 	}
 
 	funcao tela_espaco()
 	{
-		g.definir_cor(g.COR_VERDE)
-		g.limpar()
+		enquanto (tela_atual == TELA_ESPACO)
+		{
+			iniciar_sincronia_da_taxa_de_atualizacao()
+			
+			desenhar_tela_espaco()
+
+			finalizar_sincronia_da_taxa_de_atualizacao()
+
+			aguardar_decisao_do_usuario()
+		}
+	}
+
+	funcao desenhar_tela_espaco()
+	{
+		desenhar_fundo_do_cenario()
+		desenhar_planetas()
+		desenhar_superficie_lunar()
+		desenhar_texto_tela_espaco()
+		desenhar_taxa_de_fps()		
+
 		g.renderizar()
 	}
 
-	funcao sincronizar_taxa_de_atualizacao()
+	funcao desenhar_texto_tela_espaco()
 	{
-		tempo_decorrido = u.tempo_decorrido() - tempo_inicio
-		tempo_restante = tempo_quadro - tempo_decorrido 
-
-		enquanto (TAXA_ATUALIZACAO > 0 e tempo_restante > 0 e nao t.tecla_pressionada(t.TECLA_ESC))
-		{
-			tempo_decorrido = u.tempo_decorrido() - tempo_inicio
-			tempo_restante = tempo_quadro - tempo_decorrido
-		}
+		g.definir_fonte_texto("Poetsen One")
+		g.definir_tamanho_texto(22.0)
+		g.definir_cor(0xFFFFFF)
+		g.definir_estilo_texto(falso, falso, falso)
+   		
+       	desenhar_texto_centralizado("Que pena, você se perdeu no espaço!", 270)
+		desenhar_texto_centralizado("Pressione ENTER para jogar novamente", 300)
+		desenhar_texto_centralizado("Pressione ESC para sair", 330)
 	}
 
 	funcao ir_para_a_tela(inteiro nova_tela)
@@ -237,32 +366,27 @@ programa
 		{
 			tela_anterior = tela_atual
 			tela_atual = nova_tela
+
+			se (nova_tela == TELA_MENU)
+			{				
+				u.aguarde(200)
+			}
 		}		
 	}
 
 	funcao atualizar_logica_do_jogo()
 	{
-		se (nao pousou e nao quebrou e nao foi_para_o_espaco)
-		{
-			atualizar_velocidade_vertical()
-			atualizar_velocidade_horizontal()
-			atualizar_posicao_foguete()
-			atualizar_estado_foguete()
-		}
-		senao
-		{	
-			se (t.tecla_pressionada(t.TECLA_ENTER))
-			{
-				reiniciar_jogo()
-			}
-		}
+		atualizar_velocidade_vertical()
+		atualizar_velocidade_horizontal()
+		atualizar_posicao_foguete()
+		atualizar_estado_foguete()
 	}
 
 	funcao atualizar_velocidade_vertical()
 	{
 		se (t.tecla_pressionada(t.TECLA_W) ou t.tecla_pressionada(t.TECLA_SETA_ACIMA))
 		{
-	     	velocidade_vertical -= ACELERACAO_FOGUETE
+	     	velocidade_vertical = velocidade_vertical - ACELERACAO_FOGUETE
 
 	     	se (velocidade_vertical < -VELOCIDADE_MAXIMA_FOGUETE)
 	     	{
@@ -273,7 +397,7 @@ programa
 	     }
 	     senao
 	     {
-			velocidade_vertical += ACELERACAO_GRAVIDADE
+			velocidade_vertical = velocidade_vertical + ACELERACAO_GRAVIDADE
 
 			se (velocidade_vertical > VELOCIDADE_MAXIMA_GRAVIDADE)
 			{
@@ -286,36 +410,40 @@ programa
 
 	funcao atualizar_velocidade_horizontal()
 	{
+		real aceleracao_horizontal = ACELERACAO_FOGUETE * PERCENTUAL_VELOCIDADE_HORIZONTAL
+		
+		
 		se (t.tecla_pressionada(t.TECLA_A) ou t.tecla_pressionada(t.TECLA_SETA_ESQUERDA))
 		{
-			velocidade_horizontal -= (ACELERACAO_FOGUETE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
+			velocidade_horizontal = velocidade_horizontal - aceleracao_horizontal
 		}
 		senao se(velocidade_horizontal < 0)
 		{
-			velocidade_horizontal += (ACELERACAO_GRAVIDADE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
+			velocidade_horizontal = velocidade_horizontal + aceleracao_horizontal
 		}
+		
 	
 		se (t.tecla_pressionada(t.TECLA_D) ou t.tecla_pressionada(t.TECLA_SETA_DIREITA))
 		{
-			velocidade_horizontal += (ACELERACAO_FOGUETE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
+			velocidade_horizontal = velocidade_horizontal + aceleracao_horizontal
 		}
 		senao se(velocidade_horizontal > 0)
 		{
-			velocidade_horizontal -= (ACELERACAO_GRAVIDADE * PERCENTUAL_VELOCIDADE_HORIZONTAL)
+			velocidade_horizontal = velocidade_horizontal - aceleracao_horizontal
 		}
 	}
 
 	funcao atualizar_posicao_foguete()
 	{
-		x_foguete += tp.real_para_inteiro(m.arredondar(velocidade_horizontal, 1))
-		y_foguete += tp.real_para_inteiro(m.arredondar(velocidade_vertical, 1))
+		x_foguete = x_foguete + tp.real_para_inteiro(m.arredondar(velocidade_horizontal, 1))
+		y_foguete = y_foguete + tp.real_para_inteiro(m.arredondar(velocidade_vertical, 1))
 	}
 
 	funcao atualizar_estado_foguete()
 	{
 		se (x_foguete + LARGURA_FOGUETE < 0 ou x_foguete > LARGURA_TELA ou y_foguete + ALTURA_FOGUETE < 0)
 		{
-			foi_para_o_espaco = verdadeiro
+			ir_para_a_tela(TELA_ESPACO)
 		}
 		senao se (y_foguete + ALTURA_FOGUETE - 10 > y_plataforma)
 		{
@@ -323,25 +451,24 @@ programa
             	{
 				se (velocidade_vertical <= VELOCIDADE_MAXIMA_POUSO)
 				{
-					pousou = verdadeiro
-					tempo_total_jogo = u.tempo_decorrido() - tempo_inicio_jogo
+					ir_para_a_tela(TELA_POUSOU)
 				}
                 	senao
                 	{
-                    	quebrou = verdadeiro
+                    	ir_para_a_tela(TELA_QUEBROU)
             		}
             	}
             	senao
             	{
                 	se(y_foguete + ALTURA_FOGUETE > tp.real_para_inteiro(ALTURA_TELA - 57 + m.valor_absoluto(400.0-x_foguete+ (LARGURA_FOGUETE / 2))/7))
                 	{
-                    	quebrou = verdadeiro
+                    	ir_para_a_tela(TELA_QUEBROU)
             		}
             	}
 		}
 	}
 
-	funcao atualizar_fps()
+	funcao contar_taxa_de_fps()
 	{
 		frames = frames + 1
 		tempo_fps = u.tempo_decorrido() - tempo_inicio_fps
@@ -354,7 +481,7 @@ programa
 		}
 	}
 
-	funcao desenhar_fps()
+	funcao desenhar_taxa_de_fps()
 	{
 		g.definir_tamanho_texto(12.0)
 		g.definir_cor(0xFFFFFF)
@@ -362,116 +489,96 @@ programa
 		g.desenhar_texto(25, 40, "FPS: " + fps)
 	}
 
-
-	funcao desenhar_fundo(){
-				
-		se(indice_fundo>LARGURA_TELA)
+	funcao desenhar_fundo_do_cenario()
+	{				
+		se (indice_do_fundo_do_cenario > LARGURA_TELA)
 		{
-			g.desenhar_porcao_imagem(0, 0, indice_fundo, 0, LARGURA_TELA-(indice_fundo-LARGURA_TELA), ALTURA_TELA, imagem_fundo)
-			g.desenhar_porcao_imagem(LARGURA_TELA-(indice_fundo-LARGURA_TELA), 0, 0, 0, LARGURA_TELA, ALTURA_TELA, imagem_fundo)
+			inteiro delta = LARGURA_TELA - (indice_do_fundo_do_cenario - LARGURA_TELA)
+			
+			g.desenhar_porcao_imagem(0, 0, indice_do_fundo_do_cenario, 0, delta, ALTURA_TELA, imagem_fundo)
+			g.desenhar_porcao_imagem(delta, 0, 0, 0, LARGURA_TELA, ALTURA_TELA, imagem_fundo)
 		}
-		senao{
-			g.desenhar_porcao_imagem(0, 0, indice_fundo, 0, LARGURA_TELA, ALTURA_TELA, imagem_fundo)
+		senao
+		{
+			g.desenhar_porcao_imagem(0, 0, indice_do_fundo_do_cenario, 0, LARGURA_TELA, ALTURA_TELA, imagem_fundo)
 		}
-		se(tempo_inicio -ultimo_giro_fundo>35){
-			indice_fundo= (indice_fundo+1)%(LARGURA_TELA*2)
+		
+		atualizar_indice_do_fundo_do_cenario()
+	}
+
+	funcao atualizar_indice_do_fundo_do_cenario()
+	{
+		se (tempo_inicio - ultimo_giro_fundo > 35)
+		{
+			indice_do_fundo_do_cenario = (indice_do_fundo_do_cenario + 1) % (LARGURA_TELA * 2)
 			ultimo_giro_fundo = tempo_inicio
 		}
 	}
-	funcao desenhar_planetas(){
-		
-
-		se(indice_planetas>LARGURA_TELA)
+	
+	funcao desenhar_planetas()
+	{
+		se (indice_dos_planetas > LARGURA_TELA)
 		{
-			g.desenhar_porcao_imagem(0, 0, indice_planetas, 0, LARGURA_TELA-(indice_planetas-LARGURA_TELA), ALTURA_TELA, imagem_planetas)
-			g.desenhar_porcao_imagem(LARGURA_TELA-(indice_planetas-LARGURA_TELA), 0, 0, 0, LARGURA_TELA, ALTURA_TELA, imagem_planetas)
+			inteiro delta = LARGURA_TELA - (indice_dos_planetas - LARGURA_TELA)
+			
+			g.desenhar_porcao_imagem(0, 0, indice_dos_planetas, 0, delta, ALTURA_TELA, imagem_planetas)
+			g.desenhar_porcao_imagem(delta, 0, 0, 0, LARGURA_TELA, ALTURA_TELA, imagem_planetas)
 		}
 		senao
 		{
-			g.desenhar_porcao_imagem(0, 0, indice_planetas, 0, LARGURA_TELA, ALTURA_TELA, imagem_planetas)
+			g.desenhar_porcao_imagem(0, 0, indice_dos_planetas, 0, LARGURA_TELA, ALTURA_TELA, imagem_planetas)
 		}
-		se(tempo_inicio -ultimo_giro_planetas>100){
-			indice_planetas= (indice_planetas+1)%(LARGURA_TELA*2)
+		
+		atualizar_indice_dos_planetas()	
+	}
+
+	funcao atualizar_indice_dos_planetas()
+	{
+		se (tempo_inicio -ultimo_giro_planetas > 100)
+		{
+			indice_dos_planetas = (indice_dos_planetas + 1) % (LARGURA_TELA * 2)
 			ultimo_giro_planetas = tempo_inicio
 		}
 	}
-	funcao desenhar_tela_do_jogo()
+	
+	funcao desenhar_tela_jogo()
 	{		
-		g.definir_fonte_texto("Poetsen One")
-		
-		desenhar_fundo()
+		desenhar_fundo_do_cenario()
 		desenhar_planetas()
+		desenhar_superficie_lunar()
+        	desenhar_sombra_do_foguete()
 		
-		
-		g.desenhar_imagem(0, ALTURA_TELA-84, imagem_lua)
-		g.desenhar_imagem(x_plataforma, y_plataforma, imagem_plataforma)
-		
-
-		se (pousou)
-        	{
-        		desenhar_sombra_foguete()	
-			g.desenhar_imagem(x_foguete, y_foguete, imagem_foguete)
-
-			g.definir_tamanho_texto(22.0)
-			g.definir_cor(0xFFFFFF)
-			g.definir_estilo_texto(falso, falso, falso)
-			
-			g.desenhar_texto(290, 240, "Parabéns, você venceu!")
-			g.desenhar_texto(280, 270, "Você pousou em " + (tempo_total_jogo / 1000) + " segundos!")
-			g.desenhar_texto(220, 300, "Pressione ENTER para jogar novamente")
-			g.desenhar_texto(290, 330, "Pressione ESC para sair")
-		}
-		senao se (quebrou)
+		se (acelerando)
 		{
-			se(tempo_inicio%150 < 75){
-				se(nao alternou_imagem_fogo){
-					indice_imagem_fogo = (indice_imagem_fogo+1)%6
-					alternou_imagem_fogo = verdadeiro
-				}
-			}senao{
-				alternou_imagem_fogo = falso
-			}
-            	g.desenhar_imagem(x_foguete, y_foguete + ALTURA_FOGUETE - 43, imagem_foguete_quebrado)
-            	g.desenhar_porcao_imagem(x_foguete+20, y_foguete + ALTURA_FOGUETE - 30, indice_imagem_fogo*30, 0, 30, 45, imagem_fogo)
-			g.definir_tamanho_texto(22.0)
-			g.definir_cor(0xFFFFFF)
-			g.definir_estilo_texto(falso, falso, falso)
-            	
-            	g.desenhar_texto(250, 270, "Que pena, seu foguete quebrou!")
-			g.desenhar_texto(220, 300, "Pressione ENTER para jogar novamente")
-			g.desenhar_texto(290, 330, "Pressione ESC para sair")
-        	}
-        	senao se (foi_para_o_espaco)
-        	{
-			g.definir_tamanho_texto(22.0)
-			g.definir_cor(0xFFFFFF)
-			g.definir_estilo_texto(falso, falso, falso)
-        		
-            	g.desenhar_texto(230, 270, "Que pena, você se perdeu no espaço!")
-			g.desenhar_texto(220, 300, "Pressione ENTER para jogar novamente")
-			g.desenhar_texto(290, 330, "Pressione ESC para sair")
-        	}
-		senao
-        	{
-        		desenhar_sombra_foguete()
-			se (acelerando)
-			{
-				se(tempo_inicio%100 <50){
-					g.desenhar_imagem(x_foguete + 10, y_foguete + 66, imagem_jato)
-				}senao{
-					g.desenhar_imagem(x_foguete + 10, y_foguete + 66, imagem_jato2)
-				}
-			}
+			
+		}
 
 			g.desenhar_imagem(x_foguete, y_foguete, imagem_foguete)
-        	}
+        	
 
-        	desenhar_fps()
+        	desenhar_taxa_de_fps()
 		g.renderizar()
 	}
 
+	funcao desenhar_jato_do_foguete()
+	{
+		se (tempo_inicio % 100 < 50) // Alterna a imagem do jato do foguete a cada 100 milisegundos
+		{
+			g.desenhar_imagem(x_foguete + 10, y_foguete + 66, imagem_jato)
+		}
+		senao
+		{
+				g.desenhar_imagem(x_foguete + 10, y_foguete + 66, imagem_jato2)
+		}
+	}
 
-	funcao desenhar_sombra_foguete()
+	funcao desenhar_superficie_lunar()
+	{
+		g.desenhar_imagem(0, ALTURA_TELA - 84, imagem_lua)
+		g.desenhar_imagem(x_plataforma, y_plataforma, imagem_plataforma)
+	}
+
+	funcao desenhar_sombra_do_foguete()
 	{
 		inteiro x_centro_foguete = x_foguete + (LARGURA_FOGUETE / 2)
 		inteiro distancia_plataforma = (y_foguete + ALTURA_FOGUETE) - y_plataforma - 11
@@ -488,22 +595,43 @@ programa
 		g.definir_opacidade(255)
 	}
 
+	funcao iniciar_sincronia_da_taxa_de_atualizacao()
+	{
+		tempo_inicio = u.tempo_decorrido() + tempo_restante
+	}
+
+	funcao finalizar_sincronia_da_taxa_de_atualizacao()
+	{
+		tempo_decorrido = u.tempo_decorrido() - tempo_inicio
+		tempo_restante = tempo_quadro - tempo_decorrido 
+
+		enquanto (TAXA_DE_ATUALIZACAO > 0 e tempo_restante > 0)
+		{
+			tempo_decorrido = u.tempo_decorrido() - tempo_inicio
+			tempo_restante = tempo_quadro - tempo_decorrido
+		}
+
+		contar_taxa_de_fps()
+	}
+
 	funcao reiniciar_jogo()
 	{
 		x_foguete = u.sorteia(10, 730)
 		y_foguete = 0
 		
 		acelerando = falso
-		pousou = falso
-		quebrou = falso		
-		foi_para_o_espaco = falso
 		
 		velocidade_vertical = 0.0
 		velocidade_horizontal = 0.0
 
+		tempo_restante = 0		
 		tempo_inicio_jogo = u.tempo_decorrido()
-		tempo_inicio_fps = u.tempo_decorrido()
-		tempo_total_jogo = 0
+		
+		frames = 0
+		
+		// Hack para não exibir o FPS zerado na primeira vez que desenhar a tela
+		tempo_inicio_fps = u.tempo_decorrido() - 1002
+		
 	}
 
 	funcao inicializar()
@@ -576,8 +704,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 5152; 
- * @DOBRAMENTO-CODIGO = [1, 112, 174, 179, 233, 490, 508, 515, 536, 543, 548, 554];
+ * @POSICAO-CURSOR = 14636; 
+ * @DOBRAMENTO-CODIGO = [1, 110, 129, 141, 163, 168, 188, 204, 217, 241, 255, 267, 279, 291, 297, 320, 325, 339, 350, 362, 384, 410, 435, 470, 483, 491, 508, 517, 534, 597, 602, 636, 643, 664, 671, 676, 682];
  * @PONTOS-DE-PARADA = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
