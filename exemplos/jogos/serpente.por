@@ -466,7 +466,7 @@ programa
 
 			se (t.tecla_pressionada(t.TECLA_ESC))
 			{
-				trocar_tela(MENU)
+				ir_para_a_tela(MENU)
 			}
 			senao se (t.tecla_pressionada(t.TECLA_DELETAR))
 			{
@@ -476,11 +476,11 @@ programa
 			{
 				se (tela_anterior == DERROTA ou tela_anterior == VITORIA)
 				{
-					trocar_tela(JOGO)
+					ir_para_a_tela(JOGO)
 				}
 				senao
 				{
-					trocar_tela(MENU)
+					ir_para_a_tela(MENU)
 				}
 			}
 		}
@@ -561,7 +561,7 @@ programa
 			
 			habilitar_continuacao_jogo()
 			definir_tema(tema_atual)
-			trocar_tela(MENU)
+			ir_para_a_tela(MENU)
 		}
 		senao
 		{
@@ -634,12 +634,12 @@ programa
 			{
 				se (identificacao_valida())
 				{
-					trocar_tela(JOGO)
+					ir_para_a_tela(JOGO)
 				}
 			}
 			senao se (tecla == t.TECLA_ESC)
 			{
-				trocar_tela(MENU)
+				ir_para_a_tela(MENU)
 			}
 			senao se ((tecla >= t.TECLA_A e tecla <= t.TECLA_Z) ou tecla == t.TECLA_ESPACO ou tecla == t.TECLA_BACKSPACE)
 			{
@@ -886,7 +886,7 @@ programa
 		retorne texto
 	}
 
-	funcao trocar_tela(inteiro nova_tela)
+	funcao ir_para_a_tela(inteiro nova_tela)
 	{
 		se (nova_tela != tela_atual)
 		{
@@ -906,11 +906,11 @@ programa
 
 			se (t.tecla_pressionada(t.TECLA_ESC))
 			{
-				trocar_tela(MENU)
+				ir_para_a_tela(MENU)
 			}
 			senao se (t.tecla_pressionada(t.TECLA_ENTER))
 			{
-				trocar_tela(PLACAR)
+				ir_para_a_tela(PLACAR)
 			}
 		}
 
@@ -928,11 +928,11 @@ programa
 
 			se (t.tecla_pressionada(t.TECLA_ESC))
 			{
-				trocar_tela(MENU)
+				ir_para_a_tela(MENU)
 			}
 			senao se (t.tecla_pressionada(t.TECLA_ENTER))
 			{
-				trocar_tela(PLACAR)
+				ir_para_a_tela(PLACAR)
 			}
 		}
 
@@ -990,21 +990,21 @@ programa
 			{
 				se (continuar)
 				{
-					trocar_tela(JOGO)
+					ir_para_a_tela(JOGO)
 				}
 				senao
 				{
-					trocar_tela(IDENTIFICACAO)
+					ir_para_a_tela(IDENTIFICACAO)
 					u.aguarde(200)
 				}
 			}
 			senao se (t.tecla_pressionada(t.TECLA_ESC))
 			{
-				trocar_tela(SAIR)
+				ir_para_a_tela(SAIR)
 			}
 			senao se (t.tecla_pressionada(t.TECLA_ESPACO))
 			{
-				trocar_tela(PLACAR)
+				ir_para_a_tela(PLACAR)
 			}
 			senao se (t.tecla_pressionada(t.TECLA_SETA_ABAIXO) ou t.tecla_pressionada(t.TECLA_SETA_ACIMA))
 			{
@@ -1392,25 +1392,30 @@ programa
 			desenhar_tela_jogo()
 			g.renderizar()
 
-			tempo_decorrido_frame = u.tempo_decorrido() - tempo_inicio_frame
-			tempo_restante_frame = INTERVALO_ATUALIZACAO[dificuldade] - tempo_decorrido_frame 
-
-			enquanto (tempo_restante_frame > 0 e nao (t.tecla_pressionada(t.TECLA_ESC)))
-			{				
-				tempo_decorrido_frame = u.tempo_decorrido() - tempo_inicio_frame
-				tempo_restante_frame = INTERVALO_ATUALIZACAO[dificuldade] - tempo_decorrido_frame 
-			
-				ler_entrada_usuario()
-			}			
+			sincronizar_taxa_de_atualizacao()
 			
 			se (t.tecla_pressionada(t.TECLA_ESC))
 			{
-				trocar_tela(MENU)
+				ir_para_a_tela(MENU)
 				u.aguarde(200)
 			}
 		}
 
 		salvar_jogo()
+	}
+
+	funcao sincronizar_taxa_de_atualizacao()
+	{
+		tempo_decorrido_frame = u.tempo_decorrido() - tempo_inicio_frame
+		tempo_restante_frame = INTERVALO_ATUALIZACAO[dificuldade] - tempo_decorrido_frame 
+
+		enquanto (tempo_restante_frame > 0 e nao (t.tecla_pressionada(t.TECLA_ESC)))
+		{				
+			tempo_decorrido_frame = u.tempo_decorrido() - tempo_inicio_frame
+			tempo_restante_frame = INTERVALO_ATUALIZACAO[dificuldade] - tempo_decorrido_frame 
+		
+			ler_entrada_usuario()
+		}
 	}
 
 	funcao aguardar_inicio()
@@ -1492,7 +1497,7 @@ programa
 		{
 			reproduzir_som_derrota()
 			retroceder_serpente()
-			trocar_tela(DERROTA)
+			ir_para_a_tela(DERROTA)
 		}
 		senao se (serpente_pegou_comida())
 		{
@@ -1506,7 +1511,7 @@ programa
 			}
 			senao
 			{
-				trocar_tela(VITORIA)
+				ir_para_a_tela(VITORIA)
 			}
 		}
 	}
@@ -1832,8 +1837,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1071; 
- * @DOBRAMENTO-CODIGO = [1, 140, 160, 173, 183, 201, 210, 216, 234, 226, 240, 254, 258, 252, 296, 309, 346, 375, 399, 391, 419, 435, 413, 441, 449, 466, 470, 474, 459, 491, 546, 511, 565, 505, 600, 571, 613, 632, 639, 643, 624, 650, 657, 666, 701, 718, 727, 827, 839, 851, 869, 888, 897, 919, 941, 949, 964, 988, 1000, 1004, 1008, 1012, 978, 1028, 1037, 1051, 1072, 1087, 1101, 1113, 1128, 1142, 1151, 1156, 1193, 1235, 1249, 1261, 1273, 1285, 1290, 1302, 1317, 1329, 1341, 1346, 1371, 1415, 1436, 1442, 1450, 1466, 1479, 1490, 1496, 1488, 1513, 1521, 1529, 1541, 1555, 1570, 1575, 1593, 1610, 1617, 1628, 1639, 1650, 1615, 1665, 1672, 1679, 1686, 1663, 1695, 1711, 1721, 1733, 1747, 1758, 1764, 1781, 1793, 1801, 1806, 1814, 1820];
+ * @POSICAO-CURSOR = 1087; 
+ * @DOBRAMENTO-CODIGO = [1, 140, 160, 173, 183, 201, 210, 216, 234, 226, 240, 254, 258, 252, 296, 309, 346, 375, 399, 391, 419, 435, 413, 441, 449, 466, 470, 474, 459, 491, 546, 511, 565, 505, 600, 571, 613, 632, 639, 643, 624, 650, 657, 666, 701, 718, 727, 827, 839, 851, 869, 888, 897, 919, 941, 949, 964, 988, 1000, 1004, 1008, 1012, 978, 1028, 1037, 1051, 1072, 1087, 1101, 1113, 1128, 1142, 1151, 1156, 1193, 1235, 1249, 1261, 1273, 1285, 1290, 1302, 1317, 1329, 1341, 1346, 1371, 1406, 1420, 1441, 1447, 1455, 1471, 1484, 1495, 1501, 1493, 1518, 1526, 1534, 1546, 1560, 1575, 1580, 1598, 1615, 1622, 1633, 1644, 1655, 1620, 1670, 1677, 1684, 1691, 1668, 1700, 1716, 1726, 1738, 1752, 1763, 1769, 1786, 1798, 1806, 1811, 1819, 1825];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
