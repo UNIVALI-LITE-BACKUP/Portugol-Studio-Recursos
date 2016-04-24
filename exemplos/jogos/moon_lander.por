@@ -1217,6 +1217,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
+ * @POSICAO-CURSOR = 1364; 
+ * @DOBRAMENTO-CODIGO = [1, 153, 173, 197, 202, 214, 236, 241, 263, 281, 303, 311, 318, 324, 363, 399, 404, 430, 442, 466, 483, 509, 521, 541, 547, 565, 570, 582, 589, 606, 633, 644, 656, 670, 678, 684, 706, 730, 749, 754, 759, 764, 784, 795, 804, 809, 817, 826, 831, 838, 857, 862, 869, 876, 883, 888, 893, 898, 903, 916, 924, 941, 950, 967, 976, 987, 1003, 1009, 1020, 1025, 1030, 1035, 1045, 1057, 1062, 1067, 1072, 1086, 1105, 1118, 1139, 1145, 1170, 1177, 1182, 1189, 1208];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
