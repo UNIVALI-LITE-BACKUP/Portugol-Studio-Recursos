@@ -88,6 +88,23 @@ programa
 	inteiro tela_atual = TELA_MENU, tela_anterior = TELA_SAIR
 
 	logico executando_demonstracao = falso
+
+
+	/* Constantes que definem as propriedades das estrelas cintilantes dentro da matriz */
+	const inteiro POSICAO_X = 0, POSICAO_Y = 1, BRILHO_MINIMO = 2, BRILHO_MAXIMO = 3, BRILHO_ATUAL = 4
+	
+	const inteiro VELOCIDADE_DA_ANIMACAO = 5, ESTADO_DA_ANIMACAO = 6, TAMANHO_DA_ESTRELA = 7
+
+	
+	/* Constantes que definem os possíveis estados da animação das estrelas */
+	const inteiro AUMENTANDO_BRILHO = 0, DIMINUINDO_BRILHO = 1
+
+
+	/* 
+	 * Matriz que armazena a posição e a intensidadede de brilho das estrelas cintilantes. 
+	 * Estes valores são definidos aleatoriamente quando o jogo inicia.
+	 */
+	inteiro estrelas_cintilantes[30][8]
 	
 		
 	/* 
@@ -431,6 +448,7 @@ programa
 	funcao desenhar_tela_pousou(inteiro tempo_total_de_jogo)
 	{		
 		desenhar_fundo_do_cenario()
+		desenhar_estrelas_cintilantes()
 		desenhar_planetas()
 		desenhar_superficie_lunar()
 		desenhar_foguete_pousado()
@@ -510,6 +528,7 @@ programa
 	funcao desenhar_tela_quebrou()
 	{
 		desenhar_fundo_do_cenario()
+		desenhar_estrelas_cintilantes()
 		desenhar_planetas()
 		desenhar_superficie_lunar()
 		desenhar_foguete_pegando_fogo()
@@ -634,6 +653,7 @@ programa
 	funcao desenhar_tela_espaco()
 	{
 		desenhar_fundo_do_cenario()
+		desenhar_estrelas_cintilantes()
 		desenhar_planetas()
 		desenhar_superficie_lunar()
 		desenhar_texto_tela_espaco()
@@ -831,7 +851,7 @@ programa
 
 	funcao logico foguete_esta_proximo_da_altura_de_pouso()
 	{
-		inteiro distancia_da_altura_de_pouso = (base_do_foguete() - 5 - y_da_superficie_de_pouso()) * -1
+		inteiro distancia_da_altura_de_pouso = y_da_superficie_de_pouso() - (base_do_foguete() - 5)
 
 		retorne distancia_da_altura_de_pouso <= DISTANCIA_DE_PROXIMIDADE_DA_PLATAFORMA
 	}
@@ -962,7 +982,98 @@ programa
 			g.desenhar_porcao_imagem(0, 0, indice_dos_planetas, 0, LARGURA_DA_TELA, ALTURA_DA_TELA, imagem_dos_planetas)
 		}
 		
-		atualizar_indice_dos_planetas()	
+		atualizar_indice_dos_planetas()
+		
+	}
+
+	funcao criar_estrelas_cintilantes()
+	{
+		para (inteiro indice = 0; indice < u.numero_linhas(estrelas_cintilantes); indice++)
+		{
+			inteiro brilho_minimo = u.sorteia(32, 64)
+			inteiro brilho_maximo = u.sorteia(128, 255)
+
+			estrelas_cintilantes[indice][POSICAO_X] = u.sorteia(20, LARGURA_DA_TELA - 20)
+			estrelas_cintilantes[indice][POSICAO_Y] = u.sorteia(20, ALTURA_DA_TELA - altura_da_lua - 20)
+			estrelas_cintilantes[indice][TAMANHO_DA_ESTRELA] = u.sorteia(2, 4)
+			
+			estrelas_cintilantes[indice][BRILHO_MINIMO] = brilho_minimo
+			estrelas_cintilantes[indice][BRILHO_MAXIMO] = brilho_maximo
+			estrelas_cintilantes[indice][BRILHO_ATUAL] = u.sorteia(brilho_minimo, brilho_maximo)
+
+			estrelas_cintilantes[indice][VELOCIDADE_DA_ANIMACAO] = u.sorteia(1, 4)
+			estrelas_cintilantes[indice][ESTADO_DA_ANIMACAO] = u.sorteia(AUMENTANDO_BRILHO, DIMINUINDO_BRILHO)
+		}
+	}
+
+	funcao desenhar_estrelas_cintilantes()
+	{
+		inteiro posicao_x
+		inteiro posicao_y
+		
+		inteiro brilho_atual
+		inteiro brilho_minimo
+		inteiro brilho_maximo
+		
+		inteiro estado_da_animacao
+		inteiro velocidade_da_animacao
+		inteiro tamanho
+
+		g.definir_cor(0x62FAE3)
+
+		para (inteiro indice = 0; indice < u.numero_linhas(estrelas_cintilantes); indice++)
+		{
+			posicao_x = estrelas_cintilantes[indice][POSICAO_X]
+			posicao_y = estrelas_cintilantes[indice][POSICAO_Y]
+			tamanho = estrelas_cintilantes[indice][TAMANHO_DA_ESTRELA]
+			
+			brilho_atual = estrelas_cintilantes[indice][BRILHO_ATUAL]
+			brilho_minimo = estrelas_cintilantes[indice][BRILHO_MINIMO]
+			brilho_maximo = estrelas_cintilantes[indice][BRILHO_MAXIMO]
+			
+			estado_da_animacao = estrelas_cintilantes[indice][ESTADO_DA_ANIMACAO]
+			velocidade_da_animacao = estrelas_cintilantes[indice][VELOCIDADE_DA_ANIMACAO]
+			
+			se (estado_da_animacao == AUMENTANDO_BRILHO)
+			{
+				brilho_atual = brilho_atual + velocidade_da_animacao
+	
+				se (brilho_atual > brilho_maximo)
+				{
+					brilho_atual = brilho_maximo
+					estado_da_animacao = DIMINUINDO_BRILHO
+				}
+			}
+			senao se (estado_da_animacao == DIMINUINDO_BRILHO)
+			{
+				brilho_atual = brilho_atual - velocidade_da_animacao
+	
+				se (brilho_atual < brilho_minimo)
+				{
+					brilho_atual = brilho_minimo
+					estado_da_animacao = AUMENTANDO_BRILHO
+				}
+			}
+
+			se (tempo_inicio - ultimo_giro_planetas > 100)
+			{
+				posicao_x = posicao_x - 1
+				
+				se ((posicao_x - tamanho) < 0)
+				{
+					posicao_x = LARGURA_DA_TELA
+				}
+			}			
+			
+			g.definir_opacidade(brilho_atual)			
+			g.desenhar_elipse(posicao_x, posicao_y, tamanho, tamanho, verdadeiro)
+			
+			estrelas_cintilantes[indice][POSICAO_X] = posicao_x			
+			estrelas_cintilantes[indice][BRILHO_ATUAL] = brilho_atual
+			estrelas_cintilantes[indice][ESTADO_DA_ANIMACAO] = estado_da_animacao
+		}
+
+		g.definir_opacidade(255)
 	}
 
 	funcao atualizar_indice_dos_planetas()
@@ -977,6 +1088,7 @@ programa
 	funcao desenhar_tela_do_jogo()
 	{		
 		desenhar_fundo_do_cenario()
+		desenhar_estrelas_cintilantes()
 		desenhar_planetas()
 		desenhar_superficie_lunar()
 		desenhar_foguete_voando()
@@ -1110,10 +1222,19 @@ programa
 		carregar_sons()
 		
 		inicializar_janela()		
+		
 		calcular_posicoes_e_dimensoes_dos_objetos()
+		criar_estrelas_cintilantes()
 
+		iniciar_reproducao_da_musica_de_fundo()
+	}
+
+	funcao iniciar_reproducao_da_musica_de_fundo()
+	{
 		inteiro reproducao = sn.reproduzir_som(musica_de_fundo, verdadeiro)
-		sn.definir_volume_reproducao(reproducao, 65)
+	
+		sn.definir_volume(100)
+		sn.definir_volume_reproducao(reproducao, 70)
 	}
 
 	funcao carregar_imagens()
@@ -1218,7 +1339,7 @@ programa
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
  * @POSICAO-CURSOR = 1364; 
- * @DOBRAMENTO-CODIGO = [1, 153, 173, 197, 202, 214, 236, 241, 263, 281, 303, 311, 318, 324, 363, 399, 404, 430, 442, 466, 483, 509, 521, 541, 547, 565, 570, 582, 589, 606, 633, 644, 656, 670, 678, 684, 706, 730, 749, 754, 759, 764, 784, 795, 804, 809, 817, 826, 831, 838, 857, 862, 869, 876, 883, 888, 893, 898, 903, 916, 924, 941, 950, 967, 976, 987, 1003, 1009, 1020, 1025, 1030, 1035, 1045, 1057, 1062, 1067, 1072, 1086, 1105, 1118, 1139, 1145, 1170, 1177, 1182, 1189, 1208];
+ * @DOBRAMENTO-CODIGO = [1, 170, 190, 214, 219, 231, 253, 258, 280, 298, 320, 328, 335, 341, 380, 416, 421, 447, 460, 484, 501, 527, 540, 560, 566, 584, 589, 601, 608, 625, 652, 664, 676, 690, 698, 704, 726, 750, 769, 774, 779, 784, 804, 815, 824, 829, 837, 846, 851, 858, 877, 882, 889, 896, 903, 908, 913, 918, 923, 936, 944, 961, 970, 988, 1008, 1078, 1087, 1099, 1115, 1121, 1132, 1137, 1142, 1147, 1157, 1169, 1174, 1179, 1184, 1198, 1217, 1231, 1239, 1260, 1266, 1291, 1298, 1303, 1310, 1329];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
