@@ -3,9 +3,12 @@ programa
 	inclua biblioteca Graficos --> g
 	inclua biblioteca Util --> u
 	inclua biblioteca Teclado --> t
+	inclua biblioteca PortugolStudio --> ps
 	
 	funcao inicio()
 	{
+		ps.minimizar()
+		
 		inteiro img = g.carregar_imagem("./dog.jpg")
 		
 		g.iniciar_modo_grafico(verdadeiro)
@@ -103,7 +106,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2407; 
+ * @POSICAO-CURSOR = 187; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
