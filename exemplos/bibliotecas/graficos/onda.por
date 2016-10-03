@@ -65,6 +65,7 @@ programa
 		inteiro y = centro_y + coordenadas_y[iteracao_atual] - raio_particula
 			
 		g.desenhar_retangulo(x, y, raio_particula, raio_particula, falso, verdadeiro)
+		retorne 1
 	}
 
 	funcao calcular_numero_particulas()
@@ -115,5 +116,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1498; 
+ * @POSICAO-CURSOR = 1521; 
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
