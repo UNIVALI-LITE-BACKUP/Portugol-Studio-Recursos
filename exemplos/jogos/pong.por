@@ -34,7 +34,7 @@ programa
 	inteiro campo[5]
 
 	real tamanho_fonte
-	inteiro pontuacao_y, pontuacao1_x, pontuacao2_x, pontuacao, imagem_pausa=0, atalhosimg=-1
+	inteiro pontuacao_y, pontuacao1_x, pontuacao2_x, pontuacao = -1, imagem_pausa=0, atalhosimg=-1
 	inteiro tempo_anterior_demo=u.tempo_decorrido(), player_demo_aleatoriedade
 
 	logico DEMO_mode = falso
@@ -81,6 +81,9 @@ programa
 		g.desenhar_retangulo(0, 0, tela_w, tela_h, falso, verdadeiro)
 		g.definir_cor(cor_principal)
 		desenhar_pontuacao()
+		se(pontuacao != -1){
+			g.liberar_imagem(pontuacao)
+		}
 		pontuacao = g.renderizar_imagem(tela_w, tela_h/12)	
 	}
 
@@ -513,9 +516,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2799; 
+ * @POSICAO-CURSOR = 2815; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {pontuacao, 37, 50, 9};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
