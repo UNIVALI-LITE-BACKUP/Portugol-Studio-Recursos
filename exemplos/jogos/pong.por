@@ -1,6 +1,7 @@
 programa
 {
 	inclua biblioteca Graficos-->g
+	inclua biblioteca Mouse-->m
 	inclua biblioteca Teclado-->t
 	inclua biblioteca Util-->u
 	inclua biblioteca Matematica-->ma
@@ -33,7 +34,7 @@ programa
 	inteiro campo[5]
 
 	real tamanho_fonte
-	inteiro pontuacao_y, pontuacao1_x, pontuacao2_x, pontuacao, imagem_pausa=0
+	inteiro pontuacao_y, pontuacao1_x, pontuacao2_x, pontuacao, imagem_pausa=0, atalhosimg=-1
 	inteiro tempo_anterior_demo=u.tempo_decorrido(), player_demo_aleatoriedade
 
 	logico DEMO_mode = falso
@@ -58,8 +59,14 @@ programa
 		enquanto(bolinha[V_HORIZONTAL]==0 ou bolinha[V_VERTICAL]==0){
 			bolinha[V_HORIZONTAL]=u.sorteia(passo-2, passo)*u.sorteia(-1, 1)
 			bolinha[V_VERTICAL]=(max_vel-ma.valor_absoluto(bolinha[V_HORIZONTAL]))*u.sorteia(-1, 1)
-		}
-		
+		}		
+	}
+
+	funcao reset_game(){
+		player1[PONTUACAO]=0
+		player2[PONTUACAO]=0
+		resetar_bolinha()
+		reset_pontuacao()
 	}
 
 	funcao gerar_fundo(){
@@ -93,6 +100,7 @@ programa
 	funcao inicializar(){
 		g.iniciar_modo_grafico(verdadeiro)
 		g.entrar_modo_tela_cheia()
+		m.ocultar_cursor()
 		g.carregar_fonte("pong/PressStart2P.ttf")
 		g.definir_fonte_texto("Press Start 2P")
 		g.definir_cor(g.COR_PRETO)
@@ -180,16 +188,20 @@ programa
 
 	funcao desenhar_atalhos(){
 		g.definir_tamanho_texto(30)
+		g.definir_cor(cor_fundo)
+		g.limpar()
+		g.definir_cor(cor_principal)
 		se(DEMO_mode)
 		{
-			g.desenhar_texto(campo[X]+campo[LARGURA]-g.largura_texto("Press any key to return"), campo[Y]+campo[ALTURA]+tamanho_tile*1.5, "Press any key to return")
+			g.desenhar_texto(campo[X]+campo[LARGURA]-g.largura_texto("Press any key to return"), tamanho_tile*1.5, "Press any key to return")
 		}
 		senao
 		{
-			g.desenhar_texto(campo[X], campo[Y]+campo[ALTURA]+tamanho_tile*1.5, "Press R to reset score")
-			g.desenhar_texto(campo[X]+campo[LARGURA]-g.largura_texto("Press P to pause the game"), campo[Y]+campo[ALTURA]+tamanho_tile*1.5, "Press P to pause the game")
+			g.desenhar_texto(campo[X], tamanho_tile*1.5, "Press R to reset score")
+			g.desenhar_texto(campo[X]+campo[LARGURA]-g.largura_texto("Press P to pause the game"),tamanho_tile*1.5, "Press P to pause the game")
 		}		
-		g.definir_tamanho_texto(tela_h/15.0)		
+		g.definir_tamanho_texto(tela_h/15.0)
+		atalhosimg = g.renderizar_imagem(tela_w, tela_h/6)
 	}
 
 	funcao desenhar_bolinha(){
@@ -211,7 +223,7 @@ programa
 		desenhar_player(player1)
 		desenhar_player(player2)
 		desenhar_bolinha()
-		desenhar_atalhos()
+		g.desenhar_imagem(0, campo[Y]+campo[ALTURA], atalhosimg)
 	}
 
 	funcao mover(){
@@ -305,7 +317,7 @@ programa
 		}
 	}
 
-	funcao  pontuar(){
+	funcao pontuar(){
 		se(bolinha[X]<campo[X]-bolinha[LARGURA]){
 			player2[PONTUACAO]++
 			reset_pontuacao()
@@ -318,12 +330,6 @@ programa
 		}
 	}
 
-	funcao zerar_pontuacao()
-	{
-		player2[PONTUACAO] = 0 
-		player1[PONTUACAO] = 0
-	}
-
 	funcao atalhos(){
 		se(t.tecla_pressionada(t.TECLA_P)){
 			pausado=verdadeiro
@@ -333,9 +339,7 @@ programa
 			}
 		}
 		se(t.tecla_pressionada(t.TECLA_R)){
-			zerar_pontuacao()			
-			reset_pontuacao()
-			resetar_bolinha()
+			reset_game()
 			enquanto(t.tecla_pressionada(t.TECLA_R)){
 			}
 		}
@@ -358,13 +362,11 @@ programa
 
 	funcao tela_demonstracao(){
 		enquanto(nao t.alguma_tecla_pressionada())
-		{
-			DEMO_mode=verdadeiro
+		{			
 			controle_demo()
 			desenhar()
 			g.renderizar()
 		}
-		zerar_pontuacao()
 		DEMO_mode=falso
 	}
 
@@ -374,9 +376,14 @@ programa
 		tempo_anterior_demo = u.tempo_decorrido()
 		enquanto(nao t.tecla_pressionada(t.TECLA_ENTER))
 		{
+			
 			se(u.tempo_decorrido()-tempo_anterior_demo > 5000)
 			{
+				DEMO_mode=verdadeiro
+				desenhar_atalhos()
+				reset_game()
 				tela_demonstracao()
+				reset_game()
 				enquanto(t.alguma_tecla_pressionada())
 				{
 					
@@ -404,11 +411,44 @@ programa
 				}
 				tempo_anterior = u.tempo_decorrido()
 				g.renderizar()				
-			}		
+			}
+			
 		}
+		desenhar_atalhos()
 	}
 
 	funcao mover_players_demo(){
+
+		se(bolinha[V_HORIZONTAL]>0 ou bolinha[X]>campo[X]+(2*campo[LARGURA]/4)){
+			se(player1[Y]<tela_h/2 e player1[Y]+player1[ALTURA]>tela_h/2){
+				
+			}senao se(player1[Y]+player1[ALTURA]/2<tela_h/2){
+					player1[Y] = player1[Y] + passo
+			}
+			senao se((player1[Y]+player1[ALTURA]/2>tela_h/2)){
+					player1[Y] = player1[Y] - passo
+			}
+		}senao{
+			se(bolinha[Y]+2*bolinha[V_VERTICAL]>player1[Y]+player1[ALTURA]/2){
+				se(bolinha[Y]+2*bolinha[V_VERTICAL]>campo[Y]+campo[ALTURA]-tamanho_tile){
+					se(player1[Y]-passo>=campo[Y]+tamanho_tile){
+						player1[Y] = player1[Y] - passo
+					}
+				}senao se(player1[Y]+passo+player1[ALTURA]<campo[Y]+campo[ALTURA]-tamanho_tile){
+					player1[Y] = player1[Y] + passo
+				}
+				
+			}
+			se(bolinha[Y]+2*bolinha[V_VERTICAL]<player1[Y]+player1[ALTURA]/2){
+				se(bolinha[Y]+2*bolinha[V_VERTICAL]<campo[Y]+tamanho_tile){
+					se(player1[Y]+passo+player1[ALTURA]<campo[Y]+campo[ALTURA]-tamanho_tile){
+						player1[Y] = player1[Y] + passo
+					}
+				}senao se(player1[Y]-passo>=campo[Y]+tamanho_tile){
+					player1[Y] = player1[Y] - passo
+				}
+			}			
+		}
 		
 		se(bolinha[X]>tela_w/2)
 		{
@@ -422,31 +462,9 @@ programa
 					player2[Y] = player2[Y] - passo
 				}
 			}
-			se(u.tempo_decorrido()-tempo_anterior_demo>250)
-			{
-				player_demo_aleatoriedade = u.sorteia(1,10)%3
-				tempo_anterior_demo=u.tempo_decorrido()
-			}
-			se(player1[Y]+passo+player1[ALTURA]<campo[Y]+campo[ALTURA]-tamanho_tile e player_demo_aleatoriedade==0){
-					player1[Y] = player1[Y] + passo
-			}
-			senao se(player1[Y]-passo>=campo[Y]+tamanho_tile e player_demo_aleatoriedade==1){
-					player1[Y] = player1[Y] - passo
-			}
 		}
 		senao
 		{
-			se(bolinha[Y]>player1[Y]){
-				se(player1[Y]+passo+player1[ALTURA]<campo[Y]+campo[ALTURA]-tamanho_tile){
-					player1[Y] = player1[Y] + passo
-				}
-				
-			}
-			se(bolinha[Y]<player1[Y]){
-				se(player1[Y]-passo>=campo[Y]+tamanho_tile){
-					player1[Y] = player1[Y] - passo
-				}
-			}
 			se(u.tempo_decorrido()-tempo_anterior_demo>250)
 			{
 				player_demo_aleatoriedade = u.sorteia(1,10)%3
@@ -495,8 +513,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 10; 
- * @DOBRAMENTO-CODIGO = [48, 64, 71, 79, 92, 163, 180, 194, 198, 202, 207, 216, 241, 246, 272, 307, 320, 326, 358, 370, 410, 465, 473, 481];
+ * @POSICAO-CURSOR = 2799; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
