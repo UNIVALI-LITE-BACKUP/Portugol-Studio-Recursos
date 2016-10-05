@@ -79,6 +79,8 @@ programa
 	const inteiro TAXA_DE_ATUALIZACAO = 85
 
 
+	inteiro BRANCO = -1
+
 	/* Constantes que definem as telas do jogo */
 	const inteiro TELA_SAIR = 0, TELA_MENU = 1, TELA_JOGO = 2, TELA_POUSOU = 3
 	
@@ -152,7 +154,7 @@ programa
 	
 	inteiro imagem_da_lua = 0, imagem_dos_planetas=0
 	
-	inteiro imagem_jato = 0, imagem_jato2 = 0, imagem_da_plataforma = 0, imagem_do_fogo = 0
+	inteiro imagem_jato = 0, imagem_jato2 = 0, imagem_da_plataforma = 0, imagem_do_fogo = 0, imagem_jato_menu=0, imagem_foguete_menu=0
 
 	/* Varáveis que armazenam o endereço da música de fundo do jogo e dos sons */
 	inteiro musica_de_fundo = -1, som_houston = -1
@@ -233,20 +235,31 @@ programa
 	{
 		inteiro y_opcoes = 340
 		
-		g.definir_fonte_texto("Poetsen One")
+		
 		g.definir_tamanho_texto(20.0)
-		g.definir_cor(0xFFFFFF)
+		g.definir_cor(BRANCO)
 		g.definir_estilo_texto(falso, falso, falso)
 
-		g.desenhar_imagem(0, 0, imagem_de_fundo_do_menu)
+		g.desenhar_imagem(0, 0, imagem_de_fundo_do_cenario)
+		g.desenhar_imagem(-300, 0, imagem_dos_planetas)
+		g.desenhar_imagem(0, 520, imagem_da_lua)
+		g.desenhar_imagem(385, 315, imagem_jato_menu)
+		g.desenhar_imagem(325, 260, imagem_foguete_menu)
+		g.definir_fonte_texto("Star Jedi Hollow")
+		g.definir_cor(BRANCO)
+		g.definir_tamanho_texto(75.0)
 		
+		desenhar_texto_centralizado("m00n", 75)
+		desenhar_texto_centralizado("lander", 150)
+		g.definir_tamanho_texto(20.0)
+		g.definir_fonte_texto("Poetsen One")
 		g.definir_cor(0x333333)
 		desenhar_texto_centralizado("Utilize as teclas W, A e D  ou as setas direcionais para jogar", y_opcoes + 225)
+		g.definir_fonte_texto("Star Jedi")
+		g.definir_cor(BRANCO)
 		
-		g.definir_cor(0xFFFFFF)
-		
-		desenhar_texto_centralizado("Pressione ENTER para iniciar", y_opcoes + 70)
-		desenhar_texto_centralizado("Pressione ESC para sair", y_opcoes + 100)
+		desenhar_texto_centralizado("Pressione ENTER para iniciar", y_opcoes + 90)
+		desenhar_texto_centralizado("Pressione ESC para sair", y_opcoes + 120)
 
 		g.renderizar()
 	}
@@ -453,7 +466,7 @@ programa
 		desenhar_superficie_lunar()
 		desenhar_foguete_pousado()
 		desenhar_texto_tela_pousou(tempo_total_de_jogo)
-		desenhar_taxa_de_fps()
+		//desenhar_taxa_de_fps()
 
 		g.renderizar()
 	}
@@ -533,27 +546,26 @@ programa
 		desenhar_superficie_lunar()
 		desenhar_foguete_pegando_fogo()
 		desenhar_texto_tela_quebrou()
-		desenhar_taxa_de_fps()
+		//desenhar_taxa_de_fps()
 		
 		g.renderizar()
 	}
 
 	funcao desenhar_texto_tela_quebrou()
 	{
-		g.definir_fonte_texto("Poetsen One")
+		g.definir_fonte_texto("Star Jedi")
 		g.definir_tamanho_texto(22.0)
-		g.definir_cor(0xFFFFFF)
+		g.definir_cor(BRANCO)
 		g.definir_estilo_texto(falso, falso, falso)
 
        	se (foguete_esta_fora_da_plataforma())
        	{
-			desenhar_texto_centralizado("Que pena, você pousou fora da plataforma!", 270)
+			desenhar_texto_centralizado("que pena, você pousou fora da plataforma!", 270)
        	}
        	senao se (foguete_esta_acima_da_velocidade_de_pouso())
        	{
-       		desenhar_texto_centralizado("Que pena, você pousou rápido demais!", 270)
+       		desenhar_texto_centralizado("que pena, você pousou rápido demais!", 270)
        	}
-       	
 		desenhar_texto_centralizado("Pressione ENTER para jogar novamente", 300)
 		desenhar_texto_centralizado("Pressione ESC para sair", 330)
 	}
@@ -657,19 +669,19 @@ programa
 		desenhar_planetas()
 		desenhar_superficie_lunar()
 		desenhar_texto_tela_espaco()
-		desenhar_taxa_de_fps()		
+		//desenhar_taxa_de_fps()		
 
 		g.renderizar()
 	}
 
 	funcao desenhar_texto_tela_espaco()
 	{
-		g.definir_fonte_texto("Poetsen One")
+		g.definir_fonte_texto("Star Jedi")
 		g.definir_tamanho_texto(22.0)
-		g.definir_cor(0xFFFFFF)
+		g.definir_cor(BRANCO)
 		g.definir_estilo_texto(falso, falso, falso)
    		
-       	desenhar_texto_centralizado("Que pena, você perdeu o controle e ficou à deriva no espaço!", 270)
+       	desenhar_texto_centralizado("você perdeu o controle e ficou à deriva no espaço!", 270)
 		desenhar_texto_centralizado("Pressione ENTER para jogar novamente", 300)
 		desenhar_texto_centralizado("Pressione ESC para sair", 330)
 	}
@@ -1092,7 +1104,7 @@ programa
 		desenhar_planetas()
 		desenhar_superficie_lunar()
 		desenhar_foguete_voando()
-        	desenhar_taxa_de_fps()
+        	//desenhar_taxa_de_fps()
         	
 		g.renderizar()
 	}
@@ -1217,6 +1229,7 @@ programa
 
 	funcao inicializar()
 	{
+		BRANCO = g.criar_cor(255,237,214)
 		carregar_imagens()
 		carregar_fontes()
 		carregar_sons()
@@ -1240,8 +1253,6 @@ programa
 	funcao carregar_imagens()
 	{
 		cadeia pasta_imagens = "./moon_lander/"
-
-		imagem_de_fundo_do_menu = g.carregar_imagem(pasta_imagens + "menu.jpg")
 		
 		imagem_de_fundo_do_cenario = g.carregar_imagem(pasta_imagens + "fundo.jpg")
 		imagem_dos_planetas = g.carregar_imagem(pasta_imagens + "planetas.png")
@@ -1256,6 +1267,10 @@ programa
 		imagem_jato2 = g.carregar_imagem(pasta_imagens + "jato_foguete2.png")
 		
 		imagem_do_fogo = g.carregar_imagem(pasta_imagens + "fogo.png")
+
+		
+		imagem_foguete_menu = g.transformar_imagem(imagem_do_foguete, falso, falso, -50, -100020)
+		imagem_jato_menu = g.transformar_imagem(imagem_jato, falso, falso, -50, -1)
 	}
 
 	funcao carregar_sons()
@@ -1299,6 +1314,8 @@ programa
 	funcao carregar_fontes()
 	{
 		g.carregar_fonte("./fontes/poetsen_one_regular.ttf")
+		g.carregar_fonte("./fontes/Starjedi.ttf")
+		g.carregar_fonte("./fontes/Starjhol.ttf")
 	}
 
 	funcao finalizar()
@@ -1338,8 +1355,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1364; 
- * @DOBRAMENTO-CODIGO = [1, 170, 190, 214, 219, 231, 253, 258, 280, 298, 320, 328, 335, 341, 380, 416, 421, 447, 460, 484, 501, 527, 540, 560, 566, 584, 589, 601, 608, 625, 652, 664, 676, 690, 698, 704, 726, 750, 769, 774, 779, 784, 804, 815, 824, 829, 837, 846, 851, 858, 877, 882, 889, 896, 903, 908, 913, 918, 923, 936, 944, 961, 970, 988, 1008, 1078, 1087, 1099, 1115, 1121, 1132, 1137, 1142, 1147, 1157, 1169, 1174, 1179, 1184, 1198, 1217, 1231, 1239, 1260, 1266, 1291, 1298, 1303, 1310, 1329];
+ * @POSICAO-CURSOR = 18079; 
+ * @DOBRAMENTO-CODIGO = [1, 192, 216, 221, 266, 271, 293, 333, 341, 348, 354, 393, 429, 434, 473, 497, 514, 572, 578, 596, 601, 613, 620, 637, 688, 710, 762, 781, 786, 791, 796, 816, 827, 836, 841, 849, 858, 863, 870, 889, 894, 901, 908, 915, 920, 925, 930, 935, 956, 973, 982, 1000, 1020, 1090, 1111, 1127, 1133, 1144, 1149, 1154, 1159, 1169, 1181, 1186, 1191, 1196, 1210, 1244, 1275, 1281, 1320, 1327, 1346];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
