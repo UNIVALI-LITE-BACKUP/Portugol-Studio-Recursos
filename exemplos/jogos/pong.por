@@ -305,7 +305,7 @@ programa
 				acelerar(PARADO)
 			}
 		}
-		se(bolinha[X]>player2[X] e bolinha[Y]+bolinha[ALTURA]>player2[Y] e bolinha[Y]<player2[Y]+player2[ALTURA] e bolinha[X]<player2[X]+player2[LARGURA]){
+		se(bolinha[X]+bolinha[LARGURA]>player2[X] e bolinha[Y]+bolinha[ALTURA]>player2[Y] e bolinha[Y]<player2[Y]+player2[ALTURA] e bolinha[X]<player2[X]+player2[LARGURA]){
 			bolinha[X]=bolinha[X]-bolinha[V_HORIZONTAL]
 			bolinha[V_HORIZONTAL] = bolinha[V_HORIZONTAL]*-1
 			colision_play = s.reproduzir_som(colision_music, falso)
@@ -516,7 +516,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2815; 
+ * @POSICAO-CURSOR = 9240; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {pontuacao, 37, 50, 9};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
