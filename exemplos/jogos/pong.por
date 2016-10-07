@@ -34,7 +34,7 @@ programa
 	inteiro campo[5]
 
 	real tamanho_fonte
-	inteiro pontuacao_y, pontuacao1_x, pontuacao2_x, pontuacao = -1, imagem_pausa=0, atalhosimg=-1
+	inteiro pontuacao_y, pontuacao1_x, pontuacao2_x, pontuacao = -1, imagem_pausa=0, atalhosimg=-1, portugol=-1
 	inteiro tempo_anterior_demo=u.tempo_decorrido(), player_demo_aleatoriedade
 
 	logico DEMO_mode = falso
@@ -118,6 +118,8 @@ programa
 		inteiro y = tela_h/2-(g.altura_texto(text)/2)
 		g.desenhar_texto(x, y, text)
 		g.renderizar()
+
+		portugol = g.carregar_imagem("portugol.png")
 
 		branco = g.COR_BRANCO
 		verde = g.criar_cor(52, 229, 0)
@@ -227,6 +229,7 @@ programa
 		desenhar_player(player2)
 		desenhar_bolinha()
 		g.desenhar_imagem(0, campo[Y]+campo[ALTURA], atalhosimg)
+		g.desenhar_imagem(tela_w/2-125, 25, portugol)
 	}
 
 	funcao mover(){
@@ -516,7 +519,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 9240; 
+ * @POSICAO-CURSOR = 6354; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {pontuacao, 37, 50, 9};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

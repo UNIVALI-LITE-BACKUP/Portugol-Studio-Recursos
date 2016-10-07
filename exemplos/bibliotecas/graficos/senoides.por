@@ -10,7 +10,7 @@ programa
 	inteiro y = 88
 	inteiro pos=0
 	
-	inteiro base_x, base_y, espaco, cor_base=0, iterador=360
+	inteiro base_x, base_y, espaco, cor_base=0, iterador=360, portugol=0
 
 	logico auto_play = falso
 
@@ -47,6 +47,7 @@ programa
 	funcao inicializar(){
 		g.iniciar_modo_grafico(verdadeiro)
 		g.entrar_modo_tela_cheia()
+		portugol = g.carregar_imagem("portugol.png")
 		base_x = g.largura_janela()/2
 		base_y = g.altura_janela()/2
 		espaco = base_y-100
@@ -63,6 +64,7 @@ programa
 		g.definir_cor(g.COR_BRANCO)
 		g.desenhar_texto(50, 50, "X: "+x)
 		g.desenhar_texto(50, 75, "Y: "+y)
+		g.desenhar_imagem(base_x*2-250, base_y*2-86, portugol)
 		se(auto_play){
 			g.desenhar_texto(auto_play_x, 50, "Autoplay")
 		}
@@ -138,7 +140,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2569; 
+ * @POSICAO-CURSOR = 1301; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

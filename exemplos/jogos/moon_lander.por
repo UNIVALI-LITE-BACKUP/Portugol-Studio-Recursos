@@ -148,7 +148,7 @@ programa
 
 	
 	/* Variáveis que armazenam o endereço de memória das imagens utilizadas no jogo */
-	inteiro imagem_de_fundo_do_cenario = 0, imagem_de_fundo_do_menu = 0
+	inteiro imagem_de_fundo_do_cenario = 0, imagem_de_fundo_do_menu = 0, imagem_portugol=0
 	
 	inteiro imagem_do_foguete = 0, imagem_foguete_quebrado = 0
 	
@@ -260,7 +260,7 @@ programa
 		
 		desenhar_texto_centralizado("Pressione ENTER para iniciar", y_opcoes + 90)
 		desenhar_texto_centralizado("Pressione ESC para sair", y_opcoes + 120)
-
+		g.desenhar_imagem(575,25, imagem_portugol)
 		g.renderizar()
 	}
 
@@ -461,6 +461,7 @@ programa
 	funcao desenhar_tela_pousou(inteiro tempo_total_de_jogo)
 	{		
 		desenhar_fundo_do_cenario()
+		g.desenhar_imagem(575,25, imagem_portugol)
 		desenhar_estrelas_cintilantes()
 		desenhar_planetas()
 		desenhar_superficie_lunar()
@@ -541,11 +542,13 @@ programa
 	funcao desenhar_tela_quebrou()
 	{
 		desenhar_fundo_do_cenario()
+		g.desenhar_imagem(575,25, imagem_portugol)
 		desenhar_estrelas_cintilantes()
 		desenhar_planetas()
 		desenhar_superficie_lunar()
 		desenhar_foguete_pegando_fogo()
 		desenhar_texto_tela_quebrou()
+		
 		//desenhar_taxa_de_fps()
 		
 		g.renderizar()
@@ -665,6 +668,7 @@ programa
 	funcao desenhar_tela_espaco()
 	{
 		desenhar_fundo_do_cenario()
+		g.desenhar_imagem(575,25, imagem_portugol)
 		desenhar_estrelas_cintilantes()
 		desenhar_planetas()
 		desenhar_superficie_lunar()
@@ -1100,10 +1104,12 @@ programa
 	funcao desenhar_tela_do_jogo()
 	{		
 		desenhar_fundo_do_cenario()
+		g.desenhar_imagem(575,25, imagem_portugol)
 		desenhar_estrelas_cintilantes()
 		desenhar_planetas()
 		desenhar_superficie_lunar()
 		desenhar_foguete_voando()
+		
         	//desenhar_taxa_de_fps()
         	
 		g.renderizar()
@@ -1256,6 +1262,7 @@ programa
 		
 		imagem_de_fundo_do_cenario = g.carregar_imagem(pasta_imagens + "fundo.jpg")
 		imagem_dos_planetas = g.carregar_imagem(pasta_imagens + "planetas.png")
+		imagem_portugol = g.carregar_imagem("portugol.png")
 
 		imagem_da_lua = g.carregar_imagem(pasta_imagens + "moon.png")
 		imagem_da_plataforma = g.carregar_imagem(pasta_imagens + "plataforma_pouso.png")
@@ -1355,8 +1362,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 18079; 
- * @DOBRAMENTO-CODIGO = [1, 192, 216, 221, 266, 271, 293, 333, 341, 348, 354, 393, 429, 434, 473, 497, 514, 572, 578, 596, 601, 613, 620, 637, 688, 710, 762, 781, 786, 791, 796, 816, 827, 836, 841, 849, 858, 863, 870, 889, 894, 901, 908, 915, 920, 925, 930, 935, 956, 973, 982, 1000, 1020, 1090, 1111, 1127, 1133, 1144, 1149, 1154, 1159, 1169, 1181, 1186, 1191, 1196, 1210, 1244, 1275, 1281, 1320, 1327, 1346];
+ * @POSICAO-CURSOR = 15681; 
+ * @DOBRAMENTO-CODIGO = [1, 178, 176, 172, 199, 203, 197, 192, 216, 223, 227, 221, 233, 266, 286, 276, 271, 299, 293, 318, 311, 335, 333, 341, 348, 358, 362, 356, 371, 382, 386, 367, 354, 397, 401, 395, 413, 418, 422, 406, 393, 429, 438, 442, 436, 449, 453, 447, 434, 485, 489, 474, 503, 498, 519, 523, 517, 530, 534, 528, 515, 563, 567, 556, 575, 585, 583, 591, 581, 599, 608, 604, 616, 628, 623, 644, 648, 642, 655, 659, 653, 640, 680, 699, 694, 692, 706, 714, 726, 722, 735, 731, 720, 746, 750, 756, 760, 742, 770, 775, 779, 766, 785, 790, 795, 802, 806, 810, 814, 800, 820, 831, 840, 845, 853, 862, 867, 877, 874, 893, 898, 905, 912, 919, 924, 929, 934, 944, 939, 952, 962, 969, 960, 979, 977, 988, 995, 986, 1006, 1004, 1056, 1052, 1066, 1062, 1077, 1073, 1039, 1024, 1096, 1094, 1103, 1123, 1127, 1117, 1133, 1139, 1150, 1155, 1160, 1165, 1177, 1175, 1187, 1192, 1197, 1207, 1202, 1216, 1235, 1250, 1258, 1282, 1290, 1288, 1313, 1320, 1327, 1334, 1353];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
