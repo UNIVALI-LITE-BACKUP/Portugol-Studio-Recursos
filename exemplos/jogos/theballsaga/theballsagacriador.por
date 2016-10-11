@@ -243,7 +243,7 @@
 			coluna_atual=0
 			NUMERO_LINHAS = contar_linhas_arquivo(nome_arquivo)
 			inteiro arquivo, linha = 0, coluna=0, indice = 0
-			cadeia texto_linha
+			cadeia texto_linha = ""
 			
 			arquivo = a.abrir_arquivo(nome_arquivo, a.MODO_LEITURA)
 			
@@ -541,7 +541,10 @@
 		{
 			"Arquivos de Level|lvl"
 		}
-		se(a.selecionar_arquivo(formatos, falso, nome_arquivo))
+		cadeia arquivo_selecionado = a.selecionar_arquivo(formatos, falso)
+		logico usuario_selecionou_arquivo = arquivo_selecionado != ""
+		
+		se(usuario_selecionou_arquivo)
 		{
 		escrever_nivel(nome_arquivo)
 		}
@@ -950,8 +953,10 @@
 			"Arquivos de Level|lvl"
 		}
 
+		cadeia arquivo_selecionado = a.selecionar_arquivo(formatos, falso)
+		logico usuario_selecionou_arquivo = arquivo_selecionado != ""
 		
-		se(a.selecionar_arquivo(formatos, falso, nome_arquivo))
+		se(usuario_selecionou_arquivo)
 		{
 			carregar_nivel(nome_arquivo)
 		}
@@ -966,9 +971,12 @@
 		}
 
 		
-		se(a.selecionar_arquivo(formatos, falso, nome_arquivo))
+		cadeia arquivo_selecionado = a.selecionar_arquivo(formatos, falso)
+		logico usuario_selecionou_arquivo = arquivo_selecionado != ""
+		
+		se(usuario_selecionou_arquivo)
 		{
-		carregar_tema(nome_arquivo)
+			carregar_tema(nome_arquivo)
 		}
 	}
 
@@ -1018,8 +1026,10 @@
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1092; 
+ * @POSICAO-CURSOR = 6950; 
  * @DOBRAMENTO-CODIGO = [0];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */

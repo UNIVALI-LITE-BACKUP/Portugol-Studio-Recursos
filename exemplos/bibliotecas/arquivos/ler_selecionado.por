@@ -13,7 +13,11 @@
  * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
  * 
  * Descrição:
- * 
+ * 		
+ *	Este exemplo demonstra como abrir uma janela param permitir ao usuário selecionar
+ *	um arquivo. Após abrir a janela de seleção, o programa abre o arquivo selecionado
+ *	caso o usuário tenha selecionado um arquivo ou exibe uma mensagem caso o usuário
+ *	não tenha selecionado nenhum arquivo
  * 	
  * 
  * Autores:
@@ -79,7 +83,8 @@
 		// Vamos armazenar o valor retornado em uma variável e testar se o usuário selecionou
 		// um arquivo ou não.
 		
-		logico usuario_selecionou_um_arquivo = a.selecionar_arquivo(tipos_de_arquivo, falso, caminho_do_arquivo)
+		cadeia arquivo_selecionado = a.selecionar_arquivo(tipos_de_arquivo, falso)
+		logico usuario_selecionou_um_arquivo = arquivo_selecionado != ""
 
 		se (usuario_selecionou_um_arquivo)
 		{
@@ -180,5 +185,10 @@
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 670; 
+ * @POSICAO-CURSOR = 1010; 
+ * @DOBRAMENTO-CODIGO = [1];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */

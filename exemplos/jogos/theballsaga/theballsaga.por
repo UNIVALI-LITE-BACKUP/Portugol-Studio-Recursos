@@ -37,12 +37,12 @@ programa
 	inclua biblioteca Tipos --> tp
 	inclua biblioteca Sons --> sm
 
-	//	Dimensões da tela
+	//	Dimensões da tela
 	const inteiro RESOLUCAO_800x608 = 0
 	const inteiro RESOLUCAO_1025x779 = 1
 	inteiro largura=800, altura=608, largura_tela=800, altura_tela=608
 	
-	//	Constantes de estado da bolinha
+	//	Constantes de estado da bolinha
 	const logico _DESCENDO = verdadeiro, _SUBINDO = falso
 	const real COEFICIENTE_DE_ACELERACAO= 300.0
 	const logico depurando = falso
@@ -50,7 +50,7 @@ programa
 	inteiro y_inicial=0
 	logico pulando=falso
 
-	//	Variáveis do objeto
+	//	Variáveis do objeto
 	real posicao_horizontal = 40.0, posicao_vertical = 45.0, aceleracao = 0.03 , velocidade_horizontal = 0.0
 	real velocidade_vertical = 0.0, aceleracao_horizontal = 0.07, velocidade_maxima = 1.8, velocidade_vertical_maxima=8.0, velocidade_vertical_base=8.0, velocidade_diminuida=0.4, velocidade_normal=1.8, velocidade_aumentada=3.0
 	logico colisao_vertical = falso, colisao_horizontal = falso, colisao_superior = falso, colisao_inferior = falso
@@ -69,7 +69,7 @@ programa
 	inteiro logo=-1
 
 	
-	// Variávies para arquivos
+	// Variávies para arquivos
 	cadeia continuar_jogo = u.obter_diretorio_usuario() + "/.portugol/dados/theballsaga/%s_continue.ash"
 	cadeia fonte = "ZipSonikItalic", fontetex = "Papyrus"
 	cadeia font	
@@ -77,10 +77,10 @@ programa
 	inteiro digitos_por_tile=10, digitos_prop=8, digitos_tile=2
 	logico continue=falso
 
-	// Variaveis de mouse
+	// Variaveis de mouse
 	logico mouse_sobre_jogar=falso, mouse_sobre_comandos=falso
 
-	// Variaveis de menu
+	// Variaveis de menu
 	logico jogando=falso, controles=falso
 	const inteiro SAIR = 5, MENU = -1, JOGO = 1, NOVO_JOGO=0, CONTROLES = 2, RESOLUCAO= 3, CREDITOS = 4, VENCER=6
 	inteiro tela_atual = MENU
@@ -90,11 +90,11 @@ programa
 	real y_jogar
 	real x_comandos, x_comandos_hover
 	real y_comandos
-	real tamanho_fonte, tamanho_fonte_hover
+	real tamanho_fonte, tamanho_fonte_hover
 	const inteiro OPCOES_MENU = 6
 	cadeia opcoes_menu[OPCOES_MENU]={"Novo Jogo", "Continuar","Controles", "Resolução", "Creditos", "Sair"}
 	
-	// Variáveis de lvl
+	// Variáveis de lvl
 	inteiro fase=1
 	logico venceu=falso
 	inteiro vida_maxima=3, vida=vida_maxima
@@ -104,7 +104,7 @@ programa
 	inteiro pontos=0
 	logico mostrar_dica=verdadeiro
 
-	// Variaveis de cor
+	// Variaveis de cor
 	inteiro cor_MORTAL = 0x5fbeea
 	inteiro cor_SOLIDO = 0x0
 	inteiro cor_portal = 0xf89920
@@ -131,10 +131,10 @@ programa
 	const inteiro _DIMINUIR_VELOCIDADE=16384
 	const inteiro _AUMENTAR_VELOCIDADE=32768
  
-	//controle
+	//controle
 	logico barra_espaco_precionada = falso
 
-	// Variaveis de FPS
+	// Variaveis de FPS
 	inteiro tempo_inicio=0, tempo_decorrido=0, tempo_quadro=0, tempo_restante=0, frames=0, tempo_fps=0, tempo_inicio_fps=0, fps=0
 	const inteiro TAXA_ATUALIZACAO=85
 
@@ -147,8 +147,8 @@ programa
 	inteiro incremento_horizontal = 0
 	inteiro incremento_vertical = 0
 
-	// variaveis de propriedades
-	logico chave_prata=falso, chave_ouro=falso, invuneravel=falso
+	// variaveis de propriedades
+	logico chave_prata=falso, chave_ouro=falso, invuneravel=falso
 	inteiro tempo_inicio_invunerabilidade = 0, max_tempo_invunerabilidade=6000, tempo_passado=0
 
 	// Variáveis de armazenamento
@@ -1515,7 +1515,7 @@ programa
 			NUMERO_LINHAS = contar_linhas_arquivo(nome_arquivo)
 	
 			inteiro arquivo, linha = 0, coluna=0, indice = 0
-			cadeia texto_linha
+			cadeia texto_linha = ""
 			
 			arquivo = a.abrir_arquivo(nome_arquivo, a.MODO_LEITURA)
 			
@@ -1951,6 +1951,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1009; 
+ * @POSICAO-CURSOR = 1006; 
  * @DOBRAMENTO-CODIGO = [0, 165, 201, 227, 275, 299, 312, 325, 341, 357, 367, 376, 395, 414, 441, 460, 480, 513, 569, 612, 642, 773, 783, 801, 820, 831, 842, 874, 887, 910, 933, 947, 961, 971, 981, 995, 1044, 1073, 1097, 1214, 1244, 1325, 1370, 1391, 1429, 1445, 1502, 1570, 1626, 1645, 1680, 1717, 1732, 1749, 1763, 1827, 1873, 1900, 1929];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
