@@ -44,6 +44,13 @@ programa
 	inclua biblioteca Matematica --> m
 	inclua biblioteca Sons --> sn
 
+	/* 
+	 *  Define se o jogo está sendo depurado ou não. Quando o jogo está em modo de depuração, 
+	 *  algumas informações adicionais aparecem na tela como, por exemplo, a taxa de atualização,
+	 *  isto é, a contagem de FPS
+	 */
+	const logico DEPURANDO = verdadeiro
+
 	/* Dimensões da tela do jogo */ 
 	const inteiro LARGURA_DA_TELA = 800, ALTURA_DA_TELA = 600
 
@@ -140,7 +147,7 @@ programa
 	/* Variáveis utilizadas para controlar o FPS e o tempo de jogo */
 	inteiro tempo_inicio_jogo = 0
 
-	inteiro tempo_inicio = 0, tempo_decorrido = 0, tempo_restante = 0, tempo_quadro = 1000 / TAXA_DE_ATUALIZACAO
+	inteiro tempo_inicio = 0, tempo_decorrido = 0, tempo_restante = 0, tempo_quadro = 0
 	
 	inteiro tempo_inicio_fps = 0, tempo_fps = 0, frames = 0, fps = 0
 
@@ -148,13 +155,13 @@ programa
 
 	
 	/* Variáveis que armazenam o endereço de memória das imagens utilizadas no jogo */
-	inteiro imagem_de_fundo_do_cenario = 0, imagem_de_fundo_do_menu = 0, imagem_portugol=0
+	inteiro imagem_de_fundo_do_cenario = 0, imagem_de_fundo_do_menu = 0, imagem_logotipo_portugol_studio = 0
 	
 	inteiro imagem_do_foguete = 0, imagem_foguete_quebrado = 0
 	
-	inteiro imagem_da_lua = 0, imagem_dos_planetas=0
+	inteiro imagem_da_lua = 0, imagem_dos_planetas = 0
 	
-	inteiro imagem_jato = 0, imagem_jato2 = 0, imagem_da_plataforma = 0, imagem_do_fogo = 0, imagem_jato_menu=0, imagem_foguete_menu=0
+	inteiro imagem_jato = 0, imagem_jato2 = 0, imagem_da_plataforma = 0, imagem_do_fogo = 0, imagem_jato_menu = 0, imagem_foguete_menu = 0
 
 	/* Varáveis que armazenam o endereço da música de fundo do jogo e dos sons */
 	inteiro musica_de_fundo = -1, som_houston = -1
@@ -259,8 +266,10 @@ programa
 		g.definir_cor(BRANCO)
 		
 		desenhar_texto_centralizado("Pressione ENTER para iniciar", y_opcoes + 90)
-		desenhar_texto_centralizado("Pressione ESC para sair", y_opcoes + 120)
-		g.desenhar_imagem(575,25, imagem_portugol)
+		desenhar_texto_centralizado("Pressione ESC para sair", y_opcoes + 120)		
+		desenhar_logotipo_portugol_studio()
+		desenhar_taxa_de_fps()
+		
 		g.renderizar()
 	}
 
@@ -461,13 +470,13 @@ programa
 	funcao desenhar_tela_pousou(inteiro tempo_total_de_jogo)
 	{		
 		desenhar_fundo_do_cenario()
-		g.desenhar_imagem(575,25, imagem_portugol)
+		desenhar_logotipo_portugol_studio()
 		desenhar_estrelas_cintilantes()
 		desenhar_planetas()
 		desenhar_superficie_lunar()
 		desenhar_foguete_pousado()
 		desenhar_texto_tela_pousou(tempo_total_de_jogo)
-		//desenhar_taxa_de_fps()
+		desenhar_taxa_de_fps()
 
 		g.renderizar()
 	}
@@ -476,7 +485,7 @@ programa
 	{
 		inteiro segundos = tempo_total_de_jogo / 1000
 		
-		g.definir_fonte_texto("Poetsen One")
+		g.definir_fonte_texto("Star Jedi")
 		g.definir_tamanho_texto(22.0)
 		g.definir_cor(0xFFFFFF)
 		g.definir_estilo_texto(falso, falso, falso)
@@ -542,16 +551,20 @@ programa
 	funcao desenhar_tela_quebrou()
 	{
 		desenhar_fundo_do_cenario()
-		g.desenhar_imagem(575,25, imagem_portugol)
+		desenhar_logotipo_portugol_studio()
 		desenhar_estrelas_cintilantes()
 		desenhar_planetas()
 		desenhar_superficie_lunar()
 		desenhar_foguete_pegando_fogo()
-		desenhar_texto_tela_quebrou()
-		
-		//desenhar_taxa_de_fps()
+		desenhar_texto_tela_quebrou()		
+		desenhar_taxa_de_fps()
 		
 		g.renderizar()
+	}
+
+	funcao desenhar_logotipo_portugol_studio()
+	{
+		g.desenhar_imagem(575, 25, imagem_logotipo_portugol_studio)
 	}
 
 	funcao desenhar_texto_tela_quebrou()
@@ -569,6 +582,7 @@ programa
        	{
        		desenhar_texto_centralizado("que pena, você pousou rápido demais!", 270)
        	}
+		
 		desenhar_texto_centralizado("Pressione ENTER para jogar novamente", 300)
 		desenhar_texto_centralizado("Pressione ESC para sair", 330)
 	}
@@ -668,12 +682,12 @@ programa
 	funcao desenhar_tela_espaco()
 	{
 		desenhar_fundo_do_cenario()
-		g.desenhar_imagem(575,25, imagem_portugol)
+		desenhar_logotipo_portugol_studio()
 		desenhar_estrelas_cintilantes()
 		desenhar_planetas()
 		desenhar_superficie_lunar()
 		desenhar_texto_tela_espaco()
-		//desenhar_taxa_de_fps()		
+		desenhar_taxa_de_fps()
 
 		g.renderizar()
 	}
@@ -952,10 +966,13 @@ programa
 
 	funcao desenhar_taxa_de_fps()
 	{
-		g.definir_tamanho_texto(12.0)
-		g.definir_cor(0xFFFFFF)
-		g.definir_estilo_texto(falso, verdadeiro, falso)
-		g.desenhar_texto(25, 40, "FPS: " + fps)
+		se (DEPURANDO)
+		{
+			g.definir_tamanho_texto(12.0)
+			g.definir_cor(0xFFFFFF)
+			g.definir_estilo_texto(falso, verdadeiro, falso)
+			g.desenhar_texto(25, 40, "FPS: " + fps)
+		}
 	}
 
 	funcao desenhar_fundo_do_cenario()
@@ -1104,13 +1121,12 @@ programa
 	funcao desenhar_tela_do_jogo()
 	{		
 		desenhar_fundo_do_cenario()
-		g.desenhar_imagem(575,25, imagem_portugol)
+		desenhar_logotipo_portugol_studio()
 		desenhar_estrelas_cintilantes()
 		desenhar_planetas()
 		desenhar_superficie_lunar()
-		desenhar_foguete_voando()
-		
-        	//desenhar_taxa_de_fps()
+		desenhar_foguete_voando()		
+        	desenhar_taxa_de_fps()
         	
 		g.renderizar()
 	}
@@ -1235,7 +1251,11 @@ programa
 
 	funcao inicializar()
 	{
-		BRANCO = g.criar_cor(255,237,214)
+		se (TAXA_DE_ATUALIZACAO > 0)
+		{
+			tempo_quadro = 1000 / TAXA_DE_ATUALIZACAO
+		}
+		
 		carregar_imagens()
 		carregar_fontes()
 		carregar_sons()
@@ -1262,7 +1282,7 @@ programa
 		
 		imagem_de_fundo_do_cenario = g.carregar_imagem(pasta_imagens + "fundo.jpg")
 		imagem_dos_planetas = g.carregar_imagem(pasta_imagens + "planetas.png")
-		imagem_portugol = g.carregar_imagem("portugol.png")
+		imagem_logotipo_portugol_studio = g.carregar_imagem("portugol.png")
 
 		imagem_da_lua = g.carregar_imagem(pasta_imagens + "moon.png")
 		imagem_da_plataforma = g.carregar_imagem(pasta_imagens + "plataforma_pouso.png")
@@ -1362,8 +1382,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 15681; 
- * @DOBRAMENTO-CODIGO = [1, 178, 176, 172, 199, 203, 197, 192, 216, 223, 227, 221, 233, 266, 286, 276, 271, 299, 293, 318, 311, 335, 333, 341, 348, 358, 362, 356, 371, 382, 386, 367, 354, 397, 401, 395, 413, 418, 422, 406, 393, 429, 438, 442, 436, 449, 453, 447, 434, 485, 489, 474, 503, 498, 519, 523, 517, 530, 534, 528, 515, 563, 567, 556, 575, 585, 583, 591, 581, 599, 608, 604, 616, 628, 623, 644, 648, 642, 655, 659, 653, 640, 680, 699, 694, 692, 706, 714, 726, 722, 735, 731, 720, 746, 750, 756, 760, 742, 770, 775, 779, 766, 785, 790, 795, 802, 806, 810, 814, 800, 820, 831, 840, 845, 853, 862, 867, 877, 874, 893, 898, 905, 912, 919, 924, 929, 934, 944, 939, 952, 962, 969, 960, 979, 977, 988, 995, 986, 1006, 1004, 1056, 1052, 1066, 1062, 1077, 1073, 1039, 1024, 1096, 1094, 1103, 1123, 1127, 1117, 1133, 1139, 1150, 1155, 1160, 1165, 1177, 1175, 1187, 1192, 1197, 1207, 1202, 1216, 1235, 1250, 1258, 1282, 1290, 1288, 1313, 1320, 1327, 1334, 1353];
+ * @POSICAO-CURSOR = 1364; 
+ * @DOBRAMENTO-CODIGO = [1, 185, 183, 179, 206, 210, 204, 199, 223, 230, 234, 228, 240, 275, 295, 285, 280, 308, 302, 327, 320, 344, 342, 350, 357, 367, 371, 365, 380, 391, 395, 376, 363, 406, 410, 404, 422, 427, 431, 415, 402, 438, 447, 451, 445, 458, 462, 456, 443, 469, 494, 498, 483, 512, 507, 528, 532, 526, 539, 543, 537, 524, 550, 564, 569, 589, 595, 613, 622, 618, 630, 642, 637, 658, 662, 656, 669, 673, 667, 654, 681, 694, 713, 708, 706, 720, 728, 740, 736, 749, 745, 734, 760, 764, 770, 774, 756, 784, 789, 793, 780, 799, 804, 809, 816, 820, 824, 828, 814, 834, 845, 854, 859, 867, 876, 881, 891, 888, 907, 912, 919, 926, 933, 938, 943, 948, 958, 953, 966, 979, 986, 977, 996, 994, 1005, 1012, 1003, 1023, 1021, 1073, 1069, 1083, 1079, 1094, 1090, 1056, 1041, 1113, 1111, 1120, 1139, 1143, 1133, 1149, 1155, 1166, 1171, 1176, 1181, 1193, 1191, 1203, 1208, 1213, 1223, 1218, 1232, 1251, 1270, 1278, 1302, 1310, 1308, 1333, 1340, 1347, 1354, 1373];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
