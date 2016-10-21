@@ -8,10 +8,11 @@ body
     font-family: "Open Sans";
     font-size: 13px;
     line-height: 100%;
-    margin: 0px;    
+    margin: 0px;
     padding-top: 20px;
     padding-bottom: 20px;
-    color: #333;
+    color: #FBFBFB;
+    background-color: #3A464C;
     margin: 0;
 
 }
@@ -20,9 +21,9 @@ h1, h2
 {
     font-family: "Tahoma";
     font-size: 20pt;
-    color: #fefefe;
-    margin-bottom: 0px;
-    background-color: #4183D7;
+    color: #FBFBFB;
+    background-color: #263238;
+    border-left: 3px solid #00EFC0;
     padding: 15px;
     padding-left: 8px;
     margin-top: 10px;
@@ -42,15 +43,14 @@ p
 div.codigo-portugol
 {
     margin: 25px;
-    border: 1px solid rgb(202, 198, 179);
-    background-color: #E7E5DC;
-}   
+    background-color: #121E24;
+}
 
 div.cabecalho-codigo-portugol
 {
     color: rgb(40, 103, 130);
     border-bottom: 1px solid rgb(202, 198, 179);
-    padding: 10px;    
+    padding: 10px;
 }
 
 div.cabecalho-codigo-portugol a
@@ -76,65 +76,50 @@ div.cabecalho-codigo-portugol a:visited
 
 a
 {
-    color: rgb(40, 103, 130);
+    color: #00EFC0;
     font-weight: normal;
     text-decoration: none;
 }
 
 img
-{    
+{
     border: 2px solid black;
     margin: 10px;
     text-align: center;
 }
 
-.cadeia 
+.cadeia, .caracter
 {
-    color: orange;
+    color: #F2BA05;
 }
 
-.caracter 
+.inteiro, .real
 {
-    color: red;
+    color:#00EFC0;
 }
 
-.inteiro 
+.logico, .tipo
 {
-    color: blueviolet;
-}
-
-.real 
-{
-    color: blue;
-}
-
-.logico 
-{
-    color: fuchsia;
-}
-
-.tipo 
-{
-    color: green;
+    color: #45BDFF;
     font-weight: bold;
 }
 
-.palavra-reservada 
+.palavra-reservada
 {
-    color: rgb(70, 103, 130);
+    color: #F0433B;
     font-weight: bold;
 }
 
-.operador 
+.operador
 {
-    color: brown;
+    color: #fbfbfb;
 }
 
 hr
 {
-    height: 3px;
-    background: #333;
-    color: #333;
+    height: 1px;
+    background: #3A464C;
+    color: #3A464C;
 }
 .imagem
 {
@@ -142,12 +127,13 @@ hr
 }
 
 .codigo-fonte-container{
+
     border: 1px solid black;
     margin: 10px;
 }
 
 .codigo-fonte{
-    background-color: #dedede;
+    background-color: #263238;
     margin: 25px;
     padding: 15px;
     white-space: pre-wrap;
@@ -156,8 +142,8 @@ hr
     margin:25px;
     padding: 10px;
     font-size: 15px;
-    background-color: #4183D7;
-    color: #fff;
+    background-color: #121E24;
+    color: #fbfbfb;
 }
 
 
@@ -166,44 +152,44 @@ hr
 
 .porPalavraReservada //Exemplo: const caso se senao...
 {
-    color: rgb(70, 103, 130);
+    color: #F0433B;
     font-weight: bold;
 }
 
 .porTipoDeclaracao //Exemplo: inteiro real cadeia...
 {
-    color: #008080;
-    font-weight: bold;;
+    color: #45BDFF;
+    font-weight: bold;
 }
 
 .porAgrupamentos //Exemplo: () {} []
 {
-    color: #ff0000;
+    color: #fbfbfb;
 }
 
 .porNumeros //Exemplo: 5 4.52...
 {
-    color: #6400C8;
+    color: #00EFC0;
 }
 
 .porLogico //Exemplo: VERDADEIRO FALSO
 {
-    color: #00f;
+    color: #45BDFF;
 }
 
 .porTexto //Exemplo: "Olá mundo"...
 {
-    color: #DC009C;
+    color: #F2BA05;
 }
 
 .porID //Exemplo: nomeVariavel nomeFuncao...
 {
-    color: #000000;
+    color: #fbfbfb;
 }
 
 .porComentario //Exemplo: //Isso é um comentário...
 {
-    color: #008000;
+    color: #66747B;
     font-style: italic;
 }
 
@@ -223,7 +209,7 @@ table
     width: 80%;
     margin-right: 10%;
     margin-left: 9%;
-    color: #333;
+    color: #fbfbfb;
     text-align: center;
     font-size: 15px;
 
@@ -236,10 +222,10 @@ table
 }
 th, table b
 {
-    color: #4183D7;
+    color: #fbfbfb;
 }
 
 th, td {
-   border: 1px solid #dfdfdf;
+   border: 1px solid #fbfbfb;
 }
 //FIM CSS gerado pelo PortugolHTMLHighlighter.java
