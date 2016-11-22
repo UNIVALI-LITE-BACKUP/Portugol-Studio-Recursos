@@ -39,13 +39,14 @@ programa
 	
 	real planetas[11][10]
 	inteiro tipos[6]
-	inteiro espaco_planetas = 50
+	inteiro espaco_planetas = 65
 
 	inteiro cor_fundo = -1
 	inteiro cor_branco = -1
 
 	real angulo = 0.0
 	real speed = 0.02
+	real coef_elipse = 0.7
 
 	cadeia caminho_pln = "solar/planetas/"
 
@@ -131,7 +132,7 @@ programa
 	funcao atualizar(){
 		para(inteiro i=0;i<10;i++){
 			planetas[i][X]= xc+ma.cosseno(planetas[i][ANGULO]) * planetas[i][DISTANCIA]
-			planetas[i][Y]= yc+ma.seno(planetas[i][ANGULO]) * planetas[i][DISTANCIA]
+			planetas[i][Y]= yc+ma.seno(planetas[i][ANGULO]) * planetas[i][DISTANCIA]*coef_elipse
 			planetas[i][ANGULO] = planetas[i][ANGULO] + planetas[i][ANGULO_INC]
 		}
 		
@@ -190,7 +191,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3003; 
+ * @POSICAO-CURSOR = 4125; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
