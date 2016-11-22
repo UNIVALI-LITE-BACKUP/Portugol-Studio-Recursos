@@ -45,6 +45,7 @@ programa
 	inteiro cor_branco = -1
 
 	real angulo = 0.0
+	real speed = 0.02
 
 	cadeia caminho_pln = "solar/planetas/"
 
@@ -54,7 +55,7 @@ programa
 	funcao inicializar(){
 		g.iniciar_modo_grafico(verdadeiro)
 		g.entrar_modo_tela_cheia()
-		cor_fundo = g.criar_cor(72, 60, 110)
+		cor_fundo = g.criar_cor(5,33,46)
 		cor_branco = g.criar_cor(180, 180, 180)
 		g.definir_cor(cor_fundo)
 		g.limpar()
@@ -98,8 +99,8 @@ programa
 			planetas[i][ORIGEM_Y]=yc
 			planetas[i][Y]=yc
 			planetas[i][DISTANCIA]= xp-xc
-			planetas[i][ANGULO]= 0.0
-			planetas[i][ANGULO_INC]= tp.cadeia_para_real(inc)
+			planetas[i][ANGULO]= u.sorteia(0, 360)
+			planetas[i][ANGULO_INC]= speed/tp.cadeia_para_real(inc)
 			planetas[i][COR]=g.criar_cor(tp.cadeia_para_inteiro(r,10), tp.cadeia_para_inteiro(g,10), tp.cadeia_para_inteiro(b,10))
 
 			escolha (tipo){
@@ -149,6 +150,24 @@ programa
 			g.desenhar_linha(x, y+diametro, x+diametro, y)
 		}
 	}
+
+	funcao desenhar_estrelas(inteiro estrelas){
+		inteiro w = g.largura_janela()
+		inteiro h = g.altura_janela()
+
+		inteiro tamanho_estrela = 3
+		inteiro x=0, y=0
+		inteiro opacidade = 0
+		g.definir_cor(cor_branco)
+		para(inteiro i=0; i< estrelas; i++){
+			x= u.sorteia(0, w)
+			y = u.sorteia(0, h)
+			opacidade = u.sorteia(0, 255)
+			g.definir_opacidade(opacidade)
+			g.desenhar_elipse(x, y, tamanho_estrela, tamanho_estrela, verdadeiro)
+		}
+		g.definir_opacidade(255)
+	}
 	
 	funcao inicio()
 	{
@@ -157,12 +176,12 @@ programa
 		enquanto(verdadeiro){
 			g.definir_cor(cor_fundo)
 			g.limpar()
+			//desenhar_estrelas(15)
 			para(inteiro i=0;i<10;i++){
 				desenhar_planeta(i)
 			}
 			g.renderizar()
 			atualizar()
-			u.aguarde(100)
 		}
 	}
 }
@@ -171,7 +190,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1598; 
+ * @POSICAO-CURSOR = 3003; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
