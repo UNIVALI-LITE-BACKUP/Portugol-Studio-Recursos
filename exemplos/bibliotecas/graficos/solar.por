@@ -69,7 +69,7 @@ programa
 		xc = g.largura_janela()/2.0
 		yc = g.altura_janela()/2.0
 
-		real i = 0.0
+		inteiro i = 0
 
 		tipos[P] = g.altura_janela()/200
 		tipos[M] = tipos[P]*2
@@ -78,7 +78,7 @@ programa
 		tipos[S] = tipos[G]*2
 		tipos[J] = tipos[G]
 		
-		para(i=0.0; i<10.0;i++){
+		para(i=0; i<10;i++){
 			g.definir_cor(cor_fundo)
 			g.limpar()
 			g.definir_cor(cor_branco)
@@ -171,7 +171,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3296; 
+ * @POSICAO-CURSOR = 1598; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
