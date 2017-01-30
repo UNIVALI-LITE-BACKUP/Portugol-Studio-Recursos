@@ -541,8 +541,8 @@
 		{
 			"Arquivos de Level|lvl"
 		}
-		cadeia arquivo_selecionado = a.selecionar_arquivo(formatos, falso)
-		logico usuario_selecionou_arquivo = arquivo_selecionado != ""
+		nome_arquivo = a.selecionar_arquivo(formatos, falso)
+		logico usuario_selecionou_arquivo = nome_arquivo != ""
 		
 		se(usuario_selecionou_arquivo)
 		{
@@ -953,8 +953,8 @@
 			"Arquivos de Level|lvl"
 		}
 
-		cadeia arquivo_selecionado = a.selecionar_arquivo(formatos, falso)
-		logico usuario_selecionou_arquivo = arquivo_selecionado != ""
+		nome_arquivo = a.selecionar_arquivo(formatos, falso)
+		logico usuario_selecionou_arquivo = nome_arquivo != ""
 		
 		se(usuario_selecionou_arquivo)
 		{
@@ -971,8 +971,8 @@
 		}
 
 		
-		cadeia arquivo_selecionado = a.selecionar_arquivo(formatos, falso)
-		logico usuario_selecionou_arquivo = arquivo_selecionado != ""
+		nome_arquivo = a.selecionar_arquivo(formatos, falso)
+		logico usuario_selecionou_arquivo = nome_arquivo != ""
 		
 		se(usuario_selecionou_arquivo)
 		{
@@ -1026,7 +1026,7 @@
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 6950; 
+ * @POSICAO-CURSOR = 28730; 
  * @DOBRAMENTO-CODIGO = [0];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
