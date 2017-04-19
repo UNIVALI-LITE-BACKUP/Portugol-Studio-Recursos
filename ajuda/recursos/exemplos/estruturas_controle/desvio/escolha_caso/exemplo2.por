@@ -2,7 +2,7 @@ programa
 {
 	funcao inicio()
 	{			  
-	inteiro valor=1
+		inteiro valor=1
 		escolha (valor)
 		{
 		caso 0:		//testa se o valor é igual a 0
