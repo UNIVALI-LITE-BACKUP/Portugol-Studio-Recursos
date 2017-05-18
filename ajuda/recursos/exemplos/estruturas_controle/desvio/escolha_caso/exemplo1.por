@@ -1,4 +1,5 @@
 inteiro numero
+leia(numero)
 escolha(numero)
 {
 	caso 1:
@@ -18,6 +19,7 @@ escolha(numero)
 }
 
 cadeia texto
+leia(texto)
 escolha(texto)
 {
 	caso "sim":
