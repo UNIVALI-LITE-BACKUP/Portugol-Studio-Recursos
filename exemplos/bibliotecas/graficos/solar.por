@@ -1,3 +1,29 @@
+
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2017 - UNIVALI - Universidade do Vale do Itajaí
+ * 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo utiliza as funções de desenho da biblioteca gráfica para apresentar as órbitas do sistema solar 
+ * 	a partir de alguns cálculos com diâmetro e ângulo
+ * 
+ * Autores:
+ * 
+ * 	Alisson Steffens Henrique (ash@edu.univali.br)
+ * 	
+ * Data: 26/06/2017
+ */
+
 programa
 {
 	inclua biblioteca Graficos-->g
@@ -191,7 +217,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 4125; 
+ * @POSICAO-CURSOR = 1024; 
+ * @DOBRAMENTO-CODIGO = [1, 81, 90, 157, 166, 180, 198];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

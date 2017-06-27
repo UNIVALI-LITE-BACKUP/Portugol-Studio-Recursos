@@ -1,3 +1,29 @@
+
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2017 - UNIVALI - Universidade do Vale do Itajaí
+ * 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo utiliza primitivas gráficos e cálculos de seno e cosseno para simular 
+ * 	o movimento de uma onda na tela.
+ * 
+ * Autores:
+ * 
+ * 	Luiz Fernando Noschang (noschang@univali.br)
+ * 	
+ * Data: 26/06/2017
+ */
+
 programa
 {
 	inclua biblioteca Graficos --> g
@@ -37,7 +63,7 @@ programa
 			g.renderizar()
 
 			iteracao = (iteracao + 1) % 360
-			//u.aguarde(15)
+			u.aguarde(15)
 		}
 
 		finalizar()
@@ -116,7 +142,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1521; 
+ * @POSICAO-CURSOR = 1000; 
+ * @DOBRAMENTO-CODIGO = [1];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

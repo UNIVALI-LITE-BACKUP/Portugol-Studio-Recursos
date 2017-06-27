@@ -20,7 +20,7 @@
  * 	
  * Autores:
  * 
- * 	Adson Marques da Silva Esteves(shiandson@gmail.com)
+ * 	Adson Marques da Silva Esteves(shinadson@gmail.com)
  * 	
  * Data: 11/03/2016
  */
@@ -873,6 +873,7 @@ programa
 			iniciar_sincronia_da_taxa_de_atualizacao()
 			g.limpar()
 			g.definir_cor(0x99FF66)
+			g.desenhar_retangulo(0, 0, 800, 600, falso, verdadeiro)
 			ajusta_matriz_cercas()
 			desenha_mapa()
 			mexe_quadro()
@@ -1899,8 +1900,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 6490; 
- * @DOBRAMENTO-CODIGO = [0, 173, 179, 188, 197, 208, 217, 240, 244, 249, 268, 280, 285, 297, 318, 330, 385, 398, 418, 436, 454, 471, 509, 540, 645, 668, 727, 734, 740, 782, 809, 839, 869, 891, 912, 944, 967, 977, 1004, 1012, 1027, 1053, 1109, 1115, 1141, 1155, 1169, 1184, 1218, 1243, 1285, 1316, 1330, 1361, 1392, 1407, 1418, 1426, 1475, 1500, 1507, 1514, 1522, 1536, 1547, 1554, 1582, 1667, 1680, 1697, 1705, 1714, 1721, 1730, 1735, 1760, 1812, 1846, 1873, 1885];
+ * @POSICAO-CURSOR = 1310; 
+ * @DOBRAMENTO-CODIGO = [0, 173, 179, 188, 197, 208, 217, 240, 244, 249, 268, 280, 285, 297, 318, 330, 385, 398, 418, 436, 454, 471, 509, 540, 645, 668, 727, 734, 740, 782, 809, 839, 869, 892, 913, 945, 968, 978, 1005, 1013, 1028, 1054, 1110, 1116, 1142, 1156, 1170, 1185, 1219, 1244, 1286, 1317, 1331, 1362, 1393, 1408, 1419, 1427, 1476, 1501, 1508, 1515, 1523, 1537, 1548, 1555, 1583, 1668, 1681, 1698, 1706, 1715, 1722, 1731, 1736, 1761, 1813, 1847, 1874, 1886];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

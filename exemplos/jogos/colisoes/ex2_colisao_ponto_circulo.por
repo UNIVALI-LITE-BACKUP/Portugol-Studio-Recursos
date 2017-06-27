@@ -1,3 +1,28 @@
+
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2017 - UNIVALI - Universidade do Vale do Itajaí
+ * 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo demonstra como é detectada a colisão entre um ponto e um círculo.
+ * 
+ * Autores:
+ * 
+ * 	Luiz Fernando Noschang (noschang@univali.br)
+ * 	
+ * Data: 26/06/2017
+ */
+
 programa
 {
 	inclua biblioteca Graficos --> g
@@ -473,6 +498,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 210; 
- * @DOBRAMENTO-CODIGO = [37, 48, 57, 74, 101, 127, 154, 181, 190, 198, 206, 211, 221, 242, 248, 256, 271, 284, 306, 316, 334, 363, 368, 373, 385, 397, 402, 412, 419, 426, 433, 441, 454];
+ * @POSICAO-CURSOR = 956; 
+ * @DOBRAMENTO-CODIGO = [1, 62, 73, 82, 99, 126, 152, 179, 206, 215, 223, 231, 236, 246, 267, 273, 281, 296, 309, 331, 341, 359, 388, 393, 398, 410, 422, 427, 437, 444, 451, 458, 466, 479];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */

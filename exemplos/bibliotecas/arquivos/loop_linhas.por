@@ -25,7 +25,6 @@
  * Data: 10/02/2016
  */
 
-
 programa
 {
 	inclua biblioteca Arquivos --> a
@@ -136,7 +135,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 968; 
+ * @POSICAO-CURSOR = 967; 
  * @DOBRAMENTO-CODIGO = [1];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;

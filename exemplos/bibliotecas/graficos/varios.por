@@ -29,11 +29,11 @@ programa
 		se (util.numero_elementos(params) == 3)
 		{
 			logico id = falso, alt = falso
-			cadeia nome
+			cadeia nome = ""
 			inteiro idade
 			real altura
 
-			nome = t.caracteres_maiusculos(params[0])
+			nome = t.caixa_alta(params[0])
 
 			se (tip.cadeia_e_inteiro(params[1], 10))
 			{
@@ -114,3 +114,15 @@ programa
 		senao escreva("Devem ser informados três parâmetros: nome, idade e altura!")
 	}
 }
+
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 827; 
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

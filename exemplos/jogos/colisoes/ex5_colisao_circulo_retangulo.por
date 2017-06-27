@@ -1,3 +1,28 @@
+
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2017 - UNIVALI - Universidade do Vale do Itajaí
+ * 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo demonstra como é detectada a colisão entre um círculo e um retângulo.
+ * 
+ * Autores:
+ * 
+ * 	Luiz Fernando Noschang (noschang@univali.br)
+ * 	
+ * Data: 26/06/2017
+ */
+
 programa
 {
 	inclua biblioteca Graficos --> g
@@ -628,8 +653,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 210; 
- * @DOBRAMENTO-CODIGO = [45, 56, 65, 84, 111, 137, 164, 190, 199, 207, 234, 262, 267, 272, 280, 290, 311, 317, 332, 340, 353, 375, 393, 400, 437, 464, 487, 492, 497, 522, 527, 532, 544, 556, 568, 580, 585, 595, 602, 609];
+ * @POSICAO-CURSOR = 960; 
+ * @DOBRAMENTO-CODIGO = [1, 70, 81, 90, 109, 136, 162, 189, 215, 224, 232, 259, 287, 292, 297, 305, 315, 336, 342, 357, 365, 378, 400, 418, 425, 462, 489, 512, 517, 522, 547, 552, 557, 569, 581, 593, 605, 610, 620, 627, 634];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {exibir_guias, 26, 8, 12}-{x1, 31, 9, 2}-{y1, 32, 9, 2};
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */

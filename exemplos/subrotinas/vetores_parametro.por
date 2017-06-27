@@ -47,35 +47,61 @@ programa
 	
 	funcao inicio()
 	{
-		inteiro vet = 0 // Declara uma variável
+		inteiro vet [10] // Declara um vetor com 10 posições
 		
 		preenche (vet)
 		
-		escreva("Variavel antes:\n")
+		escreva("Vetor antes da ordenação:\n")
 		exibe (vet)
 
-		escreva("\n\nVariavel após:\n")		
+		ordena (vet)
+
+		escreva("\n\nVetor após a ordenação:\n")		
 		exibe (vet)
 
 		escreva("\n")
 	}
 
-	// Preenche a variavel com um número aleatório. Neste caso, a varivavel é
-	// passada por referência
-	funcao preenche (inteiro &v) 
+	// Preenche o vetor com números aleatórios. Neste caso, o vetor é
+	// passado por referência
+	// vetores não precisam do & pois eles sempre são passados por referencia automaticamente
+	funcao preenche (inteiro v[]) 
 	{
-		v = util.sorteia (1, 100)
+		para (inteiro i = 0; i < 10; i++)
+		{
+			v[i] = util.sorteia (1, 100)			
+		}
+	}
+	
+	funcao exibe (inteiro v[]) 
+	{
+		para(inteiro i = 0; i < 10; i++)
+		{
+			escreva (v[i], " ")
+		}
 	}
 
-	// Exibe o valor contido na variavel. Neste caso, a variavel é 
-	// passada por valor
-	funcao exibe (inteiro v) 
+	// Ordena o vetor em ordem crescente.
+	funcao ordena (inteiro v[])
 	{
-			escreva (v, " ")
-
-			// O valor é alterado dentro da função, mas fora da função
-			// o valor permanece o mesmo, pois a variavel foi passada por valor
-			v = 5
+		para (inteiro i = 0; i < 10; i++)
+		{
+			para (inteiro j = 0; j < 9; j++)
+			{
+				se (v [j] > v[j+1])
+				{
+					troca (v, j, j+1)
+				}
+			}
+		}
+	}
+	
+	funcao troca (inteiro v[], inteiro a, inteiro b)
+	{
+		inteiro c = v[a]
+		
+		v[a] = v[b]
+		v[b] = c
 	}
 }
 
@@ -84,7 +110,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1909; 
+ * @POSICAO-CURSOR = 1922; 
  * @DOBRAMENTO-CODIGO = [1];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;

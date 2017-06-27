@@ -1951,7 +1951,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1006; 
+ * @POSICAO-CURSOR = 1326; 
  * @DOBRAMENTO-CODIGO = [0, 165, 201, 227, 275, 299, 312, 325, 341, 357, 367, 376, 395, 414, 441, 460, 480, 513, 569, 612, 642, 773, 783, 801, 820, 831, 842, 874, 887, 910, 933, 947, 961, 971, 981, 995, 1044, 1073, 1097, 1214, 1244, 1325, 1370, 1391, 1429, 1445, 1502, 1570, 1626, 1645, 1680, 1717, 1732, 1749, 1763, 1827, 1873, 1900, 1929];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;

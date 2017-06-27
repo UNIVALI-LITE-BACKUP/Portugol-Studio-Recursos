@@ -1,3 +1,28 @@
+
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2017 - UNIVALI - Universidade do Vale do Itajaí
+ * 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo demonstra a detecção de vários tipos de colisão ao mesmo tempo.
+ * 
+ * Autores:
+ * 
+ * 	Luiz Fernando Noschang (noschang@univali.br)
+ * 	
+ * Data: 26/06/2017
+ */
+
 programa
 {
 	inclua biblioteca Graficos --> g
@@ -801,6 +826,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 210; 
- * @DOBRAMENTO-CODIGO = [88, 99, 117, 142, 154, 162, 173, 184, 195, 206, 211, 221, 231, 236, 241, 246, 251, 269, 280, 291, 302, 313, 323, 333, 340, 351, 360, 382, 407, 412, 417, 425, 433, 441, 451, 492, 498, 506, 521, 534, 562, 588, 595, 601, 609, 617, 631, 645, 656, 670, 682, 694, 699, 715, 747, 771, 785];
+ * @POSICAO-CURSOR = 954; 
+ * @DOBRAMENTO-CODIGO = [1, 113, 124, 142, 167, 179, 187, 198, 209, 220, 231, 236, 246, 256, 261, 266, 271, 276, 294, 305, 316, 327, 338, 348, 358, 365, 376, 385, 407, 432, 437, 442, 450, 458, 466, 476, 517, 523, 531, 546, 559, 587, 613, 620, 626, 634, 642, 656, 670, 681, 695, 707, 719, 724, 740, 772, 796, 810];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */

@@ -1,3 +1,28 @@
+
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2017 - UNIVALI - Universidade do Vale do Itajaí
+ * 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo demonstra como é detectada a colisão entre dois retângulos.
+ * 
+ * Autores:
+ * 
+ * 	Luiz Fernando Noschang (noschang@univali.br)
+ * 	
+ * Data: 26/06/2017
+ */
+
 programa
 {
 	inclua biblioteca Graficos --> g
@@ -490,6 +515,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 210; 
- * @DOBRAMENTO-CODIGO = [44, 55, 64, 81, 108, 134, 161, 187, 196, 214, 224, 245, 251, 259, 272, 294, 312, 319, 325, 333, 341, 355, 369, 380, 404, 409, 414, 426, 438, 443, 450, 457, 471];
+ * @POSICAO-CURSOR = 950; 
+ * @DOBRAMENTO-CODIGO = [1, 69, 80, 89, 106, 133, 159, 186, 212, 221, 239, 249, 270, 276, 284, 297, 319, 337, 344, 350, 358, 366, 380, 394, 405, 429, 434, 439, 451, 463, 468, 475, 482, 496];
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */

@@ -1026,8 +1026,8 @@
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 28730; 
- * @DOBRAMENTO-CODIGO = [0];
+ * @POSICAO-CURSOR = 1364; 
+ * @DOBRAMENTO-CODIGO = [0, 99, 112, 122, 130, 138, 168, 221, 237, 267, 294, 307, 320, 333, 343, 366, 385, 406, 435, 449, 459, 471, 477, 483, 492, 500, 507, 514, 526, 537, 553, 590, 629, 658, 684, 696, 715, 733, 757, 780, 792, 811, 830, 846, 862, 873, 884, 907, 929, 939, 948, 965, 982, 995];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

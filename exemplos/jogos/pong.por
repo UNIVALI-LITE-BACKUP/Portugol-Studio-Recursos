@@ -1,3 +1,31 @@
+/* CLIQUE NO SINAL DE "+", À ESQUERDA, PARA EXIBIR A DESCRIÇÃO DO EXEMPLO
+ *  
+ * Copyright (C) 2016 - UNIVALI - Universidade do Vale do Itajaí
+ * 
+ * Este arquivo de código fonte é livre para utilização, cópia e/ou modificação
+ * desde que este cabeçalho, contendo os direitos autorais e a descrição do programa, 
+ * seja mantido.
+ * 
+ * Se tiver dificuldade em compreender este exemplo, acesse as vídeoaulas do Portugol 
+ * Studio para auxiliá-lo:
+ * 
+ * https://www.youtube.com/watch?v=K02TnB3IGnQ&list=PLb9yvNDCid3jQAEbNoPHtPR0SWwmRSM-t
+ * 
+ * Descrição:
+ * 
+ * 	Este exemplo é um Jogo de pong escrito em Portugol (ainda em desenvolvimento). 
+ * 	O exemplo demonstra	como utilizar algumas das bibliotecas existentes no Portugol. 
+ * 	Neste exemplo, também é possível ver algumas técnicas utilizadas na criação de jogos.
+ * 	
+ * Autores:
+ * 
+ * 	Adson Marques da Silva Esteves(shinadson@gmail.com)
+ * 	Alisson Steffens Henrique (ash@edu.univali.br)
+ * 	
+ * Data: 11/03/2016
+ */
+
+
 programa
 {
 	inclua biblioteca Graficos-->g
@@ -40,7 +68,7 @@ programa
 	logico DEMO_mode = falso
 	
 
-	inteiro player1[6], player2[6], bolinha[8], passo=4, max_vel=7
+	inteiro player1[6], player2[6], bolinha[8], passo=1, max_vel=7
 
 
 	inteiro colision_music, colision_play
@@ -48,6 +76,10 @@ programa
 	logico pausado = falso
 
 	funcao resetar_bolinha(){
+		se(tela_w>1400)
+		{
+			passo=4
+		}
 		bolinha[X] = campo[X]+campo[LARGURA]/2
 		bolinha[ALTURA] = tamanho_tile
 		bolinha[LARGURA] = tamanho_tile
@@ -192,7 +224,11 @@ programa
 	}
 
 	funcao desenhar_atalhos(){
-		g.definir_tamanho_texto(30)
+		g.definir_tamanho_texto(15.0)
+		se(tela_w>1400)
+		{
+			g.definir_tamanho_texto(30.0)
+		}
 		g.definir_cor(cor_fundo)
 		g.limpar()
 		g.definir_cor(cor_principal)
@@ -519,9 +555,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 6354; 
+ * @POSICAO-CURSOR = 1209; 
+ * @DOBRAMENTO-CODIGO = [0, 77, 96, 103, 110, 121, 134, 208, 225, 247, 251, 255, 260, 270, 295, 300, 326, 361, 374, 404, 414, 461, 525, 533, 541];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {pontuacao, 37, 50, 9};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */

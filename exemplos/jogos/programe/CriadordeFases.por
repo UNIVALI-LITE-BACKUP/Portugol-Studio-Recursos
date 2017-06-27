@@ -20,7 +20,7 @@
  * 	
  * Autores:
  * 
- * 	Adson Marques da Silva Esteves(shiandson@gmail.com)
+ * 	Adson Marques da Silva Esteves(shinadson@gmail.com)
  * 	
  * Data: 11/03/2016
  */
@@ -360,6 +360,7 @@ programa
 		//função que chama os desenhos
 		g.limpar()
 		g.definir_cor(0x99FF66)
+		g.desenhar_retangulo(0, 0, 800, 600, falso, verdadeiro)
 		desenhar_mapa()
 		desenhar_quadro()
 		desenha_caixas()
@@ -812,8 +813,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 24159; 
- * @DOBRAMENTO-CODIGO = [0, 99, 108, 117, 127, 136, 141, 152, 198, 212, 271, 285, 334, 357, 370, 392, 408, 418, 433, 444, 449, 474, 481, 544, 551, 570, 739, 755, 768, 779, 792, 800];
+ * @POSICAO-CURSOR = 1347; 
+ * @DOBRAMENTO-CODIGO = [0, 99, 108, 117, 127, 136, 141, 152, 198, 212, 271, 285, 334, 357, 371, 393, 409, 419, 434, 445, 450, 475, 482, 545, 552, 571, 649, 740, 756, 769, 780, 793, 801];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

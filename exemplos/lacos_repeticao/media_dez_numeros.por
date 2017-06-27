@@ -60,7 +60,7 @@ programa
  * 
  * @POSICAO-CURSOR = 966; 
  * @DOBRAMENTO-CODIGO = [1];
- * @PONTOS-DE-PARADA = 49, 51, 52, 41, 42, 43, 45, 46;
+ * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
