@@ -1818,14 +1818,10 @@ programa
 		g.desenhar_imagem(0, 0, img_ajuda)
 		g.desenhar_imagem(286, 526, img_carregando)
 		g.renderizar()
-		cadeia pasta
+		cadeia pasta = "./girl/"
 		se(char==1)
 		{
 			pasta = "./boy/"	
-		}
-		senao
-		{
-			pasta = "./girl/"
 		}
 		imagem_charf = g.carregar_imagem(pasta + "char_f.png")
 		imagem_chara = g.carregar_imagem(pasta + "char_a.png")
@@ -1901,7 +1897,7 @@ programa
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
  * @POSICAO-CURSOR = 1310; 
- * @DOBRAMENTO-CODIGO = [0, 173, 179, 188, 197, 208, 217, 240, 244, 249, 268, 280, 285, 297, 318, 330, 385, 398, 418, 436, 454, 471, 509, 540, 645, 668, 727, 734, 740, 782, 809, 839, 869, 892, 913, 945, 968, 978, 1005, 1013, 1028, 1054, 1110, 1116, 1142, 1156, 1170, 1185, 1219, 1244, 1286, 1317, 1331, 1362, 1393, 1408, 1419, 1427, 1476, 1501, 1508, 1515, 1523, 1537, 1548, 1555, 1583, 1668, 1681, 1698, 1706, 1715, 1722, 1731, 1736, 1761, 1813, 1847, 1874, 1886];
+ * @DOBRAMENTO-CODIGO = [0, 173, 179, 188, 197, 208, 217, 240, 244, 249, 268, 280, 285, 297, 318, 330, 385, 398, 418, 436, 454, 471, 509, 540, 645, 668, 727, 734, 740, 782, 809, 839, 869, 892, 913, 945, 968, 978, 1005, 1013, 1028, 1054, 1110, 1116, 1142, 1156, 1170, 1185, 1219, 1244, 1286, 1317, 1331, 1362, 1393, 1408, 1419, 1427, 1476, 1501, 1508, 1515, 1523, 1537, 1548, 1555, 1583, 1668, 1681, 1698, 1706, 1715, 1722, 1731, 1736, 1761, 1813, 1843, 1870, 1882];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
